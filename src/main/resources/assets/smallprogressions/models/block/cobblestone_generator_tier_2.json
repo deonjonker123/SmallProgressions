@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/cobblestone_generator_tier_2_side",
+    "south": "smallprogressions:block/cobblestone_generator_tier_2_side",
+    "east": "smallprogressions:block/cobblestone_generator_tier_2_lava_side",
+    "west": "smallprogressions:block/cobblestone_generator_tier_2_water_side",
+    "up": "smallprogressions:block/cobblestone_generator_tier_2_bottom",
+    "down": "smallprogressions:block/cobblestone_generator_tier_2_bottom",
+    "particle": "smallprogressions:block/cobblestone_generator_tier_2_side"
+  }
+}

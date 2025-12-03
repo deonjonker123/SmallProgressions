@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/machine_side",
+    "south": "smallprogressions:block/machine_side",
+    "east": "smallprogressions:block/machine_side",
+    "west": "smallprogressions:block/machine_side",
+    "up": "smallprogressions:block/water_res_top",
+    "down": "smallprogressions:block/machine_bottom",
+    "particle": "smallprogressions:block/water_res_top"
+  }
+}

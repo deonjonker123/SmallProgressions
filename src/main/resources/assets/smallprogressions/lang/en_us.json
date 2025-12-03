@@ -1,0 +1,50 @@
+{
+  "creativetab.smallprogressions": "Small Progressions",
+
+  "block.smallprogressions.growth_crystal_tier_1": "Growth Crystal Tier 1",
+  "block.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
+  "block.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
+
+  "block.smallprogressions.cobblestone_generator_tier_1": "Cobblestone Generator Tier 1",
+  "block.smallprogressions.cobblestone_generator_tier_2": "Cobblestone Generator Tier 2",
+  "block.smallprogressions.cobblestone_generator_tier_3": "Cobblestone Generator Tier 3",
+  "block.smallprogressions.cobblestone_generator_tier_4": "Cobblestone Generator Tier 4",
+  "block.smallprogressions.cobblestone_generator_tier_5": "Cobblestone Generator Tier 5",
+
+  "block.smallprogressions.fuel_reservoir": "Fuel Reservoir",
+  "block.smallprogressions.simple_item_collector": "Simple Item Collector",
+  "block.smallprogressions.advanced_item_collector": "Advanced Item Collector",
+
+  "block.smallprogressions.copper_barrel": "Copper Barrel",
+  "block.smallprogressions.iron_barrel": "Iron Barrel",
+  "block.smallprogressions.gold_barrel": "Gold Barrel",
+  "block.smallprogressions.diamond_barrel": "Diamond Barrel",
+
+  "block.smallprogressions.copper_tank": "Copper Tank",
+  "block.smallprogressions.iron_tank": "Iron Tank",
+  "block.smallprogressions.gold_tank": "Gold Tank",
+  "block.smallprogressions.diamond_tank": "Diamond Tank",
+
+  "block.smallprogressions.linen_sack": "Linen Sack",
+  "block.smallprogressions.brick_furnace": "Brick Furnace",
+
+  "block.smallprogressions.lava_generator": "Lava Generator",
+  "block.smallprogressions.water_reservoir": "Water Reservoir",
+
+  "block.smallprogressions.black_glowstone": "Black Glowstone",
+  "block.smallprogressions.blue_glowstone": "Blue Glowstone",
+  "block.smallprogressions.brown_glowstone": "Brown Glowstone",
+  "block.smallprogressions.cyan_glowstone": "Cyan Glowstone",
+  "block.smallprogressions.gray_glowstone": "Gray Glowstone",
+  "block.smallprogressions.green_glowstone": "Green Glowstone",
+  "block.smallprogressions.light_blue_glowstone": "Light Blue Glowstone",
+  "block.smallprogressions.light_gray_glowstone": "Light Gray Glowstone",
+  "block.smallprogressions.lime_glowstone": "Lime Glowstone",
+  "block.smallprogressions.magenta_glowstone": "Magenta Glowstone",
+  "block.smallprogressions.orange_glowstone": "Orange Glowstone",
+  "block.smallprogressions.pink_glowstone": "Pink Glowstone",
+  "block.smallprogressions.purple_glowstone": "Purple Glowstone",
+  "block.smallprogressions.red_glowstone": "Red Glowstone",
+  "block.smallprogressions.white_glowstone": "White Glowstone",
+  "block.smallprogressions.yellow_glowstone": "Yellow Glowstone"
+}

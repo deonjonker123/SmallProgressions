@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/storage_barrel_ends_diamond",
+    "south": "smallprogressions:block/storage_barrel_ends_diamond",
+    "east": "smallprogressions:block/storage_barrel_sides_diamond",
+    "west": "smallprogressions:block/storage_barrel_sides_diamond",
+    "up": "smallprogressions:block/storage_barrel_top_diamond",
+    "down": "smallprogressions:block/storage_barrel_top_diamond",
+    "particle": "smallprogressions:block/storage_barrel_sides_diamond"
+  }
+}
