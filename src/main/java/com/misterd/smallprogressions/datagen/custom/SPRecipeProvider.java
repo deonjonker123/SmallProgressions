@@ -244,7 +244,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.COPPER_INGOT)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
                 .save(recipeOutput);
 
@@ -254,7 +254,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.IRON_INGOT)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
@@ -264,7 +264,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.GOLD_INGOT)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(recipeOutput);
 
@@ -274,7 +274,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.DIAMOND)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
@@ -314,7 +314,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,  SPItems.STEEL_INGOT, 9)
                 .requires(SPBlocks.STEEL_BLOCK)
                 .unlockedBy("has_steel_block", has(SPBlocks.STEEL_BLOCK))
-                .save(recipeOutput);
+                .save(recipeOutput, "smallprogressions:steel_ingot_from_steel_block");
 
         //Marble
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.MARBLE_BRICKS.get(), 4)
@@ -403,7 +403,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.HARDENED_STONE_BRICK_WALL.get(), SPBlocks.HARDENED_STONE_BRICKS.get());
 
         // Thatch Block
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.THATCH_BLOCK.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.THATCH_BLOCK.get(), 2)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', SPItems.STRAW)
@@ -822,6 +822,16 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_ender_dust", has(SPItems.ENDER_DUST))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItems.STEEL_INGOT.get(), 2)
+                .pattern("CCC")
+                .pattern("IHI")
+                .pattern("CCC")
+                .define('C', Items.COAL)
+                .define('I', Items.IRON_INGOT)
+                .define('H', SPItems.HAMMER)
+                .unlockedBy("has_hammer", has(SPItems.HAMMER))
+                .save(recipeOutput);
+
         // Juicer
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItems.JUICER)
                 .pattern(" # ")
@@ -895,14 +905,14 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
-        // Tanks
+        // Tanks upgrades
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.IRON_TANK_UPGRADE.get())
                 .pattern("#G#")
                 .pattern("#B#")
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.IRON_INGOT)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
@@ -912,7 +922,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.GOLD_INGOT)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(recipeOutput);
 
@@ -922,8 +932,19 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.DIAMOND)
-                .define('B', Tags.Items.BUCKETS)
+                .define('B', Items.BUCKET)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.FUEL_RESERVOIR_LINK.get())
+                .pattern("S S")
+                .pattern("IEI")
+                .pattern(" B ")
+                .define('S', Tags.Items.STRINGS)
+                .define('I', Items.IRON_INGOT)
+                .define('E', Tags.Items.ENDER_PEARLS)
+                .define('B', Items.BLAZE_ROD)
+                .unlockedBy("has_blaze_rod", has(Items.BLAZE_ROD))
                 .save(recipeOutput);
 
         // Foods

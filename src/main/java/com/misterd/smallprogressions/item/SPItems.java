@@ -2,10 +2,7 @@ package com.misterd.smallprogressions.item;
 
 
 import com.misterd.smallprogressions.block.SPBlocks;
-import com.misterd.smallprogressions.item.equipment.PaxelItem;
-import com.misterd.smallprogressions.item.equipment.SPArmorItem;
-import com.misterd.smallprogressions.item.equipment.SPArmorMaterials;
-import com.misterd.smallprogressions.item.equipment.SPToolTiers;
+import com.misterd.smallprogressions.item.equipment.*;
 import com.misterd.smallprogressions.util.SPFoodProperties;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -275,7 +272,7 @@ public class SPItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer",
-            () -> new Item(new Item.Properties()));
+            () -> new HammerItem(new Item.Properties()));
 
     public static final DeferredItem<Item> SICKLE = ITEMS.register("sickle",
             () -> new Item(new Item.Properties()));
