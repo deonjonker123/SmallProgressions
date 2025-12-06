@@ -3,6 +3,7 @@ package com.misterd.smallprogressions;
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
+import com.misterd.smallprogressions.loot.SPLootModifiers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -36,6 +37,7 @@ public class SmallProgressions {
         SPItems.register(modEventBus);
         SPBlocks.register(modEventBus);
         SPCreativeTab.register(modEventBus);
+        SPLootModifiers.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -59,6 +61,8 @@ public class SmallProgressions {
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.IRON_TANK.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GOLD_TANK.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.DIAMOND_TANK.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
             });
         }
 
