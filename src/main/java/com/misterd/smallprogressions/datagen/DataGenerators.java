@@ -27,7 +27,7 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(), List.of(new LootTableProvider.SubProviderEntry(SPLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-        //generator.addProvider(event.includeServer(), new SPRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new SPRecipeProvider(packOutput, lookupProvider));
 
         BlockTagsProvider blockTagsProvider = new SPBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);

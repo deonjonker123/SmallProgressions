@@ -143,5 +143,26 @@ public class SPItemTagProvider extends ItemTagsProvider {
                 .add(SPItems.DRAGON_CHESTPLATE.get())
                 .add(SPItems.DRAGON_LEGGINGS.get())
                 .add(SPItems.DRAGON_BOOTS.get());
+
+        tag(SPTags.Items.SMALL_PROGRESSIONS_GLOWSTONE_BLOCKS)
+                .add(SPBlocks.BLACK_GLOWSTONE.asItem())
+                .add(SPBlocks.BLUE_GLOWSTONE.asItem())
+                .add(SPBlocks.BROWN_GLOWSTONE.asItem())
+                .add(SPBlocks.CYAN_GLOWSTONE.asItem())
+                .add(SPBlocks.GRAY_GLOWSTONE.asItem())
+                .add(SPBlocks.GREEN_GLOWSTONE.asItem())
+                .add(SPBlocks.LIGHT_BLUE_GLOWSTONE.asItem())
+                .add(SPBlocks.LIGHT_GRAY_GLOWSTONE.asItem())
+                .add(SPBlocks.LIME_GLOWSTONE.asItem())
+                .add(SPBlocks.MAGENTA_GLOWSTONE.asItem())
+                .add(SPBlocks.ORANGE_GLOWSTONE.asItem())
+                .add(SPBlocks.PINK_GLOWSTONE.asItem())
+                .add(SPBlocks.PURPLE_GLOWSTONE.asItem())
+                .add(SPBlocks.RED_GLOWSTONE.asItem())
+                .add(SPBlocks.WHITE_GLOWSTONE.asItem())
+                .add(SPBlocks.YELLOW_GLOWSTONE.asItem());
+
+        tag(Tags.Items.GLASS_BLOCKS)
+                .add(SPBlocks.REINFORCED_GLASS.asItem());
     }
 }

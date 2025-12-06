@@ -180,7 +180,7 @@ public class SPItems {
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27))));
 
-    ///  Wither Armor ///
+    ///  Dragon Armor ///
     public static final DeferredItem<ArmorItem> DRAGON_HELMET = ITEMS.register("dragon_helmet",
             () -> new SPArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27))));
