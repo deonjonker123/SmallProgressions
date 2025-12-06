@@ -6,71 +6,71 @@ import net.minecraft.world.food.FoodProperties;
 
 public class SPFoodProperties {
     public static final FoodProperties BERRIES = new FoodProperties.Builder()
-            .saturationModifier(0.15f)
+            .saturationModifier(0.6f)
             .nutrition(2)
             .fast()
             .build();
 
     public static final FoodProperties APPLE_JUICE = new FoodProperties.Builder()
-            .saturationModifier(2)
+            .saturationModifier(0.6F)
             .nutrition(2)
             .fast()
             .build();
 
     public static final FoodProperties TOASTED_BREAD = new FoodProperties.Builder()
-            .saturationModifier(5)
-            .nutrition(3)
+            .saturationModifier(0.8F)
+            .nutrition(4)
             .build();
 
     public static final FoodProperties PIZZA_SLICE = new FoodProperties.Builder()
-            .saturationModifier(16)
+            .saturationModifier(0.8F)
             .nutrition(14)
             .build();
 
     public static final FoodProperties FRIED_EGG = new FoodProperties.Builder()
-            .saturationModifier(4)
+            .saturationModifier(0.6F)
             .nutrition(2)
             .fast()
             .build();
 
     public static final FoodProperties RAW_BACON = new FoodProperties.Builder()
-            .saturationModifier(1)
+            .saturationModifier(0.6F)
             .nutrition(2)
             .fast()
             .build();
 
     public static final FoodProperties COOKED_BACON = new FoodProperties.Builder()
-            .saturationModifier(3)
-            .nutrition(2)
+            .saturationModifier(0.8F)
+            .nutrition(4)
             .fast()
             .build();
 
     public static final FoodProperties BACON_EGG_SANDWICH = new FoodProperties.Builder()
-            .saturationModifier(9)
+            .saturationModifier(1.0F)
             .nutrition(6)
             .build();
 
     public static final FoodProperties COOKED_APPLE = new FoodProperties.Builder()
-            .saturationModifier(6)
-            .nutrition(4)
+            .saturationModifier(0.8F)
+            .nutrition(6)
             .build();
 
     public static final FoodProperties IRON_APPLE = new FoodProperties.Builder()
-            .saturationModifier(4)
+            .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600), 1)
             .build();
 
     public static final FoodProperties REDSTONE_APPLE = new FoodProperties.Builder()
-            .saturationModifier(4)
+            .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600), 1)
             .build();
 
     public static final FoodProperties EMERALD_APPLE = new FoodProperties.Builder()
-            .saturationModifier(4)
+            .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 600), 1)
@@ -78,17 +78,11 @@ public class SPFoodProperties {
             .build();
 
     public static final FoodProperties DIAMOND_APPLE = new FoodProperties.Builder()
-            .saturationModifier(4)
+            .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 600), 1)
-            .build();
-
-    public static final FoodProperties TREE_DROPS = new FoodProperties.Builder()
-            .saturationModifier(2)
-            .nutrition(1)
-            .fast()
             .build();
 }

@@ -32,6 +32,9 @@ public class SPLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_1.get());
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_2.get());
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_3.get());
@@ -135,68 +138,116 @@ public class SPLootTableProvider extends BlockLootSubProvider {
                         SPItems.ENDER_DUST.get()));
 
         add(SPBlocks.BLACK_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.BLACK_GLOWSTONE.get(),
-                        SPItems.BLACK_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.BLACK_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.BLACK_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.BLACK_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.BLUE_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.BLUE_GLOWSTONE.get(),
-                        SPItems.BLUE_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.BLUE_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.BLUE_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.BLUE_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.BROWN_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.BROWN_GLOWSTONE.get(),
-                        SPItems.BROWN_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.BROWN_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.BROWN_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.BROWN_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.CYAN_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.CYAN_GLOWSTONE.get(),
-                        SPItems.CYAN_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.CYAN_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.CYAN_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.CYAN_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.GRAY_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.GRAY_GLOWSTONE.get(),
-                        SPItems.GRAY_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.GRAY_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.GRAY_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.GRAY_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.GREEN_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.GREEN_GLOWSTONE.get(),
-                        SPItems.GREEN_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.GREEN_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.GREEN_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.GREEN_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.LIGHT_BLUE_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.LIGHT_BLUE_GLOWSTONE.get(),
-                        SPItems.LIGHT_BLUE_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.LIGHT_BLUE_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.LIGHT_BLUE_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.LIGHT_BLUE_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.LIGHT_GRAY_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.LIGHT_GRAY_GLOWSTONE.get(),
-                        SPItems.LIGHT_GRAY_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.LIGHT_GRAY_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.LIGHT_GRAY_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.LIGHT_GRAY_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.LIME_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.LIME_GLOWSTONE.get(),
-                        SPItems.LIME_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.LIME_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.LIME_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.LIME_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.MAGENTA_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.MAGENTA_GLOWSTONE.get(),
-                        SPItems.MAGENTA_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.MAGENTA_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.MAGENTA_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.MAGENTA_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.ORANGE_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.ORANGE_GLOWSTONE.get(),
-                        SPItems.ORANGE_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.ORANGE_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.ORANGE_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.ORANGE_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.PINK_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.PINK_GLOWSTONE.get(),
-                        SPItems.PINK_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.PINK_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.PINK_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.PINK_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.PURPLE_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.PURPLE_GLOWSTONE.get(),
-                        SPItems.PURPLE_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.PURPLE_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.PURPLE_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.PURPLE_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.RED_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.RED_GLOWSTONE.get(),
-                        SPItems.RED_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.RED_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.RED_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.RED_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.WHITE_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.WHITE_GLOWSTONE.get(),
-                        SPItems.WHITE_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.WHITE_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.WHITE_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.WHITE_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         add(SPBlocks.YELLOW_GLOWSTONE.get(),
-                block -> createOreDrop(SPBlocks.YELLOW_GLOWSTONE.get(),
-                        SPItems.YELLOW_GLOWSTONE_DUST.get()));
+                block -> createSilkTouchDispatchTable(SPBlocks.YELLOW_GLOWSTONE.get(),
+                        this.applyExplosionDecay(SPBlocks.YELLOW_GLOWSTONE.get(),
+                                LootItem.lootTableItem(SPItems.YELLOW_GLOWSTONE_DUST.get())
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 4.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         LootItemCondition.Builder flaxLootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SPBlocks.FLAX_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlaxCropBlock.AGE, 3));
@@ -209,8 +260,6 @@ public class SPLootTableProvider extends BlockLootSubProvider {
 
         this.add(SPBlocks.COTTON_CROP.get(), this.createCropDrops(SPBlocks.COTTON_CROP.get(),
                 SPItems.COTTON_BOLLS.get(), SPItems.COTTON_SEEDS.get(), cottonLootItemConditionBuilder));
-
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
         this.add(SPBlocks.BLACKBERRY_BUSH.get(), block -> this.applyExplosionDecay(
                 block, LootTable.lootTable().withPool(LootPool.lootPool().when(

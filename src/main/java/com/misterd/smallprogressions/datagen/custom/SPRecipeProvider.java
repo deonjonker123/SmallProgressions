@@ -26,17 +26,6 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        List<ItemLike> FOOD_ITEM_COOKING = List.of(
-                Items.APPLE,
-                SPItems.RAW_BACON,
-                Items.EGG,
-                Items.BREAD
-        );
-
-        List<ItemLike> STONE_SMELTING = List.of(
-                Items.SMOOTH_STONE
-        );
-
         // Functional Blocks
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.COBBLESTONE_GENERATOR_TIER_1.get())
                 .pattern("SSS")
@@ -596,29 +585,153 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_yellow_glowstone_dust", has(SPItems.YELLOW_GLOWSTONE_DUST))
                 .save(recipeOutput);
 
+        // Colored Glowstone from Dye + Glowstone (Shapeless)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BLACK_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_BLACK)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:black_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BLUE_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_BLUE)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:blue_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BROWN_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_BROWN)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:brown_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.CYAN_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_CYAN)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:cyan_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.GRAY_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_GRAY)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:gray_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.GREEN_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_GREEN)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:green_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIGHT_BLUE_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_LIGHT_BLUE)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:light_blue_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIGHT_GRAY_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_LIGHT_GRAY)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:light_gray_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIME_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_LIME)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:lime_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.MAGENTA_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_MAGENTA)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:magenta_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.ORANGE_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_ORANGE)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:orange_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.PINK_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_PINK)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:pink_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.PURPLE_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_PURPLE)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:purple_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.RED_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_RED)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:red_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.WHITE_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_WHITE)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:white_glowstone_from_dye");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SPBlocks.YELLOW_GLOWSTONE.get())
+                .requires(Tags.Items.DYES_YELLOW)
+                .requires(Items.GLOWSTONE)
+                .unlockedBy("has_glowstone", has(Items.GLOWSTONE))
+                .save(recipeOutput, "smallprogressions:yellow_glowstone_from_dye");
+
         // Furnace cooking Recipes
-        smelting(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.COOKED_BACON, 0.1F, 200, "small_progressions_food");
-        smoking(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.COOKED_BACON, 0.1F, 100, "small_progressions_food");
+        // Bacon
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(SPItems.RAW_BACON), RecipeCategory.FOOD,
+                        SPItems.COOKED_BACON, 0.1F, 200)
+                .unlockedBy("has_raw_bacon", has(SPItems.RAW_BACON))
+                .save(recipeOutput, "smallprogressions:cooked_bacon_from_smelting");
 
-        smelting(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.FRIED_EGG, 0.1F, 200, "small_progressions_food");
-        smoking(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.FRIED_EGG, 0.1F, 100, "small_progressions_food");
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(SPItems.RAW_BACON), RecipeCategory.FOOD,
+                        SPItems.COOKED_BACON, 0.1F, 100)
+                .unlockedBy("has_raw_bacon", has(SPItems.RAW_BACON))
+                .save(recipeOutput, "smallprogressions:cooked_bacon_from_smoking");
 
-        smelting(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.COOKED_APPLE, 0.1F, 200, "small_progressions_food");
-        smoking(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.COOKED_APPLE, 0.1F, 100, "small_progressions_food");
+        // Fried Egg
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), RecipeCategory.FOOD,
+                        SPItems.FRIED_EGG, 0.1F, 200)
+                .unlockedBy("has_egg", has(Items.EGG))
+                .save(recipeOutput, "smallprogressions:fried_egg_from_smelting");
 
-        smelting(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.TOAST, 0.1F, 200, "small_progressions_food");
-        smoking(recipeOutput, FOOD_ITEM_COOKING, RecipeCategory.FOOD,
-                SPItems.TOAST, 0.1F, 100, "small_progressions_food");
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.EGG), RecipeCategory.FOOD,
+                        SPItems.FRIED_EGG, 0.1F, 100)
+                .unlockedBy("has_egg", has(Items.EGG))
+                .save(recipeOutput, "smallprogressions:fried_egg_from_smoking");
 
-        smelting(recipeOutput, STONE_SMELTING, RecipeCategory.MISC,
-                SPBlocks.HARDENED_STONE, 0.25F, 200, "hardened_stone");
+        // Cooked Apple
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.APPLE), RecipeCategory.FOOD,
+                        SPItems.COOKED_APPLE, 0.1F, 200)
+                .unlockedBy("has_apple", has(Items.APPLE))
+                .save(recipeOutput, "smallprogressions:cooked_apple_from_smelting");
+
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.APPLE), RecipeCategory.FOOD,
+                        SPItems.COOKED_APPLE, 0.1F, 100)
+                .unlockedBy("has_apple", has(Items.APPLE))
+                .save(recipeOutput, "smallprogressions:cooked_apple_from_smoking");
+
+        // Toast
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.BREAD), RecipeCategory.FOOD,
+                        SPItems.TOAST, 0.1F, 200)
+                .unlockedBy("has_bread", has(Items.BREAD))
+                .save(recipeOutput, "smallprogressions:toast_from_smelting");
+
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.BREAD), RecipeCategory.FOOD,
+                        SPItems.TOAST, 0.1F, 100)
+                .unlockedBy("has_bread", has(Items.BREAD))
+                .save(recipeOutput, "smallprogressions:toast_from_smoking");
+
+        // Hardened Stone
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.SMOOTH_STONE), RecipeCategory.MISC,
+                        SPBlocks.HARDENED_STONE, 0.25F, 200)
+                .unlockedBy("has_smooth_stone", has(Items.SMOOTH_STONE))
+                .save(recipeOutput, "smallprogressions:hardened_stone_from_smelting");
 
         // Glowstone Dusts
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.BLACK_GLOWSTONE_DUST, 4)
@@ -732,7 +845,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         // Sickle
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItems.SICKLE)
                 .pattern("SS#")
-                .pattern("S #")
+                .pattern("S# ")
                 .pattern("#  ")
                 .define('S', SPItems.STEEL_INGOT)
                 .define('#', Items.STICK)
@@ -814,6 +927,11 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         // Foods
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, SPItems.RAW_BACON, 4)
+                .requires(Items.PORKCHOP)
+                .unlockedBy("has_porkchop", has(Items.PORKCHOP))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.APPLE_JUICE.get())
                 .requires(SPItems.JUICER)
                 .requires(Items.APPLE)
