@@ -26,8 +26,8 @@ public class SPTags {
         public static final TagKey<Item> SMALL_PROGRESSIONS_ORES = createTag("ores/small_progressions");
         public static final TagKey<Item> SMALL_PROGRESSIONS_INGOTS = createTag("ingots/small_progressions");
         public static final TagKey<Item> SMALL_PROGRESSIONS_NUGGETS = createTag("nuggets/small_progressions");
-        public static final TagKey<Item> SMALL_PROGRESSIONS_RAW_MATERIALS = createTag("raw_materials/small_progressions");
         public static final TagKey<Item> SMALL_PROGRESSIONS_TOOLS = createTag("small_progressions_tools");
+        public static final TagKey<Item> SMALL_PROGRESSIONS_ARMORS = createTag("small_progressions_armors");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath("small_progressions", name));

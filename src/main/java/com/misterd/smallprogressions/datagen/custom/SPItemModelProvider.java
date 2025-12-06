@@ -104,8 +104,6 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.REDSTONE_APPLE.get());
         basicItem(SPItems.EMERALD_APPLE.get());
         basicItem(SPItems.DIAMOND_APPLE.get());
-        basicItem(SPItems.PLUMP_PEAR.get());
-        basicItem(SPItems.PLUMP_PEACH.get());
 
         buttonItem(SPBlocks.MARBLE_BUTTON, SPBlocks.MARBLE);
         buttonItem(SPBlocks.SLATE_BUTTON, SPBlocks.SLATE);

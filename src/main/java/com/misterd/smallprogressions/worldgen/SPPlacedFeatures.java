@@ -48,12 +48,12 @@ public class SPPlacedFeatures {
         register(context, MARBLE_PLACED_KEY,
                 configuredFeatures.getOrThrow(SPConfiguredFeatures.MARBLE_KEY),
                 SPOrePlacement.commonOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(320))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(5), VerticalAnchor.absolute(320))));
 
         register(context, SLATE_PLACED_KEY,
                 configuredFeatures.getOrThrow(SPConfiguredFeatures.SLATE_KEY),
                 SPOrePlacement.commonOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(320))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-5))));
 
         register(context, BLACKBERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(SPConfiguredFeatures.BLACKBERRY_BUSH_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));

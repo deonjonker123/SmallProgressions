@@ -362,12 +362,6 @@ public class SPItems {
     public static final DeferredItem<Item> DIAMOND_APPLE = ITEMS.register("diamond_apple",
             () -> new Item(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE)));
 
-    public static final DeferredItem<Item> PLUMP_PEAR = ITEMS.register("plump_pear",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.TREE_DROPS)));
-
-    public static final DeferredItem<Item> PLUMP_PEACH = ITEMS.register("plump_peach",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.TREE_DROPS)));
-
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

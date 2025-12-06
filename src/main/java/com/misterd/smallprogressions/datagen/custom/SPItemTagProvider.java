@@ -43,5 +43,105 @@ public class SPItemTagProvider extends ItemTagsProvider {
 
         tag(SPTags.Items.SMALL_PROGRESSIONS_NUGGETS)
                 .add(SPItems.STEEL_NUGGET.get());
+
+        tag(Tags.Items.TOOLS)
+                .add(SPItems.STEEL_SWORD.get())
+                .add(SPItems.STEEL_PICKAXE.get())
+                .add(SPItems.STEEL_AXE.get())
+                .add(SPItems.STEEL_SHOVEL.get())
+                .add(SPItems.STEEL_HOE.get())
+                .add(SPItems.STEEL_PAXEL.get())
+
+                .add(SPItems.EMERALD_SWORD.get())
+                .add(SPItems.EMERALD_PICKAXE.get())
+                .add(SPItems.EMERALD_AXE.get())
+                .add(SPItems.EMERALD_SHOVEL.get())
+                .add(SPItems.EMERALD_HOE.get())
+                .add(SPItems.EMERALD_PAXEL.get())
+
+                .add(SPItems.WITHER_SWORD.get())
+                .add(SPItems.WITHER_PICKAXE.get())
+                .add(SPItems.WITHER_AXE.get())
+                .add(SPItems.WITHER_SHOVEL.get())
+                .add(SPItems.WITHER_HOE.get())
+                .add(SPItems.WITHER_PAXEL.get())
+
+                .add(SPItems.DRAGON_SWORD.get())
+                .add(SPItems.DRAGON_PICKAXE.get())
+                .add(SPItems.DRAGON_AXE.get())
+                .add(SPItems.DRAGON_SHOVEL.get())
+                .add(SPItems.DRAGON_HOE.get())
+                .add(SPItems.DRAGON_PAXEL.get());
+
+        tag(Tags.Items.ARMORS)
+                .add(SPItems.STEEL_HELMET.get())
+                .add(SPItems.STEEL_CHESTPLATE.get())
+                .add(SPItems.STEEL_LEGGINGS.get())
+                .add(SPItems.STEEL_BOOTS.get())
+
+                .add(SPItems.EMERALD_HELMET.get())
+                .add(SPItems.EMERALD_CHESTPLATE.get())
+                .add(SPItems.EMERALD_LEGGINGS.get())
+                .add(SPItems.EMERALD_BOOTS.get())
+
+                .add(SPItems.WITHER_HELMET.get())
+                .add(SPItems.WITHER_CHESTPLATE.get())
+                .add(SPItems.WITHER_LEGGINGS.get())
+                .add(SPItems.WITHER_BOOTS.get())
+
+                .add(SPItems.DRAGON_HELMET.get())
+                .add(SPItems.DRAGON_CHESTPLATE.get())
+                .add(SPItems.DRAGON_LEGGINGS.get())
+                .add(SPItems.DRAGON_BOOTS.get());
+
+        tag(SPTags.Items.SMALL_PROGRESSIONS_TOOLS)
+                .add(SPItems.STEEL_SWORD.get())
+                .add(SPItems.STEEL_PICKAXE.get())
+                .add(SPItems.STEEL_AXE.get())
+                .add(SPItems.STEEL_SHOVEL.get())
+                .add(SPItems.STEEL_HOE.get())
+                .add(SPItems.STEEL_PAXEL.get())
+
+                .add(SPItems.EMERALD_SWORD.get())
+                .add(SPItems.EMERALD_PICKAXE.get())
+                .add(SPItems.EMERALD_AXE.get())
+                .add(SPItems.EMERALD_SHOVEL.get())
+                .add(SPItems.EMERALD_HOE.get())
+                .add(SPItems.EMERALD_PAXEL.get())
+
+                .add(SPItems.WITHER_SWORD.get())
+                .add(SPItems.WITHER_PICKAXE.get())
+                .add(SPItems.WITHER_AXE.get())
+                .add(SPItems.WITHER_SHOVEL.get())
+                .add(SPItems.WITHER_HOE.get())
+                .add(SPItems.WITHER_PAXEL.get())
+
+                .add(SPItems.DRAGON_SWORD.get())
+                .add(SPItems.DRAGON_PICKAXE.get())
+                .add(SPItems.DRAGON_AXE.get())
+                .add(SPItems.DRAGON_SHOVEL.get())
+                .add(SPItems.DRAGON_HOE.get())
+                .add(SPItems.DRAGON_PAXEL.get());
+
+        tag(SPTags.Items.SMALL_PROGRESSIONS_ARMORS)
+                .add(SPItems.STEEL_HELMET.get())
+                .add(SPItems.STEEL_CHESTPLATE.get())
+                .add(SPItems.STEEL_LEGGINGS.get())
+                .add(SPItems.STEEL_BOOTS.get())
+
+                .add(SPItems.EMERALD_HELMET.get())
+                .add(SPItems.EMERALD_CHESTPLATE.get())
+                .add(SPItems.EMERALD_LEGGINGS.get())
+                .add(SPItems.EMERALD_BOOTS.get())
+
+                .add(SPItems.WITHER_HELMET.get())
+                .add(SPItems.WITHER_CHESTPLATE.get())
+                .add(SPItems.WITHER_LEGGINGS.get())
+                .add(SPItems.WITHER_BOOTS.get())
+
+                .add(SPItems.DRAGON_HELMET.get())
+                .add(SPItems.DRAGON_CHESTPLATE.get())
+                .add(SPItems.DRAGON_LEGGINGS.get())
+                .add(SPItems.DRAGON_BOOTS.get());
     }
 }

@@ -250,8 +250,6 @@ public class SPCreativeTab {
                         output.accept(SPItems.REDSTONE_APPLE);
                         output.accept(SPItems.EMERALD_APPLE);
                         output.accept(SPItems.DIAMOND_APPLE);
-                        output.accept(SPItems.PLUMP_PEAR);
-                        output.accept(SPItems.PLUMP_PEACH);
                     }).build());
 
     public static void register(IEventBus eventBus) {
