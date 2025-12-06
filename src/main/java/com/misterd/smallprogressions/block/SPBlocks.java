@@ -146,7 +146,7 @@ public class SPBlocks {
                     .strength(2F, 1F)
                     .noOcclusion()
                     .noLootTable()
-                    .sound(SoundType.BAMBOO)));
+                    .sound(SoundType.CHERRY_LEAVES)));
 
 
     ////////////////////////////////// DataGen Blocks //////////////////////////////////////////////////////////
@@ -320,12 +320,14 @@ public class SPBlocks {
 
     public static final DeferredBlock<StairBlock> THATCH_STAIRS = registerBlock("thatch_stairs",
             () -> new StairBlock(SPBlocks.THATCH_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of()
-                    .strength(3F, 6F)));
+                    .strength(3F, 6F)
+                    .sound(SoundType.GRASS)));
 
 
     public static final DeferredBlock<SlabBlock> THATCH_SLAB = registerBlock("thatch_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of()
-                    .strength(3F, 6F)));
+                    .strength(3F, 6F)
+                    .sound(SoundType.GRASS)));
 
     /// Asphalt ///
     public static final DeferredBlock<Block> ASPHALT = registerBlock("asphalt",
