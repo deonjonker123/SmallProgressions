@@ -266,5 +266,9 @@ public class SPBlockTagProvider extends BlockTagsProvider {
 
         tag(SPTags.Blocks.INCORRECT_FOR_DRAGON_TOOL)
                 .addTag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
+
+        tag(BlockTags.WITHER_IMMUNE)
+                .add(SPBlocks.REINFORCED_OBSIDIAN.get())
+                .add(SPBlocks.REINFORCED_GLASS.get());
     }
 }

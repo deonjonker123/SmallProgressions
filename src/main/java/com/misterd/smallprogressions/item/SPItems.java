@@ -269,7 +269,7 @@ public class SPItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> JUICER = ITEMS.register("juicer",
-            () -> new Item(new Item.Properties()));
+            () -> new JuicerItem(new Item.Properties()));
 
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer",
             () -> new HammerItem(new Item.Properties()));
