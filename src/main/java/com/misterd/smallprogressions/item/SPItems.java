@@ -324,7 +324,19 @@ public class SPItems {
             () -> new ItemNameBlockItem(SPBlocks.RASPBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));
 
     public static final DeferredItem<Item> APPLE_JUICE = ITEMS.register("apple_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.APPLE_JUICE)));
+            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
+
+    public static final DeferredItem<Item> BLACKBERRY_JUICE = ITEMS.register("blackberry_juice",
+            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
+
+    public static final DeferredItem<Item> BLUEBERRY_JUICE = ITEMS.register("blueberry_juice",
+            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
+
+    public static final DeferredItem<Item> MALOBERRY_JUICE = ITEMS.register("maloberry_juice",
+            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
+
+    public static final DeferredItem<Item> RASPBERRY_JUICE = ITEMS.register("raspberry_juice",
+            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
 
     public static final DeferredItem<Item> TOAST = ITEMS.register("toast",
             () -> new Item(new Item.Properties().food(SPFoodProperties.TOASTED_BREAD)));

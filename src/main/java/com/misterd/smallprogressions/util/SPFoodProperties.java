@@ -11,9 +11,9 @@ public class SPFoodProperties {
             .fast()
             .build();
 
-    public static final FoodProperties APPLE_JUICE = new FoodProperties.Builder()
-            .saturationModifier(0.6F)
-            .nutrition(2)
+    public static final FoodProperties JUICES = new FoodProperties.Builder()
+            .saturationModifier(0.9F)
+            .nutrition(3)
             .fast()
             .build();
 

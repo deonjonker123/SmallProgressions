@@ -152,22 +152,22 @@ public class SPBlocks {
     ////////////////////////////////// DataGen Blocks //////////////////////////////////////////////////////////
     /// Functional Blocks ///
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_1 = registerBlock("growth_crystal_tier_1",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 1));
 
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_2 = registerBlock("growth_crystal_tier_2",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 2));
 
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_3 = registerBlock("growth_crystal_tier_3",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 3));
 
     public static final DeferredBlock<Block> LAVA_INFUSED_STONE = registerBlock("lava_infused_stone",
             () -> new Block(BlockBehaviour.Properties.of()

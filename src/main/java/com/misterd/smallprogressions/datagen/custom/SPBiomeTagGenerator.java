@@ -21,6 +21,7 @@ public class SPBiomeTagGenerator extends BiomeTagsProvider {
         tag(SPTags.Biomes.HAS_BERRY_BUSHES)
                 .addTag(BiomeTags.IS_FOREST)
                 .addTag(BiomeTags.IS_TAIGA)
+                .addTag(BiomeTags.HAS_VILLAGE_PLAINS)
                 .addTag(BiomeTags.IS_MOUNTAIN);
     }
 }

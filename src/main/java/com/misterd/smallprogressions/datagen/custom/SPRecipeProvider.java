@@ -959,6 +959,30 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_juicer", has(SPItems.JUICER))
                 .save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.BLACKBERRY_JUICE.get())
+                .requires(SPItems.JUICER)
+                .requires(SPItems.BLACKBERRIES)
+                .unlockedBy("has_juicer", has(SPItems.JUICER))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.BLUEBERRY_JUICE.get())
+                .requires(SPItems.JUICER)
+                .requires(SPItems.BLUEBERRIES)
+                .unlockedBy("has_juicer", has(SPItems.JUICER))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.MALOBERRY_JUICE.get())
+                .requires(SPItems.JUICER)
+                .requires(SPItems.MALOBERRIES)
+                .unlockedBy("has_juicer", has(SPItems.JUICER))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.RASPBERRY_JUICE.get())
+                .requires(SPItems.JUICER)
+                .requires(SPItems.RASPBERRIES)
+                .unlockedBy("has_juicer", has(SPItems.JUICER))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.PIZZA_SLICE.get())
                 .pattern("SSS")
                 .pattern("TTT")
