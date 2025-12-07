@@ -95,8 +95,7 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                player, SPBlocks.BRICK_FURNACE.get());
+        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, SPBlocks.BRICK_FURNACE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

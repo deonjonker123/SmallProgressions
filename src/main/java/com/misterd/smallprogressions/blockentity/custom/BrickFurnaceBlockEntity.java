@@ -1,5 +1,6 @@
 package com.misterd.smallprogressions.blockentity.custom;
 
+import com.misterd.smallprogressions.block.custom.BrickFurnaceBlock;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.gui.custom.BrickFurnaceMenu;
 import net.minecraft.core.BlockPos;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
@@ -108,7 +110,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         ItemStack output = inventory.getStackInSlot(2);
 
         if (!input.isEmpty()) {
-            Optional<net.minecraft.world.item.crafting.RecipeHolder<SmeltingRecipe>> recipeHolder = level.getRecipeManager()
+            Optional<RecipeHolder<SmeltingRecipe>> recipeHolder = level.getRecipeManager()
                     .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(input), level);
 
             if (recipeHolder.isPresent()) {
@@ -162,7 +164,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
         if (wasBurning != isBurning()) {
             dirty = true;
-            level.setBlock(pos, state.setValue(com.misterd.smallprogressions.block.custom.BrickFurnaceBlock.LIT, isBurning()), 3);
+            level.setBlock(pos, state.setValue(BrickFurnaceBlock.LIT, isBurning()), 3);
         }
 
         if (dirty) {

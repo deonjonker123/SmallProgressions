@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/copper_barrel"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/copper_barrel",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/copper_barrel",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/copper_barrel",
+      "y": 270
     }
   }
 }

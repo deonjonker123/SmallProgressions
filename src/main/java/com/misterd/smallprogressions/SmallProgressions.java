@@ -4,7 +4,7 @@ import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.config.Config;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
-import com.misterd.smallprogressions.gui.custom.BrickFurnaceScreen;
+import com.misterd.smallprogressions.gui.custom.*;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
 import com.misterd.smallprogressions.loot.SPLootModifiers;
@@ -105,6 +105,10 @@ public class SmallProgressions {
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(SPMenuTypes.BRICK_FURNACE_MENU.get(), BrickFurnaceScreen::new);
+            event.register(SPMenuTypes.COPPER_BARREL_MENU.get(), CopperBarrelScreen::new);
+            event.register(SPMenuTypes.IRON_BARREL_MENU.get(), IronBarrelScreen::new);
+            event.register(SPMenuTypes.GOLD_BARREL_MENU.get(), GoldBarrelScreen::new);
+            event.register(SPMenuTypes.DIAMOND_BARREL_MENU.get(), DiamondBarrelScreen::new);
         }
     }
 }

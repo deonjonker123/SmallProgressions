@@ -88,25 +88,25 @@ public class SPBlocks {
 
     // Storage Barrels
     public static final DeferredBlock<Block> COPPER_BARREL = registerBlock("copper_barrel",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CopperBarrelBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
 
     public static final DeferredBlock<Block> IRON_BARREL = registerBlock("iron_barrel",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new IronBarrelBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
 
     public static final DeferredBlock<Block> GOLD_BARREL = registerBlock("gold_barrel",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GoldBarrelBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
 
     public static final DeferredBlock<Block> DIAMOND_BARREL = registerBlock("diamond_barrel",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new DiamondBarrelBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));

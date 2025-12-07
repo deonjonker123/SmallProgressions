@@ -269,7 +269,11 @@
   "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
   "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",
 
-  "gui.smallprogressions.brick_furnace": "Brick Furnace"
+  "gui.smallprogressions.brick_furnace": "Brick Furnace",
+  "gui.smallprogressions.copper_barrel": "Copper Barrel",
+  "gui.smallprogressions.iron_barrel": "Iron Barrel",
+  "gui.smallprogressions.gold_barrel": "Gold Barrel",
+  "gui.smallprogressions.diamond_barrel": "Diamond Barrel"
 
 
 }
