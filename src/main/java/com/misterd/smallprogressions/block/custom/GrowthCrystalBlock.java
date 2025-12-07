@@ -30,22 +30,22 @@ public class GrowthCrystalBlock extends Block {
             case 1:
                 this.rangeHorizontal = 4;
                 this.rangeVertical = 1;
-                this.growthChance = 0.25f;
+                this.growthChance = 0.5F;
                 break;
             case 2:
                 this.rangeHorizontal = 4;
                 this.rangeVertical = 1;
-                this.growthChance = 0.50f;
+                this.growthChance = 1.0F;
                 break;
             case 3:
                 this.rangeHorizontal = 4;
                 this.rangeVertical = 1;
-                this.growthChance = 1.00f;
+                this.growthChance = 2.0F;
                 break;
             default:
                 this.rangeHorizontal = 4;
                 this.rangeVertical = 1;
-                this.growthChance = 0.25f;
+                this.growthChance = 0.5F;
         }
     }
 

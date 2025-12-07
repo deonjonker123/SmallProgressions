@@ -231,13 +231,13 @@
   "item.smallprogressions.emerald_apple": "Emerald Apple",
   "item.smallprogressions.diamond_apple": "Diamond Apple",
 
-  "tooltip.smallprogressions.growth_crystal_tier_1.line1": "25% growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_1.line1": "Fast growth acceleration",
   "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Works in 9x9 area",
 
-  "tooltip.smallprogressions.growth_crystal_tier_2.line1": "50% growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_2.line1": "Faster growth acceleration",
   "tooltip.smallprogressions.growth_crystal_tier_2.line2": "Works in 9x9 area",
 
-  "tooltip.smallprogressions.growth_crystal_tier_3.line1": "100% growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_3.line1": "Fastest growth acceleration",
   "tooltip.smallprogressions.growth_crystal_tier_3.line2": "Works in 9x9 area"
 
 
