@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/copper_tank"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/copper_tank",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/copper_tank",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/copper_tank",
+      "y": 270
     }
   }
 }

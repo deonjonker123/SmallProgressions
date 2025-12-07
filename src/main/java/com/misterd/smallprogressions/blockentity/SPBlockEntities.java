@@ -63,6 +63,22 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("water_reservoir_be", () -> BlockEntityType.Builder.of(
                     WaterReservoirBlockEntity::new, SPBlocks.WATER_RESERVOIR.get()).build(null));
 
+    public static final Supplier<BlockEntityType<CopperTankBlockEntity>> COPPER_TANK_BE =
+            BLOCK_ENTITIES.register("copper_tank_be", () -> BlockEntityType.Builder.of(
+                    CopperTankBlockEntity::new, SPBlocks.COPPER_TANK.get()).build(null));
+
+    public static final Supplier<BlockEntityType<IronTankBlockEntity>> IRON_TANK_BE =
+            BLOCK_ENTITIES.register("iron_tank_be", () -> BlockEntityType.Builder.of(
+                    IronTankBlockEntity::new, SPBlocks.IRON_TANK.get()).build(null));
+
+    public static final Supplier<BlockEntityType<GoldTankBlockEntity>> GOLD_TANK_BE =
+            BLOCK_ENTITIES.register("gold_tank_be", () -> BlockEntityType.Builder.of(
+                    GoldTankBlockEntity::new, SPBlocks.GOLD_TANK.get()).build(null));
+
+    public static final Supplier<BlockEntityType<DiamondTankBlockEntity>> DIAMOND_TANK_BE =
+            BLOCK_ENTITIES.register("diamond_tank_be", () -> BlockEntityType.Builder.of(
+                    DiamondTankBlockEntity::new, SPBlocks.DIAMOND_TANK.get()).build(null));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {
@@ -131,7 +147,39 @@ public class SPBlockEntities {
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, WATER_RESERVOIR_BE.get(),
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof WaterReservoirBlockEntity waterReservoir) {
-                        return waterReservoir.tank;
+                        return waterReservoir.getFluidHandler();
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, COPPER_TANK_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof CopperTankBlockEntity copperTank) {
+                        return copperTank.tank;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, IRON_TANK_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof IronTankBlockEntity ironTank) {
+                        return ironTank.tank;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, GOLD_TANK_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof GoldTankBlockEntity goldTank) {
+                        return goldTank.tank;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, DIAMOND_TANK_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof DiamondTankBlockEntity diamondTank) {
+                        return diamondTank.tank;
                     }
                     return null;
                 });

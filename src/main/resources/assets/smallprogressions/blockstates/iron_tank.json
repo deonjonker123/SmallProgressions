@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/iron_tank"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/iron_tank",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/iron_tank",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/iron_tank",
+      "y": 270
     }
   }
 }

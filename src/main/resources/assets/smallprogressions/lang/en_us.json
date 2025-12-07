@@ -303,6 +303,21 @@
   "tooltip.smallprogressions.water_reservoir.line2": "Right-click with bucket to fill/empty",
   "tooltip.smallprogressions.water_reservoir.line3": "16 bucket capacity",
 
+  "message.smallprogressions.tank.empty": "Tank is empty!",
+  "message.smallprogressions.tank.full": "Tank is full!",
+
+  "tooltip.smallprogressions.copper_tank.line1": "Holds up to 16 buckets of fluid",
+  "tooltip.smallprogressions.copper_tank.line2": "Right-click with bucket to fill/empty",
+
+  "tooltip.smallprogressions.iron_tank.line1": "Holds up to 32 buckets of fluid",
+  "tooltip.smallprogressions.iron_tank.line2": "Right-click with bucket to fill/empty",
+
+  "tooltip.smallprogressions.gold_tank.line1": "Holds up to 64 buckets of fluid",
+  "tooltip.smallprogressions.gold_tank.line2": "Right-click with bucket to fill/empty",
+
+  "tooltip.smallprogressions.diamond_tank.line1": "Holds up to 128 buckets of fluid",
+  "tooltip.smallprogressions.diamond_tank.line2": "Right-click with bucket to fill/empty",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",

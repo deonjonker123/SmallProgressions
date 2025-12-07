@@ -113,28 +113,28 @@ public class SPBlocks {
 
     // Fluid Tanks
     public static final DeferredBlock<Block> COPPER_TANK = registerBlock("copper_tank",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CopperTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> IRON_TANK = registerBlock("iron_tank",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new IronTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> GOLD_TANK = registerBlock("gold_tank",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GoldTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> DIAMOND_TANK = registerBlock("diamond_tank",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new DiamondTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()

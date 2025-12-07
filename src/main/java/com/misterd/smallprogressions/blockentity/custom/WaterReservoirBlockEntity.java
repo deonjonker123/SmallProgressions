@@ -1,6 +1,7 @@
 package com.misterd.smallprogressions.blockentity.custom;
 
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
+import com.misterd.smallprogressions.config.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -32,24 +33,81 @@ public class WaterReservoirBlockEntity extends BlockEntity {
         }
     };
 
+    public final IFluidHandler infiniteWaterHandler = new IFluidHandler() {
+        @Override
+        public int getTanks() {
+            return 1;
+        }
+
+        @Override
+        public FluidStack getFluidInTank(int tank) {
+            return new FluidStack(Fluids.WATER, Integer.MAX_VALUE);
+        }
+
+        @Override
+        public int getTankCapacity(int tank) {
+            return Integer.MAX_VALUE;
+        }
+
+        @Override
+        public boolean isFluidValid(int tank, FluidStack stack) {
+            return stack.getFluid() == Fluids.WATER;
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            return 0;
+        }
+
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.getFluid() == Fluids.WATER) {
+                return new FluidStack(Fluids.WATER, resource.getAmount());
+            }
+            return FluidStack.EMPTY;
+        }
+
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            return new FluidStack(Fluids.WATER, maxDrain);
+        }
+    };
+
     public WaterReservoirBlockEntity(BlockPos pos, BlockState state) {
         super(SPBlockEntities.WATER_RESERVOIR_BE.get(), pos, state);
     }
 
+    public IFluidHandler getFluidHandler() {
+        if (Config.isWaterReservoirInfinite()) {
+            return infiniteWaterHandler;
+        }
+        return tank;
+    }
+
     public boolean canFillBucket() {
+        if (Config.isWaterReservoirInfinite()) {
+            return true;
+        }
         return tank.getFluidAmount() >= 1000;
     }
 
     public void fillBucket() {
-        tank.drain(1000, IFluidHandler.FluidAction.EXECUTE);
+        if (!Config.isWaterReservoirInfinite()) {
+            tank.drain(1000, IFluidHandler.FluidAction.EXECUTE);
+        }
     }
 
     public boolean canDrainBucket() {
+        if (Config.isWaterReservoirInfinite()) {
+            return false;
+        }
         return tank.getFluidAmount() + 1000 <= MAX_CAPACITY;
     }
 
     public void drainBucket() {
-        tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
+        if (!Config.isWaterReservoirInfinite()) {
+            tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
+        }
     }
 
     public int getWaterAmount() {
