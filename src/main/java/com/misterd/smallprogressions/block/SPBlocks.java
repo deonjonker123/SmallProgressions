@@ -170,7 +170,7 @@ public class SPBlocks {
                     .sound(SoundType.STONE), 3));
 
     public static final DeferredBlock<Block> GREENHOUSE_GLASS  = registerBlock("greenhouse_glass",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new GreenhouseGlassBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()

@@ -187,24 +187,24 @@ public class Config {
     }
 
     private static void buildGreenhouseGlassConfig() {
-        COMMON_BUILDER.comment("Greenhouse Glass - Configure growth boost and effective range")
+        COMMON_BUILDER.comment("Greenhouse Glass - Configure growth boost and effective depth")
                 .push("greenhouse_glass");
 
         GREENHOUSE_GLASS_GROWTH_BOOST = COMMON_BUILDER
                 .comment(
                         "Growth boost percentage when in direct sunlight",
-                        "Default: 0.05 (5% boost)",
+                        "Default: 1.0 (100% boost)",
                         "Higher values increase growth speed"
                 )
-                .defineInRange("growth_boost", 0.05, 0.0, 1.0);
+                .defineInRange("growth_boost", 1.0, 0.05, 2.0);
 
         GREENHOUSE_GLASS_RANGE = COMMON_BUILDER
                 .comment(
-                        "Effective range for greenhouse glass (centered on block)",
-                        "Default: 5 blocks (5x5x5 area)",
+                        "Number of blocks below the greenhouse glass to check for crops",
+                        "Default: 5 blocks",
                         "Note: Larger ranges may impact performance"
                 )
-                .defineInRange("range", 5, 1, 16);
+                .defineInRange("range", 5, 1, 32);
 
         COMMON_BUILDER.pop();
     }
@@ -294,9 +294,9 @@ public class Config {
             );
         }
 
-        if (getGreenhouseGlassRange() > 10) {
+        if (getGreenhouseGlassRange() > 16) {
             LOGGER.warn(
-                    "Greenhouse Glass range ({}) is very high and may impact server performance!",
+                    "Greenhouse Glass depth ({}) is very high and may impact server performance!",
                     getGreenhouseGlassRange()
             );
         }
@@ -336,6 +336,6 @@ public class Config {
 
         LOGGER.info("Greenhouse Glass Configuration:");
         LOGGER.info("  Growth Boost: {}%", getGreenhouseGlassGrowthBoost() * 100);
-        LOGGER.info("  Range: {} blocks", getGreenhouseGlassRange());
+        LOGGER.info("  Depth: {} blocks below", getGreenhouseGlassRange());
     }
 }
