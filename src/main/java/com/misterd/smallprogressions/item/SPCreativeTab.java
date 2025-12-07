@@ -30,7 +30,6 @@ public class SPCreativeTab {
 
                         output.accept(SPBlocks.GREENHOUSE_GLASS);
 
-                        output.accept(SPBlocks.FUEL_RESERVOIR);
                         output.accept(SPBlocks.SIMPLE_ITEM_COLLECTOR);
                         output.accept(SPBlocks.ADVANCED_ITEM_COLLECTOR);
 
@@ -248,9 +247,6 @@ public class SPCreativeTab {
                         output.accept(SPItems.IRON_TANK_UPGRADE);
                         output.accept(SPItems.GOLD_TANK_UPGRADE);
                         output.accept(SPItems.DIAMOND_TANK_UPGRADE);
-
-                        // Misc Items
-                        output.accept(SPItems.FUEL_RESERVOIR_LINK);
 
                         // Food Items
                         output.accept(SPItems.BLACKBERRIES);

@@ -86,8 +86,6 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.GOLD_TANK_UPGRADE.get());
         basicItem(SPItems.DIAMOND_TANK_UPGRADE.get());
 
-        basicItem(SPItems.FUEL_RESERVOIR_LINK.get());
-
         basicItem(SPItems.BLACKBERRIES.get());
         basicItem(SPItems.BLUEBERRIES.get());
         basicItem(SPItems.MALOBERRIES.get());

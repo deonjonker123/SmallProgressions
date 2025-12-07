@@ -48,12 +48,6 @@ public class SPBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE), 5));
 
-    public static final DeferredBlock<Block> FUEL_RESERVOIR = registerBlock("fuel_reservoir",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3F)
-                    .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
-
     public static final DeferredBlock<Block> SIMPLE_ITEM_COLLECTOR = registerBlock("simple_item_collector",
             () -> new SimpleItemCollectorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)

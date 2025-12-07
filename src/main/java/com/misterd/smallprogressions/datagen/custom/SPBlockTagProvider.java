@@ -26,8 +26,6 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_4.get())
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get())
 
-                .add(SPBlocks.FUEL_RESERVOIR.get())
-
                 .add(SPBlocks.SIMPLE_ITEM_COLLECTOR.get())
                 .add(SPBlocks.ADVANCED_ITEM_COLLECTOR.get())
 
@@ -124,8 +122,6 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_3.get())
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_4.get())
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get())
-
-                .add(SPBlocks.FUEL_RESERVOIR.get())
 
                 .add(SPBlocks.SIMPLE_ITEM_COLLECTOR.get())
                 .add(SPBlocks.ADVANCED_ITEM_COLLECTOR.get())

@@ -307,10 +307,6 @@ public class SPItems {
     public static final DeferredItem<Item> DIAMOND_TANK_UPGRADE = ITEMS.register("diamond_tank_upgrade",
             () -> new Item(new Item.Properties()));
 
-    /// Misc ///
-    public static final DeferredItem<Item> FUEL_RESERVOIR_LINK = ITEMS.register("fuel_reservoir_link",
-            () -> new Item(new Item.Properties()));
-
     /// Foods ///
     public static final DeferredItem<Item> BLACKBERRIES = ITEMS.register("blackberries",
             () -> new ItemNameBlockItem(SPBlocks.BLACKBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));

@@ -139,17 +139,6 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(recipeOutput);
 
-        // Fuel Res
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.FUEL_RESERVOIR.get())
-                .pattern("III")
-                .pattern("SCS")
-                .pattern("SSS")
-                .define('I', Items.IRON_INGOT)
-                .define('C', Tags.Items.CHESTS)
-                .define('S', SPBlocks.HARDENED_STONE)
-                .unlockedBy("has_hardened_stone", has(SPBlocks.HARDENED_STONE))
-                .save(recipeOutput);
-
         // Item Collectors
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.SIMPLE_ITEM_COLLECTOR.get())
                 .pattern("GGG")
@@ -1089,17 +1078,6 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('#', Items.DIAMOND)
                 .define('B', Items.BUCKET)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.FUEL_RESERVOIR_LINK.get())
-                .pattern("S S")
-                .pattern("IEI")
-                .pattern(" B ")
-                .define('S', Tags.Items.STRINGS)
-                .define('I', Items.IRON_INGOT)
-                .define('E', Tags.Items.ENDER_PEARLS)
-                .define('B', Items.BLAZE_ROD)
-                .unlockedBy("has_blaze_rod", has(Items.BLAZE_ROD))
                 .save(recipeOutput);
 
         // Foods
