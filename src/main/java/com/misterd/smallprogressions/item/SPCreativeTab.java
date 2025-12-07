@@ -126,10 +126,6 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.WHITE_GLOWSTONE);
                         output.accept(SPBlocks.YELLOW_GLOWSTONE);
 
-                        // Crops Seed Items
-                        output.accept(SPItems.FLAX_SEEDS);
-                        output.accept(SPItems.COTTON_SEEDS);
-
                         // Steel Armor & Tools
                         output.accept(SPItems.STEEL_SWORD);
                         output.accept(SPItems.STEEL_PICKAXE);
@@ -217,7 +213,11 @@ public class SPCreativeTab {
                         output.accept(SPItems.HAMMER);
                         output.accept(SPItems.SICKLE);
                         output.accept(SPItems.REPAIR_TOTEM);
+
+                        // Crops
+                        output.accept(SPItems.COTTON_SEEDS);
                         output.accept(SPItems.COTTON_BOLLS);
+                        output.accept(SPItems.FLAX_SEEDS);
                         output.accept(SPItems.FLAX);
 
                         // Barrel upgrade Items
@@ -239,6 +239,10 @@ public class SPCreativeTab {
                         output.accept(SPItems.MALOBERRIES);
                         output.accept(SPItems.RASPBERRIES);
                         output.accept(SPItems.APPLE_JUICE);
+                        output.accept(SPItems.BLACKBERRY_JUICE);
+                        output.accept(SPItems.BLUEBERRY_JUICE);
+                        output.accept(SPItems.MALOBERRY_JUICE);
+                        output.accept(SPItems.RASPBERRY_JUICE);
                         output.accept(SPItems.TOAST);
                         output.accept(SPItems.PIZZA_SLICE);
                         output.accept(SPItems.FRIED_EGG);

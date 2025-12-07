@@ -983,6 +983,16 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_juicer", has(SPItems.JUICER))
                 .save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 2)
+                .requires(SPItems.FLAX)
+                .unlockedBy("has_flax", has(SPItems.FLAX))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.WHITE_WOOL)
+                .requires(SPItems.COTTON_BOLLS, 4)
+                .unlockedBy("has_cotton_bolls", has(SPItems.COTTON_BOLLS))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.PIZZA_SLICE.get())
                 .pattern("SSS")
                 .pattern("TTT")
@@ -1094,7 +1104,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_steel_pickaxe", has(SPItems.STEEL_PICKAXE))
                 .save(recipeOutput);
 
-// Steel Armor
+        // Steel Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SPItems.STEEL_HELMET.get())
                 .pattern("III")
                 .pattern("I I")
@@ -1127,7 +1137,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT))
                 .save(recipeOutput);
 
-// Emerald Tools
+        // Emerald Tools
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.EMERALD_SWORD.get())
                 .pattern(" I ")
                 .pattern(" I ")
@@ -1184,7 +1194,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_emerald_pickaxe", has(SPItems.EMERALD_PICKAXE))
                 .save(recipeOutput);
 
-// Emerald Armor
+        // Emerald Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SPItems.EMERALD_HELMET.get())
                 .pattern("III")
                 .pattern("I I")
@@ -1217,7 +1227,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_emerald", has(Items.EMERALD))
                 .save(recipeOutput);
 
-// Wither Tools
+        // Wither Tools
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WITHER_SWORD.get())
                 .pattern(" I ")
                 .pattern(" I ")
