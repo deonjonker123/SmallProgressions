@@ -8,6 +8,7 @@ import com.misterd.smallprogressions.gui.custom.*;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
 import com.misterd.smallprogressions.loot.SPLootModifiers;
+import com.misterd.smallprogressions.network.SPNetwork;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -44,6 +45,7 @@ public class SmallProgressions {
         SPLootModifiers.register(modEventBus);
         SPBlockEntities.register(modEventBus);
         SPMenuTypes.register(modEventBus);
+        SPNetwork.register(modEventBus);
         Config.register(modContainer);
     }
 
@@ -109,6 +111,7 @@ public class SmallProgressions {
             event.register(SPMenuTypes.IRON_BARREL_MENU.get(), IronBarrelScreen::new);
             event.register(SPMenuTypes.GOLD_BARREL_MENU.get(), GoldBarrelScreen::new);
             event.register(SPMenuTypes.DIAMOND_BARREL_MENU.get(), DiamondBarrelScreen::new);
+            event.register(SPMenuTypes.ADVANCED_ITEM_COLLECTOR_MENU.get(), AdvancedItemCollectorScreen::new);
         }
     }
 }

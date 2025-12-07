@@ -269,11 +269,35 @@
   "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
   "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",
 
+  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.decrease": "Decrease Down/Up Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.increase": "Increase Down/Up Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.decrease": "Decrease North/South Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.increase": "Increase North/South Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.decrease": "Decrease East/West Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.increase": "Increase East/West Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.reset_all": "Reset All Offsets",
+
+  "tooltip.smallprogressions.advanced_item_collector.wireframe_toggle": "Toggle Wireframe",
+
+  "tooltip.smallprogressions.advanced_item_collector.redstone_required": "Always Active",
+  "tooltip.smallprogressions.advanced_item_collector.redstone_not_required": "Redstone Required",
+
+  "tooltip.smallprogressions.advanced_item_collector.allow_mode": "Whitelist Mode",
+  "tooltip.smallprogressions.advanced_item_collector.block_mode": "Blacklist Mode",
+
+  "tooltip.smallprogressions.cobblestone_generator.line1": "Generates 1 cobblestone every %s",
+  "tooltip.smallprogressions.cobblestone_generator.line2": "Auto-pushes to adjacent inventories",
+  "tooltip.smallprogressions.cobblestone_generator.line3": "1 slot internal storage",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",
   "gui.smallprogressions.gold_barrel": "Gold Barrel",
-  "gui.smallprogressions.diamond_barrel": "Diamond Barrel"
+  "gui.smallprogressions.diamond_barrel": "Diamond Barrel",
+  "gui.smallprogressions.advanced_item_collector": "Adv Item Collector",
+  "gui.smallprogressions.advanced_item_collector.offset.down_up": "D/U Offset",
+  "gui.smallprogressions.advanced_item_collector.offset.north_south": "N/S Offset",
+  "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset"
 
 
 }

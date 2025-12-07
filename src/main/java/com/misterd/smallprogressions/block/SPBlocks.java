@@ -19,34 +19,34 @@ public class SPBlocks {
 
     // Functional blocks
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_1 = registerBlock("cobblestone_generator_tier_1",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 1));
 
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_2 = registerBlock("cobblestone_generator_tier_2",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 2));
 
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_3 = registerBlock("cobblestone_generator_tier_3",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 3));
 
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_4 = registerBlock("cobblestone_generator_tier_4",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 4));
 
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_5 = registerBlock("cobblestone_generator_tier_5",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE), 5));
 
     public static final DeferredBlock<Block> FUEL_RESERVOIR = registerBlock("fuel_reservoir",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -55,14 +55,14 @@ public class SPBlocks {
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> SIMPLE_ITEM_COLLECTOR = registerBlock("simple_item_collector",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new SimpleItemCollectorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> ADVANCED_ITEM_COLLECTOR = registerBlock("advanced_item_collector",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new AdvancedItemCollectorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
