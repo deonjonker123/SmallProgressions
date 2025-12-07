@@ -15,39 +15,163 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
+import java.util.Optional;
 
 public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider {
+    private static final int SPEED_MULTIPLIER = 4;
+    private static final int SMELT_TIME = 200 / SPEED_MULTIPLIER;
+
     public final ItemStackHandler inventory = new ItemStackHandler(3) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if(!level.isClientSide()) {
+            if(level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
+
+        @Override
+        public boolean isItemValid(int slot, ItemStack stack) {
+            if (slot == 0) {
+                return level != null && level.getRecipeManager()
+                        .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), level)
+                        .isPresent();
+            } else if (slot == 1) {
+                return stack.getBurnTime(RecipeType.SMELTING) > 0;
+            } else {
+                return false;
+            }
+        }
     };
-    private float rotation;
+
+    private int progress = 0;
+    private int maxProgress = SMELT_TIME;
+    private int fuelTime = 0;
+    private int maxFuelTime = 0;
+
+    public final ContainerData data = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> progress;
+                case 1 -> maxProgress;
+                case 2 -> fuelTime;
+                case 3 -> maxFuelTime;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> progress = value;
+                case 1 -> maxProgress = value;
+                case 2 -> fuelTime = value;
+                case 3 -> maxFuelTime = value;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+    };
 
     public BrickFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
         super(SPBlockEntities.BRICK_FURNACE_BE.get(), pos, blockState);
     }
 
-    public float getRenderingRotation() {
-        rotation += 0.5f;
-        if(rotation >= 360) {
-            rotation = 0;
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        if (level.isClientSide()) return;
+
+        boolean wasBurning = isBurning();
+        boolean dirty = false;
+
+        if (isBurning()) {
+            fuelTime--;
+            dirty = true;
         }
-        return rotation;
+
+        ItemStack input = inventory.getStackInSlot(0);
+        ItemStack fuel = inventory.getStackInSlot(1);
+        ItemStack output = inventory.getStackInSlot(2);
+
+        if (!input.isEmpty()) {
+            Optional<net.minecraft.world.item.crafting.RecipeHolder<SmeltingRecipe>> recipeHolder = level.getRecipeManager()
+                    .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(input), level);
+
+            if (recipeHolder.isPresent()) {
+                SmeltingRecipe recipe = recipeHolder.get().value();
+                ItemStack result = recipe.getResultItem(level.registryAccess());
+
+                boolean canInsertOutput = output.isEmpty() ||
+                        (ItemStack.isSameItemSameComponents(output, result) &&
+                                output.getCount() + result.getCount() <= output.getMaxStackSize());
+
+                if (canInsertOutput) {
+                    if (!isBurning() && !fuel.isEmpty()) {
+                        int burnTime = fuel.getBurnTime(RecipeType.SMELTING) / SPEED_MULTIPLIER;
+                        if (burnTime > 0) {
+                            fuelTime = burnTime;
+                            maxFuelTime = burnTime;
+                            fuel.shrink(1);
+                            dirty = true;
+                        }
+                    }
+
+                    if (isBurning()) {
+                        progress++;
+                        dirty = true;
+
+                        if (progress >= maxProgress) {
+                            progress = 0;
+
+                            if (output.isEmpty()) {
+                                inventory.setStackInSlot(2, result.copy());
+                            } else {
+                                output.grow(result.getCount());
+                            }
+
+                            input.shrink(1);
+                            dirty = true;
+                        }
+                    }
+                } else {
+                    progress = 0;
+                    dirty = true;
+                }
+            } else {
+                progress = 0;
+                dirty = true;
+            }
+        } else {
+            progress = 0;
+            dirty = true;
+        }
+
+        if (wasBurning != isBurning()) {
+            dirty = true;
+            level.setBlock(pos, state.setValue(com.misterd.smallprogressions.block.custom.BrickFurnaceBlock.LIT, isBurning()), 3);
+        }
+
+        if (dirty) {
+            setChanged();
+        }
     }
 
-    public void clearContents() {
-        inventory.setStackInSlot(0, ItemStack.EMPTY);
+    private boolean isBurning() {
+        return fuelTime > 0;
     }
 
     public void drops() {
@@ -55,7 +179,6 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         for(int i = 0; i < inventory.getSlots(); i++) {
             inv.setItem(i, inventory.getStackInSlot(i));
         }
-
         Containers.dropContents(this.level, this.worldPosition, inv);
     }
 
@@ -63,12 +186,18 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("inventory", inventory.serializeNBT(registries));
+        tag.putInt("progress", progress);
+        tag.putInt("fuelTime", fuelTime);
+        tag.putInt("maxFuelTime", maxFuelTime);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         inventory.deserializeNBT(registries, tag.getCompound("inventory"));
+        progress = tag.getInt("progress");
+        fuelTime = tag.getInt("fuelTime");
+        maxFuelTime = tag.getInt("maxFuelTime");
     }
 
     @Override
@@ -81,7 +210,6 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return new BrickFurnaceMenu(i, inventory, this);
     }
-
 
     @Nullable
     @Override

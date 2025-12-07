@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/brick_furnace_front_lit",
+    "south": "smallprogressions:block/brick_furnace_side",
+    "east": "smallprogressions:block/brick_furnace_side",
+    "west": "smallprogressions:block/brick_furnace_side",
+    "up": "smallprogressions:block/brick_furnace_top",
+    "down": "smallprogressions:block/brick_furnace_bottom",
+    "particle": "smallprogressions:block/brick_furnace_front_lit"
+  }
+}

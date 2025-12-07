@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,lit=false": {
       "model": "smallprogressions:block/brick_furnace"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "smallprogressions:block/brick_furnace_lit"
+    },
+    "facing=south,lit=false": {
       "model": "smallprogressions:block/brick_furnace",
       "y": 180
     },
-    "facing=east": {
+    "facing=south,lit=true": {
+      "model": "smallprogressions:block/brick_furnace_lit",
+      "y": 180
+    },
+    "facing=east,lit=false": {
       "model": "smallprogressions:block/brick_furnace",
       "y": 90
     },
-    "facing=west": {
+    "facing=east,lit=true": {
+      "model": "smallprogressions:block/brick_furnace_lit",
+      "y": 90
+    },
+    "facing=west,lit=false": {
       "model": "smallprogressions:block/brick_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "smallprogressions:block/brick_furnace_lit",
       "y": 270
     }
   }
