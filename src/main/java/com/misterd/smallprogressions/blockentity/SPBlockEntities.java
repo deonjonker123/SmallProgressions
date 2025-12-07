@@ -55,6 +55,10 @@ public class SPBlockEntities {
                     SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<LinenSackBlockEntity>> LINEN_SACK_BE =
+            BLOCK_ENTITIES.register("linen_sack_be", () -> BlockEntityType.Builder.of(
+                    LinenSackBlockEntity::new, SPBlocks.LINEN_SACK.get()).build(null));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {

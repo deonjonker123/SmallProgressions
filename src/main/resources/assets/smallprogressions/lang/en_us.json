@@ -300,10 +300,11 @@
   "gui.smallprogressions.iron_barrel": "Iron Barrel",
   "gui.smallprogressions.gold_barrel": "Gold Barrel",
   "gui.smallprogressions.diamond_barrel": "Diamond Barrel",
-  "gui.smallprogressions.advanced_item_collector": "Adv Item Collector",
+  "gui.smallprogressions.advanced_item_collector": "Adv Collector",
   "gui.smallprogressions.advanced_item_collector.offset.down_up": "D/U Offset",
   "gui.smallprogressions.advanced_item_collector.offset.north_south": "N/S Offset",
-  "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset"
+  "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset",
+  "gui.smallprogressions.linen_sack": "Linen Sack"
 
 
 }

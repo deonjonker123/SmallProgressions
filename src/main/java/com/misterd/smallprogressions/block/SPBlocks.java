@@ -142,7 +142,7 @@ public class SPBlocks {
 
     // Linen Sack
     public static final DeferredBlock<Block> LINEN_SACK = registerBlock("linen_sack",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new LinenSackBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 1F)
                     .noOcclusion()
                     .noLootTable()
