@@ -177,7 +177,7 @@ public class SPBlocks {
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LAVA_INFUSED_STONE = registerBlock("lava_infused_stone",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new LavaInfusedStoneBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 2000.0F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));

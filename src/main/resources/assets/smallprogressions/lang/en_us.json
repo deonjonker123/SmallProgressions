@@ -289,6 +289,9 @@
   "tooltip.smallprogressions.cobblestone_generator.line2": "Auto-pushes to adjacent inventories",
   "tooltip.smallprogressions.cobblestone_generator.line3": "1 slot internal storage",
 
+  "tooltip.smallprogressions.lava_infused_stone.line1": "Acts as a lava source block",
+  "tooltip.smallprogressions.lava_infused_stone.line2": "Adjacent water → Obsidian",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",
