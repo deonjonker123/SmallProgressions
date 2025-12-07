@@ -75,7 +75,7 @@ public class SPBlocks {
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> LAVA_GENERATOR = registerBlock("lava_generator",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new LavaGeneratorBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));

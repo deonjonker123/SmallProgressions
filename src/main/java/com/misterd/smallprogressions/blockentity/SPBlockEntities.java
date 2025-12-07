@@ -79,6 +79,10 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("diamond_tank_be", () -> BlockEntityType.Builder.of(
                     DiamondTankBlockEntity::new, SPBlocks.DIAMOND_TANK.get()).build(null));
 
+    public static final Supplier<BlockEntityType<LavaGeneratorBlockEntity>> LAVA_GENERATOR_BE =
+            BLOCK_ENTITIES.register("lava_generator_be", () -> BlockEntityType.Builder.of(
+                    LavaGeneratorBlockEntity::new, SPBlocks.LAVA_GENERATOR.get()).build(null));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {
@@ -180,6 +184,14 @@ public class SPBlockEntities {
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof DiamondTankBlockEntity diamondTank) {
                         return diamondTank.tank;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, LAVA_GENERATOR_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof LavaGeneratorBlockEntity lavaGenerator) {
+                        return lavaGenerator.tank;
                     }
                     return null;
                 });

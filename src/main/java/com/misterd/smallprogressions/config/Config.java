@@ -163,10 +163,10 @@ public class Config {
         LAVA_GENERATOR_MB_PER_TICK = COMMON_BUILDER
                 .comment(
                         "Lava generation rate (millibuckets per tick)",
-                        "Default: 64 mb/tick",
+                        "Default: 1 mb/tick",
                         "Higher values = faster generation"
                 )
-                .defineInRange("mb_per_tick", 64, 1, 1000);
+                .defineInRange("mb_per_tick", 1, 1, 1000);
 
         COMMON_BUILDER.pop();
     }

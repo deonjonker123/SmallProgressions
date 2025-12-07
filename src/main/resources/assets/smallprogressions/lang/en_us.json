@@ -318,6 +318,9 @@
   "tooltip.smallprogressions.diamond_tank.line1": "Holds up to 128 buckets of fluid",
   "tooltip.smallprogressions.diamond_tank.line2": "Right-click with bucket to fill/empty",
 
+  "tooltip.smallprogressions.lava_generator.line1": "Passively generates lava",
+  "tooltip.smallprogressions.lava_generator.line2": "Outputs to adjacent tanks automatically",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",

@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/lava_generator"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/lava_generator",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/lava_generator",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/lava_generator",
+      "y": 270
     }
   }
 }
