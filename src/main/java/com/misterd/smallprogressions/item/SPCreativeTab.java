@@ -28,6 +28,8 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.GROWTH_CRYSTAL_TIER_2);
                         output.accept(SPBlocks.GROWTH_CRYSTAL_TIER_3);
 
+                        output.accept(SPBlocks.GREENHOUSE_GLASS);
+
                         output.accept(SPBlocks.FUEL_RESERVOIR);
                         output.accept(SPBlocks.SIMPLE_ITEM_COLLECTOR);
                         output.accept(SPBlocks.ADVANCED_ITEM_COLLECTOR);
