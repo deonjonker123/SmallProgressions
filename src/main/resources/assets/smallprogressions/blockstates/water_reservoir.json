@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/water_reservoir"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/water_reservoir",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/water_reservoir",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/water_reservoir",
+      "y": 270
     }
   }
 }
