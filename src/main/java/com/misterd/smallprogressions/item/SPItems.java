@@ -2,6 +2,7 @@ package com.misterd.smallprogressions.item;
 
 
 import com.misterd.smallprogressions.block.SPBlocks;
+import com.misterd.smallprogressions.item.custom.McFloatyBlockItem;
 import com.misterd.smallprogressions.item.equipment.*;
 import com.misterd.smallprogressions.util.SPFoodProperties;
 import net.minecraft.world.item.*;
@@ -370,6 +371,9 @@ public class SPItems {
 
     public static final DeferredItem<Item> DIAMOND_APPLE = ITEMS.register("diamond_apple",
             () -> new Item(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE)));
+
+    public static final DeferredItem<Item> MCFLOATY_BLOCK_ITEM = ITEMS.register("mcfloaty_block",
+            () -> new McFloatyBlockItem(SPBlocks.MCFLOATY_BLOCK.get(), new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

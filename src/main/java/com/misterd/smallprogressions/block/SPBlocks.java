@@ -182,8 +182,8 @@ public class SPBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> MCFLOATY_BLOCK = registerBlock("mcfloaty_block",
-            () -> new Block(BlockBehaviour.Properties.of()
+    public static final DeferredBlock<Block> MCFLOATY_BLOCK = BLOCKS.register("mcfloaty_block",
+            () -> new McFloatyBlock(BlockBehaviour.Properties.of()
                     .strength(1F, 2F)
                     .sound(SoundType.AMETHYST)));
 

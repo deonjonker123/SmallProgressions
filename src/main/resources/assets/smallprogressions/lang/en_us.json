@@ -292,6 +292,9 @@
   "tooltip.smallprogressions.lava_infused_stone.line1": "Acts as a lava source block",
   "tooltip.smallprogressions.lava_infused_stone.line2": "Adjacent water → Obsidian",
 
+  "tooltip.smallprogressions.mcfloaty_block.line1": "Can be placed in mid-air",
+  "tooltip.smallprogressions.mcfloaty_block.line2": "Negates fall damage when landed on",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",
