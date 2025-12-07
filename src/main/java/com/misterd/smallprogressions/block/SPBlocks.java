@@ -173,6 +173,7 @@ public class SPBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(2F, 3.0F)
                     .lightLevel(state -> 15)
+                    .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LAVA_INFUSED_STONE = registerBlock("lava_infused_stone",

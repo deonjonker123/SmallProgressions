@@ -66,6 +66,8 @@ public class SmallProgressions {
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
 
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GREENHOUSE_GLASS.get(), RenderType.translucent());
+
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLACK_GLOWSTONE_GLASS.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLUE_GLOWSTONE_GLASS.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BROWN_GLOWSTONE_GLASS.get(), RenderType.translucent());
