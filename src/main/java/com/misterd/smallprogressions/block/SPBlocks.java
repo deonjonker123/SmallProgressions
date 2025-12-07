@@ -81,7 +81,7 @@ public class SPBlocks {
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> WATER_RESERVOIR = registerBlock("water_reservoir",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new WaterReservoirBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));

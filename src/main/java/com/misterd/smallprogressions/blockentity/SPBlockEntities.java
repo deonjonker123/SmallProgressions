@@ -59,6 +59,10 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("linen_sack_be", () -> BlockEntityType.Builder.of(
                     LinenSackBlockEntity::new, SPBlocks.LINEN_SACK.get()).build(null));
 
+    public static final Supplier<BlockEntityType<WaterReservoirBlockEntity>> WATER_RESERVOIR_BE =
+            BLOCK_ENTITIES.register("water_reservoir_be", () -> BlockEntityType.Builder.of(
+                    WaterReservoirBlockEntity::new, SPBlocks.WATER_RESERVOIR.get()).build(null));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {
@@ -120,6 +124,14 @@ public class SPBlockEntities {
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof CobblestoneGeneratorBlockEntity cobblestoneGeneratorBlockEntity) {
                         return cobblestoneGeneratorBlockEntity.inventory;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, WATER_RESERVOIR_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof WaterReservoirBlockEntity waterReservoir) {
+                        return waterReservoir.tank;
                     }
                     return null;
                 });

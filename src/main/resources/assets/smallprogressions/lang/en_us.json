@@ -295,6 +295,14 @@
   "tooltip.smallprogressions.mcfloaty_block.line1": "Can be placed in mid-air",
   "tooltip.smallprogressions.mcfloaty_block.line2": "Negates fall damage when landed on",
 
+  "message.smallprogressions.water_reservoir.empty": "Water Reservoir is empty!",
+  "message.smallprogressions.water_reservoir.full": "Water Reservoir is full!",
+  "message.smallprogressions.water_reservoir.already_infinite": "Water Reservoir is already infinite!",
+  "tooltip.smallprogressions.water_reservoir.line1_infinite": "Infinite water source",
+  "tooltip.smallprogressions.water_reservoir.line1_tank": "Holds up to 16 buckets of water",
+  "tooltip.smallprogressions.water_reservoir.line2": "Right-click with bucket to fill/empty",
+  "tooltip.smallprogressions.water_reservoir.line3": "16 bucket capacity",
+
   "gui.smallprogressions.brick_furnace": "Brick Furnace",
   "gui.smallprogressions.copper_barrel": "Copper Barrel",
   "gui.smallprogressions.iron_barrel": "Iron Barrel",
