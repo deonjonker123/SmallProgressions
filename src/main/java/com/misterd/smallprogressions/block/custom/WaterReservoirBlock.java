@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,10 +51,6 @@ public class WaterReservoirBlock extends BaseEntityBlock {
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        // If infinite mode, act as water source
-        if (Config.isWaterReservoirInfinite()) {
-            return Fluids.WATER.getSource(false);
-        }
         return super.getFluidState(state);
     }
 
@@ -65,11 +60,8 @@ public class WaterReservoirBlock extends BaseEntityBlock {
             return ItemInteractionResult.SUCCESS;
         }
 
-        // Handle bucket interactions
         if (stack.is(Items.BUCKET)) {
-            // Empty bucket -> try to fill it with water
             if (Config.isWaterReservoirInfinite()) {
-                // Infinite mode - always give water bucket
                 if (!player.isCreative()) {
                     stack.shrink(1);
                     ItemStack waterBucket = new ItemStack(Items.WATER_BUCKET);
@@ -80,7 +72,6 @@ public class WaterReservoirBlock extends BaseEntityBlock {
                 level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                 return ItemInteractionResult.SUCCESS;
             } else {
-                // Tank mode - check if tank has water
                 if (level.getBlockEntity(pos) instanceof WaterReservoirBlockEntity reservoir) {
                     if (reservoir.canFillBucket()) {
                         reservoir.fillBucket();
@@ -100,13 +91,10 @@ public class WaterReservoirBlock extends BaseEntityBlock {
                 }
             }
         } else if (stack.is(Items.WATER_BUCKET)) {
-            // Water bucket -> try to empty it into reservoir
             if (Config.isWaterReservoirInfinite()) {
-                // Infinite mode - can't fill (already infinite)
                 player.displayClientMessage(Component.translatable("message.smallprogressions.water_reservoir.already_infinite").withStyle(ChatFormatting.YELLOW), true);
                 return ItemInteractionResult.FAIL;
             } else {
-                // Tank mode - check if tank has space
                 if (level.getBlockEntity(pos) instanceof WaterReservoirBlockEntity reservoir) {
                     if (reservoir.canDrainBucket()) {
                         reservoir.drainBucket();
@@ -134,7 +122,6 @@ public class WaterReservoirBlock extends BaseEntityBlock {
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         if (Config.isWaterReservoirInfinite()) {
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line1_infinite").withStyle(ChatFormatting.AQUA));
-            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line2").withStyle(ChatFormatting.GRAY));
         } else {
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line1_tank").withStyle(ChatFormatting.AQUA));
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line2").withStyle(ChatFormatting.GRAY));

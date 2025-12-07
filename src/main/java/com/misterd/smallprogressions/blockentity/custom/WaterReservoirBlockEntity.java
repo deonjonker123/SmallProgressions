@@ -15,7 +15,7 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 public class WaterReservoirBlockEntity extends BlockEntity {
-    private static final int MAX_CAPACITY = 16000; // 16 buckets (1000mb per bucket)
+    private static final int MAX_CAPACITY = 16000;
 
     public final FluidTank tank = new FluidTank(MAX_CAPACITY) {
         @Override
@@ -28,7 +28,6 @@ public class WaterReservoirBlockEntity extends BlockEntity {
 
         @Override
         public boolean isFluidValid(FluidStack stack) {
-            // Only accepts water
             return stack.getFluid() == Fluids.WATER;
         }
     };
