@@ -79,7 +79,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', SPItems.STEEL_INGOT)
-                .define('W', Tags.Items.DRINKS_WATER)
+                .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPTags.Items.SMALL_PROGRESSIONS_GLOWSTONE_BLOCKS)
                 .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT))
@@ -90,7 +90,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', SPItems.STEEL_INGOT)
-                .define('W', Tags.Items.DRINKS_WATER)
+                .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPBlocks.GROWTH_CRYSTAL_TIER_1)
                 .unlockedBy("has_growth_crystal_tier_1", has(SPBlocks.GROWTH_CRYSTAL_TIER_1))
@@ -101,10 +101,20 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', SPItems.STEEL_INGOT)
-                .define('W', Tags.Items.DRINKS_WATER)
+                .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPBlocks.GROWTH_CRYSTAL_TIER_2)
                 .unlockedBy("has_growth_crystal_tier_2", has(SPBlocks.GROWTH_CRYSTAL_TIER_2))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.GREENHOUSE_GLASS.get(), 4)
+                .pattern("#G#")
+                .pattern("GBG")
+                .pattern("#G#")
+                .define('#', SPItems.STEEL_INGOT)
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('B', SPTags.Items.SMALL_PROGRESSIONS_GLOWSTONE_BLOCKS)
+                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
                 .save(recipeOutput);
 
         // Lava Infused Stone
@@ -583,6 +593,151 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("DD")
                 .define('D', SPItems.YELLOW_GLOWSTONE_DUST)
                 .unlockedBy("has_yellow_glowstone_dust", has(SPItems.YELLOW_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        // Glowstone Glass Blocks
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BLACK_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.BLACK_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_black_glowstone_dust", has(SPItems.BLACK_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.RED_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.RED_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_red_glowstone_dust", has(SPItems.RED_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.GREEN_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.GREEN_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_green_glowstone_dust", has(SPItems.GREEN_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BROWN_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.BROWN_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_brown_glowstone_dust", has(SPItems.BROWN_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.BLUE_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.BLUE_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_blue_glowstone_dust", has(SPItems.BLUE_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.PURPLE_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.PURPLE_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_purple_glowstone_dust", has(SPItems.PURPLE_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.CYAN_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.CYAN_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_cyan_glowstone_dust", has(SPItems.CYAN_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.LIGHT_GRAY_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_light_gray_glowstone_dust", has(SPItems.LIGHT_GRAY_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.GRAY_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.GRAY_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_gray_glowstone_dust", has(SPItems.GRAY_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.PINK_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.PINK_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_pink_glowstone_dust", has(SPItems.PINK_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIME_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.LIME_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_lime_glowstone_dust", has(SPItems.LIME_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.YELLOW_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.YELLOW_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_yellow_glowstone_dust", has(SPItems.YELLOW_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.LIGHT_BLUE_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_light_blue_glowstone_dust", has(SPItems.LIGHT_BLUE_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.MAGENTA_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.MAGENTA_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_magenta_glowstone_dust", has(SPItems.MAGENTA_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.ORANGE_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.ORANGE_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_orange_glowstone_dust", has(SPItems.ORANGE_GLOWSTONE_DUST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SPBlocks.WHITE_GLOWSTONE_GLASS.get(), 4)
+                .pattern(" D ")
+                .pattern("D#D")
+                .pattern(" D ")
+                .define('D', SPItems.WHITE_GLOWSTONE_DUST)
+                .define('#', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_white_glowstone_dust", has(SPItems.WHITE_GLOWSTONE_DUST))
                 .save(recipeOutput);
 
         // Colored Glowstone from Dye + Glowstone (Shapeless)

@@ -1,5 +1,6 @@
 package com.misterd.smallprogressions.block.custom;
 
+import com.misterd.smallprogressions.config.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -19,50 +20,35 @@ import java.util.List;
 public class GrowthCrystalBlock extends Block {
     private final int tier;
     private final int rangeHorizontal;
-    private final int rangeVertical;
-    private final float growthChance;
 
     public GrowthCrystalBlock(Properties properties, int tier) {
         super(properties);
         this.tier = tier;
+        this.rangeHorizontal = 4;
+    }
 
-        switch (tier) {
-            case 1:
-                this.rangeHorizontal = 4;
-                this.rangeVertical = 1;
-                this.growthChance = 0.5F;
-                break;
-            case 2:
-                this.rangeHorizontal = 4;
-                this.rangeVertical = 1;
-                this.growthChance = 1.0F;
-                break;
-            case 3:
-                this.rangeHorizontal = 4;
-                this.rangeVertical = 1;
-                this.growthChance = 2.0F;
-                break;
-            default:
-                this.rangeHorizontal = 4;
-                this.rangeVertical = 1;
-                this.growthChance = 0.5F;
-        }
+    private float getGrowthChance() {
+        return switch (tier) {
+            case 2 -> (float) Config.getGrowthCrystalTier2Rate();
+            case 3 -> (float) Config.getGrowthCrystalTier3Rate();
+            default -> (float) Config.getGrowthCrystalTier1Rate();
+        };
     }
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(state, level, pos, random);
 
-        for (int x = -rangeHorizontal; x <= rangeHorizontal; x++) {
-            for (int y = -rangeVertical; y <= rangeVertical; y++) {
-                for (int z = -rangeHorizontal; z <= rangeHorizontal; z++) {
-                    BlockPos checkPos = pos.offset(x, y, z);
-                    BlockState checkState = level.getBlockState(checkPos);
+        float growthChance = getGrowthChance();
 
-                    if (checkState.getBlock() instanceof CropBlock cropBlock) {
-                        if (random.nextFloat() < growthChance) {
-                            checkState.tick(level, checkPos, random);
-                        }
+        for (int x = -rangeHorizontal; x <= rangeHorizontal; x++) {
+            for (int z = -rangeHorizontal; z <= rangeHorizontal; z++) {
+                BlockPos checkPos = pos.offset(x, 0, z);
+                BlockState checkState = level.getBlockState(checkPos);
+
+                if (checkState.getBlock() instanceof CropBlock) {
+                    if (random.nextFloat() < growthChance) {
+                        checkState.tick(level, checkPos, random);
                     }
                 }
             }
@@ -76,20 +62,10 @@ public class GrowthCrystalBlock extends Block {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        switch (tier) {
-            case 1:
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_1.line1").withStyle(ChatFormatting.AQUA));
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_1.line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-                break;
-            case 2:
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_2.line1").withStyle(ChatFormatting.AQUA));
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_2.line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-                break;
-            case 3:
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_3.line1").withStyle(ChatFormatting.AQUA));
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.growth_crystal_tier_3.line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-                break;
-        }
+        String key = "tooltip.smallprogressions.growth_crystal_tier_" + tier;
+        tooltipComponents.add(Component.translatable(key + ".line1").withStyle(ChatFormatting.AQUA));
+        tooltipComponents.add(Component.translatable(key + ".line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

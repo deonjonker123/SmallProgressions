@@ -31,6 +31,8 @@ public class SPBlockStateProvider extends BlockStateProvider {
         blockWithItem(SPBlocks.GROWTH_CRYSTAL_TIER_2);
         blockWithItem(SPBlocks.GROWTH_CRYSTAL_TIER_3);
 
+        blockWithItem(SPBlocks.GREENHOUSE_GLASS);
+
         blockWithItem(SPBlocks.LAVA_INFUSED_STONE);
         blockWithItem(SPBlocks.MCFLOATY_BLOCK);
 
@@ -129,6 +131,23 @@ public class SPBlockStateProvider extends BlockStateProvider {
         blockWithItem(SPBlocks.RED_GLOWSTONE);
         blockWithItem(SPBlocks.WHITE_GLOWSTONE);
         blockWithItem(SPBlocks.YELLOW_GLOWSTONE);
+
+        blockWithItem(SPBlocks.BLACK_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.BLUE_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.BROWN_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.CYAN_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.GRAY_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.GREEN_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.LIME_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.MAGENTA_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.ORANGE_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.PINK_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.PURPLE_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.RED_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.WHITE_GLOWSTONE_GLASS);
+        blockWithItem(SPBlocks.YELLOW_GLOWSTONE_GLASS);
 
         makeBlackberryBush(((SweetBerryBushBlock) SPBlocks.BLACKBERRY_BUSH.get()), "blackberry_bush_stage", "blackberry_bush_stage");
         makeBlueberryBush(((SweetBerryBushBlock) SPBlocks.BLUEBERRY_BUSH.get()), "blueberry_bush_stage", "blueberry_bush_stage");

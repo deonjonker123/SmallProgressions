@@ -126,6 +126,23 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.WHITE_GLOWSTONE);
                         output.accept(SPBlocks.YELLOW_GLOWSTONE);
 
+                        output.accept(SPBlocks.BLACK_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.BLUE_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.BROWN_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.CYAN_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.GRAY_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.GREEN_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.LIME_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.MAGENTA_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.ORANGE_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.PINK_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.PURPLE_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.RED_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.WHITE_GLOWSTONE_GLASS);
+                        output.accept(SPBlocks.YELLOW_GLOWSTONE_GLASS);
+
                         // Steel Armor & Tools
                         output.accept(SPItems.STEEL_SWORD);
                         output.accept(SPItems.STEEL_PICKAXE);

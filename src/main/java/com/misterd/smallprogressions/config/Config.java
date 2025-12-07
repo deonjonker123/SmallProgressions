@@ -1,0 +1,341 @@
+package com.misterd.smallprogressions.config;
+
+import com.mojang.logging.LogUtils;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import org.slf4j.Logger;
+
+public class Config {
+    private static final Logger LOGGER = LogUtils.getLogger();
+    private static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
+    private static ModConfigSpec COMMON_CONFIG;
+
+    // Growth Crystal config values
+    private static ModConfigSpec.DoubleValue GROWTH_CRYSTAL_TIER_1_RATE;
+    private static ModConfigSpec.DoubleValue GROWTH_CRYSTAL_TIER_2_RATE;
+    private static ModConfigSpec.DoubleValue GROWTH_CRYSTAL_TIER_3_RATE;
+
+    // Fuel Reservoir config values
+    private static ModConfigSpec.IntValue FUEL_RESERVOIR_MAX_DISTANCE;
+    private static ModConfigSpec.IntValue FUEL_RESERVOIR_MAX_CONNECTIONS;
+
+    // Cobblestone Generator config values
+    private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_1_TICKS;
+    private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_2_TICKS;
+    private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_3_TICKS;
+    private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_4_TICKS;
+    private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_5_TICKS;
+
+    // Lava Generator config value
+    private static ModConfigSpec.IntValue LAVA_GENERATOR_MB_PER_TICK;
+
+    // Water Reservoir config value
+    private static ModConfigSpec.BooleanValue WATER_RESERVOIR_INFINITE;
+
+    // Greenhouse Glass config values
+    private static ModConfigSpec.DoubleValue GREENHOUSE_GLASS_GROWTH_BOOST;
+    private static ModConfigSpec.IntValue GREENHOUSE_GLASS_RANGE;
+
+    static {
+        buildCommonConfig();
+        COMMON_CONFIG = COMMON_BUILDER.build();
+    }
+
+    public static void register(ModContainer container) {
+        container.registerConfig(ModConfig.Type.COMMON, COMMON_CONFIG);
+    }
+
+    private static void buildCommonConfig() {
+        buildGrowthCrystalConfig();
+        buildFuelReservoirConfig();
+        buildCobblestoneGeneratorConfig();
+        buildLavaGeneratorConfig();
+        buildWaterReservoirConfig();
+        buildGreenhouseGlassConfig();
+    }
+
+    private static void buildGrowthCrystalConfig() {
+        COMMON_BUILDER.comment("Growth Crystal - Configure crop growth acceleration rates")
+                .push("growth_crystal");
+
+        GROWTH_CRYSTAL_TIER_1_RATE = COMMON_BUILDER
+                .comment(
+                        "Growth acceleration rate for Tier 1 Growth Crystal",
+                        "Default: 0.25 (25% boost)",
+                        "Higher values increase growth speed"
+                )
+                .defineInRange("tier_1_rate", 0.25, 0.0, 2.0);
+
+        GROWTH_CRYSTAL_TIER_2_RATE = COMMON_BUILDER
+                .comment(
+                        "Growth acceleration rate for Tier 2 Growth Crystal",
+                        "Default: 0.50 (50% boost)",
+                        "Higher values increase growth speed"
+                )
+                .defineInRange("tier_2_rate", 0.50, 0.0, 2.0);
+
+        GROWTH_CRYSTAL_TIER_3_RATE = COMMON_BUILDER
+                .comment(
+                        "Growth acceleration rate for Tier 3 Growth Crystal",
+                        "Default: 1.00 (100% boost)",
+                        "Higher values increase growth speed"
+                )
+                .defineInRange("tier_3_rate", 1.00, 0.0, 2.0);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildFuelReservoirConfig() {
+        COMMON_BUILDER.comment("Fuel Reservoir - Configure connection limits and range")
+                .push("fuel_reservoir");
+
+        FUEL_RESERVOIR_MAX_DISTANCE = COMMON_BUILDER
+                .comment(
+                        "Maximum distance (in blocks) for fuel reservoir connections",
+                        "Default: 16 blocks"
+                )
+                .defineInRange("max_distance", 16, 4, 64);
+
+        FUEL_RESERVOIR_MAX_CONNECTIONS = COMMON_BUILDER
+                .comment(
+                        "Maximum number of furnaces that can be linked to one fuel reservoir",
+                        "Default: 16 connections"
+                )
+                .defineInRange("max_connections", 16, 1, 64);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildCobblestoneGeneratorConfig() {
+        COMMON_BUILDER.comment("Cobblestone Generator - Configure generation rates for all tiers")
+                .push("cobblestone_generator");
+
+        COBBLESTONE_GEN_TIER_1_TICKS = COMMON_BUILDER
+                .comment(
+                        "Cobblestone generation interval for Tier 1 (ticks)",
+                        "Default: 40 ticks (2 seconds)",
+                        "Lower values = faster generation"
+                )
+                .defineInRange("tier_1_ticks", 40, 1, 200);
+
+        COBBLESTONE_GEN_TIER_2_TICKS = COMMON_BUILDER
+                .comment(
+                        "Cobblestone generation interval for Tier 2 (ticks)",
+                        "Default: 20 ticks (1 second)",
+                        "Lower values = faster generation"
+                )
+                .defineInRange("tier_2_ticks", 20, 1, 200);
+
+        COBBLESTONE_GEN_TIER_3_TICKS = COMMON_BUILDER
+                .comment(
+                        "Cobblestone generation interval for Tier 3 (ticks)",
+                        "Default: 10 ticks (0.5 seconds)",
+                        "Lower values = faster generation"
+                )
+                .defineInRange("tier_3_ticks", 10, 1, 200);
+
+        COBBLESTONE_GEN_TIER_4_TICKS = COMMON_BUILDER
+                .comment(
+                        "Cobblestone generation interval for Tier 4 (ticks)",
+                        "Default: 5 ticks (0.25 seconds)",
+                        "Lower values = faster generation"
+                )
+                .defineInRange("tier_4_ticks", 5, 1, 200);
+
+        COBBLESTONE_GEN_TIER_5_TICKS = COMMON_BUILDER
+                .comment(
+                        "Cobblestone generation interval for Tier 5 (ticks)",
+                        "Default: 1 tick (0.05 seconds)",
+                        "Lower values = faster generation"
+                )
+                .defineInRange("tier_5_ticks", 1, 1, 200);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildLavaGeneratorConfig() {
+        COMMON_BUILDER.comment("Lava Generator - Configure lava generation rate")
+                .push("lava_generator");
+
+        LAVA_GENERATOR_MB_PER_TICK = COMMON_BUILDER
+                .comment(
+                        "Lava generation rate (millibuckets per tick)",
+                        "Default: 64 mb/tick",
+                        "Higher values = faster generation"
+                )
+                .defineInRange("mb_per_tick", 64, 1, 1000);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildWaterReservoirConfig() {
+        COMMON_BUILDER.comment("Water Reservoir - Configure infinite water source behavior")
+                .push("water_reservoir");
+
+        WATER_RESERVOIR_INFINITE = COMMON_BUILDER
+                .comment(
+                        "Enable infinite water source",
+                        "If true, Water Reservoir acts as an infinite water source",
+                        "If false, it acts as a 16-bucket tank"
+                )
+                .define("infinite_water", true);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildGreenhouseGlassConfig() {
+        COMMON_BUILDER.comment("Greenhouse Glass - Configure growth boost and effective range")
+                .push("greenhouse_glass");
+
+        GREENHOUSE_GLASS_GROWTH_BOOST = COMMON_BUILDER
+                .comment(
+                        "Growth boost percentage when in direct sunlight",
+                        "Default: 0.05 (5% boost)",
+                        "Higher values increase growth speed"
+                )
+                .defineInRange("growth_boost", 0.05, 0.0, 1.0);
+
+        GREENHOUSE_GLASS_RANGE = COMMON_BUILDER
+                .comment(
+                        "Effective range for greenhouse glass (centered on block)",
+                        "Default: 5 blocks (5x5x5 area)",
+                        "Note: Larger ranges may impact performance"
+                )
+                .defineInRange("range", 5, 1, 16);
+
+        COMMON_BUILDER.pop();
+    }
+
+    // Getter methods
+    public static double getGrowthCrystalTier1Rate() {
+        return GROWTH_CRYSTAL_TIER_1_RATE.get();
+    }
+
+    public static double getGrowthCrystalTier2Rate() {
+        return GROWTH_CRYSTAL_TIER_2_RATE.get();
+    }
+
+    public static double getGrowthCrystalTier3Rate() {
+        return GROWTH_CRYSTAL_TIER_3_RATE.get();
+    }
+
+    public static int getFuelReservoirMaxDistance() {
+        return FUEL_RESERVOIR_MAX_DISTANCE.get();
+    }
+
+    public static int getFuelReservoirMaxConnections() {
+        return FUEL_RESERVOIR_MAX_CONNECTIONS.get();
+    }
+
+    public static int getCobblestoneGenTier1Ticks() {
+        return COBBLESTONE_GEN_TIER_1_TICKS.get();
+    }
+
+    public static int getCobblestoneGenTier2Ticks() {
+        return COBBLESTONE_GEN_TIER_2_TICKS.get();
+    }
+
+    public static int getCobblestoneGenTier3Ticks() {
+        return COBBLESTONE_GEN_TIER_3_TICKS.get();
+    }
+
+    public static int getCobblestoneGenTier4Ticks() {
+        return COBBLESTONE_GEN_TIER_4_TICKS.get();
+    }
+
+    public static int getCobblestoneGenTier5Ticks() {
+        return COBBLESTONE_GEN_TIER_5_TICKS.get();
+    }
+
+    public static int getLavaGeneratorMbPerTick() {
+        return LAVA_GENERATOR_MB_PER_TICK.get();
+    }
+
+    public static boolean isWaterReservoirInfinite() {
+        return WATER_RESERVOIR_INFINITE.get();
+    }
+
+    public static double getGreenhouseGlassGrowthBoost() {
+        return GREENHOUSE_GLASS_GROWTH_BOOST.get();
+    }
+
+    public static int getGreenhouseGlassRange() {
+        return GREENHOUSE_GLASS_RANGE.get();
+    }
+
+    private static void validateConfig() {
+        if (getCobblestoneGenTier5Ticks() == 1 && getCobblestoneGenTier4Ticks() == 1) {
+            LOGGER.warn(
+                    "Multiple cobblestone generators set to 1 tick may impact server performance!"
+            );
+        }
+
+        if (getFuelReservoirMaxConnections() > 32) {
+            LOGGER.warn(
+                    "Fuel Reservoir max connections ({}) is very high and may impact server performance!",
+                    getFuelReservoirMaxConnections()
+            );
+        }
+
+        if (getLavaGeneratorMbPerTick() > 500) {
+            LOGGER.warn(
+                    "Lava Generator generation rate ({} mb/tick) is very high and may impact balance!",
+                    getLavaGeneratorMbPerTick()
+            );
+        }
+
+        if (getGrowthCrystalTier3Rate() > 1.5) {
+            LOGGER.warn(
+                    "Growth Crystal Tier 3 rate ({}) is very high and may impact game balance!",
+                    getGrowthCrystalTier3Rate()
+            );
+        }
+
+        if (getGreenhouseGlassRange() > 10) {
+            LOGGER.warn(
+                    "Greenhouse Glass range ({}) is very high and may impact server performance!",
+                    getGreenhouseGlassRange()
+            );
+        }
+    }
+
+    @SubscribeEvent
+    public static void onConfigLoad(ModConfigEvent event) {
+        if (event.getConfig().getType() == ModConfig.Type.COMMON) {
+            LOGGER.info("Small Progressions configuration loaded");
+            logConfigValues();
+            validateConfig();
+        }
+    }
+
+    private static void logConfigValues() {
+        LOGGER.info("Growth Crystal Configuration:");
+        LOGGER.info("  Tier 1 Rate: {}x", getGrowthCrystalTier1Rate());
+        LOGGER.info("  Tier 2 Rate: {}x", getGrowthCrystalTier2Rate());
+        LOGGER.info("  Tier 3 Rate: {}x", getGrowthCrystalTier3Rate());
+
+        LOGGER.info("Fuel Reservoir Configuration:");
+        LOGGER.info("  Max Distance: {} blocks", getFuelReservoirMaxDistance());
+        LOGGER.info("  Max Connections: {}", getFuelReservoirMaxConnections());
+
+        LOGGER.info("Cobblestone Generator Configuration:");
+        LOGGER.info("  Tier 1: {} ticks", getCobblestoneGenTier1Ticks());
+        LOGGER.info("  Tier 2: {} ticks", getCobblestoneGenTier2Ticks());
+        LOGGER.info("  Tier 3: {} ticks", getCobblestoneGenTier3Ticks());
+        LOGGER.info("  Tier 4: {} ticks", getCobblestoneGenTier4Ticks());
+        LOGGER.info("  Tier 5: {} ticks", getCobblestoneGenTier5Ticks());
+
+        LOGGER.info("Lava Generator Configuration:");
+        LOGGER.info("  Generation Rate: {} mb/tick", getLavaGeneratorMbPerTick());
+
+        LOGGER.info("Water Reservoir Configuration:");
+        LOGGER.info("  Infinite Water: {}", isWaterReservoirInfinite());
+
+        LOGGER.info("Greenhouse Glass Configuration:");
+        LOGGER.info("  Growth Boost: {}%", getGreenhouseGlassGrowthBoost() * 100);
+        LOGGER.info("  Range: {} blocks", getGreenhouseGlassRange());
+    }
+}

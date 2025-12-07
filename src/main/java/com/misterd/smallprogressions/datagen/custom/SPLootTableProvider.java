@@ -65,6 +65,8 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.GROWTH_CRYSTAL_TIER_2.get());
         dropSelf(SPBlocks.GROWTH_CRYSTAL_TIER_3.get());
 
+        dropSelf(SPBlocks.GREENHOUSE_GLASS.get());
+
         dropSelf(SPBlocks.LAVA_INFUSED_STONE.get());
 
         dropSelf(SPBlocks.MCFLOATY_BLOCK.get());
@@ -120,6 +122,23 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.HARDENED_STONE_PRESSURE_PLATE.get());
         dropSelf(SPBlocks.HARDENED_STONE_WALL.get());
         dropSelf(SPBlocks.HARDENED_STONE_BRICK_WALL.get());
+
+        dropSelf(SPBlocks.BLACK_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.BLUE_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.BROWN_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.CYAN_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.GRAY_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.GREEN_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.LIME_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.MAGENTA_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.ORANGE_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.PINK_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.PURPLE_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.RED_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.WHITE_GLOWSTONE_GLASS.get());
+        dropSelf(SPBlocks.YELLOW_GLOWSTONE_GLASS.get());
 
         add(SPBlocks.STONE_ENDER_ORE.get(),
                 block -> createOreDrop(SPBlocks.STONE_ENDER_ORE.get(),

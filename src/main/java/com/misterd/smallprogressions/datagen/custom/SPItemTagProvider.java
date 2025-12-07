@@ -8,6 +8,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -160,7 +161,8 @@ public class SPItemTagProvider extends ItemTagsProvider {
                 .add(SPBlocks.PURPLE_GLOWSTONE.asItem())
                 .add(SPBlocks.RED_GLOWSTONE.asItem())
                 .add(SPBlocks.WHITE_GLOWSTONE.asItem())
-                .add(SPBlocks.YELLOW_GLOWSTONE.asItem());
+                .add(SPBlocks.YELLOW_GLOWSTONE.asItem())
+                .add(Blocks.GLOWSTONE.asItem());
 
         tag(Tags.Items.GLASS_BLOCKS)
                 .add(SPBlocks.REINFORCED_GLASS.asItem());

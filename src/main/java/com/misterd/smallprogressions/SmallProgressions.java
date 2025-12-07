@@ -1,6 +1,7 @@
 package com.misterd.smallprogressions;
 
 import com.misterd.smallprogressions.block.SPBlocks;
+import com.misterd.smallprogressions.config.Config;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
 import com.misterd.smallprogressions.loot.SPLootModifiers;
@@ -38,6 +39,7 @@ public class SmallProgressions {
         SPBlocks.register(modEventBus);
         SPCreativeTab.register(modEventBus);
         SPLootModifiers.register(modEventBus);
+        Config.register(modContainer);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -63,6 +65,23 @@ public class SmallProgressions {
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.DIAMOND_TANK.get(), RenderType.translucent());
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLACK_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLUE_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.BROWN_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.CYAN_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GRAY_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GREEN_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.LIME_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.MAGENTA_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.ORANGE_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.PINK_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.PURPLE_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.RED_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.WHITE_GLOWSTONE_GLASS.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.YELLOW_GLOWSTONE_GLASS.get(), RenderType.translucent());
             });
         }
 
