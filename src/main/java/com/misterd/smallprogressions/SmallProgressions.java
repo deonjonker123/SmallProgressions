@@ -2,6 +2,7 @@ package com.misterd.smallprogressions;
 
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
+import com.misterd.smallprogressions.client.renderer.ber.TankBlockEntityRenderer;
 import com.misterd.smallprogressions.config.Config;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import com.misterd.smallprogressions.gui.custom.*;
@@ -66,14 +67,12 @@ public class SmallProgressions {
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.SIMPLE_ITEM_COLLECTOR.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.ADVANCED_ITEM_COLLECTOR.get(), RenderType.translucent());
 
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.COPPER_TANK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.IRON_TANK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GOLD_TANK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.DIAMOND_TANK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.COPPER_TANK.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.IRON_TANK.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GOLD_TANK.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.DIAMOND_TANK.get(), RenderType.cutout());
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
-
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GREENHOUSE_GLASS.get(), RenderType.translucent());
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLACK_GLOWSTONE_GLASS.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLUE_GLOWSTONE_GLASS.get(), RenderType.translucent());
@@ -101,7 +100,10 @@ public class SmallProgressions {
 
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
-
+            event.registerBlockEntityRenderer(SPBlockEntities.COPPER_TANK_BE.get(), TankBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(SPBlockEntities.IRON_TANK_BE.get(), TankBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(SPBlockEntities.GOLD_TANK_BE.get(), TankBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(SPBlockEntities.DIAMOND_TANK_BE.get(), TankBlockEntityRenderer::new);
         }
 
         @SubscribeEvent
