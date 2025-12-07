@@ -73,14 +73,6 @@ public class CopperBarrelBlockEntity extends BlockEntity implements MenuProvider
         return new CopperBarrelMenu(i, inventory, this);
     }
 
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPBlockEntities.COPPER_BARREL_BE.get(),
-                (blockEntity, direction) -> blockEntity instanceof CopperBarrelBlockEntity barrel
-                        ? barrel.inventory
-                        : null
-        );
-    }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {

@@ -69,14 +69,6 @@ public class DiamondBarrelBlockEntity extends BlockEntity implements MenuProvide
         return new DiamondBarrelMenu(i, inventory, this);
     }
 
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPBlockEntities.DIAMOND_BARREL_BE.get(),
-                (blockEntity, direction) -> blockEntity instanceof DiamondBarrelBlockEntity barrel
-                        ? barrel.inventory
-                        : null
-        );
-    }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {

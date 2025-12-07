@@ -69,14 +69,6 @@ public class GoldBarrelBlockEntity extends BlockEntity implements MenuProvider {
         return new GoldBarrelMenu(i, inventory, this);
     }
 
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPBlockEntities.GOLD_BARREL_BE.get(),
-                (blockEntity, direction) -> blockEntity instanceof GoldBarrelBlockEntity barrel
-                        ? barrel.inventory
-                        : null
-        );
-    }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {

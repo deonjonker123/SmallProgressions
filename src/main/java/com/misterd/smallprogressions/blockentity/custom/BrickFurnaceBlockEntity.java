@@ -25,6 +25,7 @@ import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
@@ -89,6 +90,63 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
             return 4;
         }
     };
+
+    public IItemHandler getCapabilityHandler() {
+        return new IItemHandler() {
+            @Override
+            public int getSlots() {
+                return inventory.getSlots();
+            }
+
+            @Override
+            public ItemStack getStackInSlot(int slot) {
+                return inventory.getStackInSlot(slot);
+            }
+
+            @Override
+            public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+                if (slot == 2) {
+                    return stack;
+                }
+
+                if (slot == 0) {
+                    if (level != null && level.getRecipeManager()
+                            .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), level)
+                            .isPresent()) {
+                        return inventory.insertItem(slot, stack, simulate);
+                    }
+                    return stack;
+                }
+
+                if (slot == 1) {
+                    if (stack.getBurnTime(RecipeType.SMELTING) > 0) {
+                        return inventory.insertItem(slot, stack, simulate);
+                    }
+                    return stack;
+                }
+
+                return stack;
+            }
+
+            @Override
+            public ItemStack extractItem(int slot, int amount, boolean simulate) {
+                if (slot == 2) {
+                    return inventory.extractItem(slot, amount, simulate);
+                }
+                return ItemStack.EMPTY;
+            }
+
+            @Override
+            public int getSlotLimit(int slot) {
+                return inventory.getSlotLimit(slot);
+            }
+
+            @Override
+            public boolean isItemValid(int slot, ItemStack stack) {
+                return inventory.isItemValid(slot, stack);
+            }
+        };
+    }
 
     public BrickFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
         super(SPBlockEntities.BRICK_FURNACE_BE.get(), pos, blockState);

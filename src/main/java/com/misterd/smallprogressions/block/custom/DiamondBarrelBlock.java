@@ -1,7 +1,6 @@
 package com.misterd.smallprogressions.block.custom;
 
 import com.misterd.smallprogressions.blockentity.custom.DiamondBarrelBlockEntity;
-import com.misterd.smallprogressions.blockentity.custom.GoldBarrelBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -70,14 +70,6 @@ public class IronBarrelBlockEntity extends BlockEntity implements MenuProvider {
         return new IronBarrelMenu(i, inventory, this);
     }
 
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPBlockEntities.IRON_BARREL_BE.get(),
-                (blockEntity, direction) -> blockEntity instanceof IronBarrelBlockEntity barrel
-                        ? barrel.inventory
-                        : null
-        );
-    }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
