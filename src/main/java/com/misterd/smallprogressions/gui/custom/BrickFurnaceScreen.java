@@ -10,8 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BrickFurnaceScreen extends AbstractContainerScreen<BrickFurnaceMenu> {
-    private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(SmallProgressions.MODID, "textures/gui/brick_furnace_gui.png");
+    private static final ResourceLocation GUI_TEXTURE = ResourceLocation.fromNamespaceAndPath(SmallProgressions.MODID, "textures/gui/brick_furnace_gui.png");
 
     private static final int ARROW_X = 83;
     private static final int ARROW_Y = 37;
