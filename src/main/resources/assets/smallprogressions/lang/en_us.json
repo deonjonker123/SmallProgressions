@@ -267,7 +267,9 @@
   "tooltip.smallprogressions.growth_crystal_tier_3.line3": "Works in 9x9 area",
 
   "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
-  "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below"
+  "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",
+
+  "gui.smallprogressions.brick_furnace": "Brick Furnace"
 
 
 }

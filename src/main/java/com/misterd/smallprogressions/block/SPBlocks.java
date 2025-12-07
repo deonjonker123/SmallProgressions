@@ -69,7 +69,7 @@ public class SPBlocks {
                     .sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> BRICK_FURNACE = registerBlock("brick_furnace",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new BrickFurnaceBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));

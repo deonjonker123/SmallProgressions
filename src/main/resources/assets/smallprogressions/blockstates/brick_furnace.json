@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "smallprogressions:block/brick_furnace"
+    },
+    "facing=south": {
+      "model": "smallprogressions:block/brick_furnace",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "smallprogressions:block/brick_furnace",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "smallprogressions:block/brick_furnace",
+      "y": 270
     }
   }
 }

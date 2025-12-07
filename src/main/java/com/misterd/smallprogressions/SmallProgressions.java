@@ -1,7 +1,10 @@
 package com.misterd.smallprogressions;
 
 import com.misterd.smallprogressions.block.SPBlocks;
+import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.config.Config;
+import com.misterd.smallprogressions.gui.SPMenuTypes;
+import com.misterd.smallprogressions.gui.custom.BrickFurnaceScreen;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
 import com.misterd.smallprogressions.loot.SPLootModifiers;
@@ -39,6 +42,8 @@ public class SmallProgressions {
         SPBlocks.register(modEventBus);
         SPCreativeTab.register(modEventBus);
         SPLootModifiers.register(modEventBus);
+        SPBlockEntities.register(modEventBus);
+        SPMenuTypes.register(modEventBus);
         Config.register(modContainer);
     }
 
@@ -99,7 +104,7 @@ public class SmallProgressions {
 
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
-
+            event.register(SPMenuTypes.BRICK_FURNACE_MENU.get(), BrickFurnaceScreen::new);
         }
     }
 }
