@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:coal_block"
+    },
+    "G": {
+      "item": "smallprogressions:steel_ingot"
+    },
+    "S": {
+      "item": "smallprogressions:hardened_stone"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GEG",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:furnace_power_core"
+  }
+}

@@ -1,7 +1,8 @@
-// 1.21.1	2025-12-08T20:19:31.2232549	Tags for minecraft:block mod id smallprogressions
+// 1.21.1	2025-12-08T21:32:32.0717634	Tags for minecraft:block mod id smallprogressions
 f83b2536a8889fd726a7dcd604f229a45a9c94bf data/minecraft/tags/block/mineable/axe.json
 407daca442969fcf3a6809a778e30f79a2a239da data/minecraft/tags/block/mineable/hoe.json
-490dfe9e32306d0f8e5e4e7977c6421da62f52a6 data/minecraft/tags/block/mineable/pickaxe.json
+dd35ef04f28aeb356bb7c0ea1609dada286961f6 data/minecraft/tags/block/mineable/pickaxe.json
+e1d77c1fe462a1618bae26ac454a25489b9d847e data/minecraft/tags/block/needs_diamond_tool.json
 40c8f1de4551f4a51ff42232004527d17b2d4a66 data/minecraft/tags/block/needs_iron_tool.json
 216ce50220a2909232a55d6bfceaba9b00f2cb62 data/minecraft/tags/block/walls.json
 057f59266657afd4c946b6d6c98d9e5391a699f7 data/minecraft/tags/block/wither_immune.json

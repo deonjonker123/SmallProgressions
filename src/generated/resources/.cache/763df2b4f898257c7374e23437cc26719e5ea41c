@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T17:20:45.1229291	Item Models: smallprogressions
+// 1.21.1	2025-12-08T21:30:46.4521024	Item Models: smallprogressions
 b4ad10448c6c84432444bf5ac0990e68a613cb4b assets/smallprogressions/models/item/apple_juice.json
 3f237813a1b2214916a12be2246bcab7cf9904c8 assets/smallprogressions/models/item/asphalt_button.json
 64b37ddbd2d29c3521452f964da29c2328faf4ca assets/smallprogressions/models/item/asphalt_wall.json
@@ -125,6 +125,7 @@ e4cb4b8dd1e4a5db018b7fa61891665659a19619 assets/smallprogressions/models/item/en
 bea50648943fe373289ea6b4fe33651fdefefc29 assets/smallprogressions/models/item/flax.json
 3a0087a0a96d4de9bc88014a163af2f84d6378bd assets/smallprogressions/models/item/flax_seeds.json
 c2704919d6280d0c94f733799bf291965ba0ebd5 assets/smallprogressions/models/item/fried_egg.json
+0406b6ef3709eb501f1e6d8e8d0fa6298eae3621 assets/smallprogressions/models/item/furnace_fuel_link.json
 c3872495ae0c7e18da0ed0b30095970c723b282f assets/smallprogressions/models/item/gold_barrel_upgrade.json
 3e74a795ea4b6799baea7b490d8776fa68a9d5be assets/smallprogressions/models/item/gold_tank_upgrade.json
 6af6a6d9d944d999e396ace2415f493678c459f7 assets/smallprogressions/models/item/gray_glowstone_dust.json

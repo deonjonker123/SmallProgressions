@@ -26,6 +26,8 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_4.get())
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get())
 
+                .add(SPBlocks.FURNACE_POWER_CORE.get())
+
                 .add(SPBlocks.SIMPLE_ITEM_COLLECTOR.get())
                 .add(SPBlocks.ADVANCED_ITEM_COLLECTOR.get())
 
@@ -148,6 +150,9 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.DEEPSLATE_ENDER_ORE.get())
                 .add(SPBlocks.NETHERRACK_ENDER_ORE.get())
                 .add(SPBlocks.ENDSTONE_ENDER_ORE.get());
+
+        tag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(SPBlocks.REINFORCED_OBSIDIAN.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(SPBlocks.COPPER_BARREL.get())
