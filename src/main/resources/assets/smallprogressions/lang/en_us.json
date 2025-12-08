@@ -264,16 +264,13 @@
   "item.smallprogressions.diamond_apple": "Diamond Apple",
 
   "tooltip.smallprogressions.growth_crystal_tier_1.line1": "Fast growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Acts as water source",
-  "tooltip.smallprogressions.growth_crystal_tier_1.line3": "Works in 9x9 area",
+  "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Works in 9x3x9 area",
 
   "tooltip.smallprogressions.growth_crystal_tier_2.line1": "Faster growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_2.line2": "Acts as water source",
-  "tooltip.smallprogressions.growth_crystal_tier_2.line3": "Works in 9x9 area",
+  "tooltip.smallprogressions.growth_crystal_tier_2.line2": "Works in 9x3x9 area",
 
   "tooltip.smallprogressions.growth_crystal_tier_3.line1": "Fastest growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_3.line2": "Acts as water source",
-  "tooltip.smallprogressions.growth_crystal_tier_3.line3": "Works in 9x9 area",
+  "tooltip.smallprogressions.growth_crystal_tier_3.line2": "Works in 9x3x9 area",
 
   "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
   "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",

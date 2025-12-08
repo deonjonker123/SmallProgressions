@@ -29,17 +29,6 @@ public class McFloatyBlock extends Block {
     }
 
     @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-        if (!player.isCreative()) {
-            player.getInventory().placeItemBackInInventory(
-                    SPBlocks.MCFLOATY_BLOCK.get().asItem().getDefaultInstance(),
-                    true
-            );
-        }
-        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
-    }
-
-    @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         entity.causeFallDamage(fallDistance, 0.0F, level.damageSources().fall());
     }

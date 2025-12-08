@@ -13,8 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
 
@@ -74,16 +72,10 @@ public class GrowthCrystalBlock extends Block {
     }
 
     @Override
-    public FluidState getFluidState(BlockState state) {
-        return Fluids.WATER.getSource(false);
-    }
-
-    @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         String key = "tooltip.smallprogressions.growth_crystal_tier_" + tier;
         tooltipComponents.add(Component.translatable(key + ".line1").withStyle(ChatFormatting.AQUA));
-        tooltipComponents.add(Component.translatable(key + ".line2").withStyle(ChatFormatting.AQUA));
-        tooltipComponents.add(Component.translatable(key + ".line3").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        tooltipComponents.add(Component.translatable(key + ".line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
