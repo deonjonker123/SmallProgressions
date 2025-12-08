@@ -345,5 +345,12 @@
 
   "message.smallprogressions.tank_upgrade.success": "Tank upgraded successfully!",
   "message.smallprogressions.tank_upgrade.wrong_tier": "This upgrade cannot be used on this tank tier",
-  "message.smallprogressions.tank_upgrade.already_upgraded": "Tank is already at this tier or higher"
+  "message.smallprogressions.tank_upgrade.already_upgraded": "Tank is already at this tier or higher",
+
+  "tooltip.smallprogressions.repair_totem.line1": "Repairs items in inventory",
+  "tooltip.smallprogressions.repair_totem.line2.seconds": "%s durability per %s per totem",
+  "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s per totem",
+  "tooltip.smallprogressions.repair_totem.line3": "Multiple totems stack effects",
+  "tooltip.smallprogressions.repair_totem.second": "second",
+  "tooltip.smallprogressions.repair_totem.seconds": "seconds"
 }

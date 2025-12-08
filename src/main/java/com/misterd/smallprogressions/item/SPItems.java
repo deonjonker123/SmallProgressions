@@ -4,6 +4,7 @@ package com.misterd.smallprogressions.item;
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.custom.BarrelUpgradeItem;
 import com.misterd.smallprogressions.item.custom.McFloatyBlockItem;
+import com.misterd.smallprogressions.item.custom.RepairTotemItem;
 import com.misterd.smallprogressions.item.custom.TankUpgradeItem;
 import com.misterd.smallprogressions.item.equipment.*;
 import com.misterd.smallprogressions.util.SPFoodProperties;
@@ -281,7 +282,7 @@ public class SPItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> REPAIR_TOTEM = ITEMS.register("repair_totem",
-            () -> new Item(new Item.Properties()));
+            () -> new RepairTotemItem(new Item.Properties()));
 
     public static final DeferredItem<Item> COTTON_BOLLS = ITEMS.register("cotton_bolls",
             () -> new Item(new Item.Properties()));

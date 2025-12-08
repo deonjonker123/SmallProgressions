@@ -39,6 +39,10 @@ public class Config {
     private static ModConfigSpec.DoubleValue GREENHOUSE_GLASS_GROWTH_BOOST;
     private static ModConfigSpec.IntValue GREENHOUSE_GLASS_RANGE;
 
+    // Repair Totem config values
+    private static ModConfigSpec.IntValue REPAIR_TOTEM_DURABILITY_PER_TOTEM;
+    private static ModConfigSpec.IntValue REPAIR_TOTEM_TICK_INTERVAL;
+
     static {
         buildCommonConfig();
         COMMON_CONFIG = COMMON_BUILDER.build();
@@ -55,6 +59,7 @@ public class Config {
         buildLavaGeneratorConfig();
         buildWaterReservoirConfig();
         buildGreenhouseGlassConfig();
+        buildRepairTotemConfig();
     }
 
     private static void buildGrowthCrystalConfig() {
@@ -209,6 +214,30 @@ public class Config {
         COMMON_BUILDER.pop();
     }
 
+    private static void buildRepairTotemConfig() {
+        COMMON_BUILDER.comment("Repair Totem - Configure item repair rates")
+                .push("repair_totem");
+
+        REPAIR_TOTEM_DURABILITY_PER_TOTEM = COMMON_BUILDER
+                .comment(
+                        "Durability repaired per totem per interval",
+                        "Default: 1 durability",
+                        "Higher values = faster repair"
+                )
+                .defineInRange("durability_per_totem", 1, 1, 100);
+
+        REPAIR_TOTEM_TICK_INTERVAL = COMMON_BUILDER
+                .comment(
+                        "How often repair occurs (in ticks)",
+                        "Default: 20 ticks (1 second)",
+                        "20 ticks = 1 second, 40 ticks = 2 seconds, etc.",
+                        "Lower values = more frequent repair"
+                )
+                .defineInRange("tick_interval", 20, 1, 200);
+
+        COMMON_BUILDER.pop();
+    }
+
     // Getter methods
     public static double getGrowthCrystalTier1Rate() {
         return GROWTH_CRYSTAL_TIER_1_RATE.get();
@@ -264,6 +293,14 @@ public class Config {
 
     public static int getGreenhouseGlassRange() {
         return GREENHOUSE_GLASS_RANGE.get();
+    }
+
+    public static int getRepairTotemDurabilityPerTotem() {
+        return REPAIR_TOTEM_DURABILITY_PER_TOTEM.get();
+    }
+
+    public static int getRepairTotemTickInterval() {
+        return REPAIR_TOTEM_TICK_INTERVAL.get();
     }
 
     private static void validateConfig() {
@@ -337,5 +374,9 @@ public class Config {
         LOGGER.info("Greenhouse Glass Configuration:");
         LOGGER.info("  Growth Boost: {}%", getGreenhouseGlassGrowthBoost() * 100);
         LOGGER.info("  Depth: {} blocks below", getGreenhouseGlassRange());
+
+        LOGGER.info("Repair Totem Configuration:");
+        LOGGER.info("  Durability per Totem: {}", getRepairTotemDurabilityPerTotem());
+        LOGGER.info("  Tick Interval: {} ticks ({} seconds)", getRepairTotemTickInterval(), getRepairTotemTickInterval() / 20.0);
     }
 }
