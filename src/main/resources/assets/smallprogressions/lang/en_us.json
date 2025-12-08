@@ -33,6 +33,7 @@
 
   "block.smallprogressions.lava_generator": "Lava Generator",
   "block.smallprogressions.water_reservoir": "Water Reservoir",
+  "block.smallprogressions.harvester": "Harvester",
 
   "block.smallprogressions.black_glowstone": "Black Glowstone",
   "block.smallprogressions.blue_glowstone": "Blue Glowstone",
@@ -156,6 +157,7 @@
   "item.smallprogressions.steel_hoe": "Steel Hoe",
   "item.smallprogressions.steel_shovel": "Steel Shovel",
   "item.smallprogressions.steel_paxel": "Steel Paxel",
+  "item.smallprogressions.steel_scythe": "Steel Scythe",
 
   "item.smallprogressions.emerald_sword": "Emerald Sword",
   "item.smallprogressions.emerald_axe": "Emerald Axe",
@@ -163,6 +165,7 @@
   "item.smallprogressions.emerald_hoe": "Emerald Hoe",
   "item.smallprogressions.emerald_shovel": "Emerald Shovel",
   "item.smallprogressions.emerald_paxel": "Emerald Paxel",
+  "item.smallprogressions.emerald_scythe": "Emerald Scythe",
 
   "item.smallprogressions.wither_sword": "Wither Sword",
   "item.smallprogressions.wither_axe": "Wither Axe",
@@ -170,6 +173,7 @@
   "item.smallprogressions.wither_hoe": "Wither Hoe",
   "item.smallprogressions.wither_shovel": "Wither Shovel",
   "item.smallprogressions.wither_paxel": "Wither Paxel",
+  "item.smallprogressions.wither_scythe": "Wither Scythe",
 
   "item.smallprogressions.dragon_sword": "Dragon Sword",
   "item.smallprogressions.dragon_axe": "Dragon Axe",
@@ -177,10 +181,12 @@
   "item.smallprogressions.dragon_hoe": "Dragon Hoe",
   "item.smallprogressions.dragon_shovel": "Dragon Shovel",
   "item.smallprogressions.dragon_paxel": "Dragon Paxel",
+  "item.smallprogressions.dragon_scythe": "Dragon Scythe",
 
   "item.smallprogressions.stone_paxel": "Stone Paxel",
   "item.smallprogressions.iron_paxel": "Iron Paxel",
   "item.smallprogressions.diamond_paxel": "Diamond Paxel",
+  "item.smallprogressions.diamond_scythe": "Diamond Scythe",
 
   "item.smallprogressions.steel_helmet": "Steel Helmet",
   "item.smallprogressions.steel_chestplate": "Steel Chesplate",

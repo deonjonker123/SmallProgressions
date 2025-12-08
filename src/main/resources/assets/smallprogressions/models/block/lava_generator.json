@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "north": "smallprogressions:block/machine_side_alt",
-    "south": "smallprogressions:block/machine_side_alt",
-    "east": "smallprogressions:block/machine_side_alt",
-    "west": "smallprogressions:block/machine_side_alt",
+    "north": "smallprogressions:block/lava_gen_side",
+    "south": "smallprogressions:block/lava_gen_side",
+    "east": "smallprogressions:block/lava_gen_side",
+    "west": "smallprogressions:block/lava_gen_side",
     "up": "smallprogressions:block/lava_gen_top",
-    "down": "smallprogressions:block/machine_bottom_alt",
+    "down": "smallprogressions:block/lava_gen_bottom",
     "particle": "smallprogressions:block/lava_gen_top"
   }
 }

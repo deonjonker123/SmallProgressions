@@ -33,15 +33,27 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.SIMPLE_ITEM_COLLECTOR);
                         output.accept(SPBlocks.ADVANCED_ITEM_COLLECTOR);
 
+                        output.accept(SPBlocks.HARVESTER);
+
                         output.accept(SPBlocks.COPPER_BARREL);
                         output.accept(SPBlocks.IRON_BARREL);
                         output.accept(SPBlocks.GOLD_BARREL);
                         output.accept(SPBlocks.DIAMOND_BARREL);
 
+                        // Barrel upgrade Items
+                        output.accept(SPItems.IRON_BARREL_UPGRADE);
+                        output.accept(SPItems.GOLD_BARREL_UPGRADE);
+                        output.accept(SPItems.DIAMOND_BARREL_UPGRADE);
+
                         output.accept(SPBlocks.COPPER_TANK);
                         output.accept(SPBlocks.IRON_TANK);
                         output.accept(SPBlocks.GOLD_TANK);
                         output.accept(SPBlocks.DIAMOND_TANK);
+
+                        // Tank Upgrade Items
+                        output.accept(SPItems.IRON_TANK_UPGRADE);
+                        output.accept(SPItems.GOLD_TANK_UPGRADE);
+                        output.accept(SPItems.DIAMOND_TANK_UPGRADE);
 
                         output.accept(SPBlocks.LINEN_SACK);
 
@@ -161,6 +173,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.STEEL_SHOVEL);
                         output.accept(SPItems.STEEL_HOE);
                         output.accept(SPItems.STEEL_PAXEL);
+                        output.accept(SPItems.STEEL_SCYTHE);
                         output.accept(SPItems.STEEL_HELMET);
                         output.accept(SPItems.STEEL_CHESTPLATE);
                         output.accept(SPItems.STEEL_LEGGINGS);
@@ -173,6 +186,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.EMERALD_SHOVEL);
                         output.accept(SPItems.EMERALD_HOE);
                         output.accept(SPItems.EMERALD_PAXEL);
+                        output.accept(SPItems.EMERALD_SCYTHE);
                         output.accept(SPItems.EMERALD_HELMET);
                         output.accept(SPItems.EMERALD_CHESTPLATE);
                         output.accept(SPItems.EMERALD_LEGGINGS);
@@ -185,6 +199,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.WITHER_SHOVEL);
                         output.accept(SPItems.WITHER_HOE);
                         output.accept(SPItems.WITHER_PAXEL);
+                        output.accept(SPItems.WITHER_SCYTHE);
                         output.accept(SPItems.WITHER_HELMET);
                         output.accept(SPItems.WITHER_CHESTPLATE);
                         output.accept(SPItems.WITHER_LEGGINGS);
@@ -197,6 +212,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.DRAGON_SHOVEL);
                         output.accept(SPItems.DRAGON_HOE);
                         output.accept(SPItems.DRAGON_PAXEL);
+                        output.accept(SPItems.DRAGON_SCYTHE);
                         output.accept(SPItems.DRAGON_HELMET);
                         output.accept(SPItems.DRAGON_CHESTPLATE);
                         output.accept(SPItems.DRAGON_LEGGINGS);
@@ -206,6 +222,12 @@ public class SPCreativeTab {
                         output.accept(SPItems.STONE_PAXEL);
                         output.accept(SPItems.IRON_PAXEL);
                         output.accept(SPItems.DIAMOND_PAXEL);
+                        output.accept(SPItems.DIAMOND_SCYTHE);
+
+                        // Watering Cans
+                        output.accept(SPItems.WATERING_CAN_TIER_1);
+                        output.accept(SPItems.WATERING_CAN_TIER_2);
+                        output.accept(SPItems.WATERING_CAN_TIER_3);
 
                         // Boss Drops Items
                         output.accept(SPItems.WITHER_RIB);
@@ -247,16 +269,6 @@ public class SPCreativeTab {
                         output.accept(SPItems.COTTON_BOLLS);
                         output.accept(SPItems.FLAX_SEEDS);
                         output.accept(SPItems.FLAX);
-
-                        // Barrel upgrade Items
-                        output.accept(SPItems.IRON_BARREL_UPGRADE);
-                        output.accept(SPItems.GOLD_BARREL_UPGRADE);
-                        output.accept(SPItems.DIAMOND_BARREL_UPGRADE);
-
-                        // Tank Upgrade Items
-                        output.accept(SPItems.IRON_TANK_UPGRADE);
-                        output.accept(SPItems.GOLD_TANK_UPGRADE);
-                        output.accept(SPItems.DIAMOND_TANK_UPGRADE);
 
                         // Food Items
                         output.accept(SPItems.BLACKBERRIES);

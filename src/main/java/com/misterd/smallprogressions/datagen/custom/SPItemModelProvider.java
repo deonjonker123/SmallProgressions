@@ -107,6 +107,10 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.EMERALD_APPLE.get());
         basicItem(SPItems.DIAMOND_APPLE.get());
 
+        basicItem(SPItems.WATERING_CAN_TIER_1.get());
+        basicItem(SPItems.WATERING_CAN_TIER_2.get());
+        basicItem(SPItems.WATERING_CAN_TIER_3.get());
+
         buttonItem(SPBlocks.MARBLE_BUTTON, SPBlocks.MARBLE);
         buttonItem(SPBlocks.SLATE_BUTTON, SPBlocks.SLATE);
         buttonItem(SPBlocks.ASPHALT_BUTTON, SPBlocks.ASPHALT);
@@ -128,6 +132,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         handheldItem(SPItems.STEEL_SHOVEL);
         handheldItem(SPItems.STEEL_HOE);
         handheldItem(SPItems.STEEL_PAXEL);
+        handheldItem(SPItems.STEEL_SCYTHE);
 
         trimmedArmorItem(SPItems.STEEL_HELMET);
         trimmedArmorItem(SPItems.STEEL_CHESTPLATE);
@@ -140,6 +145,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         handheldItem(SPItems.EMERALD_SHOVEL);
         handheldItem(SPItems.EMERALD_HOE);
         handheldItem(SPItems.EMERALD_PAXEL);
+        handheldItem(SPItems.EMERALD_SCYTHE);
 
         trimmedArmorItem(SPItems.EMERALD_HELMET);
         trimmedArmorItem(SPItems.EMERALD_CHESTPLATE);
@@ -152,6 +158,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         handheldItem(SPItems.WITHER_SHOVEL);
         handheldItem(SPItems.WITHER_HOE);
         handheldItem(SPItems.WITHER_PAXEL);
+        handheldItem(SPItems.WITHER_SCYTHE);
 
         trimmedArmorItem(SPItems.WITHER_HELMET);
         trimmedArmorItem(SPItems.WITHER_CHESTPLATE);
@@ -164,6 +171,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         handheldItem(SPItems.DRAGON_SHOVEL);
         handheldItem(SPItems.DRAGON_HOE);
         handheldItem(SPItems.DRAGON_PAXEL);
+        handheldItem(SPItems.DRAGON_SCYTHE);
 
         trimmedArmorItem(SPItems.DRAGON_HELMET);
         trimmedArmorItem(SPItems.DRAGON_CHESTPLATE);
@@ -173,6 +181,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         handheldItem(SPItems.STONE_PAXEL);
         handheldItem(SPItems.IRON_PAXEL);
         handheldItem(SPItems.DIAMOND_PAXEL);
+        handheldItem(SPItems.DIAMOND_SCYTHE);
     }
 
     private ItemModelBuilder handheldItem(DeferredItem<?> item) {

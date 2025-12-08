@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T22:41:00.3220429	Recipes
+// 1.21.1	2025-12-09T00:20:16.3191132	Recipes
 096e1cc324170955c907412f2c3113c03ece7be3 data/minecraft/advancement/recipes/misc/charcoal.json
 2dd93e631bc87f5c1f296b791d53152d40ade673 data/minecraft/advancement/recipes/misc/ender_pearl.json
 d8b464397cb8b5b160a4cf4d33bceb1c33fe8b72 data/minecraft/advancement/recipes/misc/string.json
@@ -148,6 +148,7 @@ e65e2039d6f8404344dc2f078fa0015c8a2af82c data/smallprogressions/advancement/reci
 189c84355a504f060757d6958050e76e91cc05f7 data/smallprogressions/advancement/recipes/misc/hammer.json
 5c979641fa4e3e1d1a4d75ffe0dc45934f3222af data/smallprogressions/advancement/recipes/misc/hardened_stone_bricks.json
 0715cfe607f81675b13754161fb7819bd4296539 data/smallprogressions/advancement/recipes/misc/hardened_stone_from_smelting.json
+473f4a2ea23b61a0506c654641e71432f0a58c45 data/smallprogressions/advancement/recipes/misc/harvester.json
 1f3b04442d802303782b06f947a43ccb66e4264b data/smallprogressions/advancement/recipes/misc/iron_apple.json
 dc5fa79319046fbbf567584655fbe087406d9142 data/smallprogressions/advancement/recipes/misc/iron_barrel.json
 240e93b9f0902a01ede27e7374db091537b5242f data/smallprogressions/advancement/recipes/misc/iron_barrel_upgrade.json
@@ -322,6 +323,7 @@ c16a8fa4c730417a1d691b6087378bd5383bf59a data/smallprogressions/recipe/hardened_
 bbafa944b6b7c2233189e986408e3ae4a4955621 data/smallprogressions/recipe/hardened_stone_slab.json
 694766ffe87d07568c57364384c7d8acacbc8c98 data/smallprogressions/recipe/hardened_stone_stairs.json
 16b4a8bb3a40e0c45a0f3fb70e471fdc78e30801 data/smallprogressions/recipe/hardened_stone_wall.json
+9184e84dd49922eeb305c4413d4c821add56d66a data/smallprogressions/recipe/harvester.json
 dc49415a479a6bd9bb477f8ad277a4d87ba544bb data/smallprogressions/recipe/iron_apple.json
 909a7561489363e60728443c374bad23eab4d3d8 data/smallprogressions/recipe/iron_barrel.json
 cb33ceb25095b9e1f4e6c2ff3c13a8807bec5cb0 data/smallprogressions/recipe/iron_barrel_upgrade.json

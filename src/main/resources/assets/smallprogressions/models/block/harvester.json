@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/harvester_side",
+    "south": "smallprogressions:block/harvester_side",
+    "east": "smallprogressions:block/harvester_side",
+    "west": "smallprogressions:block/harvester_side",
+    "up": "smallprogressions:block/harvester_top",
+    "down": "smallprogressions:block/harvester_bottom",
+    "particle": "smallprogressions:block/harvester_side"
+  }
+}

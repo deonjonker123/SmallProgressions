@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T22:41:00.3205427	Loot Tables
+// 1.21.1	2025-12-09T00:20:16.3176121	Loot Tables
 aad6be855a5dea203651f9f18232b3edebafe2fe data/smallprogressions/loot_table/blocks/advanced_item_collector.json
 c92d02f83bed781aaf48c603cd362843af2319f9 data/smallprogressions/loot_table/blocks/asphalt.json
 f290d17c09977e90a639933053cb1438e9b2302d data/smallprogressions/loot_table/blocks/asphalt_button.json
@@ -52,6 +52,7 @@ e12dc3a06b6ba6b4aa8a3142275d3cab5140e907 data/smallprogressions/loot_table/block
 146c7f3ed0831d5bbdb17ace8ae0465a7f9f8237 data/smallprogressions/loot_table/blocks/hardened_stone_slab.json
 9bba9c4635f17735b2af3a93f9151c8b3f4eac5e data/smallprogressions/loot_table/blocks/hardened_stone_stairs.json
 2c57c9ca8c6624ab24a448f6c66d156ec27c70b1 data/smallprogressions/loot_table/blocks/hardened_stone_wall.json
+eb70ec49cfd8876d8c2acaec2866cedf605178a7 data/smallprogressions/loot_table/blocks/harvester.json
 ee6bec0d4b2df10f17281b578815f89357956db9 data/smallprogressions/loot_table/blocks/iron_barrel.json
 85bb1b7d2861456b482482e6e9ecb8c56f24c55f data/smallprogressions/loot_table/blocks/iron_tank.json
 35c365b6bb2c120e3832a1679cad074144982c1f data/smallprogressions/loot_table/blocks/lava_generator.json

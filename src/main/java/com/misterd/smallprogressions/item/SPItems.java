@@ -48,6 +48,9 @@ public class SPItems {
     public static final DeferredItem<PaxelItem> STEEL_PAXEL = ITEMS.register("steel_paxel",
             () -> new PaxelItem(SPToolTiers.STEEL, new Item.Properties()));
 
+    public static final DeferredItem<Item> STEEL_SCYTHE = ITEMS.register("steel_scythe",
+            () -> new Item(new Item.Properties()));
+
     /// Emerald Tools ///
     public static final DeferredItem<SwordItem> EMERALD_SWORD = ITEMS.register("emerald_sword",
             () -> new SwordItem(SPToolTiers.EMERALD,
@@ -71,6 +74,9 @@ public class SPItems {
 
     public static final DeferredItem<PaxelItem> EMERALD_PAXEL = ITEMS.register("emerald_paxel",
             () -> new PaxelItem(SPToolTiers.EMERALD, new Item.Properties()));
+
+    public static final DeferredItem<Item> EMERALD_SCYTHE = ITEMS.register("emerald_scythe",
+            () -> new Item(new Item.Properties()));
 
     /// Wither Tool ///
     public static final DeferredItem<SwordItem> WITHER_SWORD = ITEMS.register("wither_sword",
@@ -96,6 +102,9 @@ public class SPItems {
     public static final DeferredItem<PaxelItem> WITHER_PAXEL = ITEMS.register("wither_paxel",
             () -> new PaxelItem(SPToolTiers.WITHER, new Item.Properties()));
 
+    public static final DeferredItem<Item> WITHER_SCYTHE = ITEMS.register("wither_scythe",
+            () -> new Item(new Item.Properties()));
+
     /// Dragon Tool ///
     public static final DeferredItem<SwordItem> DRAGON_SWORD = ITEMS.register("dragon_sword",
             () -> new SwordItem(SPToolTiers.DRAGON,
@@ -120,6 +129,9 @@ public class SPItems {
     public static final DeferredItem<PaxelItem> DRAGON_PAXEL = ITEMS.register("dragon_paxel",
             () -> new PaxelItem(SPToolTiers.DRAGON, new Item.Properties()));
 
+    public static final DeferredItem<Item> DRAGON_SCYTHE = ITEMS.register("dragon_scythe",
+            () -> new Item(new Item.Properties()));
+
     /// Vanilla Variant Paxels ///
     public static final DeferredItem<PaxelItem> STONE_PAXEL = ITEMS.register("stone_paxel",
             () -> new PaxelItem(Tiers.STONE, new Item.Properties()));
@@ -129,6 +141,9 @@ public class SPItems {
 
     public static final DeferredItem<PaxelItem> DIAMOND_PAXEL = ITEMS.register("diamond_paxel",
             () -> new PaxelItem(Tiers.DIAMOND, new Item.Properties()));
+
+    public static final DeferredItem<Item> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
+            () -> new Item(new Item.Properties()));
 
     ///  Steel Armor ///
     public static final DeferredItem<ArmorItem> STEEL_HELMET = ITEMS.register("steel_helmet",
@@ -266,6 +281,16 @@ public class SPItems {
 
     /// Ender Dust ///
     public static final DeferredItem<Item> ENDER_DUST = ITEMS.register("ender_dust",
+            () -> new Item(new Item.Properties()));
+
+    ///  Watering Cans ///
+    public static final DeferredItem<Item> WATERING_CAN_TIER_1 = ITEMS.register("watering_can_tier_1",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> WATERING_CAN_TIER_2 = ITEMS.register("watering_can_tier_2",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> WATERING_CAN_TIER_3 = ITEMS.register("watering_can_tier_3",
             () -> new Item(new Item.Properties()));
 
     /// Crafting Materials ///

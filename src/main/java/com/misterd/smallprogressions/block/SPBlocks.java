@@ -80,6 +80,12 @@ public class SPBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));
 
+    public static final DeferredBlock<Block> HARVESTER = registerBlock("harvester",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3F, 3F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+
     // Storage Barrels
     public static final DeferredBlock<Block> COPPER_BARREL = registerBlock("copper_barrel",
             () -> new CopperBarrelBlock(BlockBehaviour.Properties.of()

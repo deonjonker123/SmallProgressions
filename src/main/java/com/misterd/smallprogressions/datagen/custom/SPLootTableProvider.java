@@ -44,6 +44,8 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.SIMPLE_ITEM_COLLECTOR.get());
         dropSelf(SPBlocks.ADVANCED_ITEM_COLLECTOR.get());
 
+        dropSelf(SPBlocks.HARVESTER.get());
+
         dropSelf(SPBlocks.BRICK_FURNACE.get());
 
         dropSelf(SPBlocks.LAVA_GENERATOR.get());
