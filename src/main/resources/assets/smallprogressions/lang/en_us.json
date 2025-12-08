@@ -329,7 +329,21 @@
   "gui.smallprogressions.advanced_item_collector.offset.down_up": "D/U Offset",
   "gui.smallprogressions.advanced_item_collector.offset.north_south": "N/S Offset",
   "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset",
-  "gui.smallprogressions.linen_sack": "Linen Sack"
+  "gui.smallprogressions.linen_sack": "Linen Sack",
 
+  "tooltip.smallprogressions.iron_barrel_upgrade": "Upgrades Copper Barrel to Iron Barrel",
+  "tooltip.smallprogressions.gold_barrel_upgrade": "Upgrades Iron Barrel to Gold Barrel",
+  "tooltip.smallprogressions.diamond_barrel_upgrade": "Upgrades Gold Barrel to Diamond Barrel",
 
+  "message.smallprogressions.barrel_upgrade.success": "Barrel upgraded successfully!",
+  "message.smallprogressions.barrel_upgrade.wrong_tier": "This upgrade cannot be used on this barrel tier",
+  "message.smallprogressions.barrel_upgrade.already_upgraded": "Barrel is already at this tier or higher",
+
+  "tooltip.smallprogressions.iron_tank_upgrade": "Upgrades Copper Tank to Iron Tank",
+  "tooltip.smallprogressions.gold_tank_upgrade": "Upgrades Iron Tank to Gold Tank",
+  "tooltip.smallprogressions.diamond_tank_upgrade": "Upgrades Gold Tank to Diamond Tank",
+
+  "message.smallprogressions.tank_upgrade.success": "Tank upgraded successfully!",
+  "message.smallprogressions.tank_upgrade.wrong_tier": "This upgrade cannot be used on this tank tier",
+  "message.smallprogressions.tank_upgrade.already_upgraded": "Tank is already at this tier or higher"
 }

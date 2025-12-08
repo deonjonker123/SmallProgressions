@@ -2,7 +2,9 @@ package com.misterd.smallprogressions.item;
 
 
 import com.misterd.smallprogressions.block.SPBlocks;
+import com.misterd.smallprogressions.item.custom.BarrelUpgradeItem;
 import com.misterd.smallprogressions.item.custom.McFloatyBlockItem;
+import com.misterd.smallprogressions.item.custom.TankUpgradeItem;
 import com.misterd.smallprogressions.item.equipment.*;
 import com.misterd.smallprogressions.util.SPFoodProperties;
 import net.minecraft.world.item.*;
@@ -289,23 +291,23 @@ public class SPItems {
 
     /// Storage Barrel Upgrades ///
     public static final DeferredItem<Item> IRON_BARREL_UPGRADE = ITEMS.register("iron_barrel_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new BarrelUpgradeItem(BarrelUpgradeItem.BarrelTier.IRON, new Item.Properties()));
 
     public static final DeferredItem<Item> GOLD_BARREL_UPGRADE = ITEMS.register("gold_barrel_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new BarrelUpgradeItem(BarrelUpgradeItem.BarrelTier.GOLD, new Item.Properties()));
 
     public static final DeferredItem<Item> DIAMOND_BARREL_UPGRADE = ITEMS.register("diamond_barrel_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new BarrelUpgradeItem(BarrelUpgradeItem.BarrelTier.DIAMOND, new Item.Properties()));
 
     /// Tank Upgrades ///
     public static final DeferredItem<Item> IRON_TANK_UPGRADE = ITEMS.register("iron_tank_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new TankUpgradeItem(TankUpgradeItem.TankTier.IRON, new Item.Properties()));
 
     public static final DeferredItem<Item> GOLD_TANK_UPGRADE = ITEMS.register("gold_tank_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new TankUpgradeItem(TankUpgradeItem.TankTier.GOLD, new Item.Properties()));
 
     public static final DeferredItem<Item> DIAMOND_TANK_UPGRADE = ITEMS.register("diamond_tank_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new TankUpgradeItem(TankUpgradeItem.TankTier.DIAMOND, new Item.Properties()));
 
     /// Foods ///
     public static final DeferredItem<Item> BLACKBERRIES = ITEMS.register("blackberries",
