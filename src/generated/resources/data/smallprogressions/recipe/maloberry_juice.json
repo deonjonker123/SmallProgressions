@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smallprogressions:juicer"
+    },
+    {
+      "item": "smallprogressions:maloberries"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:maloberry_juice"
+  }
+}

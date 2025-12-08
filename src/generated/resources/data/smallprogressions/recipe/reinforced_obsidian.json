@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "O": {
+      "tag": "c:obsidians"
+    }
+  },
+  "pattern": [
+    "IOI",
+    "OIO",
+    "IOI"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:reinforced_obsidian"
+  }
+}

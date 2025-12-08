@@ -1,0 +1,12 @@
+// 1.21.1	2025-12-08T17:20:45.1304702	Tags for minecraft:item mod id smallprogressions
+ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/c/tags/item/armors.json
+64aaca486b880907f1785dba3485b2c758a05a54 data/c/tags/item/glass_blocks.json
+58cea64e88bc04e1dcd0cea09964852dac372b0e data/c/tags/item/ingots.json
+40c8f1de4551f4a51ff42232004527d17b2d4a66 data/c/tags/item/ores.json
+62644133796bb6ec7185f584ac878609e12259a4 data/c/tags/item/tools.json
+58cea64e88bc04e1dcd0cea09964852dac372b0e data/small_progressions/tags/item/ingots/small_progressions.json
+6ea89ecffd1ab3a776010c6366cc8ff4e0172172 data/small_progressions/tags/item/nuggets/small_progressions.json
+40c8f1de4551f4a51ff42232004527d17b2d4a66 data/small_progressions/tags/item/ores/small_progressions.json
+ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/small_progressions/tags/item/small_progressions_armors.json
+27e7c618822eed8014229ff6ded3f819df7bbf0a data/small_progressions/tags/item/small_progressions_glowstone_blocks.json
+62644133796bb6ec7185f584ac878609e12259a4 data/small_progressions/tags/item/small_progressions_tools.json

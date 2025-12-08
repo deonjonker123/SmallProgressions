@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smallprogressions:cotton_bolls"
+    },
+    {
+      "item": "smallprogressions:cotton_bolls"
+    },
+    {
+      "item": "smallprogressions:cotton_bolls"
+    },
+    {
+      "item": "smallprogressions:cotton_bolls"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:white_wool"
+  }
+}

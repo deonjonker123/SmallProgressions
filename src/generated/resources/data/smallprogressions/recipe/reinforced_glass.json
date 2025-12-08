@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "O": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "pattern": [
+    "IOI",
+    "OCO",
+    "IOI"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:reinforced_glass"
+  }
+}

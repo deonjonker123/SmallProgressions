@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:cooked_bacon"
+    },
+    "B": {
+      "item": "minecraft:bread"
+    },
+    "E": {
+      "item": "smallprogressions:fried_egg"
+    }
+  },
+  "pattern": [
+    " B ",
+    "#E#",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:bacon_egg_sandwich"
+  }
+}

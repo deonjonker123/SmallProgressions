@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "slate",
+  "key": {
+    "#": {
+      "item": "smallprogressions:slate_bricks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:slate_brick_stairs"
+  }
+}

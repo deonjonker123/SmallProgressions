@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:steel_ingot"
+    },
+    "B": {
+      "tag": "small_progressions:small_progressions_glowstone_blocks"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "pattern": [
+    "#G#",
+    "GBG",
+    "#G#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:greenhouse_glass"
+  }
+}

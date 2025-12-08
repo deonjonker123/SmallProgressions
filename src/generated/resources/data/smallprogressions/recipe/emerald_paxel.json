@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "smallprogressions:emerald_axe"
+    },
+    "P": {
+      "item": "smallprogressions:emerald_pickaxe"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "V": {
+      "item": "smallprogressions:emerald_shovel"
+    }
+  },
+  "pattern": [
+    "PVA",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:emerald_paxel"
+  }
+}

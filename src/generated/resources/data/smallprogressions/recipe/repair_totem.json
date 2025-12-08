@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:nether_star"
+    },
+    "H": {
+      "item": "smallprogressions:hardened_stone"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "smallprogressions:steel_ingot"
+    }
+  },
+  "pattern": [
+    "HNH",
+    "S#S",
+    "HSH"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:repair_totem"
+  }
+}

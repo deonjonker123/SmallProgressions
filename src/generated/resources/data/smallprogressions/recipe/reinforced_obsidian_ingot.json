@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smallprogressions:reinforced_obsidian"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "smallprogressions:reinforced_obsidian_ingot"
+  }
+}

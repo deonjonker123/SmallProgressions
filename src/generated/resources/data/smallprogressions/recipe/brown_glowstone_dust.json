@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smallprogressions:brown_glowstone"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:brown_glowstone_dust"
+  }
+}

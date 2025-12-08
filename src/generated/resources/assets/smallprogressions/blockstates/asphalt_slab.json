@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "smallprogressions:block/asphalt_slab"
+    },
+    "type=double": {
+      "model": "smallprogressions:block/asphalt"
+    },
+    "type=top": {
+      "model": "smallprogressions:block/asphalt_slab_top"
+    }
+  }
+}

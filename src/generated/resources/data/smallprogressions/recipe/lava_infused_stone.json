@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "tag": "c:buckets/lava"
+    },
+    "O": {
+      "tag": "c:obsidians"
+    },
+    "S": {
+      "item": "smallprogressions:hardened_stone"
+    }
+  },
+  "pattern": [
+    "SOS",
+    "OLO",
+    "SOS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:lava_infused_stone"
+  }
+}

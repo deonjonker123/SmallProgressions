@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gray_glowstone_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:gray_glowstone_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:gray_glowstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gray_glowstone_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:gray_glowstone"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "marble",
+  "ingredients": [
+    {
+      "item": "smallprogressions:marble"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:marble_button"
+  }
+}

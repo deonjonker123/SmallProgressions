@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "smallprogressions:item/light_blue_glowstone_dust"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "hardened_stone",
+  "ingredients": [
+    {
+      "item": "smallprogressions:hardened_stone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:hardened_stone_button"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "smallprogressions:block/marble",
+    "side": "smallprogressions:block/marble",
+    "top": "smallprogressions:block/marble"
+  }
+}

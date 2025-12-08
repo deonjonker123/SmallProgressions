@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:cobblestone_generator_tier_1"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "I#I",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:cobblestone_generator_tier_2"
+  }
+}

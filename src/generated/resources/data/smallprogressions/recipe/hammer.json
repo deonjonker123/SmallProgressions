@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "H": {
+      "item": "smallprogressions:hardened_stone"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "pattern": [
+    "HSH",
+    "S#S",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:hammer"
+  }
+}

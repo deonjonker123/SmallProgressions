@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:steel_ingot"
+    },
+    "B": {
+      "item": "smallprogressions:steel_block"
+    },
+    "L": {
+      "tag": "c:buckets/water"
+    },
+    "S": {
+      "item": "smallprogressions:hardened_stone"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "#L#",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:water_reservoir"
+  }
+}

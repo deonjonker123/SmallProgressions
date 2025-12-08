@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dragon_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:dragon_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:dragon_paxel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dragon_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:dragon_paxel"
+    ]
+  }
+}

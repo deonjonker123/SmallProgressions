@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "P#P",
+    "PBP",
+    "P#P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:copper_barrel"
+  }
+}

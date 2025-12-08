@@ -1,0 +1,13 @@
+{
+  "values": [
+    "smallprogressions:marble_wall",
+    "smallprogressions:marble_brick_wall",
+    "smallprogressions:slate_wall",
+    "smallprogressions:slate_brick_wall",
+    "smallprogressions:asphalt_wall",
+    "smallprogressions:hardened_stone_wall",
+    "smallprogressions:hardened_stone_brick_wall",
+    "smallprogressions:soul_sandstone_wall",
+    "smallprogressions:soul_sandstone_brick_wall"
+  ]
+}

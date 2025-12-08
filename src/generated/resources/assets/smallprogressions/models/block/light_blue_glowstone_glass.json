@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "smallprogressions:block/light_blue_glowstone_glass"
+  }
+}

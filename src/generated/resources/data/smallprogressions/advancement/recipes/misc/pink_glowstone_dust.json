@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_glowstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:pink_glowstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:pink_glowstone_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_glowstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:pink_glowstone_dust"
+    ]
+  }
+}

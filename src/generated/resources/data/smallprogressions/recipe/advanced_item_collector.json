@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "S": {
+      "item": "smallprogressions:hardened_stone"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GEG",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:advanced_item_collector"
+  }
+}

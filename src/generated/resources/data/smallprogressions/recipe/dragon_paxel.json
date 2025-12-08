@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "smallprogressions:dragon_axe"
+    },
+    "P": {
+      "item": "smallprogressions:dragon_pickaxe"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "V": {
+      "item": "smallprogressions:dragon_shovel"
+    }
+  },
+  "pattern": [
+    "PVA",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:dragon_paxel"
+  }
+}

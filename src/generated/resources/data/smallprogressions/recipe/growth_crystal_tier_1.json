@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:steel_ingot"
+    },
+    "B": {
+      "item": "minecraft:bone_meal"
+    },
+    "G": {
+      "tag": "small_progressions:small_progressions_glowstone_blocks"
+    },
+    "W": {
+      "tag": "c:buckets/water"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "BGB",
+    "#W#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:growth_crystal_tier_1"
+  }
+}

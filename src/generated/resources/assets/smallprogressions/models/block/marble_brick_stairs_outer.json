@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "smallprogressions:block/marble_bricks",
+    "side": "smallprogressions:block/marble_bricks",
+    "top": "smallprogressions:block/marble_bricks"
+  }
+}

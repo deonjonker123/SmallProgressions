@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "smallprogressions:block/asphalt",
+    "side": "smallprogressions:block/asphalt",
+    "top": "smallprogressions:block/asphalt"
+  }
+}

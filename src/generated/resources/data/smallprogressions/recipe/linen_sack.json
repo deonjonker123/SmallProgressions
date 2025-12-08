@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "smallprogressions:flax"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "pattern": [
+    "FSF",
+    "F F",
+    "FFF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:linen_sack"
+  }
+}

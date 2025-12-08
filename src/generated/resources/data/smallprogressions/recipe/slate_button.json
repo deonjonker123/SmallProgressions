@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "slate",
+  "ingredients": [
+    {
+      "item": "smallprogressions:slate"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:slate_button"
+  }
+}

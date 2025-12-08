@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "asphalt",
+  "ingredients": [
+    {
+      "item": "smallprogressions:asphalt"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:asphalt_button"
+  }
+}

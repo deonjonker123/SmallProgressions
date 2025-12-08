@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:wither_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wither_rib": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:wither_rib"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wither_rib"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:wither_chestplate"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:cobblestone_generator_tier_2"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "III",
+    "I#I",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:cobblestone_generator_tier_3"
+  }
+}

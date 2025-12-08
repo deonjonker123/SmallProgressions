@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "soul_sandstone",
+  "key": {
+    "#": {
+      "item": "smallprogressions:soul_sandstone"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:soul_sandstone_stairs"
+  }
+}

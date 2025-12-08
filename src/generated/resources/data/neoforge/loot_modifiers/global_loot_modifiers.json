@@ -1,0 +1,13 @@
+{
+  "entries": [
+    "smallprogressions:dragon_scale_from_ender_dragon",
+    "smallprogressions:wither_rib_from_wither",
+    "smallprogressions:cotton_seeds_to_short_grass",
+    "smallprogressions:cotton_seeds_to_tall_grass",
+    "smallprogressions:flax_seeds_to_short_grass",
+    "smallprogressions:flax_seeds_to_tall_grass",
+    "smallprogressions:straw_from_short_grass",
+    "smallprogressions:straw_from_tall_grass"
+  ],
+  "replace": false
+}

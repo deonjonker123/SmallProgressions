@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "smallprogressions:wither_rib"
+    },
+    "N": {
+      "item": "minecraft:netherite_chestplate"
+    }
+  },
+  "pattern": [
+    "I I",
+    "INI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:wither_chestplate"
+  }
+}

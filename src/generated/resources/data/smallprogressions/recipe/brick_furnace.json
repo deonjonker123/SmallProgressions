@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "smallprogressions:steel_ingot"
+    },
+    "C": {
+      "item": "minecraft:bricks"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "S": {
+      "item": "smallprogressions:hardened_stone"
+    }
+  },
+  "pattern": [
+    "C#C",
+    "#F#",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:brick_furnace"
+  }
+}
