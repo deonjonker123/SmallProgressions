@@ -1280,6 +1280,15 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_steel_pickaxe", has(SPItems.STEEL_PICKAXE))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.STEEL_SCYTHE.get())
+                .pattern(" II")
+                .pattern(" I ")
+                .pattern("S  ")
+                .define('I', SPItems.STEEL_INGOT.get())
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT.get()))
+                .save(recipeOutput);
+
         // Steel Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SPItems.STEEL_HELMET.get())
                 .pattern("III")
@@ -1370,6 +1379,15 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_emerald_pickaxe", has(SPItems.EMERALD_PICKAXE))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.EMERALD_SCYTHE.get())
+                .pattern(" II")
+                .pattern(" I ")
+                .pattern("S  ")
+                .define('I', Items.EMERALD)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_emerald", has(Items.EMERALD))
+                .save(recipeOutput);
+
         // Emerald Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SPItems.EMERALD_HELMET.get())
                 .pattern("III")
@@ -1458,6 +1476,15 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('A', SPItems.WITHER_AXE)
                 .define('S', Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_wither_pickaxe", has(SPItems.WITHER_PICKAXE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WITHER_SCYTHE.get())
+                .pattern(" II")
+                .pattern(" I ")
+                .pattern("S  ")
+                .define('I', SPItems.WITHER_RIB)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_wither_rib", has(SPItems.WITHER_RIB))
                 .save(recipeOutput);
 
         // Wither Armor
@@ -1554,6 +1581,15 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_dragon_pickaxe", has(SPItems.DRAGON_PICKAXE))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.DRAGON_SCYTHE.get())
+                .pattern(" II")
+                .pattern(" I ")
+                .pattern("S  ")
+                .define('I', SPItems.DRAGON_SCALE)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_dragon_scale", has(SPItems.DRAGON_SCALE))
+                .save(recipeOutput);
+
         // Dragon Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SPItems.DRAGON_HELMET.get())
                 .pattern("INI")
@@ -1623,6 +1659,45 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('A', Items.DIAMOND_AXE)
                 .define('S', Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_diamond_pickaxe", has(Items.DIAMOND_PICKAXE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.DIAMOND_SCYTHE.get())
+                .pattern(" II")
+                .pattern(" I ")
+                .pattern("S  ")
+                .define('I', Items.DIAMOND)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WATERING_CAN_TIER_1.get())
+                .pattern("SB ")
+                .pattern("SWS")
+                .pattern(" S ")
+                .define('B', Items.BONE_MEAL)
+                .define('S', SPItems.STEEL_INGOT)
+                .define('W', Tags.Items.BUCKETS_WATER)
+                .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WATERING_CAN_TIER_2.get())
+                .pattern("SB ")
+                .pattern("SWS")
+                .pattern(" S ")
+                .define('B', Items.BONE_MEAL)
+                .define('S', Items.EMERALD)
+                .define('W', SPItems.WATERING_CAN_TIER_1)
+                .unlockedBy("has_watering_can_tier_1", has(SPItems.WATERING_CAN_TIER_1))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WATERING_CAN_TIER_3.get())
+                .pattern("SB ")
+                .pattern("SWS")
+                .pattern(" S ")
+                .define('B', Items.BONE_MEAL)
+                .define('S', Items.NETHERITE_INGOT)
+                .define('W', SPItems.WATERING_CAN_TIER_2)
+                .unlockedBy("has_watering_can_tier_2", has(SPItems.WATERING_CAN_TIER_2))
                 .save(recipeOutput);
     }
 

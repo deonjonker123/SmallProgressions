@@ -223,17 +223,17 @@ public class AdvancedItemCollectorScreen extends AbstractContainerScreen<Advance
         switch (axis) {
             case "downUp" -> {
                 configType = ConfigPacket.ConfigType.ADVANCED_COLLECTOR_DOWN_UP_OFFSET;
-                newValue = Math.max(-5, Math.min(5, this.downUpOffset + delta));
+                newValue = Math.max(-10, Math.min(10, this.downUpOffset + delta));
                 this.downUpOffset = newValue;
             }
             case "northSouth" -> {
                 configType = ConfigPacket.ConfigType.ADVANCED_COLLECTOR_NORTH_SOUTH_OFFSET;
-                newValue = Math.max(-5, Math.min(5, this.northSouthOffset + delta));
+                newValue = Math.max(-10, Math.min(10, this.northSouthOffset + delta));
                 this.northSouthOffset = newValue;
             }
             case "eastWest" -> {
                 configType = ConfigPacket.ConfigType.ADVANCED_COLLECTOR_EAST_WEST_OFFSET;
-                newValue = Math.max(-5, Math.min(5, this.eastWestOffset + delta));
+                newValue = Math.max(-10, Math.min(10, this.eastWestOffset + delta));
                 this.eastWestOffset = newValue;
             }
             default -> {
@@ -326,13 +326,13 @@ public class AdvancedItemCollectorScreen extends AbstractContainerScreen<Advance
         poseStack.scale(scale, scale, 1.0F);
 
         String duText = (this.downUpOffset >= 0 ? "+" : "") + this.downUpOffset;
-        guiGraphics.drawString(this.font, duText, (int) ((x + 103) / scale), (int) ((y + 21) / scale), 0x353535, false);
+        guiGraphics.drawString(this.font, duText, (int) ((x + 100) / scale), (int) ((y + 21) / scale), 0x353535, false);
 
         String nsText = (this.northSouthOffset >= 0 ? "+" : "") + this.northSouthOffset;
-        guiGraphics.drawString(this.font, nsText, (int) ((x + 103) / scale), (int) ((y + 43) / scale), 0x353535, false);
+        guiGraphics.drawString(this.font, nsText, (int) ((x + 100) / scale), (int) ((y + 43) / scale), 0x353535, false);
 
         String ewText = (this.eastWestOffset >= 0 ? "+" : "") + this.eastWestOffset;
-        guiGraphics.drawString(this.font, ewText, (int) ((x + 103) / scale), (int) ((y + 65) / scale), 0x353535, false);
+        guiGraphics.drawString(this.font, ewText, (int) ((x + 100) / scale), (int) ((y + 65) / scale), 0x353535, false);
 
         guiGraphics.drawString(this.font, Component.translatable("gui.smallprogressions.advanced_item_collector.offset.down_up").getString(),
                 (int) ((x + 90) / scale), (int) ((y + 12) / scale), 0x353535, false);

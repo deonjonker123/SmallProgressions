@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "minecraft:bone_meal"
+    },
+    "S": {
+      "item": "minecraft:emerald"
+    },
+    "W": {
+      "item": "smallprogressions:watering_can_tier_1"
+    }
+  },
+  "pattern": [
+    "SB ",
+    "SWS",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:watering_can_tier_2"
+  }
+}

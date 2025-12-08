@@ -67,7 +67,7 @@ public class AdvancedItemCollectorWireframeRenderer {
 
     private static AABB calculateCollectionZone(AdvancedItemCollectorBlockEntity collector) {
         BlockPos pos = collector.getBlockPos();
-        int radius = 2;
+        int radius = 4;
 
         return new AABB(
                 pos.getX() - radius + collector.getEastWestOffset(),

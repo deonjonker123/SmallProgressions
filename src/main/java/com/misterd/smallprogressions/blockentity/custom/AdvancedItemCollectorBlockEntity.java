@@ -24,7 +24,7 @@ import java.util.List;
 
 public class AdvancedItemCollectorBlockEntity extends BlockEntity {
     private static final int COLLECTION_INTERVAL = 20;
-    private static final int COLLECTION_RADIUS = 2;
+    private static final int COLLECTION_RADIUS = 4;
     private static final int BUFFER_SIZE = 1;
     private static final int FILTER_SIZE = 9;
 
@@ -233,17 +233,17 @@ public class AdvancedItemCollectorBlockEntity extends BlockEntity {
     }
 
     public void setDownUpOffset(int offset) {
-        this.downUpOffset = Math.max(-5, Math.min(5, offset));
+        this.downUpOffset = Math.max(-10, Math.min(10, offset));
         setChanged();
     }
 
     public void setNorthSouthOffset(int offset) {
-        this.northSouthOffset = Math.max(-5, Math.min(5, offset));
+        this.northSouthOffset = Math.max(-10, Math.min(10, offset));
         setChanged();
     }
 
     public void setEastWestOffset(int offset) {
-        this.eastWestOffset = Math.max(-5, Math.min(5, offset));
+        this.eastWestOffset = Math.max(-10, Math.min(10, offset));
         setChanged();
     }
 
