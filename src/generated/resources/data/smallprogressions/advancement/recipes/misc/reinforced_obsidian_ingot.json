@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_reinforced_obsidian": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:reinforced_obsidian"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:reinforced_obsidian_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_reinforced_obsidian"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:reinforced_obsidian_ingot"
+    ]
+  }
+}

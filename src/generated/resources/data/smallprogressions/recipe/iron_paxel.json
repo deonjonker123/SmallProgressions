@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_axe"
+    },
+    "P": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "V": {
+      "item": "minecraft:iron_shovel"
+    }
+  },
+  "pattern": [
+    "PVA",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:iron_paxel"
+  }
+}

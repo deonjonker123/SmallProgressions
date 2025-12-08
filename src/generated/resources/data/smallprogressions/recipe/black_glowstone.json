@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "smallprogressions:black_glowstone_dust"
+    }
+  },
+  "pattern": [
+    "DD",
+    "DD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:black_glowstone"
+  }
+}

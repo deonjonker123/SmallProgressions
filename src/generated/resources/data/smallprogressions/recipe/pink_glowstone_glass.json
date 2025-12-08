@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "tag": "c:glass_blocks"
+    },
+    "D": {
+      "item": "smallprogressions:pink_glowstone_dust"
+    }
+  },
+  "pattern": [
+    " D ",
+    "D#D",
+    " D "
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:pink_glowstone_glass"
+  }
+}

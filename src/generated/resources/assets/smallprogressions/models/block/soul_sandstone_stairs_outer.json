@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "smallprogressions:block/soul_sandstone",
+    "side": "smallprogressions:block/soul_sandstone",
+    "top": "smallprogressions:block/soul_sandstone"
+  }
+}

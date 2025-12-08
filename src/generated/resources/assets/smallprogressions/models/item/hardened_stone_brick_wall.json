@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "smallprogressions:block/hardened_stone_bricks"
+  }
+}

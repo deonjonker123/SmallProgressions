@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "smallprogressions:block/slate_brick_slab"
+    },
+    "type=double": {
+      "model": "smallprogressions:block/slate_bricks"
+    },
+    "type=top": {
+      "model": "smallprogressions:block/slate_brick_slab_top"
+    }
+  }
+}

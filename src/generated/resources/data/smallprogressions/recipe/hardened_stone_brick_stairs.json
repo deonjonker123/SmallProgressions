@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "hardened_stone",
+  "key": {
+    "#": {
+      "item": "smallprogressions:hardened_stone_bricks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:hardened_stone_brick_stairs"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "pattern": [
+    "#G#",
+    "#B#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:diamond_tank"
+  }
+}

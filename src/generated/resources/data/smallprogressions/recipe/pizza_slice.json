@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:cooked_beef"
+    },
+    "T": {
+      "item": "smallprogressions:toast"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "TTT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "smallprogressions:pizza_slice"
+  }
+}

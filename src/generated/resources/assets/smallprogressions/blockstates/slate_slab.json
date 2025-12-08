@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "smallprogressions:block/slate_slab"
+    },
+    "type=double": {
+      "model": "smallprogressions:block/slate"
+    },
+    "type=top": {
+      "model": "smallprogressions:block/slate_slab_top"
+    }
+  }
+}

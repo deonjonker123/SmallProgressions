@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "smallprogressions:block/soul_sandstone_slab"
+    },
+    "type=double": {
+      "model": "smallprogressions:block/soul_sandstone"
+    },
+    "type=top": {
+      "model": "smallprogressions:block/soul_sandstone_slab_top"
+    }
+  }
+}

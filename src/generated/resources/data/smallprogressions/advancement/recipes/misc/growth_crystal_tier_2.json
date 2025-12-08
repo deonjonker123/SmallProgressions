@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_growth_crystal_tier_1": {
+      "conditions": {
+        "items": [
+          {
+            "items": "smallprogressions:growth_crystal_tier_1"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smallprogressions:growth_crystal_tier_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_growth_crystal_tier_1"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smallprogressions:growth_crystal_tier_2"
+    ]
+  }
+}

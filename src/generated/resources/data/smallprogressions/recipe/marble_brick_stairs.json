@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "marble",
+  "key": {
+    "#": {
+      "item": "smallprogressions:marble_bricks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "smallprogressions:marble_brick_stairs"
+  }
+}
