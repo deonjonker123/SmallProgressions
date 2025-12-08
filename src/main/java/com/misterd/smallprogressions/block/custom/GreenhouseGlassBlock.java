@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,7 +36,7 @@ public class GreenhouseGlassBlock extends Block {
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         level.scheduleTick(pos, this, TICK_RATE);
 
-        if (!canBlockSeeSky(level, pos)) {
+        if (!isInDirectSunlight(level, pos)) {
             return;
         }
 
@@ -59,6 +60,23 @@ public class GreenhouseGlassBlock extends Block {
                 }
             }
         }
+    }
+
+    private boolean isInDirectSunlight(ServerLevel level, BlockPos pos) {
+        if (!canBlockSeeSky(level, pos)) {
+            return false;
+        }
+
+        if (!level.isDay()) {
+            return false;
+        }
+
+        if (level.isThundering()) {
+            return false;
+        }
+
+        int skyBrightness = level.getBrightness(LightLayer.SKY, pos);
+        return skyBrightness >= 8;
     }
 
     private boolean canBlockSeeSky(Level level, BlockPos pos) {
