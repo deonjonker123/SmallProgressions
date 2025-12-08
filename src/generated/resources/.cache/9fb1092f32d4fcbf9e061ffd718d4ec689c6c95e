@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T21:30:46.4611148	Recipes
+// 1.21.1	2025-12-08T22:41:00.3220429	Recipes
 096e1cc324170955c907412f2c3113c03ece7be3 data/minecraft/advancement/recipes/misc/charcoal.json
 2dd93e631bc87f5c1f296b791d53152d40ade673 data/minecraft/advancement/recipes/misc/ender_pearl.json
 d8b464397cb8b5b160a4cf4d33bceb1c33fe8b72 data/minecraft/advancement/recipes/misc/string.json
@@ -135,8 +135,6 @@ a1ad429993a5edf2b5578bb9abd7615950366e03 data/smallprogressions/advancement/reci
 06f05fdc822d08b78e6ec322fd6043d8ead4f280 data/smallprogressions/advancement/recipes/misc/diamond_tank.json
 609740528e3563c7f43422a35e0ba90dd3966bdf data/smallprogressions/advancement/recipes/misc/diamond_tank_upgrade.json
 b48c5f06c490e59bedaa4c33e0d3808d307667e9 data/smallprogressions/advancement/recipes/misc/emerald_apple.json
-c616991d1048687245848c13fcc09d7883882b42 data/smallprogressions/advancement/recipes/misc/furnace_fuel_link.json
-7661900666c231f8459b211848bb6259e82dc9f2 data/smallprogressions/advancement/recipes/misc/furnace_power_core.json
 e82ab281f93b96d361b0947eb99e2d2b351a925a data/smallprogressions/advancement/recipes/misc/gold_barrel.json
 6f85eca7169318a6960163bac9566b9d805343da data/smallprogressions/advancement/recipes/misc/gold_barrel_upgrade.json
 b579a3f1965e161ac18d44ee2c5d4cfbf088de19 data/smallprogressions/advancement/recipes/misc/gold_tank.json
@@ -297,8 +295,6 @@ d1342ad98a373021346ae1034f0add909a41ed21 data/smallprogressions/recipe/emerald_s
 a6cceb7ae46abc25f9fc7bf7d6b58b7e3c441090 data/smallprogressions/recipe/emerald_sword.json
 fd00ca43bd16dceabced6835c9671d39c63c1032 data/smallprogressions/recipe/fried_egg_from_smelting.json
 2154427affd56ad7524e519c6fbe939c47b94bb0 data/smallprogressions/recipe/fried_egg_from_smoking.json
-49ed4cb252c877ade819620b2223bcd88107161d data/smallprogressions/recipe/furnace_fuel_link.json
-500def36e5f9f70e16faf009c958537d3d37db72 data/smallprogressions/recipe/furnace_power_core.json
 51cbbbb420b37ac95621d78cf5c5d53ec6303ee6 data/smallprogressions/recipe/gold_barrel.json
 ff59090525904ab01429c691edb7cf111d47f193 data/smallprogressions/recipe/gold_barrel_upgrade.json
 e1be22001109bab76fffc3891b61beaabdc1a13a data/smallprogressions/recipe/gold_tank.json

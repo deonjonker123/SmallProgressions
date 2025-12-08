@@ -50,8 +50,6 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.REINFORCED_OBSIDIAN_INGOT.get());
         basicItem(SPItems.ENDER_DUST.get());
 
-        basicItem(SPItems.FURNACE_FUEL_LINK.get());
-
         basicItem(SPItems.WITHER_RIB.get());
         basicItem(SPItems.DRAGON_SCALE.get());
 

@@ -5,8 +5,6 @@
   "block.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
   "block.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
 
-  "block.smallprogressions.furnace_power_core": "Furnace Power Core",
-
   "block.smallprogressions.greenhouse_glass": "Greenhouse Glass",
 
   "block.smallprogressions.lava_infused_stone": "Lava Infused Stone",
@@ -242,7 +240,6 @@
   "item.smallprogressions.iron_tank_upgrade": "Iron Tank Upgrade",
   "item.smallprogressions.gold_tank_upgrade": "Gold Tank Upgrade",
   "item.smallprogressions.diamond_tank_upgrade": "Diamond Tank Upgrade",
-  "item.smallprogressions.furnace_fuel_link": "Furnace Fuel Link",
 
   "item.smallprogressions.blackberries": "Blackberries",
   "item.smallprogressions.blueberries": "Blueberries",

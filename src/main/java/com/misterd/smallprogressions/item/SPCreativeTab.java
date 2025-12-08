@@ -15,7 +15,7 @@ public class SPCreativeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SmallProgressions.MODID);
 
     public static final Supplier<CreativeModeTab> SMALLPROGRESSIONS = CREATIVE_MODE_TAB.register("smallprogressions_creativetab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(SPItems.FURNACE_FUEL_LINK.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(SPBlocks.COBBLESTONE_GENERATOR_TIER_3.get()))
                     .title(Component.translatable("creativetab.smallprogressions"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(SPBlocks.COBBLESTONE_GENERATOR_TIER_1);
@@ -27,9 +27,6 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.GROWTH_CRYSTAL_TIER_1);
                         output.accept(SPBlocks.GROWTH_CRYSTAL_TIER_2);
                         output.accept(SPBlocks.GROWTH_CRYSTAL_TIER_3);
-
-                        output.accept(SPBlocks.FURNACE_POWER_CORE);
-                        output.accept(SPItems.FURNACE_FUEL_LINK);
 
                         output.accept(SPBlocks.GREENHOUSE_GLASS);
 

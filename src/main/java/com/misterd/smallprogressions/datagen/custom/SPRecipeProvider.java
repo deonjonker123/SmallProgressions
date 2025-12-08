@@ -160,26 +160,6 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.FURNACE_POWER_CORE.get())
-                .pattern("GGG")
-                .pattern("GEG")
-                .pattern("SSS")
-                .define('G', SPItems.STEEL_INGOT)
-                .define('E', Items.COAL_BLOCK)
-                .define('S', SPBlocks.HARDENED_STONE)
-                .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPItems.FURNACE_FUEL_LINK.get())
-                .pattern("GEG")
-                .pattern("ERE")
-                .pattern("GEG")
-                .define('G', SPItems.STEEL_INGOT)
-                .define('E', SPItems.ENDER_DUST)
-                .define('R', Items.REDSTONE)
-                .unlockedBy("has_ender_dust", has(SPItems.ENDER_DUST))
-                .save(recipeOutput);
-
         // Brick Furnace
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.BRICK_FURNACE.get())
                 .pattern("C#C")

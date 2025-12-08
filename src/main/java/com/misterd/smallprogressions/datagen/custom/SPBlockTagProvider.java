@@ -26,8 +26,6 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_4.get())
                 .add(SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get())
 
-                .add(SPBlocks.FURNACE_POWER_CORE.get())
-
                 .add(SPBlocks.SIMPLE_ITEM_COLLECTOR.get())
                 .add(SPBlocks.ADVANCED_ITEM_COLLECTOR.get())
 

@@ -268,9 +268,6 @@ public class SPItems {
     public static final DeferredItem<Item> ENDER_DUST = ITEMS.register("ender_dust",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> FURNACE_FUEL_LINK = ITEMS.register("furnace_fuel_link",
-            () -> new Item(new Item.Properties()));
-
     /// Crafting Materials ///
     public static final DeferredItem<Item> STRAW = ITEMS.register("straw",
             () -> new Item(new Item.Properties()));

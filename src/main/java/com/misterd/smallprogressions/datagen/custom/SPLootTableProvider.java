@@ -41,8 +41,6 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_4.get());
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_5.get());
 
-        dropSelf(SPBlocks.FURNACE_POWER_CORE.get());
-
         dropSelf(SPBlocks.SIMPLE_ITEM_COLLECTOR.get());
         dropSelf(SPBlocks.ADVANCED_ITEM_COLLECTOR.get());
 

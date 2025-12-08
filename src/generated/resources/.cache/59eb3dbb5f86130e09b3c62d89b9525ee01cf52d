@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T21:30:46.4596169	Loot Tables
+// 1.21.1	2025-12-08T22:41:00.3205427	Loot Tables
 aad6be855a5dea203651f9f18232b3edebafe2fe data/smallprogressions/loot_table/blocks/advanced_item_collector.json
 c92d02f83bed781aaf48c603cd362843af2319f9 data/smallprogressions/loot_table/blocks/asphalt.json
 f290d17c09977e90a639933053cb1438e9b2302d data/smallprogressions/loot_table/blocks/asphalt_button.json
@@ -32,7 +32,6 @@ f850f2690a629e4082035d42d4305c568178e486 data/smallprogressions/loot_table/block
 1a8d4c99fccd89444c6906704f92e070340ef16d data/smallprogressions/loot_table/blocks/diamond_tank.json
 29c5b572c843336cb13c665453215114814861ab data/smallprogressions/loot_table/blocks/endstone_ender_ore.json
 1302d73ade063c54d406b5c39c21e9ed5e41b8ba data/smallprogressions/loot_table/blocks/flax_crop.json
-cabd11309607d4c875264573ba62b7341be2820e data/smallprogressions/loot_table/blocks/furnace_power_core.json
 4baa2849873134a379dc769f5b70ee2c9cf67190 data/smallprogressions/loot_table/blocks/gold_barrel.json
 2c67b236bf1f765588bb69dc9330c7077dea8d61 data/smallprogressions/loot_table/blocks/gold_tank.json
 42311ef009e7fe82a1d8543b15aa02c92b5f878d data/smallprogressions/loot_table/blocks/gray_glowstone.json
