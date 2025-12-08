@@ -155,18 +155,21 @@ public class SPBlocks {
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 1));
 
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_2 = registerBlock("growth_crystal_tier_2",
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 2));
 
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_3 = registerBlock("growth_crystal_tier_3",
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 3));
 
     public static final DeferredBlock<Block> GREENHOUSE_GLASS  = registerBlock("greenhouse_glass",

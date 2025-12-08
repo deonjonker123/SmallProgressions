@@ -368,5 +368,7 @@
   "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s",
   "tooltip.smallprogressions.repair_totem.line3": "Multiple totems stack effects",
   "tooltip.smallprogressions.repair_totem.second": "second",
-  "tooltip.smallprogressions.repair_totem.seconds": "seconds"
+  "tooltip.smallprogressions.repair_totem.seconds": "seconds",
+
+  "tooltip.smallprogressions.watering_can.area": "Waters crops in a %s area"
 }
