@@ -413,7 +413,7 @@ public class SPBlocks {
 
     public static final DeferredBlock<Block> REINFORCED_OBSIDIAN = registerBlock("reinforced_obsidian",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 2000.0F)
+                    .strength(50F, 2000.0F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));
 
@@ -505,49 +505,49 @@ public class SPBlocks {
     /// Glowstone Blocks ///
     public static final DeferredBlock<Block> BLACK_GLOWSTONE  = registerBlock("black_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> BLUE_GLOWSTONE  = registerBlock("blue_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> BROWN_GLOWSTONE  = registerBlock("brown_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> CYAN_GLOWSTONE  = registerBlock("cyan_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> GRAY_GLOWSTONE  = registerBlock("gray_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> GREEN_GLOWSTONE  = registerBlock("green_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LIGHT_BLUE_GLOWSTONE  = registerBlock("light_blue_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LIGHT_GRAY_GLOWSTONE  = registerBlock("light_gray_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
@@ -559,155 +559,155 @@ public class SPBlocks {
 
     public static final DeferredBlock<Block> MAGENTA_GLOWSTONE  = registerBlock("magenta_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> ORANGE_GLOWSTONE  = registerBlock("orange_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> PINK_GLOWSTONE  = registerBlock("pink_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> PURPLE_GLOWSTONE  = registerBlock("purple_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> RED_GLOWSTONE  = registerBlock("red_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> WHITE_GLOWSTONE  = registerBlock("white_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> YELLOW_GLOWSTONE  = registerBlock("yellow_glowstone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .sound(SoundType.GLASS)));
 
     /// Glowstone Glass Blocks ///
     public static final DeferredBlock<Block> BLACK_GLOWSTONE_GLASS  = registerBlock("black_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> BLUE_GLOWSTONE_GLASS  = registerBlock("blue_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> BROWN_GLOWSTONE_GLASS  = registerBlock("brown_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> CYAN_GLOWSTONE_GLASS  = registerBlock("cyan_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> GRAY_GLOWSTONE_GLASS  = registerBlock("gray_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> GREEN_GLOWSTONE_GLASS  = registerBlock("green_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LIGHT_BLUE_GLOWSTONE_GLASS  = registerBlock("light_blue_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LIGHT_GRAY_GLOWSTONE_GLASS  = registerBlock("light_gray_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> LIME_GLOWSTONE_GLASS  = registerBlock("lime_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> MAGENTA_GLOWSTONE_GLASS  = registerBlock("magenta_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> ORANGE_GLOWSTONE_GLASS  = registerBlock("orange_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> PINK_GLOWSTONE_GLASS  = registerBlock("pink_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> PURPLE_GLOWSTONE_GLASS  = registerBlock("purple_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> RED_GLOWSTONE_GLASS  = registerBlock("red_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> WHITE_GLOWSTONE_GLASS  = registerBlock("white_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> YELLOW_GLOWSTONE_GLASS  = registerBlock("yellow_glowstone_glass",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(2F, 3.0F)
+                    .strength(1F, 3.0F)
                     .lightLevel(state -> 15)
                     .noOcclusion()
                     .sound(SoundType.GLASS)));

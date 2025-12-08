@@ -89,6 +89,22 @@
     "smallprogressions:purple_glowstone",
     "smallprogressions:red_glowstone",
     "smallprogressions:white_glowstone",
-    "smallprogressions:yellow_glowstone"
+    "smallprogressions:yellow_glowstone",
+    "smallprogressions:black_glowstone_glass",
+    "smallprogressions:blue_glowstone_glass",
+    "smallprogressions:brown_glowstone_glass",
+    "smallprogressions:cyan_glowstone_glass",
+    "smallprogressions:gray_glowstone_glass",
+    "smallprogressions:green_glowstone_glass",
+    "smallprogressions:light_blue_glowstone_glass",
+    "smallprogressions:light_gray_glowstone_glass",
+    "smallprogressions:lime_glowstone_glass",
+    "smallprogressions:magenta_glowstone_glass",
+    "smallprogressions:orange_glowstone_glass",
+    "smallprogressions:pink_glowstone_glass",
+    "smallprogressions:purple_glowstone_glass",
+    "smallprogressions:red_glowstone_glass",
+    "smallprogressions:white_glowstone_glass",
+    "smallprogressions:yellow_glowstone_glass"
   ]
 }

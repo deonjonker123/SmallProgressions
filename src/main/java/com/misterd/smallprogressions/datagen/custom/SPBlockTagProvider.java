@@ -124,7 +124,24 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.PURPLE_GLOWSTONE.get())
                 .add(SPBlocks.RED_GLOWSTONE.get())
                 .add(SPBlocks.WHITE_GLOWSTONE.get())
-                .add(SPBlocks.YELLOW_GLOWSTONE.get());
+                .add(SPBlocks.YELLOW_GLOWSTONE.get())
+
+                .add(SPBlocks.BLACK_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.BLUE_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.BROWN_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.CYAN_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.GRAY_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.GREEN_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.LIME_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.MAGENTA_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.ORANGE_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.PINK_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.PURPLE_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.RED_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.WHITE_GLOWSTONE_GLASS.get())
+                .add(SPBlocks.YELLOW_GLOWSTONE_GLASS.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(SPBlocks.STONE_ENDER_ORE.get())
