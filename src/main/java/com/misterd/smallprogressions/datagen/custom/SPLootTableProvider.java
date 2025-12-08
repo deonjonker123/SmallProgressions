@@ -121,6 +121,16 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.HARDENED_STONE_WALL.get());
         dropSelf(SPBlocks.HARDENED_STONE_BRICK_WALL.get());
 
+        dropSelf(SPBlocks.SOUL_SANDSTONE.get());
+        dropSelf(SPBlocks.CUT_SOUL_SANDSTONE.get());
+        dropSelf(SPBlocks.SOUL_SANDSTONE_BRICKS.get());
+        dropSelf(SPBlocks.SOUL_SANDSTONE_STAIRS.get());
+        dropSelf(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get());
+        add(SPBlocks.SOUL_SANDSTONE_SLAB.get(), block -> createSlabItemTable(SPBlocks.SOUL_SANDSTONE_SLAB.get()));
+        add(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), block -> createSlabItemTable(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB.get()));
+        dropSelf(SPBlocks.SOUL_SANDSTONE_WALL.get());
+        dropSelf(SPBlocks.SOUL_SANDSTONE_BRICK_WALL.get());
+
         dropSelf(SPBlocks.BLACK_GLOWSTONE_GLASS.get());
         dropSelf(SPBlocks.BLUE_GLOWSTONE_GLASS.get());
         dropSelf(SPBlocks.BROWN_GLOWSTONE_GLASS.get());

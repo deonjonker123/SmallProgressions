@@ -119,6 +119,8 @@ public class SPItemModelProvider extends ItemModelProvider {
         wallItem(SPBlocks.ASPHALT_WALL, SPBlocks.ASPHALT);
         wallItem(SPBlocks.HARDENED_STONE_WALL, SPBlocks.HARDENED_STONE);
         wallItem(SPBlocks.HARDENED_STONE_BRICK_WALL, SPBlocks.HARDENED_STONE_BRICKS);
+        wallItem(SPBlocks.SOUL_SANDSTONE_WALL, SPBlocks.SOUL_SANDSTONE);
+        wallItem(SPBlocks.SOUL_SANDSTONE_BRICK_WALL, SPBlocks.SOUL_SANDSTONE_BRICKS);
 
         handheldItem(SPItems.STEEL_SWORD);
         handheldItem(SPItems.STEEL_PICKAXE);

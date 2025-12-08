@@ -124,10 +124,20 @@
   "block.smallprogressions.hardened_stone_wall": "Hardened Stone Wall",
   "block.smallprogressions.hardened_stone_brick_wall": "Hardened Stone Brick Wall",
 
+  "block.smallprogressions.soul_sandstone": "Soul Sandstone",
+  "block.smallprogressions.soul_sandstone_bricks": "Soul Sandstone Bricks",
+  "block.smallprogressions.cut_soul_sandstone": "Cut Soul Sandstone",
+  "block.smallprogressions.soul_sandstone_stairs": "Soul Sandstone Stairs",
+  "block.smallprogressions.soul_sandstone_brick_stairs": "Soul Sandstone Brick Stairs",
+  "block.smallprogressions.soul_sandstone_slab": "Soul Sandstone Slab",
+  "block.smallprogressions.soul_sandstone_brick_slab": "Soul Sandstone Brick Slab",
+  "block.smallprogressions.soul_sandstone_wall": "Soul Sandstone Wall",
+  "block.smallprogressions.soul_sandstone_brick_wall": "Soul Sandstone Brick Wall",
+
   "block.smallprogressions.stone_ender_ore": "Ender Ore",
   "block.smallprogressions.deepslate_ender_ore": "Deepslate Ender Ore",
   "block.smallprogressions.netherrack_ender_ore": "Netherrack Ender Ore",
-  "block.smallprogressions.enderstone_ender_ore": "Endstone Ender Ore",
+  "block.smallprogressions.endstone_ender_ore": "Endstone Ender Ore",
 
   "block.smallprogressions.cotton_crop": "Cotton",
   "block.smallprogressions.flax_crop": "Flax",
@@ -348,8 +358,8 @@
   "message.smallprogressions.tank_upgrade.already_upgraded": "Tank is already at this tier or higher",
 
   "tooltip.smallprogressions.repair_totem.line1": "Repairs items in inventory",
-  "tooltip.smallprogressions.repair_totem.line2.seconds": "%s durability per %s per totem",
-  "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s per totem",
+  "tooltip.smallprogressions.repair_totem.line2.seconds": "%s durability per %s",
+  "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s",
   "tooltip.smallprogressions.repair_totem.line3": "Multiple totems stack effects",
   "tooltip.smallprogressions.repair_totem.second": "second",
   "tooltip.smallprogressions.repair_totem.seconds": "seconds"

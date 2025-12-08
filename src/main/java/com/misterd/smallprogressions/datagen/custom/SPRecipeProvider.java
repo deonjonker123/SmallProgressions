@@ -401,6 +401,39 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.HARDENED_STONE_WALL.get(), SPBlocks.HARDENED_STONE.get());
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.HARDENED_STONE_BRICK_WALL.get(), SPBlocks.HARDENED_STONE_BRICKS.get());
 
+        // Soul Sandstone
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.SOUL_SANDSTONE.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', Items.SOUL_SAND)
+                .unlockedBy("has_soul_sand", has(Items.SOUL_SAND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.SOUL_SANDSTONE_BRICKS.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', SPBlocks.SOUL_SANDSTONE)
+                .unlockedBy("has_soul_sandstone", has(SPBlocks.SOUL_SANDSTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.CUT_SOUL_SANDSTONE.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', SPBlocks.SOUL_SANDSTONE_BRICKS)
+                .unlockedBy("has_soul_sandstone_bricks", has(SPBlocks.SOUL_SANDSTONE_BRICKS))
+                .save(recipeOutput);
+
+        stairBuilder(SPBlocks.SOUL_SANDSTONE_STAIRS.get(), Ingredient.of(SPBlocks.SOUL_SANDSTONE)).group("soul_sandstone")
+                .unlockedBy("has_soul_sandstone", has(SPBlocks.HARDENED_STONE)).save(recipeOutput);
+        stairBuilder(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get(), Ingredient.of(SPBlocks.SOUL_SANDSTONE_BRICKS)).group("soul_sandstone")
+                .unlockedBy("has_soul_sandstone_bricks", has(SPBlocks.HARDENED_STONE_BRICKS)).save(recipeOutput);
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SOUL_SANDSTONE_SLAB.get(), SPBlocks.SOUL_SANDSTONE.get());
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), SPBlocks.SOUL_SANDSTONE_BRICKS.get());
+
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SOUL_SANDSTONE_WALL.get(), SPBlocks.SOUL_SANDSTONE.get());
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SOUL_SANDSTONE_BRICK_WALL.get(), SPBlocks.SOUL_SANDSTONE_BRICKS.get());
+
         // Thatch Block
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.THATCH_BLOCK.get(), 2)
                 .pattern("SS")

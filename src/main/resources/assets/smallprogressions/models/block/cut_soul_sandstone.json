@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "smallprogressions:block/soul_sandstone_cut_side",
+    "south": "smallprogressions:block/soul_sandstone_cut_side",
+    "east": "smallprogressions:block/soul_sandstone_cut_side",
+    "west": "smallprogressions:block/soul_sandstone_cut_side",
+    "up": "smallprogressions:block/soul_sandstone_top",
+    "down": "smallprogressions:block/soul_sandstone_bottom",
+    "particle": "smallprogressions:block/soul_sandstone_cut_side"
+  }
+}

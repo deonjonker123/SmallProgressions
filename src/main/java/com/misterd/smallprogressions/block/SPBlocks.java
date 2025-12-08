@@ -313,6 +313,55 @@ public class SPBlocks {
                     .strength(3F, 6F)
                     .requiresCorrectToolForDrops()));
 
+    /// Soul Sandstone ///
+    public static final DeferredBlock<Block> SOUL_SANDSTONE = registerBlock("soul_sandstone",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> SOUL_SANDSTONE_BRICKS = registerBlock("soul_sandstone_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> CUT_SOUL_SANDSTONE = registerBlock("cut_soul_sandstone",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<StairBlock> SOUL_SANDSTONE_STAIRS = registerBlock("soul_sandstone_stairs",
+            () -> new StairBlock(SPBlocks.SOUL_SANDSTONE.get().defaultBlockState(), BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<StairBlock> SOUL_SANDSTONE_BRICK_STAIRS = registerBlock("soul_sandstone_brick_stairs",
+            () -> new StairBlock(SPBlocks.SOUL_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<SlabBlock> SOUL_SANDSTONE_SLAB = registerBlock("soul_sandstone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<SlabBlock> SOUL_SANDSTONE_BRICK_SLAB = registerBlock("soul_sandstone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<WallBlock> SOUL_SANDSTONE_WALL = registerBlock("soul_sandstone_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<WallBlock> SOUL_SANDSTONE_BRICK_WALL = registerBlock("soul_sandstone_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()));
+
     /// Thatch ///
     public static final DeferredBlock<Block> THATCH_BLOCK = registerBlock("thatch_block",
             () -> new Block(BlockBehaviour.Properties.of()

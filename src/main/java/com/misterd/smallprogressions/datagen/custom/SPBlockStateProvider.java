@@ -75,6 +75,18 @@ public class SPBlockStateProvider extends BlockStateProvider {
         blockItem(SPBlocks.SLATE_BRICK_SLAB);
         blockItem(SPBlocks.SLATE_PRESSURE_PLATE);
 
+        blockWithItem(SPBlocks.SOUL_SANDSTONE_BRICKS);
+        stairsBlock(SPBlocks.SOUL_SANDSTONE_STAIRS.get(), blockTexture(SPBlocks.SOUL_SANDSTONE.get()));
+        stairsBlock(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get(), blockTexture(SPBlocks.SOUL_SANDSTONE_BRICKS.get()));
+        slabBlock(SPBlocks.SOUL_SANDSTONE_SLAB.get(), blockTexture(SPBlocks.SOUL_SANDSTONE.get()), blockTexture(SPBlocks.SOUL_SANDSTONE.get()));
+        slabBlock(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), blockTexture(SPBlocks.SOUL_SANDSTONE_BRICKS.get()), blockTexture(SPBlocks.SOUL_SANDSTONE_BRICKS.get()));
+        wallBlock(SPBlocks.SOUL_SANDSTONE_WALL.get(), blockTexture(SPBlocks.SOUL_SANDSTONE.get()));
+        wallBlock(SPBlocks.SOUL_SANDSTONE_BRICK_WALL.get(), blockTexture(SPBlocks.SOUL_SANDSTONE_BRICKS.get()));
+        blockItem(SPBlocks.SOUL_SANDSTONE_STAIRS);
+        blockItem(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS);
+        blockItem(SPBlocks.SOUL_SANDSTONE_SLAB);
+        blockItem(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB);
+
         blockWithItem(SPBlocks.THATCH_BLOCK);
         stairsBlock(SPBlocks.THATCH_STAIRS.get(), blockTexture(SPBlocks.THATCH_BLOCK.get()));
         slabBlock(SPBlocks.THATCH_SLAB.get(), blockTexture(SPBlocks.THATCH_BLOCK.get()), blockTexture(SPBlocks.THATCH_BLOCK.get()));

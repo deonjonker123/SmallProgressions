@@ -105,6 +105,16 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.HARDENED_STONE_WALL);
                         output.accept(SPBlocks.HARDENED_STONE_BRICK_WALL);
 
+                        output.accept(SPBlocks.SOUL_SANDSTONE);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICKS);
+                        output.accept(SPBlocks.CUT_SOUL_SANDSTONE);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_STAIRS);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_SLAB);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_WALL);
+                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_WALL);
+
                         output.accept(SPBlocks.STONE_ENDER_ORE);
                         output.accept(SPBlocks.DEEPSLATE_ENDER_ORE);
                         output.accept(SPBlocks.NETHERRACK_ENDER_ORE);
