@@ -18,10 +18,6 @@ public class Config {
     private static ModConfigSpec.DoubleValue GROWTH_CRYSTAL_TIER_2_RATE;
     private static ModConfigSpec.DoubleValue GROWTH_CRYSTAL_TIER_3_RATE;
 
-    // Fuel Reservoir config values
-    private static ModConfigSpec.IntValue FUEL_RESERVOIR_MAX_DISTANCE;
-    private static ModConfigSpec.IntValue FUEL_RESERVOIR_MAX_CONNECTIONS;
-
     // Cobblestone Generator config values
     private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_1_TICKS;
     private static ModConfigSpec.IntValue COBBLESTONE_GEN_TIER_2_TICKS;
@@ -54,7 +50,6 @@ public class Config {
 
     private static void buildCommonConfig() {
         buildGrowthCrystalConfig();
-        buildFuelReservoirConfig();
         buildCobblestoneGeneratorConfig();
         buildLavaGeneratorConfig();
         buildWaterReservoirConfig();
@@ -89,27 +84,6 @@ public class Config {
                         "Higher values increase growth speed"
                 )
                 .defineInRange("tier_3_rate", 1.00, 0.0, 2.0);
-
-        COMMON_BUILDER.pop();
-    }
-
-    private static void buildFuelReservoirConfig() {
-        COMMON_BUILDER.comment("Fuel Reservoir - Configure connection limits and range")
-                .push("fuel_reservoir");
-
-        FUEL_RESERVOIR_MAX_DISTANCE = COMMON_BUILDER
-                .comment(
-                        "Maximum distance (in blocks) for fuel reservoir connections",
-                        "Default: 16 blocks"
-                )
-                .defineInRange("max_distance", 16, 4, 64);
-
-        FUEL_RESERVOIR_MAX_CONNECTIONS = COMMON_BUILDER
-                .comment(
-                        "Maximum number of furnaces that can be linked to one fuel reservoir",
-                        "Default: 16 connections"
-                )
-                .defineInRange("max_connections", 16, 1, 64);
 
         COMMON_BUILDER.pop();
     }
@@ -251,14 +225,6 @@ public class Config {
         return GROWTH_CRYSTAL_TIER_3_RATE.get();
     }
 
-    public static int getFuelReservoirMaxDistance() {
-        return FUEL_RESERVOIR_MAX_DISTANCE.get();
-    }
-
-    public static int getFuelReservoirMaxConnections() {
-        return FUEL_RESERVOIR_MAX_CONNECTIONS.get();
-    }
-
     public static int getCobblestoneGenTier1Ticks() {
         return COBBLESTONE_GEN_TIER_1_TICKS.get();
     }
@@ -310,13 +276,6 @@ public class Config {
             );
         }
 
-        if (getFuelReservoirMaxConnections() > 32) {
-            LOGGER.warn(
-                    "Fuel Reservoir max connections ({}) is very high and may impact server performance!",
-                    getFuelReservoirMaxConnections()
-            );
-        }
-
         if (getLavaGeneratorMbPerTick() > 500) {
             LOGGER.warn(
                     "Lava Generator generation rate ({} mb/tick) is very high and may impact balance!",
@@ -353,10 +312,6 @@ public class Config {
         LOGGER.info("  Tier 1 Rate: {}x", getGrowthCrystalTier1Rate());
         LOGGER.info("  Tier 2 Rate: {}x", getGrowthCrystalTier2Rate());
         LOGGER.info("  Tier 3 Rate: {}x", getGrowthCrystalTier3Rate());
-
-        LOGGER.info("Fuel Reservoir Configuration:");
-        LOGGER.info("  Max Distance: {} blocks", getFuelReservoirMaxDistance());
-        LOGGER.info("  Max Connections: {}", getFuelReservoirMaxConnections());
 
         LOGGER.info("Cobblestone Generator Configuration:");
         LOGGER.info("  Tier 1: {} ticks", getCobblestoneGenTier1Ticks());
