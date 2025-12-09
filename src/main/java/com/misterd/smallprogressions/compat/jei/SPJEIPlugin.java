@@ -5,6 +5,7 @@ import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.config.Config;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -116,6 +117,13 @@ public class SPJEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(
                 new ItemStack(SPBlocks.LAVA_GENERATOR.get()),
                 LavaGeneratorCategory.RECIPE_TYPE
+        );
+
+        registration.addRecipeCatalyst(
+                new ItemStack(SPBlocks.BRICK_FURNACE.get()),
+                RecipeTypes.SMELTING,
+                RecipeTypes.BLASTING,
+                RecipeTypes.SMOKING
         );
     }
 }

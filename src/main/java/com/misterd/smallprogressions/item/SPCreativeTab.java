@@ -280,6 +280,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.BLUEBERRY_JUICE);
                         output.accept(SPItems.MALOBERRY_JUICE);
                         output.accept(SPItems.RASPBERRY_JUICE);
+                        output.accept(SPItems.SLICED_BREAD);
                         output.accept(SPItems.TOAST);
                         output.accept(SPItems.PIZZA_SLICE);
                         output.accept(SPItems.FRIED_EGG);

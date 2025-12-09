@@ -904,9 +904,9 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput, "smallprogressions:cooked_apple_from_smoking");
 
         // Toast
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.BREAD), RecipeCategory.FOOD,
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(SPItems.SLICED_BREAD), RecipeCategory.FOOD,
                         SPItems.TOAST, 0.1F, 200)
-                .unlockedBy("has_bread", has(Items.BREAD))
+                .unlockedBy("has_sliced_bread", has(SPItems.SLICED_BREAD))
                 .save(recipeOutput, "smallprogressions:toast_from_smelting");
 
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.BREAD), RecipeCategory.FOOD,
@@ -1129,6 +1129,11 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_porkchop", has(Items.PORKCHOP))
                 .save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, SPItems.SLICED_BREAD, 4)
+                .requires(Items.BREAD)
+                .unlockedBy("has_bread", has(Items.BREAD))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.APPLE_JUICE.get())
                 .requires(SPItems.JUICER)
                 .requires(Items.APPLE)
@@ -1183,7 +1188,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern(" B ")
                 .define('E', SPItems.FRIED_EGG)
                 .define('#', SPItems.COOKED_BACON)
-                .define('B', Items.BREAD)
+                .define('B', SPItems.SLICED_BREAD)
                 .unlockedBy("has_fried_egg", has(SPItems.FRIED_EGG))
                 .save(recipeOutput);
 

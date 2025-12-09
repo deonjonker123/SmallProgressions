@@ -421,7 +421,7 @@ public class SPItems {
             () -> new HammerItem(new Item.Properties()));
 
     public static final DeferredItem<Item> SICKLE = ITEMS.register("sickle",
-            () -> new Item(new Item.Properties()));
+            () -> new SickleItem(new Item.Properties().durability(512)));
 
     public static final DeferredItem<Item> REPAIR_TOTEM = ITEMS.register("repair_totem",
             () -> new RepairTotemItem(new Item.Properties()));
@@ -479,6 +479,9 @@ public class SPItems {
 
     public static final DeferredItem<Item> RASPBERRY_JUICE = ITEMS.register("raspberry_juice",
             () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
+
+    public static final DeferredItem<Item> SLICED_BREAD = ITEMS.register("sliced_bread",
+            () -> new Item(new Item.Properties().food(SPFoodProperties.SLICED_BREAD)));
 
     public static final DeferredItem<Item> TOAST = ITEMS.register("toast",
             () -> new Item(new Item.Properties().food(SPFoodProperties.TOASTED_BREAD)));

@@ -166,5 +166,15 @@ public class SPItemTagProvider extends ItemTagsProvider {
 
         tag(Tags.Items.GLASS_BLOCKS)
                 .add(SPBlocks.REINFORCED_GLASS.asItem());
+
+        tag(Tags.Items.CROPS)
+                .add(SPItems.FLAX.get())
+                .add(SPItems.FLAX_SEEDS.get())
+                .add(SPItems.COTTON_BOLLS.get())
+                .add(SPItems.COTTON_SEEDS.get())
+                .add(SPItems.BLACKBERRIES.get())
+                .add(SPItems.BLUEBERRIES.get())
+                .add(SPItems.MALOBERRIES.get())
+                .add(SPItems.RASPBERRIES.get());
     }
 }

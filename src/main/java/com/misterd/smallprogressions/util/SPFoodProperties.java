@@ -17,9 +17,14 @@ public class SPFoodProperties {
             .fast()
             .build();
 
+    public static final FoodProperties SLICED_BREAD = new FoodProperties.Builder()
+            .saturationModifier(0.8F)
+            .nutrition(3)
+            .build();
+
     public static final FoodProperties TOASTED_BREAD = new FoodProperties.Builder()
             .saturationModifier(0.8F)
-            .nutrition(4)
+            .nutrition(5)
             .build();
 
     public static final FoodProperties PIZZA_SLICE = new FoodProperties.Builder()
@@ -47,7 +52,7 @@ public class SPFoodProperties {
 
     public static final FoodProperties BACON_EGG_SANDWICH = new FoodProperties.Builder()
             .saturationModifier(1.0F)
-            .nutrition(6)
+            .nutrition(8)
             .build();
 
     public static final FoodProperties COOKED_APPLE = new FoodProperties.Builder()

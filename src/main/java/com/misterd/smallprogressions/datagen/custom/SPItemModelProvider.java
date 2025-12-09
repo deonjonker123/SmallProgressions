@@ -95,6 +95,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.BLUEBERRY_JUICE.get());
         basicItem(SPItems.MALOBERRY_JUICE.get());
         basicItem(SPItems.RASPBERRY_JUICE.get());
+        basicItem(SPItems.SLICED_BREAD.get());
         basicItem(SPItems.TOAST.get());
         basicItem(SPItems.PIZZA_SLICE.get());
         basicItem(SPItems.FRIED_EGG.get());
