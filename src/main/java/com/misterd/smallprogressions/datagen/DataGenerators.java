@@ -33,6 +33,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new SPItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
+        generator.addProvider(event.includeServer(), new SPDataMapProvider(packOutput, lookupProvider));
+
         generator.addProvider(event.includeClient(), new SPItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new SPBlockStateProvider(packOutput, existingFileHelper));
 
