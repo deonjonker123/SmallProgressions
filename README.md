@@ -15,7 +15,7 @@ Storage Barrels in four tiers (Copper/Iron/Gold/Diamond) with expanded capacity.
 
 ### Processing
 
-Brick Furnaces smelt four items simultaneously at base furnace speed.
+Brick Furnaces smelt four times faster than vanilla furnaces.
 
 ### Progression
 
