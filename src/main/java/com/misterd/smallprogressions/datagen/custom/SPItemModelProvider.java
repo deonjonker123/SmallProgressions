@@ -112,6 +112,8 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.WATERING_CAN_TIER_2.get());
         basicItem(SPItems.WATERING_CAN_TIER_3.get());
 
+        basicItem(SPItems.BIG_BUCKET.get());
+
         buttonItem(SPBlocks.MARBLE_BUTTON, SPBlocks.MARBLE);
         buttonItem(SPBlocks.SLATE_BUTTON, SPBlocks.SLATE);
         buttonItem(SPBlocks.ASPHALT_BUTTON, SPBlocks.ASPHALT);

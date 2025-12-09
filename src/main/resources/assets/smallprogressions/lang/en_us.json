@@ -226,6 +226,7 @@
   "item.smallprogressions.watering_can_tier_1": "Watering Can Tier 1",
   "item.smallprogressions.watering_can_tier_2": "Watering Can Tier 2",
   "item.smallprogressions.watering_can_tier_3": "Watering Can Tier 3",
+  "item.smallprogressions.big_bucket": "Big Bucket",
 
   "item.smallprogressions.wither_rib": "Wither Rib",
   "item.smallprogressions.wither_rib.subtitle": "Drops from the Wither",
@@ -414,5 +415,9 @@
   "jei.smallprogressions.lava_infused_stone.line1": "Water adjacent to",
   "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone",
   "jei.smallprogressions.lava_generation": "Lava Generation",
-  "jei.smallprogressions.lava_generation.rate": "Rate: %s"
+  "jei.smallprogressions.lava_generation.rate": "Rate: %s",
+
+  "tooltip.smallprogressions.big_bucket.contains": "Contains: %s / %s mb of %s",
+  "tooltip.smallprogressions.big_bucket.empty": "Empty",
+  "tooltip.smallprogressions.big_bucket.shift": "Shift + Right-Click to empty"
 }

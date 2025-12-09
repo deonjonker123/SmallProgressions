@@ -176,5 +176,8 @@ public class SPItemTagProvider extends ItemTagsProvider {
                 .add(SPItems.BLUEBERRIES.get())
                 .add(SPItems.MALOBERRIES.get())
                 .add(SPItems.RASPBERRIES.get());
+
+        tag(Tags.Items.BUCKETS)
+                .add(SPItems.BIG_BUCKET.get());
     }
 }

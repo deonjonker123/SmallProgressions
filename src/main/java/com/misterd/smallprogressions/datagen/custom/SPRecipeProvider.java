@@ -1704,6 +1704,14 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('W', SPItems.WATERING_CAN_TIER_2)
                 .unlockedBy("has_watering_can_tier_2", has(SPItems.WATERING_CAN_TIER_2))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.BIG_BUCKET.get())
+                .pattern("RWR")
+                .pattern(" R ")
+                .define('W', Items.BUCKET)
+                .define('R', SPItems.REINFORCED_OBSIDIAN_INGOT)
+                .unlockedBy("has_reinforced_ingots", has(SPItems.REINFORCED_OBSIDIAN_INGOT))
+                .save(recipeOutput);
     }
 
     protected static void smelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {

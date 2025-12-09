@@ -1,5 +1,6 @@
-// 1.21.1	2025-12-09T17:23:40.871765	Tags for minecraft:item mod id smallprogressions
+// 1.21.1	2025-12-09T18:37:49.485217	Tags for minecraft:item mod id smallprogressions
 ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/c/tags/item/armors.json
+4550a527f3da439189d88eddaa9051ef254b0913 data/c/tags/item/buckets.json
 65dc782a8ebfbb08a3aa5a5b430ec5c3890460ad data/c/tags/item/crops.json
 64aaca486b880907f1785dba3485b2c758a05a54 data/c/tags/item/glass_blocks.json
 58cea64e88bc04e1dcd0cea09964852dac372b0e data/c/tags/item/ingots.json

@@ -228,6 +228,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.WATERING_CAN_TIER_1);
                         output.accept(SPItems.WATERING_CAN_TIER_2);
                         output.accept(SPItems.WATERING_CAN_TIER_3);
+                        output.accept(SPItems.BIG_BUCKET);
 
                         // Boss Drops Items
                         output.accept(SPItems.WITHER_RIB);
