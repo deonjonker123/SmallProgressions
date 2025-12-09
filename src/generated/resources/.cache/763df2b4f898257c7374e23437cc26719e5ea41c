@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-09T18:37:49.4787009	Item Models: smallprogressions
+// 1.21.1	2025-12-09T21:26:24.0477047	Item Models: smallprogressions
 b4ad10448c6c84432444bf5ac0990e68a613cb4b assets/smallprogressions/models/item/apple_juice.json
 3f237813a1b2214916a12be2246bcab7cf9904c8 assets/smallprogressions/models/item/asphalt_button.json
 64b37ddbd2d29c3521452f964da29c2328faf4ca assets/smallprogressions/models/item/asphalt_wall.json
@@ -224,6 +224,8 @@ bb8c7f15e84d70269fa9134565f252a6fec30205 assets/smallprogressions/models/item/st
 d85a9a8b8cbbed0ac6829d720bbdcef896fcb807 assets/smallprogressions/models/item/steel_sword.json
 50472a4c1a8cdff5d30eaebe6050214d2f84f6c8 assets/smallprogressions/models/item/stone_paxel.json
 b63992f1b528ed06319a3004d88f04b64623a36b assets/smallprogressions/models/item/straw.json
+324df952983fda57cc937125192fec21afec269c assets/smallprogressions/models/item/tiny_charcoal.json
+f6e1c941888ff803050bbfaa6a0d1af73f6e0895 assets/smallprogressions/models/item/tiny_coal.json
 edf26ec30675716ae99375972fbf7b8912cf44f0 assets/smallprogressions/models/item/toast.json
 8dc10e597d04c87de59990ea2d72cd3b5eb86134 assets/smallprogressions/models/item/watering_can_tier_1.json
 00c2dfa045b14405daed49c77b106bc7ad2b6925 assets/smallprogressions/models/item/watering_can_tier_2.json

@@ -1712,6 +1712,26 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('R', SPItems.REINFORCED_OBSIDIAN_INGOT)
                 .unlockedBy("has_reinforced_ingots", has(SPItems.REINFORCED_OBSIDIAN_INGOT))
                 .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.TINY_COAL, 8)
+                .requires(Items.COAL)
+                .unlockedBy("has_coal", has(Items.COAL))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.TINY_CHARCOAL, 8)
+                .requires(Items.CHARCOAL)
+                .unlockedBy("has_charcoal", has(Items.CHARCOAL))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.COAL)
+                .requires(SPItems.TINY_COAL, 8)
+                .unlockedBy("has_tiny_coal", has(SPItems.TINY_COAL))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.CHARCOAL)
+                .requires(SPItems.TINY_CHARCOAL, 8)
+                .unlockedBy("has_tiny_charcoal", has(SPItems.TINY_CHARCOAL))
+                .save(recipeOutput, "smallprogressions:charcoal_from_tiny_charcoal");
     }
 
     protected static void smelting(RecipeOutput recipeOutput, List<ItemLike> ingredients, RecipeCategory category, ItemLike result, float experience, int cookingTime, String group) {

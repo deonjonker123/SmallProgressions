@@ -3,8 +3,12 @@ package com.misterd.smallprogressions.block;
 import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.block.custom.*;
 import com.misterd.smallprogressions.item.SPItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -12,6 +16,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class SPBlocks {
@@ -424,14 +429,26 @@ public class SPBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(50F, 2000.0F)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.STONE)));
+                    .sound(SoundType.STONE))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("block.smallprogressions.reinforced_obsidian.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredBlock<Block> REINFORCED_GLASS = registerBlock("reinforced_glass",
             () -> new TintedGlassBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 2000.0F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
-                    .sound(SoundType.GLASS)));
+                    .sound(SoundType.GLASS))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("block.smallprogressions.reinforced_glass.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     /// Hardened Stone ///
     public static final DeferredBlock<Block> HARDENED_STONE = registerBlock("hardened_stone",

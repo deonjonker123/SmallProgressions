@@ -257,6 +257,8 @@ public class SPCreativeTab {
                         output.accept(SPItems.STEEL_INGOT);
                         output.accept(SPItems.REINFORCED_OBSIDIAN_INGOT);
                         output.accept(SPItems.ENDER_DUST);
+                        output.accept(SPItems.TINY_COAL);
+                        output.accept(SPItems.TINY_CHARCOAL);
 
                         // Crafting Material Items
                         output.accept(SPItems.STRAW);

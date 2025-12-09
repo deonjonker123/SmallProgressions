@@ -114,6 +114,9 @@ public class SPItemModelProvider extends ItemModelProvider {
 
         basicItem(SPItems.BIG_BUCKET.get());
 
+        basicItem(SPItems.TINY_COAL.get());
+        basicItem(SPItems.TINY_CHARCOAL.get());
+
         buttonItem(SPBlocks.MARBLE_BUTTON, SPBlocks.MARBLE);
         buttonItem(SPBlocks.SLATE_BUTTON, SPBlocks.SLATE);
         buttonItem(SPBlocks.ASPHALT_BUTTON, SPBlocks.ASPHALT);

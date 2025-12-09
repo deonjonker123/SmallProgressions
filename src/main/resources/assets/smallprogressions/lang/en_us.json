@@ -112,7 +112,9 @@
 
 
   "block.smallprogressions.reinforced_obsidian": "Reinforced Obsidian",
+  "block.smallprogressions.reinforced_obsidian.subtitle": "Wither Immune",
   "block.smallprogressions.reinforced_glass": "Reinforced Glass",
+  "block.smallprogressions.reinforced_glass.subtitle": "Wither Immune",
 
   "block.smallprogressions.hardened_stone": "Hardened Stone",
   "block.smallprogressions.hardened_stone_bricks": "Hardened Stone Bricks",
