@@ -400,5 +400,11 @@
 
   "tooltip.smallprogressions.harvester.line1": "Automatically harvests and replants crops",
   "tooltip.smallprogressions.harvester.line2": "Requires a scythe to operate. Harvest area determined by scythe tier",
-  "gui.smallprogressions.harvester": "Harvester"
+  "gui.smallprogressions.harvester": "Harvester",
+
+  "jei.smallprogressions.cobble_generation": "Cobblestone Generation",
+  "jei.smallprogressions.cobble_generation.rate": "Rate: %s",
+  "jei.smallprogressions.lava_infused_stone": "Lava Infused Stone Interaction",
+  "jei.smallprogressions.lava_infused_stone.line1": "Water adjacent to",
+  "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone"
 }
