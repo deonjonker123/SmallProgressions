@@ -77,9 +77,9 @@ public class CobblestoneGeneratorBlock extends BaseEntityBlock {
         double seconds = ticks / 20.0;
         String timeStr = seconds >= 1 ? String.format("%.1f seconds", seconds) : String.format("%d ticks", ticks);
 
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line1", timeStr).withStyle(ChatFormatting.GRAY));
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line2").withStyle(ChatFormatting.AQUA));
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line3").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line1", timeStr).withStyle(ChatFormatting.AQUA));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line2").withStyle(ChatFormatting.GOLD));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.cobblestone_generator.line3").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

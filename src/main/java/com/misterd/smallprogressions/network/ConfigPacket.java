@@ -1,6 +1,7 @@
 package com.misterd.smallprogressions.network;
 
 import com.misterd.smallprogressions.blockentity.custom.AdvancedItemCollectorBlockEntity;
+import com.misterd.smallprogressions.blockentity.custom.HarvesterBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -54,6 +55,7 @@ public record ConfigPacket(
 
             switch (packet.target()) {
                 case ADVANCED_ITEM_COLLECTOR -> handleAdvancedItemCollectorConfig(packet, serverPlayer);
+                case HARVESTER -> handleHarvesterConfig(packet, serverPlayer);
             }
         });
     }
@@ -81,8 +83,27 @@ public record ConfigPacket(
         level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
     }
 
+    private static void handleHarvesterConfig(ConfigPacket packet, ServerPlayer player) {
+        BlockPos pos = packet.pos();
+        if (pos == null) return;
+
+        ServerLevel level = player.serverLevel();
+
+        if (player.distanceToSqr(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) > 64.0) return;
+
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!(blockEntity instanceof HarvesterBlockEntity harvester)) return;
+
+        if (packet.configType() == ConfigType.HARVESTER_REDSTONE_MODE) {
+            harvester.setRequiresRedstone(packet.boolValue());
+        }
+
+        level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
+    }
+
     public enum ConfigTarget {
-        ADVANCED_ITEM_COLLECTOR;
+        ADVANCED_ITEM_COLLECTOR,
+        HARVESTER;
 
         public static final StreamCodec<FriendlyByteBuf, ConfigTarget> STREAM_CODEC = StreamCodec.of(
                 (buf, target) -> buf.writeEnum(target),
@@ -95,7 +116,8 @@ public record ConfigPacket(
         ADVANCED_COLLECTOR_NORTH_SOUTH_OFFSET,
         ADVANCED_COLLECTOR_EAST_WEST_OFFSET,
         ADVANCED_COLLECTOR_REDSTONE_MODE,
-        ADVANCED_COLLECTOR_FILTER_MODE;
+        ADVANCED_COLLECTOR_FILTER_MODE,
+        HARVESTER_REDSTONE_MODE;
 
         public static final StreamCodec<FriendlyByteBuf, ConfigType> STREAM_CODEC = StreamCodec.of(
                 (buf, type) -> buf.writeEnum(type),

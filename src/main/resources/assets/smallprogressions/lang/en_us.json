@@ -372,5 +372,9 @@
 
   "tooltip.smallprogressions.watering_can.area": "Waters crops in a %s area",
 
-  "tooltip.smallprogressions.scythe.area": "Harvests crops in a %s area"
+  "tooltip.smallprogressions.scythe.area": "Harvests crops in a %s area",
+
+  "tooltip.smallprogressions.harvester.line1": "Automatically harvests and replants crops",
+  "tooltip.smallprogressions.harvester.line2": "Requires a scythe to operate. Harvest area determined by scythe tier",
+  "gui.smallprogressions.harvester": "Harvester"
 }

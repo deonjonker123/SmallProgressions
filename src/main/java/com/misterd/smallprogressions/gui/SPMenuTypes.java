@@ -22,6 +22,7 @@ public class SPMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<DiamondBarrelMenu>> DIAMOND_BARREL_MENU = registerMenuType("diamond_barrel_menu", DiamondBarrelMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<AdvancedItemCollectorMenu>> ADVANCED_ITEM_COLLECTOR_MENU = registerMenuType("advanced_item_collector_menu", AdvancedItemCollectorMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<LinenSackMenu>> LINEN_SACK_MENU = registerMenuType("linen_sack_menu", LinenSackMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<HarvesterMenu>> HARVESTER_MENU = registerMenuType("harvester_menu", HarvesterMenu::new);
 
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

@@ -83,6 +83,10 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("lava_generator_be", () -> BlockEntityType.Builder.of(
                     LavaGeneratorBlockEntity::new, SPBlocks.LAVA_GENERATOR.get()).build(null));
 
+    public static final Supplier<BlockEntityType<HarvesterBlockEntity>> HARVESTER_BE =
+            BLOCK_ENTITIES.register("harvester_be", () -> BlockEntityType.Builder.of(
+                    HarvesterBlockEntity::new, SPBlocks.HARVESTER.get()).build(null));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {

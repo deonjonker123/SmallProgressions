@@ -185,7 +185,7 @@ public class BarrelUpgradeItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         String key = "tooltip.smallprogressions." + this.getDescriptionId().split("\\.")[2];
-        tooltipComponents.add(Component.translatable(key).withStyle(ChatFormatting.GRAY));
+        tooltipComponents.add(Component.translatable(key).withStyle(ChatFormatting.AQUA));
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }
