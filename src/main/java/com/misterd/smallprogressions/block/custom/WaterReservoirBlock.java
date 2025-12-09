@@ -140,8 +140,7 @@ public class WaterReservoirBlock extends BaseEntityBlock {
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line1_infinite").withStyle(ChatFormatting.AQUA));
         } else {
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line1_tank").withStyle(ChatFormatting.AQUA));
-            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line2").withStyle(ChatFormatting.GRAY));
-            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line3").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.water_reservoir.line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

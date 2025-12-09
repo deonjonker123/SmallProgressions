@@ -71,8 +71,8 @@ public class LavaGeneratorBlock extends BaseEntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_generator.line1").withStyle(ChatFormatting.GOLD));
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_generator.line2").withStyle(ChatFormatting.GRAY));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_generator.line1").withStyle(ChatFormatting.AQUA));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_generator.line2").withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

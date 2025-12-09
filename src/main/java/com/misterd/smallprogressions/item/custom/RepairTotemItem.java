@@ -44,11 +44,8 @@ public class RepairTotemItem extends Item {
             String tickSuffix = tickInterval != 1 ? "s" : "";
             tooltipComponents.add(Component.translatable("tooltip.smallprogressions.repair_totem.line2.ticks",
                             durabilityPerTotem, tickInterval, tickSuffix)
-                    .withStyle(ChatFormatting.GRAY));
+                    .withStyle(ChatFormatting.GOLD));
         }
-
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.repair_totem.line3")
-                .withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

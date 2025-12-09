@@ -143,7 +143,6 @@ public class GoldTankBlock extends BaseEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("tooltip.smallprogressions.gold_tank.line1").withStyle(ChatFormatting.AQUA));
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.gold_tank.line2").withStyle(ChatFormatting.GRAY));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

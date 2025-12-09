@@ -26,13 +26,17 @@ public class SPArmorItem extends ArmorItem {
                     .put(SPArmorMaterials.DRAGON_ARMOR_MATERIAL,
                             List.of(
                                     new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1, false, false),
-                                    new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 1, false, false),
+                                    new MobEffectInstance(MobEffects.SATURATION, 200, 1, false, false),
                                     new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, false, false)
                             ))
                     .build();
 
     public SPArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
+    }
+
+    public static List<MobEffectInstance> getEffectsForMaterial(Holder<ArmorMaterial> material) {
+        return MATERIAL_TO_EFFECT_MAP.get(material);
     }
 
     public List<MobEffectInstance> getEffects() {

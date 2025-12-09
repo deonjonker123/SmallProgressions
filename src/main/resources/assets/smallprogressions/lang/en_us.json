@@ -197,16 +197,27 @@
   "item.smallprogressions.emerald_chestplate": "Emerald Chesplate",
   "item.smallprogressions.emerald_leggings": "Emerald Leggings",
   "item.smallprogressions.emerald_boots": "Emerald Boots",
+  "item.smallprogressions.emerald.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.emerald.subtitle.line2": "Jump Boost",
 
   "item.smallprogressions.wither_helmet": "Wither Helmet",
   "item.smallprogressions.wither_chestplate": "Wither Chesplate",
   "item.smallprogressions.wither_leggings": "Wither Leggings",
   "item.smallprogressions.wither_boots": "Wither Boots",
+  "item.smallprogressions.wither.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.wither.subtitle.line2": "Resistance",
+  "item.smallprogressions.wither.subtitle.line3": "Fire Resistance",
+  "item.smallprogressions.wither.subtitle.line4": "Strength",
 
   "item.smallprogressions.dragon_helmet": "Dragon Helmet",
   "item.smallprogressions.dragon_chestplate": "Dragon Chesplate",
   "item.smallprogressions.dragon_leggings": "Dragon Leggings",
   "item.smallprogressions.dragon_boots": "Dragon Boots",
+  "item.smallprogressions.dragon.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.dragon.subtitle.line2": "Resistance",
+  "item.smallprogressions.dragon.subtitle.line3": "Saturation",
+  "item.smallprogressions.dragon.subtitle.line4": "Strength",
+  "item.smallprogressions.dragon.subtitle.line5": "Flight",
 
   "item.smallprogressions.steel_ingot": "Steel Ingot",
   "item.smallprogressions.steel_nugget": "Steel Nugget",
@@ -260,17 +271,36 @@
   "item.smallprogressions.blueberry_juice": "Blueberry Juice",
   "item.smallprogressions.maloberry_juice": "Maloberry Juice",
   "item.smallprogressions.raspberry_juice": "Raspberry Juice",
-  "item.smallprogressions.toasted_bread": "Toasted Bread",
+  "item.smallprogressions.toasted": "Toasted",
   "item.smallprogressions.pizza_slice": "Pizza Slice",
   "item.smallprogressions.fried_egg": "Fried Egg",
   "item.smallprogressions.raw_bacon": "Raw Bacon",
   "item.smallprogressions.cooked_bacon": "Cooked Bacon",
   "item.smallprogressions.bacon_egg_sandwich": "Bacon & Egg Sandwich",
   "item.smallprogressions.cooked_apple": "Cooked Apple",
+
   "item.smallprogressions.iron_apple": "Iron Apple",
+  "item.smallprogressions.iron_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.iron_apple.subtitle.line2": "Saturation",
+  "item.smallprogressions.iron_apple.subtitle.line3": "Resistance",
+
   "item.smallprogressions.redstone_apple": "Redstone Apple",
+  "item.smallprogressions.redstone_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.redstone_apple.subtitle.line2": "Saturation",
+  "item.smallprogressions.redstone_apple.subtitle.line3": "Haste",
+
   "item.smallprogressions.emerald_apple": "Emerald Apple",
+  "item.smallprogressions.emerald_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.emerald_apple.subtitle.line2": "Saturation",
+  "item.smallprogressions.emerald_apple.subtitle.line3": "Absorption",
+  "item.smallprogressions.emerald_apple.subtitle.line4": "Speed",
+
   "item.smallprogressions.diamond_apple": "Diamond Apple",
+  "item.smallprogressions.diamond_apple.subtitle.line1": "Eating this apple grants 30 seconds of:",
+  "item.smallprogressions.diamond_apple.subtitle.line2": "Resistance",
+  "item.smallprogressions.diamond_apple.subtitle.line3": "Fire Resistance",
+  "item.smallprogressions.diamond_apple.subtitle.line4": "Speed",
+  "item.smallprogressions.diamond_apple.subtitle.line5": "Regeneration",
 
   "tooltip.smallprogressions.growth_crystal_tier_1.line1": "Fast growth acceleration",
   "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Works in 9x3x9 area",
@@ -302,7 +332,7 @@
 
   "tooltip.smallprogressions.cobblestone_generator.line1": "Generates 1 cobblestone every %s",
   "tooltip.smallprogressions.cobblestone_generator.line2": "Auto-pushes to adjacent inventories",
-  "tooltip.smallprogressions.cobblestone_generator.line3": "1 slot internal storage",
+  "tooltip.smallprogressions.cobblestone_generator.line3": "Only holds 64 blocks",
 
   "tooltip.smallprogressions.lava_infused_stone.line1": "Acts as a lava source block",
   "tooltip.smallprogressions.lava_infused_stone.line2": "Adjacent water → Obsidian",
@@ -315,23 +345,18 @@
   "message.smallprogressions.water_reservoir.already_infinite": "Water Reservoir is already infinite!",
   "tooltip.smallprogressions.water_reservoir.line1_infinite": "Infinite water source",
   "tooltip.smallprogressions.water_reservoir.line1_tank": "Holds up to 16 buckets of water",
-  "tooltip.smallprogressions.water_reservoir.line2": "Right-click with bucket to fill/empty",
-  "tooltip.smallprogressions.water_reservoir.line3": "16 bucket capacity",
+  "tooltip.smallprogressions.water_reservoir.line2": "16 bucket capacity",
 
   "message.smallprogressions.tank.empty": "Tank is empty!",
   "message.smallprogressions.tank.full": "Tank is full!",
 
   "tooltip.smallprogressions.copper_tank.line1": "Holds up to 16 buckets of fluid",
-  "tooltip.smallprogressions.copper_tank.line2": "Right-click with bucket to fill/empty",
 
   "tooltip.smallprogressions.iron_tank.line1": "Holds up to 32 buckets of fluid",
-  "tooltip.smallprogressions.iron_tank.line2": "Right-click with bucket to fill/empty",
 
   "tooltip.smallprogressions.gold_tank.line1": "Holds up to 64 buckets of fluid",
-  "tooltip.smallprogressions.gold_tank.line2": "Right-click with bucket to fill/empty",
 
   "tooltip.smallprogressions.diamond_tank.line1": "Holds up to 128 buckets of fluid",
-  "tooltip.smallprogressions.diamond_tank.line2": "Right-click with bucket to fill/empty",
 
   "tooltip.smallprogressions.lava_generator.line1": "Passively generates lava",
   "tooltip.smallprogressions.lava_generator.line2": "Outputs to adjacent tanks automatically",
@@ -366,7 +391,6 @@
   "tooltip.smallprogressions.repair_totem.line1": "Repairs items in inventory",
   "tooltip.smallprogressions.repair_totem.line2.seconds": "%s durability per %s",
   "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s",
-  "tooltip.smallprogressions.repair_totem.line3": "Multiple totems stack effects",
   "tooltip.smallprogressions.repair_totem.second": "second",
   "tooltip.smallprogressions.repair_totem.seconds": "seconds",
 

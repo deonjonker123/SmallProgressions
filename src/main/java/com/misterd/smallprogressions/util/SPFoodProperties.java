@@ -66,7 +66,7 @@ public class SPFoodProperties {
             .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
-            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600), 1)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600, 2), 1)
             .build();
 
     public static final FoodProperties EMERALD_APPLE = new FoodProperties.Builder()

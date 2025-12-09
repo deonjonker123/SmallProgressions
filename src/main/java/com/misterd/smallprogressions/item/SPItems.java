@@ -5,10 +5,14 @@ import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.custom.*;
 import com.misterd.smallprogressions.item.equipment.*;
 import com.misterd.smallprogressions.util.SPFoodProperties;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.List;
 
 public class SPItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("smallprogressions");
@@ -162,53 +166,157 @@ public class SPItems {
     ///  Emerald Armor ///
     public static final DeferredItem<ArmorItem> EMERALD_HELMET = ITEMS.register("emerald_helmet",
             () -> new SPArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> EMERALD_CHESTPLATE = ITEMS.register("emerald_chestplate",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> EMERALD_LEGGINGS = ITEMS.register("emerald_leggings",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> EMERALD_BOOTS = ITEMS.register("emerald_boots",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                }
+            });
 
     ///  Wither Armor ///
     public static final DeferredItem<ArmorItem> WITHER_HELMET = ITEMS.register("wither_helmet",
             () -> new SPArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> WITHER_CHESTPLATE = ITEMS.register("wither_chestplate",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> WITHER_LEGGINGS = ITEMS.register("wither_leggings",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> WITHER_BOOTS = ITEMS.register("wither_boots",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                }
+            });
 
     ///  Dragon Armor ///
     public static final DeferredItem<ArmorItem> DRAGON_HELMET = ITEMS.register("dragon_helmet",
             () -> new SPArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> DRAGON_CHESTPLATE = ITEMS.register("dragon_chestplate",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> DRAGON_LEGGINGS = ITEMS.register("dragon_leggings",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                }
+            });
 
     public static final DeferredItem<ArmorItem> DRAGON_BOOTS = ITEMS.register("dragon_boots",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27))));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                }
+            });
 
     /// Ingots ///
     public static final DeferredItem<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
@@ -382,16 +490,51 @@ public class SPItems {
             () -> new Item(new Item.Properties().food(SPFoodProperties.COOKED_APPLE)));
 
     public static final DeferredItem<Item> IRON_APPLE = ITEMS.register("iron_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.IRON_APPLE)));
+            () -> new Item(new Item.Properties().food(SPFoodProperties.IRON_APPLE))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                }
+            });
 
     public static final DeferredItem<Item> REDSTONE_APPLE = ITEMS.register("redstone_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.REDSTONE_APPLE)));
+            () -> new Item(new Item.Properties().food(SPFoodProperties.REDSTONE_APPLE))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line2").withStyle(ChatFormatting.DARK_RED));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line3").withStyle(ChatFormatting.DARK_RED));
+                }
+            });
 
     public static final DeferredItem<Item> EMERALD_APPLE = ITEMS.register("emerald_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.EMERALD_APPLE)));
+            () -> new Item(new Item.Properties().food(SPFoodProperties.EMERALD_APPLE))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line4").withStyle(ChatFormatting.DARK_GREEN));
+                }
+            });
 
     public static final DeferredItem<Item> DIAMOND_APPLE = ITEMS.register("diamond_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE)));
+            () -> new Item(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line2").withStyle(ChatFormatting.DARK_AQUA));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line3").withStyle(ChatFormatting.DARK_AQUA));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line4").withStyle(ChatFormatting.DARK_AQUA));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line5").withStyle(ChatFormatting.DARK_AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> MCFLOATY_BLOCK_ITEM = ITEMS.register("mcfloaty_block",
             () -> new McFloatyBlockItem(SPBlocks.MCFLOATY_BLOCK.get(), new Item.Properties()));

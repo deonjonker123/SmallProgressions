@@ -10,8 +10,8 @@
     }
   },
   "pattern": [
+    "III",
     " II",
-    " I ",
     "S  "
   ],
   "result": {

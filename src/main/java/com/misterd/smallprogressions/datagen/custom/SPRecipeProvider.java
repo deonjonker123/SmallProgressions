@@ -1281,8 +1281,8 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.STEEL_SCYTHE.get())
+                .pattern("III")
                 .pattern(" II")
-                .pattern(" I ")
                 .pattern("S  ")
                 .define('I', SPItems.STEEL_INGOT.get())
                 .define('S', Tags.Items.RODS_WOODEN)
@@ -1380,8 +1380,8 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.EMERALD_SCYTHE.get())
+                .pattern("III")
                 .pattern(" II")
-                .pattern(" I ")
                 .pattern("S  ")
                 .define('I', Items.EMERALD)
                 .define('S', Tags.Items.RODS_WOODEN)
@@ -1479,8 +1479,8 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.WITHER_SCYTHE.get())
+                .pattern("III")
                 .pattern(" II")
-                .pattern(" I ")
                 .pattern("S  ")
                 .define('I', SPItems.WITHER_RIB)
                 .define('S', Tags.Items.RODS_WOODEN)
@@ -1582,8 +1582,8 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.DRAGON_SCYTHE.get())
+                .pattern("III")
                 .pattern(" II")
-                .pattern(" I ")
                 .pattern("S  ")
                 .define('I', SPItems.DRAGON_SCALE)
                 .define('S', Tags.Items.RODS_WOODEN)

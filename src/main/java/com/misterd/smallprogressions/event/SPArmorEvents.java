@@ -13,6 +13,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
+import java.util.List;
+
 @EventBusSubscriber(modid = SmallProgressions.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class SPArmorEvents {
 
@@ -27,18 +29,17 @@ public class SPArmorEvents {
     }
 
     private static void applyArmorEffects(Player player) {
-        player.getArmorSlots().forEach(stack -> {
-            if (stack.getItem() instanceof SPArmorItem armor) {
-                var effects = armor.getEffects();
-                if (effects != null) {
-                    for (MobEffectInstance e : effects) {
-                        if (!player.hasEffect(e.getEffect())) {
-                            player.addEffect(new MobEffectInstance(e));
-                        }
-                    }
-                }
-            }
-        });
+        if (isWearingFullSet(player, SPArmorMaterials.EMERALD_ARMOR_MATERIAL)) {
+            applyEffectsForMaterial(player, SPArmorMaterials.EMERALD_ARMOR_MATERIAL);
+        }
+
+        if (isWearingFullSet(player, SPArmorMaterials.WITHER_ARMOR_MATERIAL)) {
+            applyEffectsForMaterial(player, SPArmorMaterials.WITHER_ARMOR_MATERIAL);
+        }
+
+        if (isWearingFullSet(player, SPArmorMaterials.DRAGON_ARMOR_MATERIAL)) {
+            applyEffectsForMaterial(player, SPArmorMaterials.DRAGON_ARMOR_MATERIAL);
+        }
     }
 
     private static void handleCreativeFlight(Player player) {
@@ -68,5 +69,17 @@ public class SPArmorEvents {
     private static boolean hasMaterial(Player player, EquipmentSlot slot, Holder<ArmorMaterial> material) {
         var item = player.getItemBySlot(slot).getItem();
         return item instanceof ArmorItem armor && armor.getMaterial().equals(material);
+    }
+
+    private static void applyEffectsForMaterial(Player player, Holder<ArmorMaterial> material) {
+        List<MobEffectInstance> effects = SPArmorItem.getEffectsForMaterial(material);
+
+        if (effects != null) {
+            for (MobEffectInstance effect : effects) {
+                if (!player.hasEffect(effect.getEffect())) {
+                    player.addEffect(new MobEffectInstance(effect));
+                }
+            }
+        }
     }
 }
