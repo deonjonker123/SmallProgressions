@@ -27,7 +27,8 @@ public class SPJEIPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(
                 new CobbleGeneratorCategory(registration.getJeiHelpers().getGuiHelper()),
-                new LavaInfusedStoneCategory(registration.getJeiHelpers().getGuiHelper())
+                new LavaInfusedStoneCategory(registration.getJeiHelpers().getGuiHelper()),
+                new LavaGeneratorCategory(registration.getJeiHelpers().getGuiHelper())
         );
     }
 
@@ -66,7 +67,6 @@ public class SPJEIPlugin implements IModPlugin {
                 )
         ));
 
-        // Lava Infused Stone recipe
         registration.addRecipes(LavaInfusedStoneCategory.RECIPE_TYPE, List.of(
                 new LavaInfusedRecipe(
                         new ItemStack(SPBlocks.LAVA_INFUSED_STONE.get()),
@@ -74,11 +74,19 @@ public class SPJEIPlugin implements IModPlugin {
                         new ItemStack(Blocks.OBSIDIAN)
                 )
         ));
+
+        registration.addRecipes(LavaGeneratorCategory.RECIPE_TYPE, List.of(
+                new LavaGenRecipe(
+                        new ItemStack(SPBlocks.LAVA_GENERATOR.get()),
+                        new ItemStack(Items.LAVA_BUCKET),
+                        Config.getLavaGeneratorMbPerTick() + " mb/tick",
+                        String.format("%.2f mb/tick", Config.getLavaGeneratorMbPerTick() * 1.0)
+                )
+        ));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        // Cobblestone Generators
         registration.addRecipeCatalyst(
                 new ItemStack(SPBlocks.COBBLESTONE_GENERATOR_TIER_1.get()),
                 CobbleGeneratorCategory.RECIPE_TYPE
@@ -100,10 +108,14 @@ public class SPJEIPlugin implements IModPlugin {
                 CobbleGeneratorCategory.RECIPE_TYPE
         );
 
-        // Lava Infused Stone
         registration.addRecipeCatalyst(
                 new ItemStack(SPBlocks.LAVA_INFUSED_STONE.get()),
                 LavaInfusedStoneCategory.RECIPE_TYPE
+        );
+
+        registration.addRecipeCatalyst(
+                new ItemStack(SPBlocks.LAVA_GENERATOR.get()),
+                LavaGeneratorCategory.RECIPE_TYPE
         );
     }
 }

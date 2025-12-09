@@ -330,10 +330,22 @@ public class SPItems {
 
     /// Boss Drops ///
     public static final DeferredItem<Item> WITHER_RIB = ITEMS.register("wither_rib",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither_rib.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> DRAGON_SCALE = ITEMS.register("dragon_scale",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon_scale.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     /// Glowstone Dusts ///
     public static final DeferredItem<Item> BLACK_GLOWSTONE_DUST = ITEMS.register("black_glowstone_dust",

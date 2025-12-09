@@ -228,7 +228,10 @@
   "item.smallprogressions.watering_can_tier_3": "Watering Can Tier 3",
 
   "item.smallprogressions.wither_rib": "Wither Rib",
+  "item.smallprogressions.wither_rib.subtitle": "Drops from the Wither",
+
   "item.smallprogressions.dragon_scale": "Dragon Scale",
+  "item.smallprogressions.dragon_scale.subtitle": "Drops from the Ender Dragon",
 
   "item.smallprogressions.black_glowstone_dust": "Black Glowstone Dust",
   "item.smallprogressions.blue_glowstone_dust": "Blue Glowstone Dust",
@@ -406,5 +409,7 @@
   "jei.smallprogressions.cobble_generation.rate": "Rate: %s",
   "jei.smallprogressions.lava_infused_stone": "Lava Infused Stone Interaction",
   "jei.smallprogressions.lava_infused_stone.line1": "Water adjacent to",
-  "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone"
+  "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone",
+  "jei.smallprogressions.lava_generation": "Lava Generation",
+  "jei.smallprogressions.lava_generation.rate": "Rate: %s"
 }
