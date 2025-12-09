@@ -279,7 +279,7 @@ public class SPLootTableProvider extends BlockLootSubProvider {
                                         .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))))));
 
         LootItemCondition.Builder flaxLootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SPBlocks.FLAX_CROP.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlaxCropBlock.AGE, 3));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlaxCropBlock.AGE, 7));
 
         this.add(SPBlocks.FLAX_CROP.get(), this.createCropDrops(SPBlocks.FLAX_CROP.get(),
                 SPItems.FLAX.get(), SPItems.FLAX_SEEDS.get(), flaxLootItemConditionBuilder));

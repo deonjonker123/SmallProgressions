@@ -1159,7 +1159,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_juicer", has(SPItems.JUICER))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING)
                 .requires(SPItems.FLAX)
                 .unlockedBy("has_flax", has(SPItems.FLAX))
                 .save(recipeOutput);

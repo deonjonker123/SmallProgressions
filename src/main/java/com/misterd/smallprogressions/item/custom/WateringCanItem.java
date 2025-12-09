@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
@@ -73,16 +73,31 @@ public class WateringCanItem extends Item {
                         }
 
                         if (block instanceof CropBlock cropBlock) {
-                            int currentAge = state.getValue(BlockStateProperties.AGE_7);
-                            int maxAge = 7;
+                            try {
 
-                            if (currentAge < maxAge && level.random.nextFloat() < 0.25F) {
-                                level.setBlock(pos, state.setValue(BlockStateProperties.AGE_7, currentAge + 1), 2);
-                                watered++;
+                                IntegerProperty ageProperty = null;
+                                for (var property : state.getProperties()) {
+                                    if (property instanceof IntegerProperty intProp && property.getName().equals("age")) {
+                                        ageProperty = intProp;
+                                        break;
+                                    }
+                                }
+
+                                if (ageProperty != null) {
+                                    int currentAge = state.getValue(ageProperty);
+                                    int maxAge = cropBlock.getMaxAge();
+
+                                    if (currentAge < maxAge && level.random.nextFloat() < 0.25F) {
+                                        level.setBlock(pos, state.setValue(ageProperty, currentAge + 1), 2);
+                                        watered++;
+                                    }
+                                }
+                            } catch (Exception e) {
+
                             }
                         }
                         else if (block instanceof SaplingBlock saplingBlock) {
-                            if (level.random.nextFloat() < 0.05F) {
+                            if (level.random.nextFloat() < 0.1F) {
                                 if (level instanceof ServerLevel serverLevel) {
                                     saplingBlock.advanceTree(serverLevel, pos, state, serverLevel.random);
                                     watered++;
