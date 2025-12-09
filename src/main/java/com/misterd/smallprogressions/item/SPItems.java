@@ -410,8 +410,12 @@ public class SPItems {
     public static final DeferredItem<Item> WATERING_CAN_TIER_3 = ITEMS.register("watering_can_tier_3",
             () -> new WateringCanItem(new Item.Properties(), 9));
 
+    /// Big Items ///
     public static final DeferredItem<Item> BIG_BUCKET = ITEMS.register("big_bucket",
             () -> new BigBucketItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> BIG_POUCH = ITEMS.register("big_pouch",
+            () -> new BigPouchItem(new Item.Properties()));
 
     /// Crafting Materials ///
     public static final DeferredItem<Item> STRAW = ITEMS.register("straw",

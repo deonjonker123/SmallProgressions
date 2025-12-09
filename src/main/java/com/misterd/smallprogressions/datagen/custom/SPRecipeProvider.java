@@ -1713,6 +1713,16 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_reinforced_ingots", has(SPItems.REINFORCED_OBSIDIAN_INGOT))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.BIG_POUCH.get())
+                .pattern("LSL")
+                .pattern("SBS")
+                .pattern("LLL")
+                .define('L', Items.LEATHER)
+                .define('S', SPItems.STEEL_INGOT)
+                .define('B', SPBlocks.DIAMOND_BARREL)
+                .unlockedBy("has_diamond_barrel", has(SPBlocks.DIAMOND_BARREL))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItems.TINY_COAL, 8)
                 .requires(Items.COAL)
                 .unlockedBy("has_coal", has(Items.COAL))

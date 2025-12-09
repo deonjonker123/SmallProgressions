@@ -113,6 +113,7 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.WATERING_CAN_TIER_3.get());
 
         basicItem(SPItems.BIG_BUCKET.get());
+        basicItem(SPItems.BIG_POUCH.get());
 
         basicItem(SPItems.TINY_COAL.get());
         basicItem(SPItems.TINY_CHARCOAL.get());

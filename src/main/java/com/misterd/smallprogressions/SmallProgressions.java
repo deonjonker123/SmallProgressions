@@ -118,6 +118,7 @@ public class SmallProgressions {
             event.register(SPMenuTypes.ADVANCED_ITEM_COLLECTOR_MENU.get(), AdvancedItemCollectorScreen::new);
             event.register(SPMenuTypes.LINEN_SACK_MENU.get(), LinenSackScreen::new);
             event.register(SPMenuTypes.HARVESTER_MENU.get(), HarvesterScreen::new);
+            event.register(SPMenuTypes.BIG_POUCH_MENU.get(), BigPouchScreen::new);
         }
     }
 }

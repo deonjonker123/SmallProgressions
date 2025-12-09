@@ -225,6 +225,7 @@ public class SPCreativeTab {
                         output.accept(SPItems.DIAMOND_SCYTHE);
 
                         // Watering Cans
+                        output.accept(SPItems.BIG_POUCH);
                         output.accept(SPItems.WATERING_CAN_TIER_1);
                         output.accept(SPItems.WATERING_CAN_TIER_2);
                         output.accept(SPItems.WATERING_CAN_TIER_3);
