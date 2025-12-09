@@ -39,6 +39,9 @@ public class Config {
     private static ModConfigSpec.IntValue REPAIR_TOTEM_DURABILITY_PER_TOTEM;
     private static ModConfigSpec.IntValue REPAIR_TOTEM_TICK_INTERVAL;
 
+    // Big bucket config values
+    private static ModConfigSpec.IntValue BIG_BUCKET_CAPACITY;
+
     static {
         buildCommonConfig();
         COMMON_CONFIG = COMMON_BUILDER.build();
@@ -55,6 +58,7 @@ public class Config {
         buildWaterReservoirConfig();
         buildGreenhouseGlassConfig();
         buildRepairTotemConfig();
+        buildBigBucketConfig();
     }
 
     private static void buildGrowthCrystalConfig() {
@@ -63,24 +67,21 @@ public class Config {
 
         GROWTH_CRYSTAL_TIER_1_RATE = COMMON_BUILDER
                 .comment(
-                        "Growth acceleration rate for Tier 1 Growth Crystal",
-                        "Default: 0.25 (25% boost)",
+                        "Growth acceleration rate for Tier 1 Growth Crystal (1.0 = 100%)",
                         "Higher values increase growth speed"
                 )
                 .defineInRange("tier_1_rate", 0.25, 0.0, 2.0);
 
         GROWTH_CRYSTAL_TIER_2_RATE = COMMON_BUILDER
                 .comment(
-                        "Growth acceleration rate for Tier 2 Growth Crystal",
-                        "Default: 0.50 (50% boost)",
+                        "Growth acceleration rate for Tier 2 Growth Crystal (1.0 = 100%)",
                         "Higher values increase growth speed"
                 )
                 .defineInRange("tier_2_rate", 0.50, 0.0, 2.0);
 
         GROWTH_CRYSTAL_TIER_3_RATE = COMMON_BUILDER
                 .comment(
-                        "Growth acceleration rate for Tier 3 Growth Crystal",
-                        "Default: 1.00 (100% boost)",
+                        "Growth acceleration rate for Tier 3 Growth Crystal (1.0 = 100%)",
                         "Higher values increase growth speed"
                 )
                 .defineInRange("tier_3_rate", 1.00, 0.0, 2.0);
@@ -95,7 +96,6 @@ public class Config {
         COBBLESTONE_GEN_TIER_1_TICKS = COMMON_BUILDER
                 .comment(
                         "Cobblestone generation interval for Tier 1 (ticks)",
-                        "Default: 40 ticks (2 seconds)",
                         "Lower values = faster generation"
                 )
                 .defineInRange("tier_1_ticks", 40, 1, 200);
@@ -103,7 +103,6 @@ public class Config {
         COBBLESTONE_GEN_TIER_2_TICKS = COMMON_BUILDER
                 .comment(
                         "Cobblestone generation interval for Tier 2 (ticks)",
-                        "Default: 20 ticks (1 second)",
                         "Lower values = faster generation"
                 )
                 .defineInRange("tier_2_ticks", 20, 1, 200);
@@ -111,7 +110,6 @@ public class Config {
         COBBLESTONE_GEN_TIER_3_TICKS = COMMON_BUILDER
                 .comment(
                         "Cobblestone generation interval for Tier 3 (ticks)",
-                        "Default: 10 ticks (0.5 seconds)",
                         "Lower values = faster generation"
                 )
                 .defineInRange("tier_3_ticks", 10, 1, 200);
@@ -119,7 +117,6 @@ public class Config {
         COBBLESTONE_GEN_TIER_4_TICKS = COMMON_BUILDER
                 .comment(
                         "Cobblestone generation interval for Tier 4 (ticks)",
-                        "Default: 5 ticks (0.25 seconds)",
                         "Lower values = faster generation"
                 )
                 .defineInRange("tier_4_ticks", 5, 1, 200);
@@ -127,7 +124,6 @@ public class Config {
         COBBLESTONE_GEN_TIER_5_TICKS = COMMON_BUILDER
                 .comment(
                         "Cobblestone generation interval for Tier 5 (ticks)",
-                        "Default: 1 tick (0.05 seconds)",
                         "Lower values = faster generation"
                 )
                 .defineInRange("tier_5_ticks", 1, 1, 200);
@@ -142,7 +138,6 @@ public class Config {
         LAVA_GENERATOR_MB_PER_TICK = COMMON_BUILDER
                 .comment(
                         "Lava generation rate (millibuckets per tick)",
-                        "Default: 1 mb/tick",
                         "Higher values = faster generation"
                 )
                 .defineInRange("mb_per_tick", 1, 1, 1000);
@@ -172,15 +167,13 @@ public class Config {
         GREENHOUSE_GLASS_GROWTH_BOOST = COMMON_BUILDER
                 .comment(
                         "Growth boost percentage when in direct sunlight",
-                        "Default: 1.0 (100% boost)",
-                        "Higher values increase growth speed"
+                        "Higher values increase growth speed (1.0 = 100%)"
                 )
                 .defineInRange("growth_boost", 1.0, 0.05, 2.0);
 
         GREENHOUSE_GLASS_RANGE = COMMON_BUILDER
                 .comment(
                         "Number of blocks below the greenhouse glass to check for crops",
-                        "Default: 5 blocks",
                         "Note: Larger ranges may impact performance"
                 )
                 .defineInRange("range", 5, 1, 32);
@@ -195,7 +188,6 @@ public class Config {
         REPAIR_TOTEM_DURABILITY_PER_TOTEM = COMMON_BUILDER
                 .comment(
                         "Durability repaired per totem per interval",
-                        "Default: 1 durability",
                         "Higher values = faster repair"
                 )
                 .defineInRange("durability_per_totem", 1, 1, 100);
@@ -203,11 +195,22 @@ public class Config {
         REPAIR_TOTEM_TICK_INTERVAL = COMMON_BUILDER
                 .comment(
                         "How often repair occurs (in ticks)",
-                        "Default: 20 ticks (1 second)",
-                        "20 ticks = 1 second, 40 ticks = 2 seconds, etc.",
                         "Lower values = more frequent repair"
                 )
                 .defineInRange("tick_interval", 20, 1, 200);
+
+        COMMON_BUILDER.pop();
+    }
+
+    private static void buildBigBucketConfig() {
+        COMMON_BUILDER.comment("Big Bucket - Configure capacity")
+                .push("big_bucket");
+
+        BIG_BUCKET_CAPACITY = COMMON_BUILDER
+                .comment(
+                        "Big Bucket capacity in buckets"
+                )
+                .defineInRange("capacity", 16, 8, 64);
 
         COMMON_BUILDER.pop();
     }
@@ -267,6 +270,10 @@ public class Config {
 
     public static int getRepairTotemTickInterval() {
         return REPAIR_TOTEM_TICK_INTERVAL.get();
+    }
+
+    public static int getBigBucketCapacity() {
+        return BIG_BUCKET_CAPACITY.get() * 1000;
     }
 
     private static void validateConfig() {
@@ -333,5 +340,8 @@ public class Config {
         LOGGER.info("Repair Totem Configuration:");
         LOGGER.info("  Durability per Totem: {}", getRepairTotemDurabilityPerTotem());
         LOGGER.info("  Tick Interval: {} ticks ({} seconds)", getRepairTotemTickInterval(), getRepairTotemTickInterval() / 20.0);
+
+        LOGGER.info("Big Bucket Configuration:");
+        LOGGER.info("  Capacity: {} buckets ({}mb)", BIG_BUCKET_CAPACITY.get(), getBigBucketCapacity());
     }
 }

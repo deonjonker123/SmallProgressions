@@ -422,7 +422,9 @@
   "jei.smallprogressions.lava_generation": "Lava Generation",
   "jei.smallprogressions.lava_generation.rate": "Rate: %s",
 
-  "tooltip.smallprogressions.big_bucket.contains": "Contains: %s / %s mb of %s",
+  "tooltip.smallprogressions.big_bucket.contains": "Contains: %s / %s buckets of %s",
   "tooltip.smallprogressions.big_bucket.empty": "Empty",
-  "tooltip.smallprogressions.big_bucket.shift": "Shift + Right-Click to empty"
+  "tooltip.smallprogressions.big_bucket.usage": "Usage:",
+  "tooltip.smallprogressions.big_bucket.right_click": "Right-Click: Fill from source/tank",
+  "tooltip.smallprogressions.big_bucket.shift_right_click": "Shift + Right-Click: Drain into world/tank"
 }
