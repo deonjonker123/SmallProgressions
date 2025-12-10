@@ -427,5 +427,10 @@
   "tooltip.smallprogressions.big_bucket.empty": "Empty",
   "tooltip.smallprogressions.big_bucket.usage": "Usage:",
   "tooltip.smallprogressions.big_bucket.right_click": "Right-Click: Fill from source/tank",
-  "tooltip.smallprogressions.big_bucket.shift_right_click": "Shift + Right-Click: Drain into world/tank"
+  "tooltip.smallprogressions.big_bucket.shift_right_click": "Shift + Right-Click: Drain into world/tank",
+
+  "item.smallprogressions.sickle.subtitle": "Used to gather straw from grass",
+  "item.smallprogressions.straw.subtitle": "Obtained by breaking grass with a sickle",
+  "item.smallprogressions.hammer.subtitle": "Crafting component only. Used to craft steel ingots",
+  "item.smallprogressions.juicer.subtitle": "Crafting component only. Used to craft juices"
 }

@@ -1667,8 +1667,8 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SPItems.DIAMOND_SCYTHE.get())
+                .pattern("III")
                 .pattern(" II")
-                .pattern(" I ")
                 .pattern("S  ")
                 .define('I', Items.DIAMOND)
                 .define('S', Tags.Items.RODS_WOODEN)

@@ -419,16 +419,40 @@ public class SPItems {
 
     /// Crafting Materials ///
     public static final DeferredItem<Item> STRAW = ITEMS.register("straw",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.straw.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> JUICER = ITEMS.register("juicer",
-            () -> new JuicerItem(new Item.Properties()));
+            () -> new JuicerItem(new Item.Properties())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.juicer.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer",
-            () -> new HammerItem(new Item.Properties()));
+            () -> new HammerItem(new Item.Properties())
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.hammer.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> SICKLE = ITEMS.register("sickle",
-            () -> new SickleItem(new Item.Properties().durability(512)));
+            () -> new SickleItem(new Item.Properties().durability(512))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.sickle.subtitle").withStyle(ChatFormatting.AQUA));
+                }
+            });
 
     public static final DeferredItem<Item> REPAIR_TOTEM = ITEMS.register("repair_totem",
             () -> new RepairTotemItem(new Item.Properties()));
