@@ -59,7 +59,7 @@ public class ScytheItem extends Item {
 
                     if (block instanceof CropBlock cropBlock) {
                         try {
-                            // Find the age property from the state's properties
+
                             IntegerProperty ageProperty = null;
                             for (var property : state.getProperties()) {
                                 if (property instanceof IntegerProperty intProp && property.getName().equals("age")) {
@@ -81,7 +81,7 @@ public class ScytheItem extends Item {
                                 }
                             }
                         } catch (Exception e) {
-                            // Skip if crop doesn't have proper age property
+
                         }
                     }
                 }
