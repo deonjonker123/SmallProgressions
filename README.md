@@ -178,15 +178,3 @@ All major features are fully configurable:
 **Inspiration:** Many features and ideas in this mod were inspired by the original Tiny Progressions mod.
 
 **Textures:** Some textures were adapted from "Unused Minecraft Textures" by Malcolm Riley ([GitHub Repository](https://github.com/malcolmriley/unused-textures)). Licensed under Creative Commons Attribution 4.0 International License. Modifications were made to some original assets.
-
----
-
-## License
-
-All rights reserved. This mod is protected by copyright and may not be redistributed or modified without explicit permission.
-
-**Permitted Uses:**
-- Inclusion in modpacks (public or private)
-- Content creation (videos, streams, reviews, etc.)
-
----
