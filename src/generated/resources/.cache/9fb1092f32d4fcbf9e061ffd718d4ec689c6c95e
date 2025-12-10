@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-10T18:54:02.4266218	Recipes
+// 1.21.1	2025-12-10T22:11:48.2912895	Recipes
 096e1cc324170955c907412f2c3113c03ece7be3 data/minecraft/advancement/recipes/misc/charcoal.json
 08b0827bfe5bb393031234b75b1ba7cf597afd24 data/minecraft/advancement/recipes/misc/coal.json
 2dd93e631bc87f5c1f296b791d53152d40ade673 data/minecraft/advancement/recipes/misc/ender_pearl.json
@@ -332,8 +332,8 @@ e2404e1e8d86d53a467d947904caa0b04954986e data/smallprogressions/recipe/greenhous
 dc821c83388a9f8b976fb26477a77cf13ca316c7 data/smallprogressions/recipe/green_glowstone_from_dye.json
 515bc371644a84de177572f534479f76c3a3c82e data/smallprogressions/recipe/green_glowstone_glass.json
 9eccc246ea208651437d17ce3b1e7b8cb2d8be36 data/smallprogressions/recipe/growth_crystal_tier_1.json
-3536b7ddc0fb0fe04170a7b4fbf96939467436fe data/smallprogressions/recipe/growth_crystal_tier_2.json
-62f08c3ee3b77b9e2b53232996a46bf2c8fc2f27 data/smallprogressions/recipe/growth_crystal_tier_3.json
+5b55352087b713b46cfd29668a096ab30bd04d27 data/smallprogressions/recipe/growth_crystal_tier_2.json
+5217e796ef4f6a023680e6941df91d1879dc5b28 data/smallprogressions/recipe/growth_crystal_tier_3.json
 5b978be8d51d73557bf0f6d9cad0226a6920ef43 data/smallprogressions/recipe/hammer.json
 d55c6103210e5e08ebf30adcf6d1a7ee75a5d769 data/smallprogressions/recipe/hardened_stone_bricks.json
 6bb82e07ccaf381738c745c685b4dafc88c12636 data/smallprogressions/recipe/hardened_stone_brick_slab.json

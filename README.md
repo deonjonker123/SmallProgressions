@@ -18,7 +18,7 @@
 - **Harvester** - Automatically harvests and replants crops
 
 #### Farming & Growth
-- **Growth Crystals (Tier 1-3)** - Accelerates crop growth
+- **Growth Crystals (Tier 1-3 - Waterloggable)** - Accelerates crop growth
 - **Greenhouse Glass** - Boosts crop growth when in direct sunlight
 
 #### Processing & Storage

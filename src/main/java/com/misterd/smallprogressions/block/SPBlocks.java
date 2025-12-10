@@ -157,6 +157,7 @@ public class SPBlocks {
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .noOcclusion()
                     .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 1));
 
@@ -164,6 +165,7 @@ public class SPBlocks {
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .noOcclusion()
                     .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 2));
 
@@ -171,6 +173,7 @@ public class SPBlocks {
             () -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
+                    .noOcclusion()
                     .lightLevel(state -> 15)
                     .sound(SoundType.STONE), 3));
 

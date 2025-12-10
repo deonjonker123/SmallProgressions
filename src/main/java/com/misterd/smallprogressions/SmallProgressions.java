@@ -72,6 +72,10 @@ public class SmallProgressions {
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GOLD_TANK.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.DIAMOND_TANK.get(), RenderType.cutout());
 
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_1.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_2.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_3.get(), RenderType.translucent());
+
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.BLACK_GLOWSTONE_GLASS.get(), RenderType.translucent());
