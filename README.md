@@ -1,6 +1,6 @@
 # Small Progressions
 
-**A Modern Remake of Tiny Progressions for Minecraft 1.21.1 (NeoForge)**
+**A modern take on Tiny Progressions for Minecraft 1.21.1 (NeoForge)**
 
 ---
 
@@ -164,8 +164,8 @@ All major features are fully configurable:
 - Greenhouse Glass for crop growth
 
 ### Not inlcuded from Tiny Progressions
-- 8 tiers of compressed blocks
-- 9 armor sets (Bone, Stone, Wood, etc.)
+- Compressed blocks
+- Various lower-tier armor sets (Bone, Stone, Wood, etc.)
 - Many food variants (juices for every crop)
 - Decorative lamps (16 colored lamps)
 - Infinity Bucket
@@ -175,6 +175,6 @@ All major features are fully configurable:
 
 ## Credits
 
-**Inspiration:** Many features and ideas in this mod were inspired by the original Tiny Progressions mod.
+**Inspiration:** Many features and ideas in this mod were obviously inspired by the original Tiny Progressions mod.
 
 **Textures:** Some textures were adapted from "Unused Minecraft Textures" by Malcolm Riley ([GitHub Repository](https://github.com/malcolmriley/unused-textures)). Licensed under Creative Commons Attribution 4.0 International License. Modifications were made to some original assets.
