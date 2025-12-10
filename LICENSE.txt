@@ -1,22 +1,31 @@
-All Rights Reserved
+License — CC BY 4.0
 
-Copyright (c) 2025 [MisterD Modding]
+Copyright (c) 2025 MisterD Modding
 
-All rights reserved. No part of this software, including but not limited to 
-source code, compiled binaries, assets, documentation, or associated files 
-(the "Software"), may be reproduced, distributed, transmitted, modified, 
-adapted, or used in any form or by any means, without the prior written 
-permission of the copyright holder.
+This mod and all associated materials—including but not limited to source code, compiled binaries,
+assets, documentation, and any other files (the "Software")—are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
 
-MODPACK EXCEPTION: This mod may be freely included in any modpack, whether 
-private or public, without requiring permission from the copyright holder. 
-Modpack creators are encouraged to provide credit and a link to the original 
-mod page where possible, but this is not required.
+You are free to:
+Share — copy and redistribute the Software in any medium or format
+Adapt — remix, transform, and build upon the Software for any purpose, even commercially
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+Under the following terms:
+Attribution — You must give appropriate credit to MisterD Modding.
+You may do so in any reasonable manner.
+You may not imply endorsement by the original creator unless explicitly agreed.
+
+Full legal text of the CC BY 4.0 license:
+https://creativecommons.org/licenses/by/4.0/
+
+MODPACKS
+This mod may be freely included in any modpack, whether private or public, without requiring permission or attribution.
+
+Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE,
+ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
