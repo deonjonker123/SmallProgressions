@@ -44,6 +44,7 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.GROWTH_CRYSTAL_TIER_1.get())
                 .add(SPBlocks.GROWTH_CRYSTAL_TIER_2.get())
                 .add(SPBlocks.GROWTH_CRYSTAL_TIER_3.get())
+                .add(SPBlocks.GREENHOUSE_GLASS.get())
 
                 .add(SPBlocks.LAVA_INFUSED_STONE.get())
                 .add(SPBlocks.MCFLOATY_BLOCK.get())
