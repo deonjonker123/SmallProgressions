@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-10T00:51:31.4027394	Recipes
+// 1.21.1	2025-12-10T18:54:02.4266218	Recipes
 096e1cc324170955c907412f2c3113c03ece7be3 data/minecraft/advancement/recipes/misc/charcoal.json
 08b0827bfe5bb393031234b75b1ba7cf597afd24 data/minecraft/advancement/recipes/misc/coal.json
 2dd93e631bc87f5c1f296b791d53152d40ade673 data/minecraft/advancement/recipes/misc/ender_pearl.json
@@ -290,7 +290,7 @@ a38c190f29c407edc98bae5c2506c3bbc65ce97b data/smallprogressions/recipe/cyan_glow
 e02ebce49847cdb90b20e83857bcd8ecbe5d2ebd data/smallprogressions/recipe/diamond_barrel.json
 f54c42acd72b028b8f231fb19d50b1b938516c30 data/smallprogressions/recipe/diamond_barrel_upgrade.json
 2908162e05323011bd599c212de45909b4bf8842 data/smallprogressions/recipe/diamond_paxel.json
-93411b9be88ade83884706b2c801f63d5f5dc475 data/smallprogressions/recipe/diamond_scythe.json
+a4f12529939b3b0f14ee62f50e97b29d4b316506 data/smallprogressions/recipe/diamond_scythe.json
 05c97cc148b6ec7a335a6f59101ecda5de90d030 data/smallprogressions/recipe/diamond_tank.json
 63da30a242e99a23e31e34ffed71b232a2bacf1a data/smallprogressions/recipe/diamond_tank_upgrade.json
 848a6a1eed597950f70583dde2f312bf00b9cf82 data/smallprogressions/recipe/dragon_axe.json
