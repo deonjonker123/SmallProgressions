@@ -199,14 +199,14 @@
   "item.smallprogressions.emerald_chestplate": "Emerald Chesplate",
   "item.smallprogressions.emerald_leggings": "Emerald Leggings",
   "item.smallprogressions.emerald_boots": "Emerald Boots",
-  "item.smallprogressions.emerald.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.emerald.subtitle.line1": "Full set gives:",
   "item.smallprogressions.emerald.subtitle.line2": "Jump Boost",
 
   "item.smallprogressions.wither_helmet": "Wither Helmet",
   "item.smallprogressions.wither_chestplate": "Wither Chesplate",
   "item.smallprogressions.wither_leggings": "Wither Leggings",
   "item.smallprogressions.wither_boots": "Wither Boots",
-  "item.smallprogressions.wither.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.wither.subtitle.line1": "Full set gives:",
   "item.smallprogressions.wither.subtitle.line2": "Resistance",
   "item.smallprogressions.wither.subtitle.line3": "Fire Resistance",
   "item.smallprogressions.wither.subtitle.line4": "Strength",
@@ -215,7 +215,7 @@
   "item.smallprogressions.dragon_chestplate": "Dragon Chesplate",
   "item.smallprogressions.dragon_leggings": "Dragon Leggings",
   "item.smallprogressions.dragon_boots": "Dragon Boots",
-  "item.smallprogressions.dragon.subtitle.line1": "Full set grants:",
+  "item.smallprogressions.dragon.subtitle.line1": "Full set gives:",
   "item.smallprogressions.dragon.subtitle.line2": "Resistance",
   "item.smallprogressions.dragon.subtitle.line3": "Saturation",
   "item.smallprogressions.dragon.subtitle.line4": "Strength",
@@ -282,7 +282,7 @@
   "item.smallprogressions.blueberry_juice": "Blueberry Juice",
   "item.smallprogressions.maloberry_juice": "Maloberry Juice",
   "item.smallprogressions.raspberry_juice": "Raspberry Juice",
-  "item.smallprogressions.sliced_bread": "Sliced Bread",
+  "item.smallprogressions.sliced_bread": "Bread Slice",
   "item.smallprogressions.toast": "Toast",
   "item.smallprogressions.pizza_slice": "Pizza Slice",
   "item.smallprogressions.fried_egg": "Fried Egg",
@@ -292,23 +292,23 @@
   "item.smallprogressions.cooked_apple": "Cooked Apple",
 
   "item.smallprogressions.iron_apple": "Iron Apple",
-  "item.smallprogressions.iron_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.iron_apple.subtitle.line1": "Gives 30 seconds of:",
   "item.smallprogressions.iron_apple.subtitle.line2": "Saturation",
   "item.smallprogressions.iron_apple.subtitle.line3": "Resistance",
 
   "item.smallprogressions.redstone_apple": "Redstone Apple",
-  "item.smallprogressions.redstone_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.redstone_apple.subtitle.line1": "Gives 30 seconds of:",
   "item.smallprogressions.redstone_apple.subtitle.line2": "Saturation",
   "item.smallprogressions.redstone_apple.subtitle.line3": "Haste",
 
   "item.smallprogressions.emerald_apple": "Emerald Apple",
-  "item.smallprogressions.emerald_apple.subtitle.line1": "Eating this apple grants 30 seconds:",
+  "item.smallprogressions.emerald_apple.subtitle.line1": "Gives 30 seconds of:",
   "item.smallprogressions.emerald_apple.subtitle.line2": "Saturation",
   "item.smallprogressions.emerald_apple.subtitle.line3": "Absorption",
   "item.smallprogressions.emerald_apple.subtitle.line4": "Speed",
 
   "item.smallprogressions.diamond_apple": "Diamond Apple",
-  "item.smallprogressions.diamond_apple.subtitle.line1": "Eating this apple grants 30 seconds of:",
+  "item.smallprogressions.diamond_apple.subtitle.line1": "Gives 30 seconds of:",
   "item.smallprogressions.diamond_apple.subtitle.line2": "Resistance",
   "item.smallprogressions.diamond_apple.subtitle.line3": "Fire Resistance",
   "item.smallprogressions.diamond_apple.subtitle.line4": "Speed",
@@ -362,13 +362,13 @@
   "message.smallprogressions.tank.empty": "Tank is empty!",
   "message.smallprogressions.tank.full": "Tank is full!",
 
-  "tooltip.smallprogressions.copper_tank.line1": "Holds up to 16 buckets of fluid",
+  "tooltip.smallprogressions.copper_tank.line1": "Capacity: 16,000mB",
 
-  "tooltip.smallprogressions.iron_tank.line1": "Holds up to 32 buckets of fluid",
+  "tooltip.smallprogressions.iron_tank.line1": "Capacity: 32,000mB",
 
-  "tooltip.smallprogressions.gold_tank.line1": "Holds up to 64 buckets of fluid",
+  "tooltip.smallprogressions.gold_tank.line1": "Capacity: 64,000mB",
 
-  "tooltip.smallprogressions.diamond_tank.line1": "Holds up to 128 buckets of fluid",
+  "tooltip.smallprogressions.diamond_tank.line1": "Capacity: 128,000mB",
 
   "tooltip.smallprogressions.lava_generator.line1": "Passively generates lava",
   "tooltip.smallprogressions.lava_generator.line2": "Outputs to adjacent tanks automatically",
@@ -423,14 +423,18 @@
   "jei.smallprogressions.lava_generation": "Lava Generation",
   "jei.smallprogressions.lava_generation.rate": "Rate: %s",
 
-  "tooltip.smallprogressions.big_bucket.contains": "Contains: %s / %s buckets of %s",
+  "tooltip.smallprogressions.big_bucket.contains": "%s: %s bucket/s",
   "tooltip.smallprogressions.big_bucket.empty": "Empty",
   "tooltip.smallprogressions.big_bucket.usage": "Usage:",
   "tooltip.smallprogressions.big_bucket.right_click": "Right-Click: Fill from source/tank",
   "tooltip.smallprogressions.big_bucket.shift_right_click": "Shift + Right-Click: Drain into world/tank",
+  "tooltip.smallprogressions.big_bucket.line1": "Capacity: %s buckets",
 
   "item.smallprogressions.sickle.subtitle": "Used to gather straw from grass",
   "item.smallprogressions.straw.subtitle": "Obtained by breaking grass with a sickle",
   "item.smallprogressions.hammer.subtitle": "Crafting component only. Used to craft steel ingots",
-  "item.smallprogressions.juicer.subtitle": "Crafting component only. Used to craft juices"
+  "item.smallprogressions.juicer.subtitle": "Crafting component only. Used to craft juices",
+
+  "tooltip.smallprogressions.tank.contains": "",
+  "tooltip.smallprogressions.tank.empty": "Empty"
 }

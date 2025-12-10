@@ -144,7 +144,7 @@ public class CopperTankBlock extends BaseEntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.copper_tank.line1").withStyle(ChatFormatting.AQUA));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.copper_tank.line1").withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

@@ -65,13 +65,15 @@ public class SPFoodProperties {
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600), 1)
+            .alwaysEdible()
             .build();
 
     public static final FoodProperties REDSTONE_APPLE = new FoodProperties.Builder()
             .saturationModifier(0.7F)
             .nutrition(3)
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
-            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600, 2), 1)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600, 1), 1)
+            .alwaysEdible()
             .build();
 
     public static final FoodProperties EMERALD_APPLE = new FoodProperties.Builder()
@@ -80,6 +82,7 @@ public class SPFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1)
+            .alwaysEdible()
             .build();
 
     public static final FoodProperties DIAMOND_APPLE = new FoodProperties.Builder()
@@ -89,5 +92,6 @@ public class SPFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 600), 1)
+            .alwaysEdible()
             .build();
 }

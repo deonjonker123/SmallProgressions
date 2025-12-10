@@ -3,10 +3,15 @@ package com.misterd.smallprogressions.block.custom;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.blockentity.custom.BrickFurnaceBlockEntity;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
@@ -64,8 +69,33 @@ public class BrickFurnaceBlock extends BaseEntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.smallprogressions.brick_furnace.line1"));
+        tooltip.add(Component.translatable("tooltip.smallprogressions.brick_furnace.line1").withStyle(ChatFormatting.AQUA));
         super.appendHoverText(stack, context, tooltip, flag);
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (state.getValue(LIT)) {
+            double d0 = (double)pos.getX() + 0.5;
+            double d1 = (double)pos.getY();
+            double d2 = (double)pos.getZ() + 0.5;
+
+            if (random.nextDouble() < 0.1) {
+                level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            }
+
+            Direction direction = state.getValue(FACING);
+            Direction.Axis axis = direction.getAxis();
+            double d3 = 0.52;
+            double d4 = random.nextDouble() * 0.6 - 0.3;
+            double d5 = axis == Direction.Axis.X ? (double)direction.getStepX() * d3 : d4;
+            double d6 = random.nextDouble() * 6.0 / 16.0;
+            double d7 = axis == Direction.Axis.Z ? (double)direction.getStepZ() * d3 : d4;
+
+            level.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0, 0.0, 0.0);
+
+            level.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0, 0.0, 0.0);
+        }
     }
 
     /* BLOCK ENTITY */

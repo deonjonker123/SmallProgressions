@@ -90,9 +90,11 @@ public class BigBucketItem extends Item {
             if (player.isShiftKeyDown()) {
                 if (!stored.isEmpty() && stored.getAmount() >= 1000) {
                     FluidStack toInsert = new FluidStack(stored.getFluid(), 1000);
-                    int filled = handler.fill(toInsert, IFluidHandler.FluidAction.EXECUTE);
-                    if (filled > 0) {
-                        stored.shrink(filled);
+                    int filled = handler.fill(toInsert, IFluidHandler.FluidAction.SIMULATE);
+
+                    if (filled == 1000) {
+                        handler.fill(toInsert, IFluidHandler.FluidAction.EXECUTE);
+                        stored.shrink(1000);
                         if (stored.isEmpty()) {
                             clearStoredFluid(stack);
                         } else {
@@ -103,18 +105,18 @@ public class BigBucketItem extends Item {
                     }
                 }
             } else {
-                if (stored.getAmount() < getCapacity()) {
-                    int spaceLeft = getCapacity() - stored.getAmount();
-                    int toDrain = Math.min(1000, spaceLeft);
+                if (stored.getAmount() + 1000 <= getCapacity()) {
+                    FluidStack drained = handler.drain(1000, IFluidHandler.FluidAction.SIMULATE);
 
-                    FluidStack drained = handler.drain(toDrain, IFluidHandler.FluidAction.SIMULATE);
-                    if (!drained.isEmpty() && (stored.isEmpty() || stored.getFluid() == drained.getFluid())) {
-                        FluidStack actual = handler.drain(toDrain, IFluidHandler.FluidAction.EXECUTE);
-                        if (!actual.isEmpty()) {
+                    if (!drained.isEmpty() && drained.getAmount() == 1000 &&
+                            (stored.isEmpty() || stored.getFluid() == drained.getFluid())) {
+
+                        FluidStack actual = handler.drain(1000, IFluidHandler.FluidAction.EXECUTE);
+                        if (!actual.isEmpty() && actual.getAmount() == 1000) {
                             if (stored.isEmpty()) {
                                 setStoredFluid(stack, actual, level);
                             } else {
-                                stored.grow(actual.getAmount());
+                                stored.grow(1000);
                                 setStoredFluid(stack, stored, level);
                             }
                             level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -223,17 +225,17 @@ public class BigBucketItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         if (context.level() != null) {
             FluidStack stored = getStoredFluid(stack, context.level());
-
+            int maxBuckets = getCapacity() / 1000;
+            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.big_bucket.line1", maxBuckets).withStyle(ChatFormatting.GOLD));
             if (stored.isEmpty()) {
                 tooltipComponents.add(Component.translatable("tooltip.smallprogressions.big_bucket.empty")
-                        .withStyle(ChatFormatting.GRAY));
+                        .withStyle(ChatFormatting.RED));
             } else {
                 String fluidName = stored.getHoverName().getString();
                 int storedBuckets = stored.getAmount() / 1000;
-                int maxBuckets = getCapacity() / 1000;
                 tooltipComponents.add(Component.translatable("tooltip.smallprogressions.big_bucket.contains",
-                                storedBuckets, maxBuckets, fluidName)
-                        .withStyle(ChatFormatting.AQUA));
+                                fluidName, storedBuckets)
+                        .withStyle(ChatFormatting.RED));
             }
 
             tooltipComponents.add(Component.literal(""));

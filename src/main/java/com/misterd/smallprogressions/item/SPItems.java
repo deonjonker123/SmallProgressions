@@ -171,7 +171,7 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -182,7 +182,7 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -193,7 +193,7 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -204,7 +204,7 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -216,9 +216,9 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -229,9 +229,9 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -242,9 +242,9 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -255,9 +255,9 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.wither.subtitle.line4").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -269,10 +269,10 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -283,10 +283,10 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -297,10 +297,10 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -311,10 +311,10 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line2").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line3").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line4").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.dragon.subtitle.line5").withStyle(ChatFormatting.DARK_PURPLE).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -541,8 +541,8 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.iron_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -552,8 +552,8 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line2").withStyle(ChatFormatting.DARK_RED));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line3").withStyle(ChatFormatting.DARK_RED));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line2").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.redstone_apple.subtitle.line3").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -563,9 +563,9 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GREEN));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line4").withStyle(ChatFormatting.DARK_GREEN));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line2").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line3").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.emerald_apple.subtitle.line4").withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -575,10 +575,10 @@ public class SPItems {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
                     tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line1").withStyle(ChatFormatting.GOLD));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line2").withStyle(ChatFormatting.DARK_AQUA));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line3").withStyle(ChatFormatting.DARK_AQUA));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line4").withStyle(ChatFormatting.DARK_AQUA));
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line5").withStyle(ChatFormatting.DARK_AQUA));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line2").withStyle(ChatFormatting.DARK_AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line3").withStyle(ChatFormatting.DARK_AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line4").withStyle(ChatFormatting.DARK_AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+                    tooltipComponents.add(Component.translatable("item.smallprogressions.diamond_apple.subtitle.line5").withStyle(ChatFormatting.DARK_AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
                 }
             });
 

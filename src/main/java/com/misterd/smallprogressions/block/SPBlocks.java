@@ -3,6 +3,7 @@ package com.misterd.smallprogressions.block;
 import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.block.custom.*;
 import com.misterd.smallprogressions.item.SPItems;
+import com.misterd.smallprogressions.item.custom.TankBlockItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -113,28 +114,28 @@ public class SPBlocks {
                     .sound(SoundType.WOOD)));
 
     // Fluid Tanks
-    public static final DeferredBlock<Block> COPPER_TANK = registerBlock("copper_tank",
+    public static final DeferredBlock<Block> COPPER_TANK = BLOCKS.register("copper_tank",
             () -> new CopperTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> IRON_TANK = registerBlock("iron_tank",
+    public static final DeferredBlock<Block> IRON_TANK = BLOCKS.register("iron_tank",
             () -> new IronTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> GOLD_TANK = registerBlock("gold_tank",
+    public static final DeferredBlock<Block> GOLD_TANK = BLOCKS.register("gold_tank",
             () -> new GoldTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> DIAMOND_TANK = registerBlock("diamond_tank",
+    public static final DeferredBlock<Block> DIAMOND_TANK = BLOCKS.register("diamond_tank",
             () -> new DiamondTankBlock(BlockBehaviour.Properties.of()
                     .strength(2F, 3F)
                     .requiresCorrectToolForDrops()
@@ -753,6 +754,17 @@ public class SPBlocks {
 
     public static final DeferredBlock<Block> RASPBERRY_BUSH = BLOCKS.register("raspberry_bush",
             () -> new RaspberryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
+
+    static {
+        SPItems.ITEMS.register("copper_tank",
+                () -> new TankBlockItem(COPPER_TANK.get(), new Item.Properties(), 16000));
+        SPItems.ITEMS.register("iron_tank",
+                () -> new TankBlockItem(IRON_TANK.get(), new Item.Properties(), 32000));
+        SPItems.ITEMS.register("gold_tank",
+                () -> new TankBlockItem(GOLD_TANK.get(), new Item.Properties(), 64000));
+        SPItems.ITEMS.register("diamond_tank",
+                () -> new TankBlockItem(DIAMOND_TANK.get(), new Item.Properties(), 128000));
+    }
 
     private static <T extends Block> DeferredBlock<T> registerBlock (String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
