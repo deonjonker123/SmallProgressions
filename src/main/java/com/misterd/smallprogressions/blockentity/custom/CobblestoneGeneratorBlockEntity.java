@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -142,6 +143,13 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity {
         }
 
         return remaining;
+    }
+
+    public void drops() {
+        ItemStack buffer = inventory.getStackInSlot(0);
+        if (!buffer.isEmpty()) {
+            Containers.dropItemStack(this.level, this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ(), buffer);
+        }
     }
 
     public int getTier() {

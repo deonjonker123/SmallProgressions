@@ -7,6 +7,9 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -17,6 +20,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -49,6 +53,38 @@ public class CobblestoneGeneratorBlock extends BaseEntityBlock {
     @Override
     protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof CobblestoneGeneratorBlockEntity genEntity) {
+                genEntity.drops();
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.isClientSide()) {
+            return ItemInteractionResult.SUCCESS;
+        }
+
+        if (level.getBlockEntity(pos) instanceof CobblestoneGeneratorBlockEntity genEntity) {
+            if (stack.isEmpty()) {
+                ItemStack buffer = genEntity.inventory.getStackInSlot(0);
+                if (!buffer.isEmpty()) {
+                    if (!player.getInventory().add(buffer.copy())) {
+                        player.drop(buffer.copy(), false);
+                    }
+                    genEntity.inventory.setStackInSlot(0, ItemStack.EMPTY);
+                    return ItemInteractionResult.SUCCESS;
+                }
+            }
+        }
+
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Nullable

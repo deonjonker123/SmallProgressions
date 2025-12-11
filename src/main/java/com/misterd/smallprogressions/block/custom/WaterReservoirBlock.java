@@ -76,19 +76,41 @@ public class WaterReservoirBlock extends BaseEntityBlock {
             return ItemInteractionResult.SUCCESS;
         }
 
-        if (stack.is(Items.BUCKET)) {
-            if (Config.isWaterReservoirInfinite()) {
-                if (!player.isCreative()) {
-                    stack.shrink(1);
-                    ItemStack waterBucket = new ItemStack(Items.WATER_BUCKET);
-                    if (!player.getInventory().add(waterBucket)) {
-                        player.drop(waterBucket, false);
-                    }
+        if (level.getBlockEntity(pos) instanceof WaterReservoirBlockEntity reservoir) {
+            if (stack.isEmpty()) {
+                if (Config.isWaterReservoirInfinite()) {
+                    player.displayClientMessage(
+                            Component.literal("Infinite Water Source")
+                                    .withStyle(ChatFormatting.AQUA),
+                            true
+                    );
+                } else {
+                    int current = reservoir.getWaterAmount();
+                    int max = reservoir.getMaxCapacity();
+                    int buckets = current / 1000;
+                    int maxBuckets = max / 1000;
+
+                    player.displayClientMessage(
+                            Component.literal(String.format("Water: %d / %d Buckets", buckets, maxBuckets))
+                                    .withStyle(ChatFormatting.AQUA),
+                            true
+                    );
                 }
-                level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                 return ItemInteractionResult.SUCCESS;
-            } else {
-                if (level.getBlockEntity(pos) instanceof WaterReservoirBlockEntity reservoir) {
+            }
+
+            if (stack.is(Items.BUCKET)) {
+                if (Config.isWaterReservoirInfinite()) {
+                    if (!player.isCreative()) {
+                        stack.shrink(1);
+                        ItemStack waterBucket = new ItemStack(Items.WATER_BUCKET);
+                        if (!player.getInventory().add(waterBucket)) {
+                            player.drop(waterBucket, false);
+                        }
+                    }
+                    level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    return ItemInteractionResult.SUCCESS;
+                } else {
                     if (reservoir.canFillBucket()) {
                         reservoir.fillBucket();
                         if (!player.isCreative()) {
@@ -105,13 +127,11 @@ public class WaterReservoirBlock extends BaseEntityBlock {
                         return ItemInteractionResult.FAIL;
                     }
                 }
-            }
-        } else if (stack.is(Items.WATER_BUCKET)) {
-            if (Config.isWaterReservoirInfinite()) {
-                player.displayClientMessage(Component.translatable("message.smallprogressions.water_reservoir.already_infinite").withStyle(ChatFormatting.YELLOW), true);
-                return ItemInteractionResult.FAIL;
-            } else {
-                if (level.getBlockEntity(pos) instanceof WaterReservoirBlockEntity reservoir) {
+            } else if (stack.is(Items.WATER_BUCKET)) {
+                if (Config.isWaterReservoirInfinite()) {
+                    player.displayClientMessage(Component.translatable("message.smallprogressions.water_reservoir.already_infinite").withStyle(ChatFormatting.YELLOW), true);
+                    return ItemInteractionResult.FAIL;
+                } else {
                     if (reservoir.canDrainBucket()) {
                         reservoir.drainBucket();
                         if (!player.isCreative()) {
