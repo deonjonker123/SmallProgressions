@@ -463,6 +463,12 @@ public class SPItems {
     public static final DeferredItem<Item> FLAX = ITEMS.register("flax",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> MARBLE_PEBBLE = ITEMS.register("marble_pebble",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> SLATE_PEBBLE = ITEMS.register("slate_pebble",
+            () -> new Item(new Item.Properties()));
+
     /// Storage Barrel Upgrades ///
     public static final DeferredItem<Item> IRON_BARREL_UPGRADE = ITEMS.register("iron_barrel_upgrade",
             () -> new BarrelUpgradeItem(BarrelUpgradeItem.BarrelTier.IRON, new Item.Properties()));

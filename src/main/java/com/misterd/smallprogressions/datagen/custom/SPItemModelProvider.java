@@ -115,6 +115,9 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.BIG_BUCKET.get());
         basicItem(SPItems.BIG_POUCH.get());
 
+        basicItem(SPItems.MARBLE_PEBBLE.get());
+        basicItem(SPItems.SLATE_PEBBLE.get());
+
         basicItem(SPItems.TINY_COAL.get());
         basicItem(SPItems.TINY_CHARCOAL.get());
 

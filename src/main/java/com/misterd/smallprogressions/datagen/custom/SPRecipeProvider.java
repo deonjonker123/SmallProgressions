@@ -356,6 +356,13 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.MARBLE_WALL.get(), SPBlocks.MARBLE.get());
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.MARBLE_BRICK_WALL.get(), SPBlocks.MARBLE_BRICKS.get());
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.MARBLE.get())
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', SPItems.MARBLE_PEBBLE)
+                .unlockedBy("has_marble_pebble", has(SPItems.MARBLE_PEBBLE))
+                .save(recipeOutput);
+
         // Slate
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.SLATE_BRICKS.get(), 4)
                 .pattern("SS")
@@ -386,6 +393,13 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SLATE_WALL.get(), SPBlocks.SLATE.get());
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SPBlocks.SLATE_BRICK_WALL.get(), SPBlocks.SLATE_BRICKS.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.SLATE.get())
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', SPItems.SLATE_PEBBLE)
+                .unlockedBy("has_slate_pebble", has(SPItems.SLATE_PEBBLE))
+                .save(recipeOutput);
 
         // Hardened Stone
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.HARDENED_STONE_BRICKS.get(), 4)

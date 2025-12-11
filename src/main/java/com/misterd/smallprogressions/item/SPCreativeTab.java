@@ -268,6 +268,9 @@ public class SPCreativeTab {
                         output.accept(SPItems.SICKLE);
                         output.accept(SPItems.REPAIR_TOTEM);
 
+                        output.accept(SPItems.MARBLE_PEBBLE);
+                        output.accept(SPItems.SLATE_PEBBLE);
+
                         // Crops
                         output.accept(SPItems.COTTON_SEEDS);
                         output.accept(SPItems.COTTON_BOLLS);

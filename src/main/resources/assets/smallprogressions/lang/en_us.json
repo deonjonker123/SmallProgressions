@@ -436,5 +436,8 @@
   "item.smallprogressions.juicer.subtitle": "Crafting component only. Used to craft juices",
 
   "tooltip.smallprogressions.tank.contains": "",
-  "tooltip.smallprogressions.tank.empty": "Empty"
+  "tooltip.smallprogressions.tank.empty": "Empty",
+
+  "item.smallprogressions.marble_pebble": "Marble Pebble",
+  "item.smallprogressions.slate_pebble": "Slate Pebble"
 }
