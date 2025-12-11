@@ -11,12 +11,15 @@
     "G": {
       "tag": "small_progressions:small_progressions_glowstone_blocks"
     },
+    "L": {
+      "tag": "c:glass_blocks"
+    },
     "W": {
       "tag": "c:buckets/water"
     }
   },
   "pattern": [
-    "#W#",
+    "LLL",
     "BGB",
     "#W#"
   ],

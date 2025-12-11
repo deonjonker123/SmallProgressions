@@ -11,12 +11,15 @@
     "G": {
       "item": "smallprogressions:growth_crystal_tier_2"
     },
+    "L": {
+      "tag": "c:glass_blocks"
+    },
     "W": {
       "tag": "c:buckets/water"
     }
   },
   "pattern": [
-    "#W#",
+    "LLL",
     "BGB",
     "#W#"
   ],

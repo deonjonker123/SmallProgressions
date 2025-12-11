@@ -75,35 +75,38 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.GROWTH_CRYSTAL_TIER_1.get())
-                .pattern("#W#")
+                .pattern("LLL")
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', SPItems.STEEL_INGOT)
                 .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPTags.Items.SMALL_PROGRESSIONS_GLOWSTONE_BLOCKS)
+                .define('L', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_steel_ingot", has(SPItems.STEEL_INGOT))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.GROWTH_CRYSTAL_TIER_2.get())
-                .pattern("#W#")
+                .pattern("LLL")
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', Items.DIAMOND)
                 .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPBlocks.GROWTH_CRYSTAL_TIER_1)
+                .define('L', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_growth_crystal_tier_1", has(SPBlocks.GROWTH_CRYSTAL_TIER_1))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.GROWTH_CRYSTAL_TIER_3.get())
-                .pattern("#W#")
+                .pattern("LLL")
                 .pattern("BGB")
                 .pattern("#W#")
                 .define('#', Items.NETHERITE_INGOT)
                 .define('W', Tags.Items.BUCKETS_WATER)
                 .define('B', Items.BONE_MEAL)
                 .define('G', SPBlocks.GROWTH_CRYSTAL_TIER_2)
+                .define('L', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_growth_crystal_tier_2", has(SPBlocks.GROWTH_CRYSTAL_TIER_2))
                 .save(recipeOutput);
 
@@ -175,7 +178,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("C#C")
                 .pattern("#F#")
                 .pattern("SSS")
-                .define('F', Items.FURNACE)
+                .define('F', Items.BLAST_FURNACE)
                 .define('C', Items.BRICKS)
                 .define('#', SPItems.STEEL_INGOT)
                 .define('S', SPBlocks.HARDENED_STONE)
@@ -309,7 +312,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,  Items.CHARCOAL, 9)
                 .requires(SPBlocks.CHARCOAL_BLOCK)
                 .unlockedBy("has_charcoal_block", has(SPBlocks.CHARCOAL_BLOCK))
-                .save(recipeOutput);
+                .save(recipeOutput, "small_progressions:charcoal_from_charcoal_block");
 
         // Steel Block
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,  SPBlocks.STEEL_BLOCK.get())

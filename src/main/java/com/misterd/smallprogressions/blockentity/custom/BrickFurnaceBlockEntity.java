@@ -173,7 +173,11 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
             if (recipeHolder.isPresent()) {
                 SmeltingRecipe recipe = recipeHolder.get().value();
-                ItemStack result = recipe.getResultItem(level.registryAccess());
+                ItemStack result = recipe.assemble(new SingleRecipeInput(input), level.registryAccess());
+
+                if (result.isEmpty()) {
+                    result = recipe.getResultItem(level.registryAccess());
+                }
 
                 boolean canInsertOutput = output.isEmpty() ||
                         (ItemStack.isSameItemSameComponents(output, result) &&
