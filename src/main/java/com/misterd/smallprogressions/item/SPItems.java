@@ -542,7 +542,7 @@ public class SPItems {
             () -> new Item(new Item.Properties().food(SPFoodProperties.COOKED_APPLE)));
 
     public static final DeferredItem<Item> IRON_APPLE = ITEMS.register("iron_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.IRON_APPLE))
+            () -> new IronAppleItem(new Item.Properties().food(SPFoodProperties.IRON_APPLE))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -553,7 +553,7 @@ public class SPItems {
             });
 
     public static final DeferredItem<Item> REDSTONE_APPLE = ITEMS.register("redstone_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.REDSTONE_APPLE))
+            () -> new RedstoneAppleItem(new Item.Properties().food(SPFoodProperties.REDSTONE_APPLE))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -564,7 +564,7 @@ public class SPItems {
             });
 
     public static final DeferredItem<Item> EMERALD_APPLE = ITEMS.register("emerald_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.EMERALD_APPLE))
+            () -> new EmeraldAppleItem(new Item.Properties().food(SPFoodProperties.EMERALD_APPLE))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -576,7 +576,7 @@ public class SPItems {
             });
 
     public static final DeferredItem<Item> DIAMOND_APPLE = ITEMS.register("diamond_apple",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE))
+            () -> new DiamondAppleItem(new Item.Properties().food(SPFoodProperties.DIAMOND_APPLE))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
