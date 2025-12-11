@@ -72,6 +72,27 @@ public class GoldTankBlock extends BaseEntityBlock {
         }
 
         if (level.getBlockEntity(pos) instanceof GoldTankBlockEntity tankEntity) {
+            if (stack.isEmpty()) {
+                int current = tankEntity.getFluidAmount();
+                int max = tankEntity.getMaxCapacity();
+
+                if (current > 0) {
+                    String fluidName = tankEntity.tank.getFluid().getHoverName().getString();
+                    player.displayClientMessage(
+                            Component.literal(String.format("%s: %,d / %,d mB", fluidName, current, max))
+                                    .withStyle(ChatFormatting.AQUA),
+                            true
+                    );
+                } else {
+                    player.displayClientMessage(
+                            Component.literal(String.format("Empty: 0 / %,d mB", max))
+                                    .withStyle(ChatFormatting.GRAY),
+                            true
+                    );
+                }
+                return ItemInteractionResult.SUCCESS;
+            }
+
             if (stack.is(Items.BUCKET)) {
                 if (tankEntity.canFillBucket()) {
                     FluidStack drained = tankEntity.tank.drain(1000, IFluidHandler.FluidAction.EXECUTE);
