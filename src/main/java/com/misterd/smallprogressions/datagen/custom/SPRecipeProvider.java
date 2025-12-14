@@ -1116,7 +1116,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.IRON_INGOT)
-                .define('B', Items.BUCKET)
+                .define('B', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
@@ -1126,7 +1126,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.GOLD_INGOT)
-                .define('B', Items.BUCKET)
+                .define('B', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(recipeOutput);
 
@@ -1136,7 +1136,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .define('G', Tags.Items.GLASS_BLOCKS)
                 .define('#', Items.DIAMOND)
-                .define('B', Items.BUCKET)
+                .define('B', Tags.Items.GLASS_BLOCKS)
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(recipeOutput);
 
