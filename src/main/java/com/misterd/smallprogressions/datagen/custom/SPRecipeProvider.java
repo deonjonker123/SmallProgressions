@@ -1753,7 +1753,7 @@ public class SPRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.COAL)
                 .requires(SPItems.TINY_COAL, 8)
                 .unlockedBy("has_tiny_coal", has(SPItems.TINY_COAL))
-                .save(recipeOutput);
+                .save(recipeOutput, "smallprogressions:coal_from_tiny_coal");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.CHARCOAL)
                 .requires(SPItems.TINY_CHARCOAL, 8)

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coal"
+        "recipe": "smallprogressions:coal_from_tiny_coal"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coal"
+      "smallprogressions:coal_from_tiny_coal"
     ]
   }
 }
