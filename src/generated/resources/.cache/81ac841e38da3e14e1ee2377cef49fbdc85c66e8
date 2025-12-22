@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-09T18:37:49.485217	Tags for minecraft:item mod id smallprogressions
+// 1.21.1	2025-12-22T14:43:45.2840486	Tags for minecraft:item mod id smallprogressions
 ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/c/tags/item/armors.json
 4550a527f3da439189d88eddaa9051ef254b0913 data/c/tags/item/buckets.json
 65dc782a8ebfbb08a3aa5a5b430ec5c3890460ad data/c/tags/item/crops.json
@@ -6,6 +6,18 @@ ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/c/tags/item/armors.json
 58cea64e88bc04e1dcd0cea09964852dac372b0e data/c/tags/item/ingots.json
 40c8f1de4551f4a51ff42232004527d17b2d4a66 data/c/tags/item/ores.json
 62644133796bb6ec7185f584ac878609e12259a4 data/c/tags/item/tools.json
+ef7f5ff34878937d9c6d3f0116e5fc108047ca49 data/minecraft/tags/item/enchantable/armor.json
+84cf2e72ea3921174fe256b987065f6eb8a8125b data/minecraft/tags/item/enchantable/chest_armor.json
+0daf7ddbd0833655b33af9e4f6a0625c8e1bca7a data/minecraft/tags/item/enchantable/durability.json
+4328b26672a2fbe62e002a3d4d5aca352da1ccd6 data/minecraft/tags/item/enchantable/foot_armor.json
+50a37ac5c583098ab265576e18da691daf302a17 data/minecraft/tags/item/enchantable/head_armor.json
+e25adde57694cf8578e607d59580bd4facf1c26e data/minecraft/tags/item/enchantable/leg_armor.json
+a43442eb1494a78a97832349c1b5085948878467 data/minecraft/tags/item/enchantable/mining.json
+a43442eb1494a78a97832349c1b5085948878467 data/minecraft/tags/item/enchantable/mining_loot.json
+33ce7f70e259b1a766817e36ab045c0c6e848140 data/minecraft/tags/item/enchantable/sharp_weapon.json
+1a095c39e033a2bff90ef03840384330b1072858 data/minecraft/tags/item/enchantable/sword.json
+0daf7ddbd0833655b33af9e4f6a0625c8e1bca7a data/minecraft/tags/item/enchantable/vanishing.json
+1a095c39e033a2bff90ef03840384330b1072858 data/minecraft/tags/item/enchantable/weapon.json
 58cea64e88bc04e1dcd0cea09964852dac372b0e data/small_progressions/tags/item/ingots/small_progressions.json
 6ea89ecffd1ab3a776010c6366cc8ff4e0172172 data/small_progressions/tags/item/nuggets/small_progressions.json
 40c8f1de4551f4a51ff42232004527d17b2d4a66 data/small_progressions/tags/item/ores/small_progressions.json
