@@ -10,9 +10,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -25,15 +28,20 @@ import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider {
     private static final int SPEED_MULTIPLIER = 4;
     private static final int SMELT_TIME = 200 / SPEED_MULTIPLIER;
+
+    private final Map<ResourceLocation, Integer> recipesUsed = new HashMap<>();
 
     public final ItemStackHandler inventory = new ItemStackHandler(3) {
         @Override
@@ -105,9 +113,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
             @Override
             public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-                if (slot == 2) {
-                    return stack;
-                }
+                if (slot == 2) return stack;
 
                 if (slot == 0) {
                     if (level != null && level.getRecipeManager()
@@ -130,9 +136,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
             @Override
             public ItemStack extractItem(int slot, int amount, boolean simulate) {
-                if (slot == 2) {
-                    return inventory.extractItem(slot, amount, simulate);
-                }
+                if (slot == 2) return inventory.extractItem(slot, amount, simulate);
                 return ItemStack.EMPTY;
             }
 
@@ -208,6 +212,10 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                             }
 
                             input.shrink(1);
+
+                            ResourceLocation recipeId = recipeHolder.get().id();
+                            recipesUsed.merge(recipeId, 1, Integer::sum);
+
                             dirty = true;
                         }
                     }
@@ -229,9 +237,29 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
             level.setBlock(pos, state.setValue(BrickFurnaceBlock.LIT, isBurning()), 3);
         }
 
-        if (dirty) {
-            setChanged();
+        if (dirty) setChanged();
+    }
+
+    public void awardUsedRecipesAndPopExperience(Player player) {
+        if (level == null || level.isClientSide()) return;
+
+        for (Map.Entry<ResourceLocation, Integer> entry : recipesUsed.entrySet()) {
+            level.getRecipeManager().byKey(entry.getKey()).ifPresent(holder -> {
+                if (holder.value() instanceof SmeltingRecipe smeltingRecipe) {
+                    float xpPerCraft = smeltingRecipe.getExperience();
+                    int count = entry.getValue();
+                    int totalXp = (int)(xpPerCraft * count);
+                    float remainder = xpPerCraft * count - totalXp;
+                    if (remainder > 0 && Math.random() < remainder) totalXp++;
+
+                    if (totalXp > 0) {
+                        ExperienceOrb.award((ServerLevel) level, Vec3.atCenterOf(worldPosition), totalXp);
+                    }
+                }
+            });
         }
+
+        recipesUsed.clear();
     }
 
     private boolean isBurning() {
@@ -253,6 +281,9 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         tag.putInt("progress", progress);
         tag.putInt("fuelTime", fuelTime);
         tag.putInt("maxFuelTime", maxFuelTime);
+        CompoundTag recipesTag = new CompoundTag();
+        recipesUsed.forEach((id, count) -> recipesTag.putInt(id.toString(), count));
+        tag.put("recipesUsed", recipesTag);
     }
 
     @Override
@@ -262,6 +293,12 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         progress = tag.getInt("progress");
         fuelTime = tag.getInt("fuelTime");
         maxFuelTime = tag.getInt("maxFuelTime");
+
+        recipesUsed.clear();
+        CompoundTag recipesTag = tag.getCompound("recipesUsed");
+        for (String key : recipesTag.getAllKeys()) {
+            recipesUsed.put(ResourceLocation.parse(key), recipesTag.getInt(key));
+        }
     }
 
     @Override

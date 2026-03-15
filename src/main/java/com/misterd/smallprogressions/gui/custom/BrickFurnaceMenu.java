@@ -32,9 +32,17 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 62, 19)); //Input slot
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 62, 55)); //Fuel Slot
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 2, 116, 37)); //Output Slot
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 62, 19));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 62, 55));
+
+        BrickFurnaceBlockEntity be = this.blockEntity;
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 2, 116, 37) {
+            @Override
+            public void onTake(Player player, ItemStack stack) {
+                be.awardUsedRecipesAndPopExperience(player);
+                super.onTake(player, stack);
+            }
+        });
 
         addDataSlots(this.blockEntity.data);
     }
