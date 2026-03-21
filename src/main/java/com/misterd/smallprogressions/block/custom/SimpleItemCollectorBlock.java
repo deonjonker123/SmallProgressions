@@ -14,12 +14,30 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class SimpleItemCollectorBlock extends BaseEntityBlock {
     public static final MapCodec<SimpleItemCollectorBlock> CODEC = simpleCodec(SimpleItemCollectorBlock::new);
-    public static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
+    public static final VoxelShape SHAPE = Shapes.or(
+            Block.box(2, 0, 2,  14, 1,  14),
+            Block.box(3, 1, 3,  13, 3,  13),
+            Block.box(2, 3, 2,  14, 4,  14),
+            Block.box(4,  4, 3.5, 12, 11, 4),
+            Block.box(4,  4, 12,  12, 11, 12.5),
+            Block.box(3.5, 4, 4,   4, 11, 12),
+            Block.box(12,  4, 4, 12.5, 11, 12),
+            Block.box(4,  11, 4,  12, 11.5, 12),
+            Block.box(3,  4, 3,   4, 12,  4),
+            Block.box(12, 4, 3,  13, 12,  4),
+            Block.box(3,  4, 12,  4, 12, 13),
+            Block.box(12, 4, 12, 13, 12, 13),
+            Block.box(4,  11, 3,  12, 12,  4),
+            Block.box(4,  11, 12, 12, 12, 13),
+            Block.box(3,  11, 4,   4, 12, 12),
+            Block.box(12, 11, 4,  13, 12, 12)
+    );
 
     public SimpleItemCollectorBlock(Properties properties) {
         super(properties);

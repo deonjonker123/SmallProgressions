@@ -21,11 +21,34 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class AdvancedItemCollectorBlock extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
+    public static final VoxelShape SHAPE = Shapes.or(
+            // BASE — three layered slabs
+            Block.box(2, 0, 2,  14, 1,  14),  // bottom slab
+            Block.box(3, 1, 3,  13, 3,  13),  // middle step
+            Block.box(2, 3, 2,  14, 4,  14),  // top slab
+
+            // GLASS_BOX — four thin walls + top cap
+            Block.box(4,  4, 3.5, 12, 11, 4),    // north wall
+            Block.box(4,  4, 12,  12, 11, 12.5), // south wall
+            Block.box(3.5, 4, 4,   4, 11, 12),   // west wall
+            Block.box(12,  4, 4, 12.5, 11, 12),  // east wall
+            Block.box(4,  11, 4,  12, 11.5, 12), // top cap
+
+            // FRAME — four corner posts + four top rails
+            Block.box(3,  4, 3,   4, 12,  4),    // front-left post
+            Block.box(12, 4, 3,  13, 12,  4),    // front-right post
+            Block.box(3,  4, 12,  4, 12, 13),    // back-left post
+            Block.box(12, 4, 12, 13, 12, 13),    // back-right post
+            Block.box(4,  11, 3,  12, 12,  4),   // front top rail
+            Block.box(4,  11, 12, 12, 12, 13),   // back top rail
+            Block.box(3,  11, 4,   4, 12, 12),   // left top rail
+            Block.box(12, 11, 4,  13, 12, 12)    // right top rail
+    );
     public static final MapCodec<AdvancedItemCollectorBlock> CODEC = simpleCodec(AdvancedItemCollectorBlock::new);
 
     public AdvancedItemCollectorBlock(Properties properties) {

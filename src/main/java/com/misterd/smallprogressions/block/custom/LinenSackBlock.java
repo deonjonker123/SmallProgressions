@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,7 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LinenSackBlock extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
+    public static final VoxelShape SHAPE = Shapes.or(
+            Block.box(2, 0,   2,  14, 10,  14),
+            Block.box(6, 10,  6,  10, 10.5, 10),
+            Block.box(5, 10.5, 5, 11, 12.5, 11)
+    );
     public static final MapCodec<LinenSackBlock> CODEC = simpleCodec(LinenSackBlock::new);
 
     public LinenSackBlock(Properties properties) {
