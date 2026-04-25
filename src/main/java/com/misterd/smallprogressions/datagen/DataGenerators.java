@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = SmallProgressions.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = SmallProgressions.MODID)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -40,7 +40,5 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new SPDatapackProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new SPGlobalLootModifierProvider(packOutput, lookupProvider));
-
-        generator.addProvider(event.includeServer(), new SPBiomeTagGenerator(packOutput, lookupProvider, existingFileHelper));
     }
 }

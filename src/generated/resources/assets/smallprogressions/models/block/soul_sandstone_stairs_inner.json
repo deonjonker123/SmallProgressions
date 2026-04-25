@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "smallprogressions:block/soul_sandstone",
-    "side": "smallprogressions:block/soul_sandstone",
-    "top": "smallprogressions:block/soul_sandstone"
-  }
-}

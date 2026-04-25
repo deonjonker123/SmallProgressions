@@ -17,14 +17,6 @@ import java.util.List;
 public class SPItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("smallprogressions");
 
-    /// Crop Seeds ///
-    public static final DeferredItem<Item> FLAX_SEEDS = ITEMS.register("flax_seeds",
-            () -> new ItemNameBlockItem(SPBlocks.FLAX_CROP.get(), new Item.Properties()));
-
-    public static final DeferredItem<Item> COTTON_SEEDS = ITEMS.register("cotton_seeds",
-            () -> new ItemNameBlockItem(SPBlocks.COTTON_CROP.get(), new Item.Properties()));
-
-
     /// Steel Tools ///
     public static final DeferredItem<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword",
             () -> new SwordItem(SPToolTiers.STEEL,
@@ -347,55 +339,6 @@ public class SPItems {
                 }
             });
 
-    /// Glowstone Dusts ///
-    public static final DeferredItem<Item> BLACK_GLOWSTONE_DUST = ITEMS.register("black_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> BLUE_GLOWSTONE_DUST = ITEMS.register("blue_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> BROWN_GLOWSTONE_DUST = ITEMS.register("brown_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> CYAN_GLOWSTONE_DUST = ITEMS.register("cyan_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> GRAY_GLOWSTONE_DUST = ITEMS.register("gray_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> GREEN_GLOWSTONE_DUST = ITEMS.register("green_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> LIGHT_BLUE_GLOWSTONE_DUST = ITEMS.register("light_blue_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> LIGHT_GRAY_GLOWSTONE_DUST = ITEMS.register("light_gray_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> LIME_GLOWSTONE_DUST = ITEMS.register("lime_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> MAGENTA_GLOWSTONE_DUST = ITEMS.register("magenta_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> ORANGE_GLOWSTONE_DUST = ITEMS.register("orange_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> PINK_GLOWSTONE_DUST = ITEMS.register("pink_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> PURPLE_GLOWSTONE_DUST = ITEMS.register("purple_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> RED_GLOWSTONE_DUST = ITEMS.register("red_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> WHITE_GLOWSTONE_DUST = ITEMS.register("white_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> YELLOW_GLOWSTONE_DUST = ITEMS.register("yellow_glowstone_dust",
-            () -> new Item(new Item.Properties()));
-
     /// Ender Dust ///
     public static final DeferredItem<Item> ENDER_DUST = ITEMS.register("ender_dust",
             () -> new Item(new Item.Properties()));
@@ -427,15 +370,6 @@ public class SPItems {
                 }
             });
 
-    public static final DeferredItem<Item> JUICER = ITEMS.register("juicer",
-            () -> new JuicerItem(new Item.Properties())
-            {
-                @Override
-                public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("item.smallprogressions.juicer.subtitle").withStyle(ChatFormatting.AQUA));
-                }
-            });
-
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer",
             () -> new HammerItem(new Item.Properties())
             {
@@ -456,18 +390,6 @@ public class SPItems {
 
     public static final DeferredItem<Item> REPAIR_TOTEM = ITEMS.register("repair_totem",
             () -> new RepairTotemItem(new Item.Properties()));
-
-    public static final DeferredItem<Item> COTTON_BOLLS = ITEMS.register("cotton_bolls",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> FLAX = ITEMS.register("flax",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> MARBLE_PEBBLE = ITEMS.register("marble_pebble",
-            () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> SLATE_PEBBLE = ITEMS.register("slate_pebble",
-            () -> new Item(new Item.Properties()));
 
     /// Storage Barrel Upgrades ///
     public static final DeferredItem<Item> IRON_BARREL_UPGRADE = ITEMS.register("iron_barrel_upgrade",
@@ -490,33 +412,6 @@ public class SPItems {
             () -> new TankUpgradeItem(TankUpgradeItem.TankTier.DIAMOND, new Item.Properties()));
 
     /// Foods ///
-    public static final DeferredItem<Item> BLACKBERRIES = ITEMS.register("blackberries",
-            () -> new ItemNameBlockItem(SPBlocks.BLACKBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));
-
-    public static final DeferredItem<Item> BLUEBERRIES = ITEMS.register("blueberries",
-            () -> new ItemNameBlockItem(SPBlocks.BLUEBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));
-
-    public static final DeferredItem<Item> MALOBERRIES = ITEMS.register("maloberries",
-            () -> new ItemNameBlockItem(SPBlocks.MALOBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));
-
-    public static final DeferredItem<Item> RASPBERRIES = ITEMS.register("raspberries",
-            () -> new ItemNameBlockItem(SPBlocks.RASPBERRY_BUSH.get(), new Item.Properties().food(SPFoodProperties.BERRIES)));
-
-    public static final DeferredItem<Item> APPLE_JUICE = ITEMS.register("apple_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
-
-    public static final DeferredItem<Item> BLACKBERRY_JUICE = ITEMS.register("blackberry_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
-
-    public static final DeferredItem<Item> BLUEBERRY_JUICE = ITEMS.register("blueberry_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
-
-    public static final DeferredItem<Item> MALOBERRY_JUICE = ITEMS.register("maloberry_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
-
-    public static final DeferredItem<Item> RASPBERRY_JUICE = ITEMS.register("raspberry_juice",
-            () -> new Item(new Item.Properties().food(SPFoodProperties.JUICES)));
-
     public static final DeferredItem<Item> SLICED_BREAD = ITEMS.register("sliced_bread",
             () -> new Item(new Item.Properties().food(SPFoodProperties.SLICED_BREAD)));
 

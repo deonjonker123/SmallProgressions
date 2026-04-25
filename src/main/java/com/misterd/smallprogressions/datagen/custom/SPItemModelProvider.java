@@ -42,9 +42,6 @@ public class SPItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(SPItems.FLAX_SEEDS.get());
-        basicItem(SPItems.COTTON_SEEDS.get());
-
         basicItem(SPItems.STEEL_INGOT.get());
         basicItem(SPItems.STEEL_NUGGET.get());
         basicItem(SPItems.REINFORCED_OBSIDIAN_INGOT.get());
@@ -53,30 +50,10 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.WITHER_RIB.get());
         basicItem(SPItems.DRAGON_SCALE.get());
 
-        basicItem(SPItems.BLACK_GLOWSTONE_DUST.get());
-        basicItem(SPItems.BLUE_GLOWSTONE_DUST.get());
-        basicItem(SPItems.BROWN_GLOWSTONE_DUST.get());
-        basicItem(SPItems.CYAN_GLOWSTONE_DUST.get());
-        basicItem(SPItems.GRAY_GLOWSTONE_DUST.get());
-        basicItem(SPItems.GREEN_GLOWSTONE_DUST.get());
-        basicItem(SPItems.LIGHT_BLUE_GLOWSTONE_DUST.get());
-        basicItem(SPItems.LIGHT_GRAY_GLOWSTONE_DUST.get());
-        basicItem(SPItems.LIME_GLOWSTONE_DUST.get());
-        basicItem(SPItems.MAGENTA_GLOWSTONE_DUST.get());
-        basicItem(SPItems.ORANGE_GLOWSTONE_DUST.get());
-        basicItem(SPItems.PINK_GLOWSTONE_DUST.get());
-        basicItem(SPItems.PURPLE_GLOWSTONE_DUST.get());
-        basicItem(SPItems.RED_GLOWSTONE_DUST.get());
-        basicItem(SPItems.WHITE_GLOWSTONE_DUST.get());
-        basicItem(SPItems.YELLOW_GLOWSTONE_DUST.get());
-
         basicItem(SPItems.STRAW.get());
-        basicItem(SPItems.JUICER.get());
         basicItem(SPItems.HAMMER.get());
         basicItem(SPItems.SICKLE.get());
         basicItem(SPItems.REPAIR_TOTEM.get());
-        basicItem(SPItems.COTTON_BOLLS.get());
-        basicItem(SPItems.FLAX.get());
 
         basicItem(SPItems.IRON_BARREL_UPGRADE.get());
         basicItem(SPItems.GOLD_BARREL_UPGRADE.get());
@@ -86,15 +63,6 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.GOLD_TANK_UPGRADE.get());
         basicItem(SPItems.DIAMOND_TANK_UPGRADE.get());
 
-        basicItem(SPItems.BLACKBERRIES.get());
-        basicItem(SPItems.BLUEBERRIES.get());
-        basicItem(SPItems.MALOBERRIES.get());
-        basicItem(SPItems.RASPBERRIES.get());
-        basicItem(SPItems.APPLE_JUICE.get());
-        basicItem(SPItems.BLACKBERRY_JUICE.get());
-        basicItem(SPItems.BLUEBERRY_JUICE.get());
-        basicItem(SPItems.MALOBERRY_JUICE.get());
-        basicItem(SPItems.RASPBERRY_JUICE.get());
         basicItem(SPItems.SLICED_BREAD.get());
         basicItem(SPItems.TOAST.get());
         basicItem(SPItems.PIZZA_SLICE.get());
@@ -115,26 +83,13 @@ public class SPItemModelProvider extends ItemModelProvider {
         basicItem(SPItems.BIG_BUCKET.get());
         basicItem(SPItems.BIG_POUCH.get());
 
-        basicItem(SPItems.MARBLE_PEBBLE.get());
-        basicItem(SPItems.SLATE_PEBBLE.get());
-
         basicItem(SPItems.TINY_COAL.get());
         basicItem(SPItems.TINY_CHARCOAL.get());
 
-        buttonItem(SPBlocks.MARBLE_BUTTON, SPBlocks.MARBLE);
-        buttonItem(SPBlocks.SLATE_BUTTON, SPBlocks.SLATE);
-        buttonItem(SPBlocks.ASPHALT_BUTTON, SPBlocks.ASPHALT);
         buttonItem(SPBlocks.HARDENED_STONE_BUTTON, SPBlocks.HARDENED_STONE);
 
-        wallItem(SPBlocks.MARBLE_WALL, SPBlocks.MARBLE);
-        wallItem(SPBlocks.MARBLE_BRICK_WALL, SPBlocks.MARBLE_BRICKS);
-        wallItem(SPBlocks.SLATE_WALL, SPBlocks.SLATE);
-        wallItem(SPBlocks.SLATE_BRICK_WALL, SPBlocks.SLATE_BRICKS);
-        wallItem(SPBlocks.ASPHALT_WALL, SPBlocks.ASPHALT);
         wallItem(SPBlocks.HARDENED_STONE_WALL, SPBlocks.HARDENED_STONE);
         wallItem(SPBlocks.HARDENED_STONE_BRICK_WALL, SPBlocks.HARDENED_STONE_BRICKS);
-        wallItem(SPBlocks.SOUL_SANDSTONE_WALL, SPBlocks.SOUL_SANDSTONE);
-        wallItem(SPBlocks.SOUL_SANDSTONE_BRICK_WALL, SPBlocks.SOUL_SANDSTONE_BRICKS);
 
         handheldItem(SPItems.STEEL_SWORD);
         handheldItem(SPItems.STEEL_PICKAXE);

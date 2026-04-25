@@ -68,40 +68,9 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.CHARCOAL_BLOCK);
                         output.accept(SPBlocks.STEEL_BLOCK);
 
-                        output.accept(SPBlocks.MARBLE);
-                        output.accept(SPBlocks.MARBLE_BRICKS);
-                        output.accept(SPBlocks.MARBLE_PILLAR);
-                        output.accept(SPBlocks.MARBLE_STAIRS);
-                        output.accept(SPBlocks.MARBLE_BRICK_STAIRS);
-                        output.accept(SPBlocks.MARBLE_SLAB);
-                        output.accept(SPBlocks.MARBLE_BRICK_SLAB);
-                        output.accept(SPBlocks.MARBLE_BUTTON);
-                        output.accept(SPBlocks.MARBLE_PRESSURE_PLATE);
-                        output.accept(SPBlocks.MARBLE_WALL);
-                        output.accept(SPBlocks.MARBLE_BRICK_WALL);
-
-                        output.accept(SPBlocks.SLATE);
-                        output.accept(SPBlocks.SLATE_BRICKS);
-                        output.accept(SPBlocks.SLATE_PILLAR);
-                        output.accept(SPBlocks.SLATE_STAIRS);
-                        output.accept(SPBlocks.SLATE_BRICK_STAIRS);
-                        output.accept(SPBlocks.SLATE_SLAB);
-                        output.accept(SPBlocks.SLATE_BRICK_SLAB);
-                        output.accept(SPBlocks.SLATE_BUTTON);
-                        output.accept(SPBlocks.SLATE_PRESSURE_PLATE);
-                        output.accept(SPBlocks.SLATE_WALL);
-                        output.accept(SPBlocks.SLATE_BRICK_WALL);
-
                         output.accept(SPBlocks.THATCH_BLOCK);
                         output.accept(SPBlocks.THATCH_STAIRS);
                         output.accept(SPBlocks.THATCH_SLAB);
-
-                        output.accept(SPBlocks.ASPHALT);
-                        output.accept(SPBlocks.ASPHALT_STAIRS);
-                        output.accept(SPBlocks.ASPHALT_SLAB);
-                        output.accept(SPBlocks.ASPHALT_BUTTON);
-                        output.accept(SPBlocks.ASPHALT_PRESSURE_PLATE);
-                        output.accept(SPBlocks.ASPHALT_WALL);
 
                         output.accept(SPBlocks.REINFORCED_OBSIDIAN);
                         output.accept(SPBlocks.REINFORCED_GLASS);
@@ -117,54 +86,10 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.HARDENED_STONE_WALL);
                         output.accept(SPBlocks.HARDENED_STONE_BRICK_WALL);
 
-                        output.accept(SPBlocks.SOUL_SANDSTONE);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICKS);
-                        output.accept(SPBlocks.CUT_SOUL_SANDSTONE);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_STAIRS);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_STAIRS);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_SLAB);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_SLAB);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_WALL);
-                        output.accept(SPBlocks.SOUL_SANDSTONE_BRICK_WALL);
-
                         output.accept(SPBlocks.STONE_ENDER_ORE);
                         output.accept(SPBlocks.DEEPSLATE_ENDER_ORE);
                         output.accept(SPBlocks.NETHERRACK_ENDER_ORE);
                         output.accept(SPBlocks.ENDSTONE_ENDER_ORE);
-
-                        output.accept(SPBlocks.BLACK_GLOWSTONE);
-                        output.accept(SPBlocks.BLUE_GLOWSTONE);
-                        output.accept(SPBlocks.BROWN_GLOWSTONE);
-                        output.accept(SPBlocks.CYAN_GLOWSTONE);
-                        output.accept(SPBlocks.GRAY_GLOWSTONE);
-                        output.accept(SPBlocks.GREEN_GLOWSTONE);
-                        output.accept(SPBlocks.LIGHT_BLUE_GLOWSTONE);
-                        output.accept(SPBlocks.LIGHT_GRAY_GLOWSTONE);
-                        output.accept(SPBlocks.LIME_GLOWSTONE);
-                        output.accept(SPBlocks.MAGENTA_GLOWSTONE);
-                        output.accept(SPBlocks.ORANGE_GLOWSTONE);
-                        output.accept(SPBlocks.PINK_GLOWSTONE);
-                        output.accept(SPBlocks.PURPLE_GLOWSTONE);
-                        output.accept(SPBlocks.RED_GLOWSTONE);
-                        output.accept(SPBlocks.WHITE_GLOWSTONE);
-                        output.accept(SPBlocks.YELLOW_GLOWSTONE);
-
-                        output.accept(SPBlocks.BLACK_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.BLUE_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.BROWN_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.CYAN_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.GRAY_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.GREEN_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.LIGHT_BLUE_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.LIGHT_GRAY_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.LIME_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.MAGENTA_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.ORANGE_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.PINK_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.PURPLE_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.RED_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.WHITE_GLOWSTONE_GLASS);
-                        output.accept(SPBlocks.YELLOW_GLOWSTONE_GLASS);
 
                         // Steel Armor & Tools
                         output.accept(SPItems.STEEL_SWORD);
@@ -235,24 +160,6 @@ public class SPCreativeTab {
                         output.accept(SPItems.WITHER_RIB);
                         output.accept(SPItems.DRAGON_SCALE);
 
-                        // Glowstone Dusts Items
-                        output.accept(SPItems.BLACK_GLOWSTONE_DUST);
-                        output.accept(SPItems.BLUE_GLOWSTONE_DUST);
-                        output.accept(SPItems.BROWN_GLOWSTONE_DUST);
-                        output.accept(SPItems.CYAN_GLOWSTONE_DUST);
-                        output.accept(SPItems.GRAY_GLOWSTONE_DUST);
-                        output.accept(SPItems.GREEN_GLOWSTONE_DUST);
-                        output.accept(SPItems.LIGHT_BLUE_GLOWSTONE_DUST);
-                        output.accept(SPItems.LIGHT_GRAY_GLOWSTONE_DUST);
-                        output.accept(SPItems.LIME_GLOWSTONE_DUST);
-                        output.accept(SPItems.MAGENTA_GLOWSTONE_DUST);
-                        output.accept(SPItems.ORANGE_GLOWSTONE_DUST);
-                        output.accept(SPItems.PINK_GLOWSTONE_DUST);
-                        output.accept(SPItems.PURPLE_GLOWSTONE_DUST);
-                        output.accept(SPItems.RED_GLOWSTONE_DUST);
-                        output.accept(SPItems.WHITE_GLOWSTONE_DUST);
-                        output.accept(SPItems.YELLOW_GLOWSTONE_DUST);
-
                         // Ingots Items
                         output.accept(SPItems.STEEL_NUGGET);
                         output.accept(SPItems.STEEL_INGOT);
@@ -263,30 +170,10 @@ public class SPCreativeTab {
 
                         // Crafting Material Items
                         output.accept(SPItems.STRAW);
-                        output.accept(SPItems.JUICER);
                         output.accept(SPItems.HAMMER);
                         output.accept(SPItems.SICKLE);
                         output.accept(SPItems.REPAIR_TOTEM);
 
-                        output.accept(SPItems.MARBLE_PEBBLE);
-                        output.accept(SPItems.SLATE_PEBBLE);
-
-                        // Crops
-                        output.accept(SPItems.COTTON_SEEDS);
-                        output.accept(SPItems.COTTON_BOLLS);
-                        output.accept(SPItems.FLAX_SEEDS);
-                        output.accept(SPItems.FLAX);
-
-                        // Food Items
-                        output.accept(SPItems.BLACKBERRIES);
-                        output.accept(SPItems.BLUEBERRIES);
-                        output.accept(SPItems.MALOBERRIES);
-                        output.accept(SPItems.RASPBERRIES);
-                        output.accept(SPItems.APPLE_JUICE);
-                        output.accept(SPItems.BLACKBERRY_JUICE);
-                        output.accept(SPItems.BLUEBERRY_JUICE);
-                        output.accept(SPItems.MALOBERRY_JUICE);
-                        output.accept(SPItems.RASPBERRY_JUICE);
                         output.accept(SPItems.SLICED_BREAD);
                         output.accept(SPItems.TOAST);
                         output.accept(SPItems.PIZZA_SLICE);

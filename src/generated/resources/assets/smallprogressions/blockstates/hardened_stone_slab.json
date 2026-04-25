@@ -4,7 +4,7 @@
       "model": "smallprogressions:block/hardened_stone_slab"
     },
     "type=double": {
-      "model": "smallprogressions:block/slate"
+      "model": "smallprogressions:block/hardened_stone"
     },
     "type=top": {
       "model": "smallprogressions:block/hardened_stone_slab_top"

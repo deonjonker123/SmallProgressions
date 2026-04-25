@@ -5,18 +5,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
 public class SPFoodProperties {
-    public static final FoodProperties BERRIES = new FoodProperties.Builder()
-            .saturationModifier(0.6f)
-            .nutrition(2)
-            .fast()
-            .build();
-
-    public static final FoodProperties JUICES = new FoodProperties.Builder()
-            .saturationModifier(0.9F)
-            .nutrition(3)
-            .fast()
-            .build();
-
     public static final FoodProperties SLICED_BREAD = new FoodProperties.Builder()
             .saturationModifier(0.8F)
             .nutrition(3)

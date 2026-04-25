@@ -10,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
@@ -26,24 +25,6 @@ public class SPGlobalLootModifierProvider extends GlobalLootModifierProvider {
     protected void start() {
         addBossLoot("dragon_scale_from_ender_dragon", "entities/ender_dragon", SPItems.DRAGON_SCALE);
         addBossLoot("wither_rib_from_wither", "entities/wither", SPItems.WITHER_RIB);
-
-        this.add("cotton_seeds_to_short_grass",
-                new AddItemModifier(new LootItemCondition[] {
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SHORT_GRASS).build(),
-                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, SPItems.COTTON_SEEDS.get()));
-        this.add("cotton_seeds_to_tall_grass",
-                new AddItemModifier(new LootItemCondition[] {
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
-                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, SPItems.COTTON_SEEDS.get()));
-
-        this.add("flax_seeds_to_short_grass",
-                new AddItemModifier(new LootItemCondition[] {
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SHORT_GRASS).build(),
-                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, SPItems.FLAX_SEEDS.get()));
-        this.add("flax_seeds_to_tall_grass",
-                new AddItemModifier(new LootItemCondition[] {
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
-                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, SPItems.FLAX_SEEDS.get()));
 
         this.add("straw_from_short_grass",
                 new AddItemModifier(new LootItemCondition[] {
