@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "smallprogressions:block/hardened_stone",
-    "side": "smallprogressions:block/hardened_stone",
-    "top": "smallprogressions:block/hardened_stone"
-  }
-}

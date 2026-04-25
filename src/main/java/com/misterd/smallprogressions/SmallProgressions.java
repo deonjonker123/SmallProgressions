@@ -43,7 +43,6 @@ public class SmallProgressions {
         SPItems.register(modEventBus);
         SPBlocks.register(modEventBus);
         SPCreativeTab.register(modEventBus);
-        SPLootModifiers.register(modEventBus);
         SPBlockEntities.register(modEventBus);
         SPMenuTypes.register(modEventBus);
         SPNetwork.register(modEventBus);
@@ -75,8 +74,6 @@ public class SmallProgressions {
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_1.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_2.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GROWTH_CRYSTAL_TIER_3.get(), RenderType.translucent());
-
-                ItemBlockRenderTypes.setRenderLayer(SPBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
 
                 ItemBlockRenderTypes.setRenderLayer(SPBlocks.GREENHOUSE_GLASS.get(), RenderType.translucent());
             });
