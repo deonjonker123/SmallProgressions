@@ -158,7 +158,7 @@ public class SPItems {
     ///  Emerald Armor ///
     public static final DeferredItem<ArmorItem> EMERALD_HELMET = ITEMS.register("emerald_helmet",
             () -> new SPArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(34)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -169,7 +169,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> EMERALD_CHESTPLATE = ITEMS.register("emerald_chestplate",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(34)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -180,7 +180,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> EMERALD_LEGGINGS = ITEMS.register("emerald_leggings",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(34)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -191,7 +191,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> EMERALD_BOOTS = ITEMS.register("emerald_boots",
             () -> new ArmorItem(SPArmorMaterials.EMERALD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(34)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -203,7 +203,7 @@ public class SPItems {
     ///  Wither Armor ///
     public static final DeferredItem<ArmorItem> WITHER_HELMET = ITEMS.register("wither_helmet",
             () -> new SPArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(41)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -216,7 +216,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> WITHER_CHESTPLATE = ITEMS.register("wither_chestplate",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(41)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -229,7 +229,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> WITHER_LEGGINGS = ITEMS.register("wither_leggings",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(41)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -242,7 +242,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> WITHER_BOOTS = ITEMS.register("wither_boots",
             () -> new ArmorItem(SPArmorMaterials.WITHER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(41)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -256,7 +256,7 @@ public class SPItems {
     ///  Dragon Armor ///
     public static final DeferredItem<ArmorItem> DRAGON_HELMET = ITEMS.register("dragon_helmet",
             () -> new SPArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(51)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -270,7 +270,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> DRAGON_CHESTPLATE = ITEMS.register("dragon_chestplate",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(51)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -284,7 +284,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> DRAGON_LEGGINGS = ITEMS.register("dragon_leggings",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(51)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
@@ -298,7 +298,7 @@ public class SPItems {
 
     public static final DeferredItem<ArmorItem> DRAGON_BOOTS = ITEMS.register("dragon_boots",
             () -> new ArmorItem(SPArmorMaterials.DRAGON_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(27)))
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(51)))
             {
                 @Override
                 public void appendHoverText(ItemStack stack, Item.TooltipContext context, List< Component > tooltipComponents, TooltipFlag tooltipFlag) {
