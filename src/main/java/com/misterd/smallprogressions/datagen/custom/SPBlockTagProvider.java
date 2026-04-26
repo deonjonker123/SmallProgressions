@@ -46,7 +46,11 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.LAVA_INFUSED_STONE.get())
                 .add(SPBlocks.MCFLOATY_BLOCK.get())
 
-                .add(SPBlocks.CHARCOAL_BLOCK.get());
+                .add(SPBlocks.CHARCOAL_BLOCK.get())
+
+                .add(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get())
+                .add(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get())
+                .add(SPBlocks.TIMER.get());;
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(SPBlocks.COPPER_BARREL.get())

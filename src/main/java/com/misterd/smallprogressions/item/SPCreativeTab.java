@@ -52,6 +52,10 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.WATER_RESERVOIR);
                         output.accept(SPBlocks.LAVA_GENERATOR);
 
+                        output.accept(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER);
+                        output.accept(SPBlocks.WIRELESS_REDSTONE_RECEIVER);
+                        output.accept(SPBlocks.TIMER);
+
                         output.accept(SPBlocks.LAVA_INFUSED_STONE);
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 

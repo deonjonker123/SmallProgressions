@@ -1,4 +1,4 @@
-// 26.1.2	2026-04-26T16:43:11.3512275	Loot Tables
+// 26.1.2	2026-04-26T20:18:05.4859918	Loot Tables
 aad6be855a5dea203651f9f18232b3edebafe2fe data/smallprogressions/loot_table/blocks/advanced_item_collector.json
 5a24ca0a0e20e16b8712297d727c8dd6412c8961 data/smallprogressions/loot_table/blocks/brick_furnace.json
 89270ed1b7fb8382da55a4aaaeca810be08f2c13 data/smallprogressions/loot_table/blocks/charcoal_block.json
@@ -24,4 +24,7 @@ ee6bec0d4b2df10f17281b578815f89357956db9 data/smallprogressions/loot_table/block
 3a7e7389ccf11575cf94348b0f786ffc3a56ac66 data/smallprogressions/loot_table/blocks/lava_infused_stone.json
 9d773b921ca21e9d6ba1a8eaeccab707525e6a7e data/smallprogressions/loot_table/blocks/mcfloaty_block.json
 9de85d99af9c3304ee344534fcc64691f733daad data/smallprogressions/loot_table/blocks/simple_item_collector.json
+e2b16552954188bf3d7e40b2179712eada20a33b data/smallprogressions/loot_table/blocks/timer.json
 0ebcf8d1ec4f24bb5a4883b0a43e8462f2973d13 data/smallprogressions/loot_table/blocks/water_reservoir.json
+4708d4c4aef942b3a57803a980090a10c8c5d218 data/smallprogressions/loot_table/blocks/wireless_redstone_receiver.json
+af289334acaa09d76156a480f63fafbfdc344c50 data/smallprogressions/loot_table/blocks/wireless_redstone_transmitter.json

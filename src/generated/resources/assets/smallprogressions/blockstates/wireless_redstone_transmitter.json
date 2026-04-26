@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "smallprogressions:block/wireless_redstone_transmitter"
+    }
+  }
+}

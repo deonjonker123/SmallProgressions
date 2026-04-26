@@ -35,12 +35,8 @@ public class Config {
     private static ModConfigSpec.DoubleValue GREENHOUSE_GLASS_GROWTH_BOOST;
     private static ModConfigSpec.IntValue GREENHOUSE_GLASS_RANGE;
 
-    // Repair Totem config values
-    private static ModConfigSpec.IntValue REPAIR_TOTEM_DURABILITY_PER_TOTEM;
-    private static ModConfigSpec.IntValue REPAIR_TOTEM_TICK_INTERVAL;
-
-    // Big bucket config values
-    private static ModConfigSpec.IntValue BIG_BUCKET_CAPACITY;
+    // Wireless Redstone
+    private static ModConfigSpec.IntValue TRANSMISSION_RANGE;
 
     static {
         buildCommonConfig();
@@ -57,8 +53,7 @@ public class Config {
         buildLavaGeneratorConfig();
         buildWaterReservoirConfig();
         buildGreenhouseGlassConfig();
-        buildRepairTotemConfig();
-        buildBigBucketConfig();
+        buildWirelessRedstoneConfig();
     }
 
     private static void buildGrowthCrystalConfig() {
@@ -181,36 +176,17 @@ public class Config {
         COMMON_BUILDER.pop();
     }
 
-    private static void buildRepairTotemConfig() {
-        COMMON_BUILDER.comment("Repair Totem - Configure item repair rates")
-                .push("repair_totem");
+    private static void buildWirelessRedstoneConfig() {
+        COMMON_BUILDER.comment("Simple Wireless Redstone - Configuration")
+                .push("transmission");
 
-        REPAIR_TOTEM_DURABILITY_PER_TOTEM = COMMON_BUILDER
+        TRANSMISSION_RANGE = COMMON_BUILDER
                 .comment(
-                        "Durability repaired per totem per interval",
-                        "Higher values = faster repair"
+                        "Transmission range in blocks (radius from the transmitter)",
+                        "A value of 128 means the signal reaches up to 128 blocks in all directions",
+                        "WARNING: Very large values can impact server performance on busy servers!"
                 )
-                .defineInRange("durability_per_totem", 1, 1, 100);
-
-        REPAIR_TOTEM_TICK_INTERVAL = COMMON_BUILDER
-                .comment(
-                        "How often repair occurs (in ticks)",
-                        "Lower values = more frequent repair"
-                )
-                .defineInRange("tick_interval", 20, 1, 200);
-
-        COMMON_BUILDER.pop();
-    }
-
-    private static void buildBigBucketConfig() {
-        COMMON_BUILDER.comment("Big Bucket - Configure capacity")
-                .push("big_bucket");
-
-        BIG_BUCKET_CAPACITY = COMMON_BUILDER
-                .comment(
-                        "Big Bucket capacity in buckets"
-                )
-                .defineInRange("capacity", 16, 8, 64);
+                .defineInRange("transmission_range", 128, 16, 512);
 
         COMMON_BUILDER.pop();
     }
@@ -264,16 +240,8 @@ public class Config {
         return GREENHOUSE_GLASS_RANGE.get();
     }
 
-    public static int getRepairTotemDurabilityPerTotem() {
-        return REPAIR_TOTEM_DURABILITY_PER_TOTEM.get();
-    }
-
-    public static int getRepairTotemTickInterval() {
-        return REPAIR_TOTEM_TICK_INTERVAL.get();
-    }
-
-    public static int getBigBucketCapacity() {
-        return BIG_BUCKET_CAPACITY.get() * 1000;
+    public static int getTransmissionRange() {
+        return TRANSMISSION_RANGE.get();
     }
 
     private static void validateConfig() {
@@ -337,11 +305,10 @@ public class Config {
         LOGGER.info("  Growth Boost: {}%", getGreenhouseGlassGrowthBoost() * 100);
         LOGGER.info("  Depth: {} blocks below", getGreenhouseGlassRange());
 
-        LOGGER.info("Repair Totem Configuration:");
-        LOGGER.info("  Durability per Totem: {}", getRepairTotemDurabilityPerTotem());
-        LOGGER.info("  Tick Interval: {} ticks ({} seconds)", getRepairTotemTickInterval(), getRepairTotemTickInterval() / 20.0);
-
-        LOGGER.info("Big Bucket Configuration:");
-        LOGGER.info("  Capacity: {} buckets ({}mb)", BIG_BUCKET_CAPACITY.get(), getBigBucketCapacity());
+        LOGGER.info("Simple Wireless Redstone configuration loaded");
+        LOGGER.info("  Transmission range: {} blocks ({} block diameter)", getTransmissionRange(), getTransmissionRange() * 2);
+        if (getTransmissionRange() > 256) {
+            LOGGER.warn("Transmission range ({}) is very large and may impact server performance!", getTransmissionRange());
+        }
     }
 }

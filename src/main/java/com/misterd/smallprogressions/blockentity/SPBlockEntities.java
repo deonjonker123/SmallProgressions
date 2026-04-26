@@ -87,6 +87,18 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("harvester_be", () -> new BlockEntityType<>(
                     HarvesterBlockEntity::new, SPBlocks.HARVESTER.get()));
 
+    public static final Supplier<BlockEntityType<WirelessRedstoneTransmitterBlockEntity>> WIRELESS_REDSTONE_TRANSMITTER_BE =
+            BLOCK_ENTITIES.register("wireless_redstone_transmitter_be", () -> new BlockEntityType<>(
+                    WirelessRedstoneTransmitterBlockEntity::new, SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get()));
+
+    public static final Supplier<BlockEntityType<WirelessRedstoneReceiverBlockEntity>> WIRELESS_REDSTONE_RECEIVER_BE =
+            BLOCK_ENTITIES.register("wireless_redstone_receiver_be", () -> new BlockEntityType<>(
+                    WirelessRedstoneReceiverBlockEntity::new, SPBlocks.WIRELESS_REDSTONE_RECEIVER.get()));
+
+    public static final Supplier<BlockEntityType<TimerBlockEntity>> TIMER_BE =
+            BLOCK_ENTITIES.register("timer_be", () -> new BlockEntityType<>(
+                    TimerBlockEntity::new, SPBlocks.TIMER.get()));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
 
         event.registerBlockEntity(Capabilities.Item.BLOCK, BRICK_FURNACE_BE.get(),

@@ -155,32 +155,6 @@
   "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset",
   "gui.smallprogressions.linen_sack": "Linen Sack",
 
-  "tooltip.smallprogressions.iron_barrel_upgrade": "Upgrades Copper Barrel to Iron Barrel",
-  "tooltip.smallprogressions.gold_barrel_upgrade": "Upgrades Iron Barrel to Gold Barrel",
-  "tooltip.smallprogressions.diamond_barrel_upgrade": "Upgrades Gold Barrel to Diamond Barrel",
-
-  "message.smallprogressions.barrel_upgrade.success": "Barrel upgraded successfully!",
-  "message.smallprogressions.barrel_upgrade.wrong_tier": "This upgrade cannot be used on this barrel tier",
-  "message.smallprogressions.barrel_upgrade.already_upgraded": "Barrel is already at this tier or higher",
-
-  "tooltip.smallprogressions.iron_tank_upgrade": "Upgrades Copper Tank to Iron Tank",
-  "tooltip.smallprogressions.gold_tank_upgrade": "Upgrades Iron Tank to Gold Tank",
-  "tooltip.smallprogressions.diamond_tank_upgrade": "Upgrades Gold Tank to Diamond Tank",
-
-  "message.smallprogressions.tank_upgrade.success": "Tank upgraded successfully!",
-  "message.smallprogressions.tank_upgrade.wrong_tier": "This upgrade cannot be used on this tank tier",
-  "message.smallprogressions.tank_upgrade.already_upgraded": "Tank is already at this tier or higher",
-
-  "tooltip.smallprogressions.repair_totem.line1": "Repairs items in inventory",
-  "tooltip.smallprogressions.repair_totem.line2.seconds": "%s durability per %s",
-  "tooltip.smallprogressions.repair_totem.line2.ticks": "%s durability per %s tick%s",
-  "tooltip.smallprogressions.repair_totem.second": "second",
-  "tooltip.smallprogressions.repair_totem.seconds": "seconds",
-
-  "tooltip.smallprogressions.watering_can.area": "Waters crops in a %s area",
-
-  "tooltip.smallprogressions.scythe.area": "Harvests crops in a %s area",
-
   "tooltip.smallprogressions.harvester.line1": "Automatically harvests and replants crops",
   "tooltip.smallprogressions.harvester.line2": "Requires a scythe to operate. Harvest area determined by scythe tier",
   "gui.smallprogressions.harvester": "Harvester",
@@ -193,21 +167,47 @@
   "jei.smallprogressions.lava_generation": "Lava Generation",
   "jei.smallprogressions.lava_generation.rate": "Rate: %s",
 
-  "tooltip.smallprogressions.big_bucket.contains": "%s: %s bucket/s",
-  "tooltip.smallprogressions.big_bucket.empty": "Empty",
-  "tooltip.smallprogressions.big_bucket.usage": "Usage:",
-  "tooltip.smallprogressions.big_bucket.right_click": "Right-Click: Fill from source/tank",
-  "tooltip.smallprogressions.big_bucket.shift_right_click": "Shift + Right-Click: Drain into world/tank",
-  "tooltip.smallprogressions.big_bucket.line1": "Capacity: %s buckets",
-
-  "item.smallprogressions.sickle.subtitle": "Used to gather straw from grass",
-  "item.smallprogressions.straw.subtitle": "Obtained by breaking grass with a sickle",
-  "item.smallprogressions.hammer.subtitle": "Crafting component only. Used to craft steel ingots",
-  "item.smallprogressions.juicer.subtitle": "Crafting component only. Used to craft juices",
-
   "tooltip.smallprogressions.tank.contains": "",
   "tooltip.smallprogressions.tank.empty": "Empty",
 
-  "item.smallprogressions.marble_pebble": "Marble Pebble",
-  "item.smallprogressions.slate_pebble": "Slate Pebble"
+  "block.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
+  "block.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
+  "block.smallprogressions.timer": "Timer",
+
+  "block.smallprogressions.wireless_redstone_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
+  "block.smallprogressions.wireless_redstone_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
+  "block.smallprogressions.timer.subtitle": "Pulses a redstone signal at a configurable interval",
+
+  "gui.smallprogressions.transmitter.title": "Wireless Transmitter",
+  "gui.smallprogressions.transmitter.channel_box": "Channel",
+  "gui.smallprogressions.transmitter.reset": "Reset",
+  "gui.smallprogressions.transmitter.set": "Set",
+  "gui.smallprogressions.transmitter.cancel": "Cancel",
+
+  "gui.smallprogressions.receiver.title": "Wireless Receiver",
+  "gui.smallprogressions.receiver.channel_box": "Channel",
+  "gui.smallprogressions.receiver.reset": "Reset",
+  "gui.smallprogressions.receiver.set": "Set",
+  "gui.smallprogressions.receiver.cancel": "Cancel",
+
+  "gui.smallprogressions.timer.title": "Timer",
+  "gui.smallprogressions.timer.interval_box": "Interval (ticks)",
+  "gui.smallprogressions.timer.reset": "Reset",
+  "gui.smallprogressions.timer.set": "Set",
+  "gui.smallprogressions.timer.cancel": "Cancel",
+  "gui.smallprogressions.timer.running": "Timer is running — click to stop",
+  "gui.smallprogressions.timer.stopped": "Timer is stopped — click to start",
+  "gui.smallprogressions.transmitter.channel_box.tooltip.line1": "Set the channel number.",
+  "gui.smallprogressions.transmitter.channel_box.tooltip.line2": "Transmitters and Receivers on the same channel will communicate.",
+  "gui.smallprogressions.receiver.channel_box.tooltip.line1": "Set the channel number.",
+  "gui.smallprogressions.receiver.channel_box.tooltip.line2": "This Receiver will respond to any Transmitter on the same channel.",
+  "gui.smallprogressions.receiver.interval_box.tooltip.line1": "Set the pulse interval in ticks.",
+  "gui.smallprogressions.receiver.interval_box.tooltip.line2": "20 ticks = 1 second. Min: 2, Max: 10,000.",
+
+  "jade.smallprogressions.channel": "Channel: %s",
+  "jade.smallprogressions.no_channel": "No channel set",
+  "jade.smallprogressions.connected_receivers": "Connected Receivers: %s",
+  "jade.smallprogressions.timer.interval": "Pulse Interval: %s ticks",
+  "jade.smallprogressions.timer.running": "Running",
+  "jade.smallprogressions.timer.stopped": "Stopped"
 }

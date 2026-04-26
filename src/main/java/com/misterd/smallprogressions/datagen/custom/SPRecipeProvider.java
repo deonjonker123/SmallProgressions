@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
@@ -317,6 +318,40 @@ public class SPRecipeProvider extends RecipeProvider {
                 .pattern("CCC")
                 .define('C', Items.CHARCOAL)
                 .unlockedBy("has_charcoal", has(Items.CHARCOAL))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get())
+                .pattern("TYT")
+                .pattern("ESE")
+                .pattern("RSR")
+                .define('S', Tags.Items.STONES)
+                .define('Y', Items.REPEATER)
+                .define('E', Items.ENDER_PEARL)
+                .define('R', Items.REDSTONE)
+                .define('T', Items.REDSTONE_TORCH)
+                .unlockedBy("has_redstone", has(Items.REDSTONE))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_RECEIVER.get())
+                .pattern(" T ")
+                .pattern("TET")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('E', Items.ENDER_PEARL)
+                .define('R', Items.REDSTONE)
+                .define('T', Items.REDSTONE_TORCH)
+                .unlockedBy("has_redstone", has(Items.REDSTONE))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.TIMER.get())
+                .pattern(" T ")
+                .pattern("RYR")
+                .pattern("SSS")
+                .define('S', Tags.Items.STONES)
+                .define('Y', Items.COMPARATOR)
+                .define('R', Items.REDSTONE)
+                .define('T', Items.REDSTONE_TORCH)
+                .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .save(output);
 
         shapeless(RecipeCategory.MISC,  Items.CHARCOAL, 9)

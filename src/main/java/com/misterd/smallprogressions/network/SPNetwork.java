@@ -17,5 +17,20 @@ public class SPNetwork {
                 ConfigPacket.STREAM_CODEC,
                 ConfigPacket::handle
         );
+
+        registrar.playToServer(
+                SetChannelPacket.TYPE,
+                SetChannelPacket.STREAM_CODEC,
+                SetChannelPacket::handle);
+
+        registrar.playToServer(
+                SetIntervalPacket.TYPE,
+                SetIntervalPacket.STREAM_CODEC,
+                SetIntervalPacket::handle);
+
+        registrar.playToServer(
+                SetRunningPacket.TYPE,
+                SetRunningPacket.STREAM_CODEC,
+                SetRunningPacket::handle);
     }
 }

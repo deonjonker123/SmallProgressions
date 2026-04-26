@@ -225,6 +225,30 @@ public class SPBlocks {
                     .strength(1F, 2F)
                     .sound(SoundType.AMETHYST)));
 
+    public static final DeferredBlock<Block> WIRELESS_REDSTONE_RECEIVER = registerBlock("wireless_redstone_receiver",
+            id -> new WirelessRedstoneReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> WIRELESS_REDSTONE_TRANSMITTER = registerBlock("wireless_redstone_transmitter",
+            id -> new WirelessRedstoneTransmitterBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> TIMER = registerBlock("timer",
+            id -> new TimerBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
     /// Storage Blocks ///
     public static final DeferredBlock<Block> CHARCOAL_BLOCK = registerBlock("charcoal_block",
             id -> new Block(BlockBehaviour.Properties.of()

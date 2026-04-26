@@ -53,6 +53,9 @@ public class SPModelProvider extends ModelProvider {
         blockModels.createTrivialCube(SPBlocks.BRICK_FURNACE.get());
         blockModels.createTrivialCube(SPBlocks.LAVA_GENERATOR.get());
         blockModels.createTrivialCube(SPBlocks.WATER_RESERVOIR.get());
+        blockModels.createTrivialCube(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get());
+        blockModels.createTrivialCube(SPBlocks.TIMER.get());
     }
 
     @Override

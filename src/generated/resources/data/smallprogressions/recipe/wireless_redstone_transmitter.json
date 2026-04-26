@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "minecraft:ender_pearl",
+    "R": "minecraft:redstone",
+    "S": "#c:stones",
+    "T": "minecraft:redstone_torch",
+    "Y": "minecraft:repeater"
+  },
+  "pattern": [
+    "TYT",
+    "ESE",
+    "RSR"
+  ],
+  "result": {
+    "id": "smallprogressions:wireless_redstone_transmitter"
+  }
+}

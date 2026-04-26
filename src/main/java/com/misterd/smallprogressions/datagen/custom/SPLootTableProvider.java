@@ -58,6 +58,10 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.MCFLOATY_BLOCK.get());
 
         dropSelf(SPBlocks.CHARCOAL_BLOCK.get());
+
+        dropSelf(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get());
+        dropSelf(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get());
+        dropSelf(SPBlocks.TIMER.get());
     }
 
     @Override

@@ -21,6 +21,9 @@
     "smallprogressions:greenhouse_glass",
     "smallprogressions:lava_infused_stone",
     "smallprogressions:mcfloaty_block",
-    "smallprogressions:charcoal_block"
+    "smallprogressions:charcoal_block",
+    "smallprogressions:wireless_redstone_transmitter",
+    "smallprogressions:wireless_redstone_receiver",
+    "smallprogressions:timer"
   ]
 }
