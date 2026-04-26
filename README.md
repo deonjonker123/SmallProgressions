@@ -119,7 +119,7 @@ Energy Receivers pull RF from the wireless network pool and push it into any adj
 
 ---
 
-# Wireless Redstone
+# Simple Wireless Redstone
 
 Adds wireless redstone signal transmission. No fuss, no complex setup — place, set a channel, done.
 
