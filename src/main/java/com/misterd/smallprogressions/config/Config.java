@@ -177,7 +177,7 @@ public class Config {
     }
 
     private static void buildWirelessRedstoneConfig() {
-        COMMON_BUILDER.comment("Simple Wireless Redstone - Configuration")
+        COMMON_BUILDER.comment("Wireless Redstone - Configuration")
                 .push("transmission");
 
         TRANSMISSION_RANGE = COMMON_BUILDER

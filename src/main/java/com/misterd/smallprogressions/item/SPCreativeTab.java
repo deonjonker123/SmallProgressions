@@ -55,8 +55,6 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.LAVA_INFUSED_STONE);
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 
-                        output.accept(SPBlocks.CHARCOAL_BLOCK);
-
                         output.accept(SPItems.SILICA_BLEND);
                         output.accept(SPItems.BASIC_SOLAR_CELL);
                         output.accept(SPItems.HARDENED_SOLAR_CELL);
@@ -88,6 +86,16 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.WIRELESS_REDSTONE_RECEIVER);
                         output.accept(SPBlocks.TIMER);
 
+                        output.accept(SPBlocks.LOGISTICS_SENDER);
+                        output.accept(SPBlocks.LOGISTICS_RECEIVER);
+
+                        output.accept(SPItems.CONNECTION_WRENCH);
+                        output.accept(SPItems.SPEED_UPGRADE);
+                        output.accept(SPItems.STACK_UPGRADE);
+                        output.accept(SPItems.NODE_UPGRADE);
+                        output.accept(SPItems.RANGE_UPGRADE);
+
+                        output.accept(SPBlocks.CHARCOAL_BLOCK);
                         output.accept(SPItems.TINY_COAL);
                         output.accept(SPItems.TINY_CHARCOAL);
                     }).build());

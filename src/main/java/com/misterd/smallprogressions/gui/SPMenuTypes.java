@@ -28,6 +28,7 @@ public class SPMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<TimerMenu>> TIMER_MENU = registerMenuType("timer_menu", TimerMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<BatteryBlockMenu>> BATTERY_MENU = registerMenuType("battery_menu", BatteryBlockMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<EnergyTransmitterMenu>> ENERGY_TRANSMITTER_MENU = registerMenuType("energy_transmitter_menu", EnergyTransmitterMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<LogisticsSenderMenu>> LOGISTICS_SENDER_MENU = registerMenuType("logistics_sender_menu", LogisticsSenderMenu::new);
 
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

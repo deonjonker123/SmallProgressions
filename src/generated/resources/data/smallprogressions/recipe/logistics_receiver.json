@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:ender_pearl",
+    "G": "#c:stones",
+    "P": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "GPG",
+    "PCP",
+    "GPG"
+  ],
+  "result": {
+    "id": "smallprogressions:logistics_receiver"
+  }
+}

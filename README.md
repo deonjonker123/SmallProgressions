@@ -1,6 +1,8 @@
-# Small Progressions
+# Small Progressions 2
 
 **A collection of simple utility blocks and light progressive systems for everyday automation.**
+
+(This version is a major redesign and does NOT include many features from the legacy version (armor, tools, crops, food, etc.))
 
 ---
 
@@ -106,7 +108,6 @@ Energy Receivers pull RF from the wireless network pool and push it into any adj
 | Elite Energy Receiver | 65,536 RF/t |
 | Ultimate Energy Receiver | 262,144 RF/t |
 
-
 ---
 
 ## Notes
@@ -115,6 +116,8 @@ Energy Receivers pull RF from the wireless network pool and push it into any adj
 - Thunderstorms stop solar generation entirely
 - Battery RF is stored in the item's data component and survives breaking and replacing
 - The wireless network pool is global and cross-dimensional
+
+---
 
 # Wireless Redstone
 
@@ -158,6 +161,68 @@ Channels are numerical. Any positive integer is valid. Multiple Transmitters and
 | `transmission_range` | `128` | `16` | `512` | Radius in blocks within which Transmitters can reach Receivers |
 
 > **Warning:** Very large range values (above 256) may impact server performance on busy servers.
+
+---
+
+# Simple Wireless Logistics
+
+Transfer items wirelessly between senders and receivers. No pipes, no routing networks — just point, link, and go.
+
+---
+
+## Blocks
+
+### Logistics Sender
+
+Pulls items from the inventory on the face it is attached to and sends them wirelessly to connected Logistics Receivers.
+
+- Transfers **16 items every 65 ticks** by default
+- Connects to up to **4 receivers** within an **8-block radius** by default
+- GUI with filter slots, upgrade slots, and toggle controls
+- Can be placed on any face of a block
+
+#### GUI Controls
+
+| Control | Description |
+|---|---|
+| Redstone Toggle | When enabled, the sender only operates while receiving a redstone signal |
+| Distribution Mode | Toggle between **Round Robin** (cycles through receivers evenly) and **Nearest First** |
+| Filter Mode | Toggle between **Allow** (only send listed items) and **Block** (send everything except listed items) |
+| Filter Slots | 18 ghost slots — place items to define the filter. Empty filter allows everything |
+| Upgrade Slots | 4 dedicated slots, one per upgrade type |
+
+### Logistics Receiver
+
+Receives items from connected Logistics Senders and inserts them into the inventory on the face it is attached to. When the connected inventory is full, the sender skips this receiver and tries the next one.
+
+- No GUI
+- No internal inventory
+- Can be placed on any face of a block
+
+---
+
+## Items
+
+### Connection Wrench
+
+Used to link Senders to Receivers.
+
+- **Right-click a Sender** — stores its position in the wrench
+- **Right-click a Receiver** — links it to the stored Sender. Right-clicking an already-linked Receiver disconnects it
+- **Shift+Right-click in air** — clears the stored Sender position
+
+While holding the Connection Wrench, beams are rendered between all Senders and their connected Receivers within range.
+
+### Upgrades
+
+Each upgrade occupies its own dedicated slot in the Sender GUI. Up to 3 of each upgrade can be placed per slot, and effects stack across all slots.
+
+| Upgrade | Effect per unit | Max per slot | Cap |
+|---|---|---|---|
+| Speed Upgrade | -20 ticks per transfer | 3 | 5 ticks minimum |
+| Stack Upgrade | +16 items per transfer | 3 | 64 items maximum |
+| Node Upgrade | +2 max receivers | 3 | 10 receivers maximum |
+| Range Upgrade | +8 block radius | 3 | 32 blocks maximum |
 
 ---
 

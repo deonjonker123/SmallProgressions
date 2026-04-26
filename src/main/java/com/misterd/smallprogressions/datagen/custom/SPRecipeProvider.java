@@ -601,5 +601,76 @@ public class SPRecipeProvider extends RecipeProvider {
                 .define('E', Items.ENDER_PEARL)
                 .unlockedBy("has_ultimate_solar_cell", has(SPItems.ULTIMATE_SOLAR_CELL.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.LOGISTICS_SENDER.get())
+                .pattern("GCG")
+                .pattern("IBI")
+                .pattern("GCG")
+                .define('G', Items.IRON_INGOT)
+                .define('I', Items.GOLD_INGOT)
+                .define('C', Items.ENDER_EYE)
+                .define('B', Items.PISTON)
+                .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.LOGISTICS_RECEIVER.get())
+                .pattern("GPG")
+                .pattern("PCP")
+                .pattern("GPG")
+                .define('G', Tags.Items.STONES)
+                .define('P', Items.IRON_INGOT)
+                .define('C', Items.ENDER_PEARL)
+                .unlockedBy("has_ender_pearl", has(Items.ENDER_PEARL))
+                .save(output);
+
+        shaped(RecipeCategory.TOOLS, SPItems.CONNECTION_WRENCH.get())
+                .pattern(" G ")
+                .pattern(" SG")
+                .pattern("F  ")
+                .define('G', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .define('F', Items.FLINT)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.RANGE_UPGRADE.get())
+                .pattern("GEG")
+                .pattern("ERE")
+                .pattern("GEG")
+                .define('G', Items.IRON_INGOT)
+                .define('E', Items.SMOOTH_STONE)
+                .define('R', Items.ENDER_EYE)
+                .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.SPEED_UPGRADE.get())
+                .pattern("GEG")
+                .pattern("ERE")
+                .pattern("GEG")
+                .define('G', Items.IRON_INGOT)
+                .define('E', Items.SMOOTH_STONE)
+                .define('R', Items.SUGAR)
+                .unlockedBy("has_sugar", has(Items.SUGAR))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.STACK_UPGRADE.get())
+                .pattern("GEG")
+                .pattern("ERE")
+                .pattern("GEG")
+                .define('G', Items.IRON_INGOT)
+                .define('E', Items.SMOOTH_STONE)
+                .define('R', Items.PISTON)
+                .unlockedBy("has_piston", has(Items.PISTON))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.NODE_UPGRADE.get())
+                .pattern("GEG")
+                .pattern("ERE")
+                .pattern("GEG")
+                .define('G', Items.IRON_INGOT)
+                .define('E', Items.SMOOTH_STONE)
+                .define('R', Items.OBSERVER)
+                .unlockedBy("has_observer", has(Items.OBSERVER))
+                .save(output);
     }
 }

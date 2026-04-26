@@ -382,6 +382,22 @@ public class SPBlocks {
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
+    public static final DeferredBlock<Block> LOGISTICS_SENDER = registerBlock("logistics_sender",
+            id -> new LogisticsSenderBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> LOGISTICS_RECEIVER = registerBlock("logistics_receiver",
+            id -> new LogisticsReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(3F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
     /// Storage Blocks ///
     public static final DeferredBlock<Block> CHARCOAL_BLOCK = registerBlock("charcoal_block",
             id -> new Block(BlockBehaviour.Properties.of()

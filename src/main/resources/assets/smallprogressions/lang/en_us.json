@@ -292,5 +292,42 @@
   "gui.smallprogressions.transmitter_toggle_private_desc": "Only your receivers can draw from this pool",
   "gui.smallprogressions.transmitter_charge_inventory_on": "Charging items in your hotbar, offhand and curios.",
   "gui.smallprogressions.transmitter_charge_inventory_on_desc": "Click to Disable",
-  "gui.smallprogressions.transmitter_charge_inventory_off": "Enable Wireless Charging"
+  "gui.smallprogressions.transmitter_charge_inventory_off": "Enable Wireless Charging",
+
+  "block.smallprogressions.logistics_sender": "Logistics Sender",
+  "block.smallprogressions.logistics_receiver": "Logistics Receiver",
+
+  "item.smallprogressions.logistics_sender": "Logistics Sender",
+  "item.smallprogressions.logistics_receiver": "Logistics Receiver",
+
+  "item.smallprogressions.connection_wrench": "Connection Wrench",
+
+  "item.smallprogressions.speed_upgrade": "Speed Upgrade",
+  "item.smallprogressions.speed_upgrade.subtitle": "Reduces the interval between transmissions",
+
+  "item.smallprogressions.stack_upgrade": "Stack Upgrade",
+  "item.smallprogressions.stack_upgrade.subtitle": "Increases the number of items sent per transmission",
+
+  "item.smallprogressions.node_upgrade": "Node Upgrade",
+  "item.smallprogressions.node_upgrade.subtitle": "Increases the number of Receivers the Sender can connect to",
+
+  "item.smallprogressions.range_upgrade": "Range Upgrade",
+  "item.smallprogressions.range_upgrade.subtitle": "Increases the range between Senders and Receivers",
+
+  "tooltip.smallprogressions.logistics_sender.redstone_active": "Redstone: Active (requires signal)",
+  "tooltip.smallprogressions.logistics_sender.redstone_inactive": "Redstone: Inactive (always on)",
+  "tooltip.smallprogressions.logistics_sender.round_robin": "Distribution: Round Robin",
+  "tooltip.smallprogressions.logistics_sender.nearest_first": "Distribution: Nearest First",
+  "tooltip.smallprogressions.logistics_sender.filter_allow": "Filter: Allow listed items",
+  "tooltip.smallprogressions.logistics_sender.filter_block": "Filter: Block listed items",
+  "item.smallprogressions.connection_wrench.empty": "No sender stored",
+  "item.smallprogressions.connection_wrench.stored": "Sender: %d, %d, %d",
+  "item.smallprogressions.connection_wrench.hint": "Shift-Right-Click Sender to store, Shift-right-click receiver to link. Shift+right-click in the air to clear.",
+  "item.smallprogressions.connection_wrench.sender_stored": "Sender stored at %d, %d, %d",
+  "item.smallprogressions.connection_wrench.no_sender": "No sender stored. Right-click a sender first.",
+  "item.smallprogressions.connection_wrench.sender_missing": "Stored sender no longer exists. Cleared.",
+  "item.smallprogressions.connection_wrench.connected": "Connection established.",
+  "item.smallprogressions.connection_wrench.disconnected": "Connection removed.",
+  "item.smallprogressions.connection_wrench.failed": "Connection failed. Check range or receiver limit.",
+  "item.smallprogressions.connection_wrench.cleared": "Wrench cleared."
 }

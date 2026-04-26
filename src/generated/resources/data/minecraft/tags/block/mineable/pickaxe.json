@@ -40,6 +40,8 @@
     "smallprogressions:advanced_energy_receiver",
     "smallprogressions:elite_energy_receiver",
     "smallprogressions:ultimate_energy_receiver",
-    "smallprogressions:energy_transmitter"
+    "smallprogressions:energy_transmitter",
+    "smallprogressions:logistics_receiver",
+    "smallprogressions:logistics_sender"
   ]
 }

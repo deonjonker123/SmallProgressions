@@ -73,6 +73,9 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.ULTIMATE_ENERGY_RECEIVER.get());
 
         dropSelf(SPBlocks.ENERGY_TRANSMITTER.get());
+
+        dropSelf(SPBlocks.LOGISTICS_RECEIVER.get());
+        dropSelf(SPBlocks.LOGISTICS_SENDER.get());
     }
 
     @Override

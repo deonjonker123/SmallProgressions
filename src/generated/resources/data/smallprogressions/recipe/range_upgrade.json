@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "minecraft:smooth_stone",
+    "G": "minecraft:iron_ingot",
+    "R": "minecraft:ender_eye"
+  },
+  "pattern": [
+    "GEG",
+    "ERE",
+    "GEG"
+  ],
+  "result": {
+    "id": "smallprogressions:range_upgrade"
+  }
+}

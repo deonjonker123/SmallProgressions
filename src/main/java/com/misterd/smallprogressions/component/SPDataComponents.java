@@ -2,6 +2,7 @@ package com.misterd.smallprogressions.component;
 
 import com.misterd.smallprogressions.SmallProgressions;
 import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
@@ -16,6 +17,11 @@ public class SPDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> ENERGY_STORED =
             DATA_COMPONENTS.register("energy_stored", () -> DataComponentType.<Long>builder()
                     .persistent(Codec.LONG)
+                    .build());
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> WRENCH_SENDER_POS =
+            DATA_COMPONENTS.register("wrench_sender_pos", () -> DataComponentType.<BlockPos>builder()
+                    .persistent(BlockPos.CODEC)
                     .build());
 
     public static void register(IEventBus eventBus) {

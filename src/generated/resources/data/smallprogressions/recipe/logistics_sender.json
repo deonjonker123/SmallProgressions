@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:piston",
+    "C": "minecraft:ender_eye",
+    "G": "minecraft:iron_ingot",
+    "I": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "GCG",
+    "IBI",
+    "GCG"
+  ],
+  "result": {
+    "id": "smallprogressions:logistics_sender"
+  }
+}

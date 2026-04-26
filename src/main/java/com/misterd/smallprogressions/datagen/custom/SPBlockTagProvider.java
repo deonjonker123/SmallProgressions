@@ -69,7 +69,10 @@ public class SPBlockTagProvider extends BlockTagsProvider {
                 .add(SPBlocks.ELITE_ENERGY_RECEIVER.get())
                 .add(SPBlocks.ULTIMATE_ENERGY_RECEIVER.get())
 
-                .add(SPBlocks.ENERGY_TRANSMITTER.get());
+                .add(SPBlocks.ENERGY_TRANSMITTER.get())
+
+                .add(SPBlocks.LOGISTICS_RECEIVER.get())
+                .add(SPBlocks.LOGISTICS_SENDER.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(SPBlocks.COPPER_BARREL.get())

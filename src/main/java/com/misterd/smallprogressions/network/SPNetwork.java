@@ -38,5 +38,10 @@ public class SPNetwork {
                 TransmitterTogglePacket.STREAM_CODEC,
                 TransmitterTogglePacket::handle
         );
+
+        registrar.playToServer(
+                LogisticsSenderConfigPacket.TYPE,
+                LogisticsSenderConfigPacket.STREAM_CODEC,
+                LogisticsSenderConfigPacket::handle);
     }
 }

@@ -136,6 +136,14 @@ public class SPBlockEntities {
                     SPBlocks.ULTIMATE_ENERGY_RECEIVER.get()
             ));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LogisticsSenderBlockEntity>> LOGISTICS_SENDER_BE =
+            BLOCK_ENTITIES.register("logistics_sender_be", () -> new BlockEntityType<>(
+                    LogisticsSenderBlockEntity::new, SPBlocks.LOGISTICS_SENDER.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LogisticsReceiverBlockEntity>> LOGISTICS_RECEIVER_BE =
+            BLOCK_ENTITIES.register("logistics_receiver_be", () -> new BlockEntityType<>(
+                    LogisticsReceiverBlockEntity::new, SPBlocks.LOGISTICS_RECEIVER.get()));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
 
         event.registerBlockEntity(Capabilities.Item.BLOCK, BRICK_FURNACE_BE.get(),
@@ -270,6 +278,14 @@ public class SPBlockEntities {
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof SolarPanelBlockEntity solar && direction == Direction.DOWN) {
                         return solar.getEnergyHandler();
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.Item.BLOCK, LOGISTICS_SENDER_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof LogisticsSenderBlockEntity sender) {
+                        return sender.upgradeInventory;
                     }
                     return null;
                 });

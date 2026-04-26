@@ -30,6 +30,11 @@ public class SPModelProvider extends ModelProvider {
         itemModels.generateFlatItem(SPItems.ADVANCED_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SPItems.ELITE_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SPItems.ULTIMATE_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.CONNECTION_WRENCH.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.SPEED_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.STACK_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.NODE_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.RANGE_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
 
         // Simple cube blocks (datagen generates model + blockstate)
         blockModels.createTrivialCube(SPBlocks.GROWTH_CRYSTAL_TIER_1.get());
@@ -78,6 +83,9 @@ public class SPModelProvider extends ModelProvider {
         blockModels.createTrivialCube(SPBlocks.ADVANCED_BATTERY.get());
         blockModels.createTrivialCube(SPBlocks.ELITE_BATTERY.get());
         blockModels.createTrivialCube(SPBlocks.ULTIMATE_BATTERY.get());
+
+        blockModels.createTrivialCube(SPBlocks.LOGISTICS_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.LOGISTICS_SENDER.get());
     }
 
     @Override

@@ -1,4 +1,4 @@
-// 26.1.2	2026-04-26T21:44:09.9927361	Loot Tables
+// 26.1.2	2026-04-26T23:04:38.8244849	Loot Tables
 a208546e4925bb616d294b179135cd435729ff0c data/smallprogressions/loot_table/blocks/advanced_energy_receiver.json
 aad6be855a5dea203651f9f18232b3edebafe2fe data/smallprogressions/loot_table/blocks/advanced_item_collector.json
 5c6c9873647fe4ea381521a6ac56217668f2d738 data/smallprogressions/loot_table/blocks/advanced_solar_panel.json
@@ -31,6 +31,8 @@ ee6bec0d4b2df10f17281b578815f89357956db9 data/smallprogressions/loot_table/block
 85bb1b7d2861456b482482e6e9ecb8c56f24c55f data/smallprogressions/loot_table/blocks/iron_tank.json
 35c365b6bb2c120e3832a1679cad074144982c1f data/smallprogressions/loot_table/blocks/lava_generator.json
 3a7e7389ccf11575cf94348b0f786ffc3a56ac66 data/smallprogressions/loot_table/blocks/lava_infused_stone.json
+b85a961014670311592dfd6f1a9f84438035318e data/smallprogressions/loot_table/blocks/logistics_receiver.json
+55971ec060e74e0774ff3312a379c28b2de81b61 data/smallprogressions/loot_table/blocks/logistics_sender.json
 9d773b921ca21e9d6ba1a8eaeccab707525e6a7e data/smallprogressions/loot_table/blocks/mcfloaty_block.json
 9de85d99af9c3304ee344534fcc64691f733daad data/smallprogressions/loot_table/blocks/simple_item_collector.json
 e2b16552954188bf3d7e40b2179712eada20a33b data/smallprogressions/loot_table/blocks/timer.json

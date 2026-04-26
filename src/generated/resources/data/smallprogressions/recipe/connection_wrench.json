@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": "minecraft:flint",
+    "G": "minecraft:iron_ingot",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    " G ",
+    " SG",
+    "F  "
+  ],
+  "result": {
+    "id": "smallprogressions:connection_wrench"
+  }
+}
