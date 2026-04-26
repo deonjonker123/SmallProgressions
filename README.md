@@ -1,7 +1,7 @@
-# Small Progressions
+# Small Progressions (Legacy)
 
 **A modern take on Tiny Progressions for Minecraft 1.21.1 (NeoForge)**
-
+(This is the legacy version of Small Progressions for Minecraft 1.21.1. Development has moved to Small Progressions 2 for newer versions)
 ---
 
 ## What This Mod Adds
@@ -29,16 +29,8 @@
 
 ### Decorative Blocks
 
-#### Colored Blocks
-- **Colored Glowstone (16 colors)** - All vanilla dye colors
-- **Colored Glowstone Glass (16 colors)** - Translucent colored light sources
-
 #### Building Materials
-- **Asphalt** - With stairs, slabs, walls, buttons, pressure plates
 - **Hardened Stone** - With bricks, stairs, slabs, walls, buttons, pressure plates
-- **Marble** - With bricks, pillars, stairs, slabs, walls, buttons, pressure plates
-- **Slate** - With bricks, pillars, stairs, slabs, walls, buttons, pressure plates
-- **Soul Sandstone** - With bricks, cut variant, stairs, slabs, walls
 - **Thatch** - Highly flammable decorative block with stairs and slabs
 
 #### Special Blocks
@@ -50,11 +42,6 @@
 - **Ender Ore** - Found in Overworld, Deepslate, Nether, and End variants
 - **Steel Block**
 - **Charcoal Block**
-
-### Crops & Bushes
-- **Berry Bushes** - Blackberry, Blueberry, Maloberry, Raspberry
-- **Cotton Crop** - Drops cotton bolls and seeds
-- **Flax Crop** - Drops flax and seeds
 
 ---
 
@@ -99,13 +86,6 @@ Complete tool sets (Sword, Pickaxe, Axe, Shovel, Hoe) for:
 - Fried Egg, Raw/Cooked Bacon
 - Bacon & Egg Sandwich, Cooked Apple
 
-### Juices
-- Apple Juice
-- Berry Juices (Blackberry, Blueberry, Maloberry, Raspberry)
-
-### Berries
-- Blackberries, Blueberries, Maloberries, Raspberries
-
 ### Magical Apples
 - **Iron Apple** - Resistance + Saturation (30s)
 - **Redstone Apple** - Haste II + Saturation (30s)
@@ -126,10 +106,9 @@ Complete tool sets (Sword, Pickaxe, Axe, Shovel, Hoe) for:
 
 ### Crafting Components
 - Steel Ingot, Steel Nugget, Reinforced Obsidian Ingot
-- Colored Glowstone Dust (16 colors)
-- Ender Dust, Straw, Cotton Bolls, Flax
+- Ender Dust, Straw
 - Wither Rib (Wither drop), Dragon Scale (Dragon drop)
-- Juicer, Hammer, Sickle
+- Hammer, Sickle
 
 ---
 
@@ -143,33 +122,6 @@ All major features are fully configurable:
 - Water Reservoir infinite mode
 - Big Bucket capacity
 - Repair Totem repair rate
-
----
-
-## What's Different from Tiny Progressions?
-
-### Kept
-- Growth Crystals, Cobblestone Generators, Special Apples
-- Colored Glowstone, Soul Sandstone, Ender Ore
-- Dragon/Wither/Emerald armor and tools
-- Berry bushes and juices
-
-### Added Features
-- Steel tier
-- Upgradeable storage (barrels and tanks)
-- Automation (item collectors, harvester, brick furnace)
-- Building blocks (Marble, Slate with full variant sets)
-- Big Bucket and Big Pouch for portable storage
-- Scythes for efficient farming
-- Greenhouse Glass for crop growth
-
-### Not inlcuded from Tiny Progressions
-- Compressed blocks
-- Various lower-tier armor sets (Bone, Stone, Wood, etc.)
-- Many food variants (juices for every crop)
-- Decorative lamps (16 colored lamps)
-- Infinity Bucket
-- Materials (Obsidian dust, redstone, lapis, quartz ingots)
 
 ---
 
