@@ -4,39 +4,36 @@ import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.config.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class CobblestoneGeneratorBlockEntity extends BlockEntity {
     private static final int PUSH_INTERVAL = 20;
     private static final Direction[] PUSH_ORDER = {
-            Direction.UP,
-            Direction.DOWN,
-            Direction.NORTH,
-            Direction.SOUTH,
-            Direction.EAST,
-            Direction.WEST
+            Direction.UP, Direction.DOWN,
+            Direction.NORTH, Direction.SOUTH,
+            Direction.EAST, Direction.WEST
     };
 
     private final int tier;
     private int generationCounter = 0;
     private int pushCounter = 0;
 
-    public final ItemStackHandler inventory = new ItemStackHandler(1) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
             if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -44,7 +41,7 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity {
         }
 
         @Override
-        public int getSlotLimit(int slot) {
+        public long getCapacityAsLong(int slot, ItemResource resource) {
             return 64;
         }
     };
@@ -69,23 +66,17 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity {
         };
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state) {
-        if (level.isClientSide()) {
-            return;
-        }
+    public void tick() {
+        if (level == null || level.isClientSide()) return;
 
-        pushCounter++;
-        if (pushCounter >= PUSH_INTERVAL) {
+        if (++pushCounter >= PUSH_INTERVAL) {
             pushCounter = 0;
-            tryPushToAdjacentInventories(level, pos);
+            tryPushToAdjacentInventories();
         }
 
-        ItemStack currentStack = inventory.getStackInSlot(0);
-        if (currentStack.isEmpty() || (currentStack.getCount() < 64 && currentStack.is(Items.COBBLESTONE))) {
-            generationCounter++;
-            int interval = getGenerationInterval();
-
-            if (generationCounter >= interval) {
+        ItemStack current = getSlot0();
+        if (current.isEmpty() || (current.getCount() < 64 && current.is(Items.COBBLESTONE))) {
+            if (++generationCounter >= getGenerationInterval()) {
                 generationCounter = 0;
                 generateCobblestone();
             }
@@ -93,93 +84,92 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity {
     }
 
     private void generateCobblestone() {
-        ItemStack currentStack = inventory.getStackInSlot(0);
-
-        if (currentStack.isEmpty()) {
-            inventory.setStackInSlot(0, new ItemStack(Items.COBBLESTONE, 1));
-        } else if (currentStack.is(Items.COBBLESTONE) && currentStack.getCount() < 64) {
-            currentStack.grow(1);
+        ItemStack current = getSlot0();
+        if (current.isEmpty()) {
+            setSlot0(new ItemStack(Items.COBBLESTONE, 1));
+        } else if (current.is(Items.COBBLESTONE) && current.getCount() < 64) {
+            setSlot0(current.copyWithCount(current.getCount() + 1));
         }
     }
 
-    private void tryPushToAdjacentInventories(Level level, BlockPos pos) {
-        ItemStack stackInSlot = inventory.getStackInSlot(0);
-        if (stackInSlot.isEmpty()) {
-            return;
-        }
+    private void tryPushToAdjacentInventories() {
+        ItemStack stack = getSlot0();
+        if (stack.isEmpty()) return;
 
         for (Direction direction : PUSH_ORDER) {
-            BlockPos adjacentPos = pos.relative(direction);
-            IItemHandler adjacentInventory = level.getCapability(
-                    Capabilities.ItemHandler.BLOCK,
-                    adjacentPos,
-                    direction.getOpposite()
-            );
+            BlockPos adjacentPos = worldPosition.relative(direction);
+            var adjacent = level.getCapability(Capabilities.Item.BLOCK, adjacentPos, direction.getOpposite());
+            if (adjacent == null) continue;
 
-            if (adjacentInventory != null) {
-                ItemStack toInsert = stackInSlot.copy();
-                ItemStack remainder = insertItem(adjacentInventory, toInsert);
+            ItemResource res = ItemResource.of(stack);
+            int remaining = stack.getCount();
 
-                if (remainder.getCount() < toInsert.getCount()) {
-                    inventory.setStackInSlot(0, remainder);
-
-                    if (remainder.isEmpty()) {
-                        return;
-                    }
+            for (int slot = 0; slot < adjacent.size() && remaining > 0; slot++) {
+                try (Transaction tx = Transaction.openRoot()) {
+                    int inserted = adjacent.insert(slot, res, remaining, tx);
+                    tx.commit();
+                    remaining -= inserted;
                 }
             }
-        }
-    }
 
-    private ItemStack insertItem(IItemHandler inventory, ItemStack stack) {
-        ItemStack remaining = stack.copy();
-
-        for (int slot = 0; slot < inventory.getSlots(); slot++) {
-            remaining = inventory.insertItem(slot, remaining, false);
-
-            if (remaining.isEmpty()) {
-                break;
+            if (remaining < stack.getCount()) {
+                setSlot0(remaining == 0 ? ItemStack.EMPTY : stack.copyWithCount(remaining));
+                if (remaining == 0) return;
+                stack = getSlot0();
             }
         }
-
-        return remaining;
     }
 
-    public void drops() {
-        ItemStack buffer = inventory.getStackInSlot(0);
-        if (!buffer.isEmpty()) {
-            Containers.dropItemStack(this.level, this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ(), buffer);
+    public ItemStack getSlot0() {
+        ItemResource res = inventory.getResource(0);
+        if (res.isEmpty()) return ItemStack.EMPTY;
+        return res.toStack(inventory.getAmountAsInt(0));
+    }
+
+    public void setSlot0(ItemStack stack) {
+        try (Transaction tx = Transaction.openRoot()) {
+            ItemResource existing = inventory.getResource(0);
+            int existingAmount = inventory.getAmountAsInt(0);
+            if (!existing.isEmpty() && existingAmount > 0) {
+                inventory.extract(0, existing, existingAmount, tx);
+            }
+            if (!stack.isEmpty()) {
+                inventory.insert(0, ItemResource.of(stack), stack.getCount(), tx);
+            }
+            tx.commit();
         }
     }
 
-    public int getTier() {
-        return tier;
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (level == null) return;
+        ItemStack stack = getSlot0();
+        if (!stack.isEmpty()) {
+            Containers.dropItemStack(level, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), stack);
+        }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("Tier", tier);
-        tag.putInt("GenerationCounter", generationCounter);
-        tag.putInt("PushCounter", pushCounter);
-        tag.put("Inventory", inventory.serializeNBT(registries));
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("Tier", tier);
+        output.putInt("GenerationCounter", generationCounter);
+        output.putInt("PushCounter", pushCounter);
+        inventory.serialize(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        generationCounter = tag.getInt("GenerationCounter");
-        pushCounter = tag.getInt("PushCounter");
-        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        generationCounter = input.getIntOr("GenerationCounter", 0);
+        pushCounter       = input.getIntOr("PushCounter", 0);
+        inventory.deserialize(input);
     }
 
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
+
+    public int getTier() { return tier; }
 }

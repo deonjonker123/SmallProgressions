@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:diamond_hoe",
+    "H": "minecraft:smooth_stone",
+    "S": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "SHS",
+    "H#H",
+    "SHS"
+  ],
+  "result": {
+    "id": "smallprogressions:harvester"
+  }
+}

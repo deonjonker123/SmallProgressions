@@ -4,13 +4,13 @@ import com.misterd.smallprogressions.block.custom.BrickFurnaceBlock;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.gui.custom.BrickFurnaceMenu;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -21,16 +21,19 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -41,28 +44,27 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     private static final int SPEED_MULTIPLIER = 4;
     private static final int SMELT_TIME = 200 / SPEED_MULTIPLIER;
 
-    private final Map<ResourceLocation, Integer> recipesUsed = new HashMap<>();
+    private final Map<ResourceKey<Recipe<?>>, Integer> recipesUsed = new HashMap<>();
 
-    public final ItemStackHandler inventory = new ItemStackHandler(3) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(3) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
-            if(level != null && !level.isClientSide()) {
+            if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
 
         @Override
-        public boolean isItemValid(int slot, ItemStack stack) {
+        public boolean isValid(int slot, ItemResource resource) {
             if (slot == 0) {
-                return level != null && level.getRecipeManager()
-                        .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), level)
-                        .isPresent();
+                ItemStack stack = resource.toStack();
+                return level instanceof ServerLevel sl &&
+                        sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent();
             } else if (slot == 1) {
-                return stack.getBurnTime(RecipeType.SMELTING) > 0;
-            } else {
-                return false;
+                return level != null && level.fuelValues().isFuel(resource.toStack());
             }
+            return false;
         }
     };
 
@@ -94,70 +96,32 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         }
 
         @Override
-        public int getCount() {
-            return 4;
-        }
+        public int getCount() { return 4; }
     };
-
-    public IItemHandler getCapabilityHandler() {
-        return new IItemHandler() {
-            @Override
-            public int getSlots() {
-                return inventory.getSlots();
-            }
-
-            @Override
-            public ItemStack getStackInSlot(int slot) {
-                return inventory.getStackInSlot(slot);
-            }
-
-            @Override
-            public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-                if (slot == 2) return stack;
-
-                if (slot == 0) {
-                    if (level != null && level.getRecipeManager()
-                            .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), level)
-                            .isPresent()) {
-                        return inventory.insertItem(slot, stack, simulate);
-                    }
-                    return stack;
-                }
-
-                if (slot == 1) {
-                    if (stack.getBurnTime(RecipeType.SMELTING) > 0) {
-                        return inventory.insertItem(slot, stack, simulate);
-                    }
-                    return stack;
-                }
-
-                return stack;
-            }
-
-            @Override
-            public ItemStack extractItem(int slot, int amount, boolean simulate) {
-                if (slot == 2) return inventory.extractItem(slot, amount, simulate);
-                return ItemStack.EMPTY;
-            }
-
-            @Override
-            public int getSlotLimit(int slot) {
-                return inventory.getSlotLimit(slot);
-            }
-
-            @Override
-            public boolean isItemValid(int slot, ItemStack stack) {
-                return inventory.isItemValid(slot, stack);
-            }
-        };
-    }
 
     public BrickFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
         super(SPBlockEntities.BRICK_FURNACE_BE.get(), pos, blockState);
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state) {
-        if (level.isClientSide()) return;
+    public ItemStack getStack(int slot) {
+        ItemResource res = inventory.getResource(slot);
+        if (res.isEmpty()) return ItemStack.EMPTY;
+        return res.toStack(inventory.getAmountAsInt(slot));
+    }
+
+    private void setStack(int slot, ItemStack stack) {
+        try (Transaction tx = Transaction.openRoot()) {
+            ItemStack existing = getStack(slot);
+            if (!existing.isEmpty())
+                inventory.extract(slot, ItemResource.of(existing), existing.getCount(), tx);
+            if (!stack.isEmpty())
+                inventory.insert(slot, ItemResource.of(stack), stack.getCount(), tx);
+            tx.commit();
+        }
+    }
+
+    public void tick() {
+        if (level == null || level.isClientSide()) return;
 
         boolean wasBurning = isBurning();
         boolean dirty = false;
@@ -167,33 +131,28 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
             dirty = true;
         }
 
-        ItemStack input = inventory.getStackInSlot(0);
-        ItemStack fuel = inventory.getStackInSlot(1);
-        ItemStack output = inventory.getStackInSlot(2);
+        ItemStack input = getStack(0);
+        ItemStack fuel = getStack(1);
+        ItemStack output = getStack(2);
 
         if (!input.isEmpty()) {
-            Optional<RecipeHolder<SmeltingRecipe>> recipeHolder = level.getRecipeManager()
-                    .getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(input), level);
+            Optional<RecipeHolder<SmeltingRecipe>> recipeHolder = getRecipe(input);
 
             if (recipeHolder.isPresent()) {
                 SmeltingRecipe recipe = recipeHolder.get().value();
-                ItemStack result = recipe.assemble(new SingleRecipeInput(input), level.registryAccess());
+                ItemStack result = recipe.assemble(new SingleRecipeInput(input));
 
-                if (result.isEmpty()) {
-                    result = recipe.getResultItem(level.registryAccess());
-                }
-
-                boolean canInsertOutput = output.isEmpty() ||
+                boolean canInsert = output.isEmpty() ||
                         (ItemStack.isSameItemSameComponents(output, result) &&
                                 output.getCount() + result.getCount() <= output.getMaxStackSize());
 
-                if (canInsertOutput) {
+                if (canInsert) {
                     if (!isBurning() && !fuel.isEmpty()) {
-                        int burnTime = fuel.getBurnTime(RecipeType.SMELTING) / SPEED_MULTIPLIER;
+                        int burnTime = level.fuelValues().burnDuration(fuel) / SPEED_MULTIPLIER;
                         if (burnTime > 0) {
                             fuelTime = burnTime;
                             maxFuelTime = burnTime;
-                            fuel.shrink(1);
+                            setStack(1, fuel.copyWithCount(fuel.getCount() - 1));
                             dirty = true;
                         }
                     }
@@ -204,18 +163,13 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
                         if (progress >= maxProgress) {
                             progress = 0;
-
                             if (output.isEmpty()) {
-                                inventory.setStackInSlot(2, result.copy());
+                                setStack(2, result.copy());
                             } else {
-                                output.grow(result.getCount());
+                                setStack(2, output.copyWithCount(output.getCount() + result.getCount()));
                             }
-
-                            input.shrink(1);
-
-                            ResourceLocation recipeId = recipeHolder.get().id();
-                            recipesUsed.merge(recipeId, 1, Integer::sum);
-
+                            setStack(0, input.copyWithCount(input.getCount() - 1));
+                            recipesUsed.merge(recipeHolder.get().id(), 1, Integer::sum);
                             dirty = true;
                         }
                     }
@@ -234,71 +188,73 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
         if (wasBurning != isBurning()) {
             dirty = true;
-            level.setBlock(pos, state.setValue(BrickFurnaceBlock.LIT, isBurning()), 3);
+            level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(BrickFurnaceBlock.LIT, isBurning()), 3);
         }
 
         if (dirty) setChanged();
     }
 
-    public void awardUsedRecipesAndPopExperience(Player player) {
-        if (level == null || level.isClientSide()) return;
+    private Optional<RecipeHolder<SmeltingRecipe>> getRecipe(ItemStack input) {
+        if (level instanceof ServerLevel sl) {
+            return sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(input), sl);
+        }
+        return Optional.empty();
+    }
 
-        for (Map.Entry<ResourceLocation, Integer> entry : recipesUsed.entrySet()) {
-            level.getRecipeManager().byKey(entry.getKey()).ifPresent(holder -> {
+    public void awardUsedRecipesAndPopExperience(Player player) {
+        if (!(level instanceof ServerLevel sl)) return;
+        for (Map.Entry<ResourceKey<Recipe<?>>, Integer> entry : recipesUsed.entrySet()) {
+            sl.recipeAccess().byKey(entry.getKey()).ifPresent(holder -> {
                 if (holder.value() instanceof SmeltingRecipe smeltingRecipe) {
-                    float xpPerCraft = smeltingRecipe.getExperience();
+                    float xpPerCraft = smeltingRecipe.experience();
                     int count = entry.getValue();
                     int totalXp = (int)(xpPerCraft * count);
                     float remainder = xpPerCraft * count - totalXp;
                     if (remainder > 0 && Math.random() < remainder) totalXp++;
-
-                    if (totalXp > 0) {
-                        ExperienceOrb.award((ServerLevel) level, Vec3.atCenterOf(worldPosition), totalXp);
-                    }
+                    if (totalXp > 0) ExperienceOrb.award(sl, Vec3.atCenterOf(worldPosition), totalXp);
                 }
             });
         }
-
         recipesUsed.clear();
     }
 
-    private boolean isBurning() {
-        return fuelTime > 0;
-    }
+    public boolean isBurning() { return fuelTime > 0; }
 
-    public void drops() {
-        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
-        for(int i = 0; i < inventory.getSlots(); i++) {
-            inv.setItem(i, inventory.getStackInSlot(i));
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (level == null) return;
+        SimpleContainer drop = new SimpleContainer(inventory.size());
+        for (int i = 0; i < inventory.size(); i++) {
+            ItemResource res = inventory.getResource(i);
+            if (!res.isEmpty()) drop.setItem(i, res.toStack(inventory.getAmountAsInt(i)));
         }
-        Containers.dropContents(this.level, this.worldPosition, inv);
+        Containers.dropContents(level, worldPosition, drop);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.put("inventory", inventory.serializeNBT(registries));
-        tag.putInt("progress", progress);
-        tag.putInt("fuelTime", fuelTime);
-        tag.putInt("maxFuelTime", maxFuelTime);
-        CompoundTag recipesTag = new CompoundTag();
-        recipesUsed.forEach((id, count) -> recipesTag.putInt(id.toString(), count));
-        tag.put("recipesUsed", recipesTag);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        inventory.serialize(output);
+        output.putInt("progress", progress);
+        output.putInt("fuelTime", fuelTime);
+        output.putInt("maxFuelTime", maxFuelTime);
+        output.store("recipesUsed", Identifier.CODEC.listOf(),
+                recipesUsed.entrySet().stream()
+                        .flatMap(e -> java.util.stream.Stream.generate(() -> e.getKey().identifier()).limit(e.getValue()))
+                        .toList());
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
-        progress = tag.getInt("progress");
-        fuelTime = tag.getInt("fuelTime");
-        maxFuelTime = tag.getInt("maxFuelTime");
-
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        inventory.deserialize(input);
+        progress = input.getIntOr("progress", 0);
+        fuelTime = input.getIntOr("fuelTime", 0);
+        maxFuelTime = input.getIntOr("maxFuelTime", 0);
         recipesUsed.clear();
-        CompoundTag recipesTag = tag.getCompound("recipesUsed");
-        for (String key : recipesTag.getAllKeys()) {
-            recipesUsed.put(ResourceLocation.parse(key), recipesTag.getInt(key));
-        }
+        input.read("recipesUsed", Identifier.CODEC.listOf()).ifPresent(list ->
+                list.forEach(id -> recipesUsed.merge(
+                        ResourceKey.create(Registries.RECIPE, id), 1, Integer::sum)));
     }
 
     @Override
@@ -308,18 +264,13 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
     @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new BrickFurnaceMenu(i, inventory, this);
+    public AbstractContainerMenu createMenu(int i, Inventory inv, Player player) {
+        return new BrickFurnaceMenu(i, inv, this);
     }
 
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
     }
 }

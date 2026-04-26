@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": "minecraft:hay_block",
+    "S": "#c:strings"
+  },
+  "pattern": [
+    "FSF",
+    "F F",
+    "FFF"
+  ],
+  "result": {
+    "id": "smallprogressions:linen_sack"
+  }
+}

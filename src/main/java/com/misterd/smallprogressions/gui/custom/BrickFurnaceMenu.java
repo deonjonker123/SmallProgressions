@@ -4,6 +4,8 @@ import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.custom.BrickFurnaceBlockEntity;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -14,11 +16,16 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class BrickFurnaceMenu extends AbstractContainerMenu {
     public final BrickFurnaceBlockEntity blockEntity;
     private final Level level;
+
+    private static final int VANILLA_SLOTS = 36;
+    private static final int TE_FIRST = VANILLA_SLOTS;
+    private static final int TE_SLOTS = 3;
 
     public BrickFurnaceMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
@@ -26,17 +33,17 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
 
     public BrickFurnaceMenu(int containerId, Inventory inv, BlockEntity blockEntity) {
         super(SPMenuTypes.BRICK_FURNACE_MENU.get(), containerId);
-        this.blockEntity = ((BrickFurnaceBlockEntity) blockEntity);
+        this.blockEntity = (BrickFurnaceBlockEntity) blockEntity;
         this.level = inv.player.level();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 62, 19));
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 62, 55));
+        addSlot(new BESlot(this.blockEntity, 0, 62, 19));
+        addSlot(new BESlot(this.blockEntity, 1, 62, 55));
 
         BrickFurnaceBlockEntity be = this.blockEntity;
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 2, 116, 37) {
+        addSlot(new BESlot(this.blockEntity, 2, 116, 37) {
             @Override
             public void onTake(Player player, ItemStack stack) {
                 be.awardUsedRecipesAndPopExperience(player);
@@ -47,58 +54,33 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         addDataSlots(this.blockEntity.data);
     }
 
-    // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;
     @Override
-    public ItemStack quickMoveStack(Player player, int pIndex) {
-        Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
+    public ItemStack quickMoveStack(Player player, int index) {
+        Slot slot = slots.get(index);
+        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+        ItemStack stack = slot.getItem();
+        ItemStack copy = stack.copy();
 
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
-
-        if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+        if (index < VANILLA_SLOTS) {
             boolean moved = false;
-
-            if (level.getRecipeManager().getRecipeFor(RecipeType.SMELTING,
-                    new SingleRecipeInput(sourceStack), level).isPresent()) {
-                moved = moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + 1, false);
+            if (level instanceof ServerLevel sl &&
+                    sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent()) {
+                moved = moveItemStackTo(stack, TE_FIRST, TE_FIRST + 1, false);
             }
-
-            if (!moved && sourceStack.getBurnTime(RecipeType.SMELTING) > 0) {
-                moved = moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + 1, TE_INVENTORY_FIRST_SLOT_INDEX + 2, false);
+            if (!moved && level.fuelValues().isFuel(stack)) {
+                moved = moveItemStackTo(stack, TE_FIRST + 1, TE_FIRST + 2, false);
             }
-
-            if (!moved) {
-                return ItemStack.EMPTY;
-            }
-        }
-        else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, true)) {
-                return ItemStack.EMPTY;
-            }
-        }
-        else {
-            System.out.println("Invalid slotIndex:" + pIndex);
+            if (!moved) return ItemStack.EMPTY;
+        } else if (index < TE_FIRST + TE_SLOTS) {
+            if (!moveItemStackTo(stack, 0, VANILLA_SLOTS, true)) return ItemStack.EMPTY;
+        } else {
             return ItemStack.EMPTY;
         }
 
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-
-        sourceSlot.onTake(player, sourceStack);
-        return copyOfSourceStack;
+        if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
+        else slot.setChanged();
+        slot.onTake(player, stack);
+        return copy;
     }
 
     @Override
@@ -106,37 +88,68 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, SPBlocks.BRICK_FURNACE.get());
     }
 
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 88 + i * 18));
+    private void addPlayerInventory(Inventory inv) {
+        for (int i = 0; i < 3; i++)
+            for (int l = 0; l < 9; l++)
+                addSlot(new Slot(inv, l + i * 9 + 9, 8 + l * 18, 88 + i * 18));
+    }
+
+    private void addPlayerHotbar(Inventory inv) {
+        for (int i = 0; i < 9; i++)
+            addSlot(new Slot(inv, i, 8 + i * 18, 147));
+    }
+
+    public int getProgress() { return this.blockEntity.data.get(0); }
+    public int getMaxProgress() { return this.blockEntity.data.get(1); }
+    public int getFuelTime() { return this.blockEntity.data.get(2); }
+    public int getMaxFuelTime() { return this.blockEntity.data.get(3); }
+    public boolean isBurning() { return getFuelTime() > 0; }
+
+    private static class BESlot extends Slot {
+        private final BrickFurnaceBlockEntity be;
+        private final int index;
+
+        BESlot(BrickFurnaceBlockEntity be, int index, int x, int y) {
+            super(new SimpleContainer(be.inventory.size()), index, x, y);
+            this.be = be;
+            this.index = index;
+        }
+
+        @Override
+        public ItemStack getItem() {
+            ItemResource res = be.inventory.getResource(index);
+            if (res.isEmpty()) return ItemStack.EMPTY;
+            return res.toStack(be.inventory.getAmountAsInt(index));
+        }
+
+        @Override
+        public void set(ItemStack stack) {
+            try (Transaction tx = Transaction.openRoot()) {
+                ItemStack existing = getItem();
+                if (!existing.isEmpty())
+                    be.inventory.extract(index, ItemResource.of(existing), existing.getCount(), tx);
+                if (!stack.isEmpty())
+                    be.inventory.insert(index, ItemResource.of(stack), stack.getCount(), tx);
+                tx.commit();
+            }
+            setChanged();
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return be.inventory.isValid(index, ItemResource.of(stack));
+        }
+
+        @Override
+        public ItemStack remove(int amount) {
+            ItemStack existing = getItem();
+            if (existing.isEmpty()) return ItemStack.EMPTY;
+            int toExtract = Math.min(amount, existing.getCount());
+            try (Transaction tx = Transaction.openRoot()) {
+                int extracted = be.inventory.extract(index, ItemResource.of(existing), toExtract, tx);
+                tx.commit();
+                return existing.copyWithCount(extracted);
             }
         }
-    }
-
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 147));
-        }
-    }
-
-    public int getProgress() {
-        return this.blockEntity.data.get(0);
-    }
-
-    public int getMaxProgress() {
-        return this.blockEntity.data.get(1);
-    }
-
-    public int getFuelTime() {
-        return this.blockEntity.data.get(2);
-    }
-
-    public int getMaxFuelTime() {
-        return this.blockEntity.data.get(3);
-    }
-
-    public boolean isBurning() {
-        return getFuelTime() > 0;
     }
 }

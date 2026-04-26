@@ -3,15 +3,18 @@ package com.misterd.smallprogressions.item.custom;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.fluids.FluidStack;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class TankBlockItem extends BlockItem {
     private final int maxCapacity;
@@ -22,41 +25,32 @@ public class TankBlockItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, adder, flag);
 
-        if (stack.has(DataComponents.CUSTOM_DATA)) {
-            CompoundTag tag = stack.get(DataComponents.CUSTOM_DATA).copyTag();
+        if (!stack.has(DataComponents.CUSTOM_DATA)) {
+            adder.accept(Component.translatable("tooltip.smallprogressions.tank.empty").withStyle(ChatFormatting.RED));
+            return;
+        }
 
-            if (tag.contains("Tank")) {
-                CompoundTag tankTag = tag.getCompound("Tank");
+        CompoundTag tag = stack.get(DataComponents.CUSTOM_DATA).copyTag();
+        if (!tag.contains("Tank")) {
+            adder.accept(Component.translatable("tooltip.smallprogressions.tank.empty").withStyle(ChatFormatting.RED));
+            return;
+        }
 
-                if (tankTag.contains("Fluid")) {
-                    CompoundTag fluidTag = tankTag.getCompound("Fluid");
-
-                    FluidStack fluidStack = FluidStack.parseOptional(context.registries(), fluidTag);
-
-                    if (!fluidStack.isEmpty()) {
-                        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.tank.contains")
-                                .append(fluidStack.getHoverName())
+        var ops = context.registries().createSerializationContext(NbtOps.INSTANCE);
+        FluidStack.OPTIONAL_CODEC.parse(ops, tag.get("Tank")).result()
+                .ifPresentOrElse(fs -> {
+                    if (!fs.isEmpty()) {
+                        adder.accept(Component.translatable("tooltip.smallprogressions.tank.contains")
+                                .append(fs.getHoverName())
                                 .append(": ")
-                                .append(String.format("%,dmB", fluidStack.getAmount(), maxCapacity))
+                                .append(String.format("%,dmB", fs.getAmount()))
                                 .withStyle(ChatFormatting.RED));
                     } else {
-                        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.tank.empty")
-                                .withStyle(ChatFormatting.RED));
+                        adder.accept(Component.translatable("tooltip.smallprogressions.tank.empty").withStyle(ChatFormatting.RED));
                     }
-                } else {
-                    tooltipComponents.add(Component.translatable("tooltip.smallprogressions.tank.empty")
-                            .withStyle(ChatFormatting.RED));
-                }
-            } else {
-                tooltipComponents.add(Component.translatable("tooltip.smallprogressions.tank.empty")
-                        .withStyle(ChatFormatting.RED));
-            }
-        } else {
-            tooltipComponents.add(Component.translatable("tooltip.smallprogressions.tank.empty")
-                    .withStyle(ChatFormatting.RED));
-        }
+                }, () -> adder.accept(Component.translatable("tooltip.smallprogressions.tank.empty").withStyle(ChatFormatting.RED)));
     }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "#c:buckets/lava",
+    "O": "#c:obsidians",
+    "S": "minecraft:smooth_stone"
+  },
+  "pattern": [
+    "SOS",
+    "OLO",
+    "SOS"
+  ],
+  "result": {
+    "id": "smallprogressions:lava_infused_stone"
+  }
+}

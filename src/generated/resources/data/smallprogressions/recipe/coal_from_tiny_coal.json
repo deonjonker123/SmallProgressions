@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal",
+    "smallprogressions:tiny_coal"
+  ],
+  "result": {
+    "id": "minecraft:coal"
+  }
+}

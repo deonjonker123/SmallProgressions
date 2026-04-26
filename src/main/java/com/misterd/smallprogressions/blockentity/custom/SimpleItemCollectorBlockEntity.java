@@ -3,17 +3,17 @@ package com.misterd.smallprogressions.blockentity.custom;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ public class SimpleItemCollectorBlockEntity extends BlockEntity {
 
     private int tickCounter = 0;
 
-    public final ItemStackHandler inventory = new ItemStackHandler(BUFFER_SIZE) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(BUFFER_SIZE) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
             if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -38,103 +38,105 @@ public class SimpleItemCollectorBlockEntity extends BlockEntity {
         super(SPBlockEntities.SIMPLE_ITEM_COLLECTOR_BE.get(), pos, state);
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state) {
-        if (level.isClientSide()) {
-            return;
-        }
+    public void tick() {
+        if (level == null || level.isClientSide()) return;
 
-        tickCounter++;
-        if (tickCounter >= COLLECTION_INTERVAL) {
+        if (++tickCounter >= COLLECTION_INTERVAL) {
             tickCounter = 0;
-            collectItems(level, pos);
+            collectItems();
         }
 
-        if (!inventory.getStackInSlot(0).isEmpty()) {
-            pushToInventoryBelow(level, pos);
+        if (!getBufferStack().isEmpty()) {
+            pushToInventoryBelow();
         }
     }
 
-    private void collectItems(Level level, BlockPos pos) {
-        BlockPos belowPos = pos.below();
-        IItemHandler targetInventory = level.getCapability(Capabilities.ItemHandler.BLOCK, belowPos, Direction.UP);
+    private void collectItems() {
+        var targetInventory = level.getCapability(Capabilities.Item.BLOCK, worldPosition.below(), Direction.UP);
+        if (targetInventory == null) return;
 
-        if (targetInventory == null) {
-            return;
-        }
-
-        AABB collectionArea = new AABB(
-                pos.getX() - COLLECTION_RADIUS,
-                pos.getY() - COLLECTION_RADIUS,
-                pos.getZ() - COLLECTION_RADIUS,
-                pos.getX() + COLLECTION_RADIUS + 1,
-                pos.getY() + COLLECTION_RADIUS + 1,
-                pos.getZ() + COLLECTION_RADIUS + 1
+        AABB area = new AABB(
+                worldPosition.getX() - COLLECTION_RADIUS,
+                worldPosition.getY() - COLLECTION_RADIUS,
+                worldPosition.getZ() - COLLECTION_RADIUS,
+                worldPosition.getX() + COLLECTION_RADIUS + 1,
+                worldPosition.getY() + COLLECTION_RADIUS + 1,
+                worldPosition.getZ() + COLLECTION_RADIUS + 1
         );
 
-        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, collectionArea);
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, area);
 
         for (ItemEntity itemEntity : items) {
-            if (!itemEntity.isAlive() || itemEntity.getItem().isEmpty()) {
-                continue;
-            }
+            if (!itemEntity.isAlive() || itemEntity.getItem().isEmpty()) continue;
 
             ItemStack stack = itemEntity.getItem().copy();
+            ItemResource res = ItemResource.of(stack);
+            int remaining = stack.getCount();
 
-            ItemStack remaining = insertItem(targetInventory, stack);
+            for (int slot = 0; slot < targetInventory.size() && remaining > 0; slot++) {
+                try (Transaction tx = Transaction.openRoot()) {
+                    int inserted = targetInventory.insert(slot, res, remaining, tx);
+                    tx.commit();
+                    remaining -= inserted;
+                }
+            }
 
-            if (!remaining.isEmpty() && inventory.getStackInSlot(0).isEmpty()) {
-                inventory.setStackInSlot(0, remaining);
+            if (remaining < stack.getCount()) {
+                if (remaining == 0) itemEntity.discard();
+                else itemEntity.setItem(stack.copyWithCount(remaining));
+            } else if (remaining > 0 && getBufferStack().isEmpty()) {
+                setBufferStack(stack.copyWithCount(remaining));
                 itemEntity.discard();
-            } else if (remaining.isEmpty()) {
-                itemEntity.discard();
-            } else if (remaining.getCount() < stack.getCount()) {
-                itemEntity.setItem(remaining);
             }
         }
     }
 
-    private void pushToInventoryBelow(Level level, BlockPos pos) {
-        BlockPos belowPos = pos.below();
-        IItemHandler targetInventory = level.getCapability(Capabilities.ItemHandler.BLOCK, belowPos, Direction.UP);
+    private void pushToInventoryBelow() {
+        var targetInventory = level.getCapability(Capabilities.Item.BLOCK, worldPosition.below(), Direction.UP);
+        if (targetInventory == null) return;
 
-        if (targetInventory == null) {
-            return;
-        }
+        ItemStack bufferStack = getBufferStack();
+        if (bufferStack.isEmpty()) return;
 
-        ItemStack bufferStack = inventory.getStackInSlot(0);
-        if (bufferStack.isEmpty()) {
-            return;
-        }
+        ItemResource res = ItemResource.of(bufferStack);
+        int remaining = bufferStack.getCount();
 
-        ItemStack remaining = insertItem(targetInventory, bufferStack);
-        inventory.setStackInSlot(0, remaining);
-    }
-
-    private ItemStack insertItem(IItemHandler inventory, ItemStack stack) {
-        ItemStack remaining = stack.copy();
-
-        for (int slot = 0; slot < inventory.getSlots(); slot++) {
-            remaining = inventory.insertItem(slot, remaining, false);
-
-            if (remaining.isEmpty()) {
-                break;
+        for (int slot = 0; slot < targetInventory.size() && remaining > 0; slot++) {
+            try (Transaction tx = Transaction.openRoot()) {
+                int inserted = targetInventory.insert(slot, res, remaining, tx);
+                tx.commit();
+                remaining -= inserted;
             }
         }
 
-        return remaining;
+        setBufferStack(remaining == 0 ? ItemStack.EMPTY : bufferStack.copyWithCount(remaining));
+    }
+
+    public ItemStack getBufferStack() {
+        ItemResource res = inventory.getResource(0);
+        if (res.isEmpty()) return ItemStack.EMPTY;
+        return res.toStack(inventory.getAmountAsInt(0));
+    }
+
+    public void setBufferStack(ItemStack stack) {
+        try (Transaction tx = Transaction.openRoot()) {
+            inventory.extract(0, inventory.getResource(0), inventory.getAmountAsInt(0), tx);
+            if (!stack.isEmpty()) inventory.insert(0, ItemResource.of(stack), stack.getCount(), tx);
+            tx.commit();
+        }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("TickCounter", tickCounter);
-        tag.put("Inventory", inventory.serializeNBT(registries));
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("TickCounter", tickCounter);
+        inventory.serialize(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        tickCounter = tag.getInt("TickCounter");
-        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        tickCounter = input.getIntOr("TickCounter", 0);
+        inventory.deserialize(input);
     }
 }

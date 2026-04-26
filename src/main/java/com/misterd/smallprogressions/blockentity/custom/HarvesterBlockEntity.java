@@ -1,35 +1,35 @@
 package com.misterd.smallprogressions.blockentity.custom;
 
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
-import com.misterd.smallprogressions.item.equipment.ScytheItem;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 
 public class HarvesterBlockEntity extends BlockEntity {
     private static final int HARVEST_INTERVAL = 20;
-    private static final int SCYTHE_SLOT = 0;
+    private static final int HOE_SLOT = 0;
 
     private int tickCounter = 0;
     private boolean requiresRedstone = false;
 
-    public final ItemStackHandler inventory = new ItemStackHandler(1) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
             if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -37,25 +37,8 @@ public class HarvesterBlockEntity extends BlockEntity {
         }
 
         @Override
-        public boolean isItemValid(int slot, ItemStack stack) {
-            return stack.getItem() instanceof ScytheItem;
-        }
-    };
-
-    public final ContainerData data = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return requiresRedstone ? 1 : 0;
-        }
-
-        @Override
-        public void set(int index, int value) {
-            requiresRedstone = value == 1;
-        }
-
-        @Override
-        public int getCount() {
-            return 1;
+        public boolean isValid(int slot, ItemResource resource) {
+            return resource.toStack().getItem() instanceof HoeItem;
         }
     };
 
@@ -63,111 +46,96 @@ public class HarvesterBlockEntity extends BlockEntity {
         super(SPBlockEntities.HARVESTER_BE.get(), pos, state);
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state) {
-        if (level.isClientSide()) {
-            return;
-        }
+    public void tick() {
+        if (level == null || level.isClientSide()) return;
+        if (requiresRedstone && !level.hasNeighborSignal(worldPosition)) return;
 
-        if (requiresRedstone && !level.hasNeighborSignal(pos)) {
-            return;
-        }
+        ItemStack hoeStack = getHoeStack();
+        if (hoeStack.isEmpty() || !(hoeStack.getItem() instanceof HoeItem hoeItem)) return;
 
-        ItemStack scytheStack = inventory.getStackInSlot(SCYTHE_SLOT);
-        if (scytheStack.isEmpty() || !(scytheStack.getItem() instanceof ScytheItem scytheItem)) {
-            return;
-        }
-
-        tickCounter++;
-        if (tickCounter >= HARVEST_INTERVAL) {
+        if (++tickCounter >= HARVEST_INTERVAL) {
             tickCounter = 0;
-            harvestCrops(level, pos, scytheItem);
+            harvestCrops(getHoeRadius(hoeItem));
         }
     }
 
-    private void harvestCrops(Level level, BlockPos harvesterPos, ScytheItem scytheItem) {
-        int radius = getScytheRadius(scytheItem);
+    private void harvestCrops(int radius) {
         int range = (radius - 1) / 2;
-
         for (int x = -range; x <= range; x++) {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -range; z <= range; z++) {
-                    BlockPos pos = harvesterPos.offset(x, y, z);
+                    BlockPos pos = worldPosition.offset(x, y, z);
                     BlockState state = level.getBlockState(pos);
                     Block block = state.getBlock();
-
-                    if (block instanceof CropBlock cropBlock) {
-                        try {
-                            IntegerProperty ageProperty = null;
-                            for (var property : state.getProperties()) {
-                                if (property instanceof IntegerProperty intProp && property.getName().equals("age")) {
-                                    ageProperty = intProp;
-                                    break;
-                                }
+                    if (!(block instanceof CropBlock cropBlock)) continue;
+                    try {
+                        IntegerProperty ageProperty = null;
+                        for (var property : state.getProperties()) {
+                            if (property instanceof IntegerProperty intProp && property.getName().equals("age")) {
+                                ageProperty = intProp;
+                                break;
                             }
-
-                            if (ageProperty != null) {
-                                int currentAge = state.getValue(ageProperty);
-                                int maxAge = cropBlock.getMaxAge();
-
-                                if (currentAge >= maxAge) {
-                                    Block.dropResources(state, level, pos);
-
-                                    level.setBlock(pos, state.setValue(ageProperty, 0), 2);
-                                }
-                            }
-                        } catch (Exception e) {
-
                         }
-                    }
+                        if (ageProperty != null && state.getValue(ageProperty) >= cropBlock.getMaxAge()) {
+                            Block.dropResources(state, level, pos);
+                            level.setBlock(pos, state.setValue(ageProperty, 0), 2);
+                        }
+                    } catch (Exception ignored) {}
                 }
             }
         }
     }
 
-    private int getScytheRadius(ScytheItem scytheItem) {
-        return scytheItem.getRadius();
+    private int getHoeRadius(HoeItem hoeItem) {
+        ItemStack stack = getHoeStack();
+        if (stack.is(Items.NETHERITE_HOE)) return 9;
+        if (stack.is(Items.DIAMOND_HOE)) return 7;
+        if (stack.is(Items.IRON_HOE) || stack.is(Items.GOLDEN_HOE)) return 5;
+        return 3;
     }
 
-    public boolean requiresRedstone() {
-        return requiresRedstone;
+    public ItemStack getHoeStack() {
+        ItemResource res = inventory.getResource(HOE_SLOT);
+        if (res.isEmpty()) return ItemStack.EMPTY;
+        return res.toStack(inventory.getAmountAsInt(HOE_SLOT));
     }
 
-    public void setRequiresRedstone(boolean requiresRedstone) {
-        this.requiresRedstone = requiresRedstone;
-        setChanged();
-    }
-
-    public void drops() {
-        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
-        for(int i = 0; i < inventory.getSlots(); i++) {
-            inv.setItem(i, inventory.getStackInSlot(i));
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (level == null) return;
+        SimpleContainer drop = new SimpleContainer(inventory.size());
+        for (int i = 0; i < inventory.size(); i++) {
+            ItemResource res = inventory.getResource(i);
+            if (!res.isEmpty()) drop.setItem(i, res.toStack(inventory.getAmountAsInt(i)));
         }
-        Containers.dropContents(this.level, this.worldPosition, inv);
+        Containers.dropContents(level, worldPosition, drop);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("TickCounter", tickCounter);
-        tag.putBoolean("RequiresRedstone", requiresRedstone);
-        tag.put("Inventory", inventory.serializeNBT(registries));
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("TickCounter", tickCounter);
+        output.putBoolean("RequiresRedstone", requiresRedstone);
+        inventory.serialize(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        tickCounter = tag.getInt("TickCounter");
-        requiresRedstone = tag.getBoolean("RequiresRedstone");
-        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        tickCounter = input.getIntOr("TickCounter", 0);
+        requiresRedstone = input.getBooleanOr("RequiresRedstone", false);
+        inventory.deserialize(input);
     }
 
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    public boolean requiresRedstone() { return requiresRedstone; }
+
+    public void setRequiresRedstone(boolean v) {
+        requiresRedstone = v;
+        setChanged();
     }
 }

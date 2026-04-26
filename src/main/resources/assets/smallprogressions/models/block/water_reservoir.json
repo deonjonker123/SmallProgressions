@@ -6,7 +6,7 @@
     "east": "smallprogressions:block/water_res_side",
     "west": "smallprogressions:block/water_res_side",
     "up": "smallprogressions:block/water_res_top",
-    "down": "smallprogressions:block/machine_bottom",
+    "down": "smallprogressions:block/water_res_top",
     "particle": "smallprogressions:block/water_res_top"
   }
 }

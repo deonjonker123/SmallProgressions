@@ -3,101 +3,79 @@ package com.misterd.smallprogressions.gui.custom;
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.custom.HarvesterBlockEntity;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
-import com.misterd.smallprogressions.item.equipment.ScytheItem;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class HarvesterMenu extends AbstractContainerMenu {
     public final HarvesterBlockEntity blockEntity;
     private final Level level;
-    private final ContainerData data;
+    private int lastRequiresRedstone = 0;
 
-    private static final int DATA_REQUIRES_REDSTONE = 0;
-    private static final int DATA_COUNT = 1;
+    private static final int TE_SLOTS = 1;
+    private static final int TE_FIRST = 0;
+    private static final int PLAYER_FIRST = TE_SLOTS;
+    private static final int PLAYER_SLOTS = 36;
 
     public HarvesterMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(DATA_COUNT));
+        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
 
-    public HarvesterMenu(int containerId, Inventory inv, BlockEntity blockEntity, ContainerData data) {
+    public HarvesterMenu(int containerId, Inventory inv, BlockEntity blockEntity) {
         super(SPMenuTypes.HARVESTER_MENU.get(), containerId);
-        this.blockEntity = ((HarvesterBlockEntity) blockEntity);
+        this.blockEntity = (HarvesterBlockEntity) blockEntity;
         this.level = inv.player.level();
-        this.data = data;
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 80, 19) {
-            @Override
-            public boolean mayPlace(ItemStack stack) {
-                return stack.getItem() instanceof ScytheItem;
-            }
-        });
-
+        addSlot(new BESlot(this.blockEntity, 0, 80, 19));
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        addDataSlots(this.data);
+        addDataSlot(new DataSlot() {
+            @Override public int get() { return HarvesterMenu.this.blockEntity.requiresRedstone() ? 1 : 0; }
+            @Override public void set(int value) { lastRequiresRedstone = value; }
+        });
     }
 
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 52 + i * 18));
-            }
-        }
-    }
-
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 111));
-        }
+    public boolean requiresRedstone() {
+        return level.isClientSide() ? lastRequiresRedstone == 1 : blockEntity.requiresRedstone();
     }
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(index);
-        if (slot != null && slot.hasItem()) {
-            ItemStack slotStack = slot.getItem();
-            itemstack = slotStack.copy();
+        Slot slot = slots.get(index);
+        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+        ItemStack stack = slot.getItem();
+        ItemStack copy = stack.copy();
 
-            if (index == 0) {
-                if (!this.moveItemStackTo(slotStack, 1, 37, true)) {
+        if (index < TE_SLOTS) {
+            if (!moveItemStackTo(stack, PLAYER_FIRST, PLAYER_FIRST + PLAYER_SLOTS, true))
+                return ItemStack.EMPTY;
+        } else if (index < PLAYER_FIRST + PLAYER_SLOTS) {
+            if (stack.getItem() instanceof HoeItem) {
+                if (!moveItemStackTo(stack, TE_FIRST, TE_SLOTS, false))
                     return ItemStack.EMPTY;
-                }
             } else {
-                if (slotStack.getItem() instanceof ScytheItem) {
-                    if (!this.moveItemStackTo(slotStack, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (index < 28) {
-                    if (!this.moveItemStackTo(slotStack, 28, 37, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (index < 37 && !this.moveItemStackTo(slotStack, 1, 28, false)) {
-                    return ItemStack.EMPTY;
-                }
-            }
-
-            if (slotStack.isEmpty()) {
-                slot.setByPlayer(ItemStack.EMPTY);
-            } else {
-                slot.setChanged();
-            }
-
-            if (slotStack.getCount() == itemstack.getCount()) {
                 return ItemStack.EMPTY;
             }
-
-            slot.onTake(player, slotStack);
+        } else {
+            return ItemStack.EMPTY;
         }
 
-        return itemstack;
+        if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
+        else slot.setChanged();
+        slot.onTake(player, stack);
+        return copy;
     }
 
     @Override
@@ -105,7 +83,62 @@ public class HarvesterMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, SPBlocks.HARVESTER.get());
     }
 
-    public boolean requiresRedstone() {
-        return this.data.get(DATA_REQUIRES_REDSTONE) == 1;
+    private void addPlayerInventory(Inventory inv) {
+        for (int i = 0; i < 3; i++)
+            for (int l = 0; l < 9; l++)
+                addSlot(new Slot(inv, l + i * 9 + 9, 8 + l * 18, 52 + i * 18));
+    }
+
+    private void addPlayerHotbar(Inventory inv) {
+        for (int i = 0; i < 9; i++)
+            addSlot(new Slot(inv, i, 8 + i * 18, 111));
+    }
+
+    private static class BESlot extends Slot {
+        private final HarvesterBlockEntity be;
+        private final int index;
+
+        BESlot(HarvesterBlockEntity be, int index, int x, int y) {
+            super(new SimpleContainer(be.inventory.size()), index, x, y);
+            this.be = be;
+            this.index = index;
+        }
+
+        @Override
+        public ItemStack getItem() {
+            ItemResource res = be.inventory.getResource(index);
+            if (res.isEmpty()) return ItemStack.EMPTY;
+            return res.toStack(be.inventory.getAmountAsInt(index));
+        }
+
+        @Override
+        public void set(ItemStack stack) {
+            try (Transaction tx = Transaction.openRoot()) {
+                ItemStack existing = getItem();
+                if (!existing.isEmpty())
+                    be.inventory.extract(index, ItemResource.of(existing), existing.getCount(), tx);
+                if (!stack.isEmpty())
+                    be.inventory.insert(index, ItemResource.of(stack), stack.getCount(), tx);
+                tx.commit();
+            }
+            setChanged();
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return stack.getItem() instanceof HoeItem;
+        }
+
+        @Override
+        public ItemStack remove(int amount) {
+            ItemStack existing = getItem();
+            if (existing.isEmpty()) return ItemStack.EMPTY;
+            int toExtract = Math.min(amount, existing.getCount());
+            try (Transaction tx = Transaction.openRoot()) {
+                int extracted = be.inventory.extract(index, ItemResource.of(existing), toExtract, tx);
+                tx.commit();
+                return existing.copyWithCount(extracted);
+            }
+        }
     }
 }

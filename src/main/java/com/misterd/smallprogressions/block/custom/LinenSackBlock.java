@@ -31,8 +31,8 @@ import java.util.List;
 
 public class LinenSackBlock extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Shapes.or(
-            Block.box(2, 0,   2,  14, 10,  14),
-            Block.box(6, 10,  6,  10, 10.5, 10),
+            Block.box(2, 0, 2, 14, 10, 14),
+            Block.box(6, 10, 6, 10, 10.5, 10),
             Block.box(5, 10.5, 5, 11, 12.5, 11)
     );
     public static final MapCodec<LinenSackBlock> CODEC = simpleCodec(LinenSackBlock::new);
@@ -97,6 +97,6 @@ public class LinenSackBlock extends BaseEntityBlock {
                 ), pos);
             }
         }
-        return InteractionResult.sidedSuccess(level.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 }

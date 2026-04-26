@@ -3,9 +3,7 @@ package com.misterd.smallprogressions.blockentity.custom;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.gui.custom.LinenSackMenu;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -18,17 +16,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LinenSackBlockEntity extends BlockEntity implements MenuProvider {
-    private static final int INVENTORY_SIZE = 9;
+    private static final int SIZE = 9;
 
-    public final ItemStackHandler inventory = new ItemStackHandler(INVENTORY_SIZE) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(SIZE) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
             if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -41,54 +44,43 @@ public class LinenSackBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void loadFromItem(ItemStack stack) {
-        ItemContainerContents contents =
-                stack.getOrDefault(DataComponents.CONTAINER,
-                        ItemContainerContents.EMPTY);
-
-        List<ItemStack> stackList = contents.stream().toList();
-        for (int i = 0; i < stackList.size() && i < INVENTORY_SIZE; i++) {
-            inventory.setStackInSlot(i, stackList.get(i).copy());
+        List<ItemStack> stackList = stack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).allItemsCopyStream().toList();
+        for (int i = 0; i < stackList.size() && i < SIZE; i++) {
+            ItemStack s = stackList.get(i).copy();
+            try (Transaction tx = Transaction.openRoot()) {
+                inventory.insert(i, ItemResource.of(s), s.getCount(), tx);
+                tx.commit();
+            }
         }
     }
 
     public void saveToItem(ItemStack stack) {
-        if (!isEmpty()) {
-            List<ItemStack> stackList = new java.util.ArrayList<>();
-            for (int i = 0; i < INVENTORY_SIZE; i++) {
-                stackList.add(inventory.getStackInSlot(i).copy());
-            }
-
-            ItemContainerContents contents =
-                    ItemContainerContents.fromItems(stackList);
-
-            stack.set(DataComponents.CONTAINER, contents);
+        if (isEmpty()) return;
+        List<ItemStack> stackList = new ArrayList<>();
+        for (int i = 0; i < SIZE; i++) {
+            ItemResource res = inventory.getResource(i);
+            stackList.add(res.isEmpty() ? ItemStack.EMPTY : res.toStack(inventory.getAmountAsInt(i)));
         }
+        stack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(stackList));
     }
 
     private boolean isEmpty() {
-        for (int i = 0; i < INVENTORY_SIZE; i++) {
-            if (!inventory.getStackInSlot(i).isEmpty()) {
-                return false;
-            }
+        for (int i = 0; i < SIZE; i++) {
+            if (!inventory.getResource(i).isEmpty()) return false;
         }
         return true;
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.put("Inventory", inventory.serializeNBT(registries));
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        inventory.serialize(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        inventory.deserialize(input);
     }
 
     @Override

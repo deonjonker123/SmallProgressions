@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal",
+    "smallprogressions:tiny_charcoal"
+  ],
+  "result": {
+    "id": "minecraft:charcoal"
+  }
+}

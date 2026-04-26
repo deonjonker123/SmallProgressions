@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "smallprogressions:cobblestone_generator_tier_3",
+    "I": "minecraft:emerald"
+  },
+  "pattern": [
+    "III",
+    "I#I",
+    "III"
+  ],
+  "result": {
+    "id": "smallprogressions:cobblestone_generator_tier_4"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "values": {
+    "smallprogressions:charcoal_block": {
+      "burn_time": 16000
+    },
+    "smallprogressions:tiny_charcoal": {
+      "burn_time": 200
+    },
+    "smallprogressions:tiny_coal": {
+      "burn_time": 200
+    }
+  }
+}

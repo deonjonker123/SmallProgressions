@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "#c:ender_pearls",
+    "G": "#c:glass_blocks",
+    "S": "minecraft:smooth_stone"
+  },
+  "pattern": [
+    "GGG",
+    "GEG",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:simple_item_collector"
+  }
+}

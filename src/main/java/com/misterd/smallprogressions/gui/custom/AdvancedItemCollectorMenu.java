@@ -26,14 +26,37 @@ public class AdvancedItemCollectorMenu extends AbstractContainerMenu {
     private static final int DATA_COUNT = 6;
 
     public AdvancedItemCollectorMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(DATA_COUNT));
+        this(containerId, inv, (AdvancedItemCollectorBlockEntity) inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
 
-    public AdvancedItemCollectorMenu(int containerId, Inventory inv, BlockEntity blockEntity, ContainerData data) {
+    public AdvancedItemCollectorMenu(int containerId, Inventory inv, AdvancedItemCollectorBlockEntity blockEntity) {
         super(SPMenuTypes.ADVANCED_ITEM_COLLECTOR_MENU.get(), containerId);
-        this.blockEntity = ((AdvancedItemCollectorBlockEntity) blockEntity);
+        this.blockEntity = blockEntity;
         this.level = inv.player.level();
-        this.data = data;
+        this.data = new ContainerData() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case DATA_DOWN_UP_OFFSET     -> blockEntity.getDownUpOffset();
+                    case DATA_NORTH_SOUTH_OFFSET -> blockEntity.getNorthSouthOffset();
+                    case DATA_EAST_WEST_OFFSET   -> blockEntity.getEastWestOffset();
+                    case DATA_REQUIRES_REDSTONE  -> blockEntity.requiresRedstone() ? 1 : 0;
+                    case DATA_IS_ALLOW_MODE      -> blockEntity.isAllowMode() ? 1 : 0;
+                    case DATA_WIREFRAME_ENABLED  -> blockEntity.isWireframeEnabled() ? 1 : 0;
+                    default -> 0;
+                };
+            }
+
+            @Override
+            public void set(int index, int value) {
+
+            }
+
+            @Override
+            public int getCount() {
+                return DATA_COUNT;
+            }
+        };
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
@@ -42,9 +65,7 @@ public class AdvancedItemCollectorMenu extends AbstractContainerMenu {
         }
 
         addPlayerInventory(inv);
-
         addPlayerHotbar(inv);
-
         addDataSlots(this.data);
     }
 
@@ -60,7 +81,7 @@ public class AdvancedItemCollectorMenu extends AbstractContainerMenu {
 
         @Override
         public ItemStack getItem() {
-            return blockEntity.getGhostFilterSlots().get(ghostSlotIndex).copy();
+            return blockEntity.getGhostFilterSlots()[ghostSlotIndex].copy();
         }
 
         @Override
@@ -110,7 +131,7 @@ public class AdvancedItemCollectorMenu extends AbstractContainerMenu {
     private static final int GHOST_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     @Override
-    public void clicked(int slotId, int dragType, ClickType clickType, Player player) {
+    public void clicked(int slotId, int dragType, ContainerInput clickType, Player player) {
         if (slotId >= 0 && slotId < GHOST_SLOT_COUNT) {
             ItemStack carried = this.getCarried();
             if (!carried.isEmpty()) {

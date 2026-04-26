@@ -28,7 +28,7 @@ public class LavaInfusedStoneBlock extends Block {
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.scheduleTick(pos, this, TICK_RATE);
         }
     }
@@ -55,11 +55,8 @@ public class LavaInfusedStoneBlock extends Block {
         }
     }
 
-    @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_infused_stone.line1").withStyle(ChatFormatting.AQUA));
         tooltipComponents.add(Component.translatable("tooltip.smallprogressions.lava_infused_stone.line2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

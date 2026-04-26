@@ -7,7 +7,9 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -38,13 +40,6 @@ public class HarvesterBlock extends BaseEntityBlock {
         return CODEC;
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.harvester.line1").withStyle(ChatFormatting.AQUA));
-        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.harvester.line2").withStyle(ChatFormatting.GOLD));
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-    }
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -63,9 +58,7 @@ public class HarvesterBlock extends BaseEntityBlock {
             return null;
         }
 
-        return createTickerHelper(blockEntityType,
-                SPBlockEntities.HARVESTER_BE.get(),
-                (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1));
+        return createTickerHelper(blockEntityType, SPBlockEntities.HARVESTER_BE.get(), (level1, pos, state1, blockEntity) -> blockEntity.tick());
     }
 
     @Override
@@ -73,29 +66,19 @@ public class HarvesterBlock extends BaseEntityBlock {
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof HarvesterBlockEntity harvester) {
-                serverPlayer.openMenu(new SimpleMenuProvider(
-                        (containerId, playerInventory, p) ->
-                                new HarvesterMenu(
-                                        containerId,
-                                        playerInventory,
-                                        harvester,
-                                        harvester.data
-                                ),
-                        Component.translatable("gui.smallprogressions.harvester")
-                ), pos);
+                serverPlayer.openMenu(new SimpleMenuProvider((containerId, playerInventory, p) -> new HarvesterMenu(containerId, playerInventory, (BlockEntity) harvester), Component.translatable("gui.smallprogressions.harvester")), pos);
             }
         }
-        return InteractionResult.sidedSuccess(level.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if (!state.is(newState.getBlock())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof HarvesterBlockEntity harvester) {
-                harvester.drops();
-            }
-        }
-        super.onRemove(state, level, pos, newState, movedByPiston);
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        Containers.updateNeighboursAfterDestroy(state, level, pos);
+    }
+
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.harvester.line1").withStyle(ChatFormatting.AQUA));
+        tooltipComponents.add(Component.translatable("tooltip.smallprogressions.harvester.line2").withStyle(ChatFormatting.GOLD));
     }
 }

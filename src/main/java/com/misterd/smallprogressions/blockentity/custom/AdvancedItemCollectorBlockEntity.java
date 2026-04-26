@@ -1,28 +1,38 @@
 package com.misterd.smallprogressions.blockentity.custom;
 
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
+import com.misterd.smallprogressions.gui.custom.AdvancedItemCollectorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
-public class AdvancedItemCollectorBlockEntity extends BlockEntity {
+public class AdvancedItemCollectorBlockEntity extends BlockEntity implements MenuProvider {
     private static final int COLLECTION_INTERVAL = 20;
     private static final int COLLECTION_RADIUS = 4;
     private static final int BUFFER_SIZE = 1;
@@ -38,11 +48,11 @@ public class AdvancedItemCollectorBlockEntity extends BlockEntity {
     private boolean isAllowMode = true;
     private boolean wireframeEnabled = false;
 
-    private NonNullList<ItemStack> ghostFilterSlots = NonNullList.withSize(FILTER_SIZE, ItemStack.EMPTY);
+    private final ItemStack[] ghostFilterSlots = new ItemStack[FILTER_SIZE];
 
-    public final ItemStackHandler inventory = new ItemStackHandler(BUFFER_SIZE) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(BUFFER_SIZE) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot, ItemStack stack) {
             setChanged();
             if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -50,96 +60,52 @@ public class AdvancedItemCollectorBlockEntity extends BlockEntity {
         }
     };
 
-    public final ContainerData data = new ContainerData() {
-        @Override
-        public int get(int index) {
-            return switch (index) {
-                case 0 -> downUpOffset;
-                case 1 -> northSouthOffset;
-                case 2 -> eastWestOffset;
-                case 3 -> requiresRedstone ? 1 : 0;
-                case 4 -> isAllowMode ? 1 : 0;
-                case 5 -> wireframeEnabled ? 1 : 0;
-                default -> 0;
-            };
-        }
-
-        @Override
-        public void set(int index, int value) {
-            switch (index) {
-                case 0 -> downUpOffset = value;
-                case 1 -> northSouthOffset = value;
-                case 2 -> eastWestOffset = value;
-                case 3 -> requiresRedstone = value == 1;
-                case 4 -> isAllowMode = value == 1;
-                case 5 -> wireframeEnabled = value == 1;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 6;
-        }
-    };
-
     public AdvancedItemCollectorBlockEntity(BlockPos pos, BlockState state) {
         super(SPBlockEntities.ADVANCED_ITEM_COLLECTOR_BE.get(), pos, state);
+        for (int i = 0; i < FILTER_SIZE; i++) ghostFilterSlots[i] = ItemStack.EMPTY;
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state) {
-        if (level.isClientSide()) {
-            return;
-        }
+    public void tick() {
+        if (level == null || level.isClientSide()) return;
 
-        if (requiresRedstone && !level.hasNeighborSignal(pos)) {
-            return;
-        }
+        if (requiresRedstone && !level.hasNeighborSignal(worldPosition)) return;
 
-        tickCounter++;
-        if (tickCounter >= COLLECTION_INTERVAL) {
+        if (++tickCounter >= COLLECTION_INTERVAL) {
             tickCounter = 0;
-            collectItems(level, pos);
+            collectItems();
         }
 
-        if (!inventory.getStackInSlot(0).isEmpty()) {
-            pushToInventoryBelow(level, pos);
+        if (!getBufferStack().isEmpty()) {
+            pushToInventoryBelow();
         }
     }
 
-    private void collectItems(Level level, BlockPos pos) {
-        BlockPos belowPos = pos.below();
-        IItemHandler targetInventory = level.getCapability(Capabilities.ItemHandler.BLOCK, belowPos, Direction.UP);
+    private void collectItems() {
+        BlockPos belowPos = worldPosition.below();
+        var targetInventory = level.getCapability(Capabilities.Item.BLOCK, belowPos, Direction.UP);
+        if (targetInventory == null) return;
 
-        if (targetInventory == null) {
-            return;
-        }
-
-        AABB collectionArea = new AABB(
-                pos.getX() - COLLECTION_RADIUS + eastWestOffset,
-                pos.getY() - COLLECTION_RADIUS + downUpOffset,
-                pos.getZ() - COLLECTION_RADIUS + northSouthOffset,
-                pos.getX() + COLLECTION_RADIUS + 1 + eastWestOffset,
-                pos.getY() + COLLECTION_RADIUS + 1 + downUpOffset,
-                pos.getZ() + COLLECTION_RADIUS + 1 + northSouthOffset
+        AABB area = new AABB(
+                worldPosition.getX() - COLLECTION_RADIUS + eastWestOffset,
+                worldPosition.getY() - COLLECTION_RADIUS + downUpOffset,
+                worldPosition.getZ() - COLLECTION_RADIUS + northSouthOffset,
+                worldPosition.getX() + COLLECTION_RADIUS + 1 + eastWestOffset,
+                worldPosition.getY() + COLLECTION_RADIUS + 1 + downUpOffset,
+                worldPosition.getZ() + COLLECTION_RADIUS + 1 + northSouthOffset
         );
 
-        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, collectionArea);
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, area);
 
         for (ItemEntity itemEntity : items) {
-            if (!itemEntity.isAlive() || itemEntity.getItem().isEmpty()) {
-                continue;
-            }
+            if (!itemEntity.isAlive() || itemEntity.getItem().isEmpty()) continue;
 
             ItemStack stack = itemEntity.getItem().copy();
-
-            if (!passesFilter(stack)) {
-                continue;
-            }
+            if (!passesFilter(stack)) continue;
 
             ItemStack remaining = insertItem(targetInventory, stack);
 
-            if (!remaining.isEmpty() && inventory.getStackInSlot(0).isEmpty()) {
-                inventory.setStackInSlot(0, remaining);
+            if (!remaining.isEmpty() && getBufferStack().isEmpty()) {
+                setBufferStack(remaining);
                 itemEntity.discard();
             } else if (remaining.isEmpty()) {
                 itemEntity.discard();
@@ -149,59 +115,133 @@ public class AdvancedItemCollectorBlockEntity extends BlockEntity {
         }
     }
 
+    private void pushToInventoryBelow() {
+        var targetInventory = level.getCapability(Capabilities.Item.BLOCK, worldPosition.below(), Direction.UP);
+        if (targetInventory == null) return;
+
+        ItemStack bufferStack = getBufferStack();
+        if (bufferStack.isEmpty()) return;
+
+        setBufferStack(insertItem(targetInventory, bufferStack));
+    }
+
+    private ItemStack insertItem(net.neoforged.neoforge.transfer.ResourceHandler<ItemResource> handler, ItemStack stack) {
+        ItemResource res = ItemResource.of(stack);
+        int remaining = stack.getCount();
+        for (int slot = 0; slot < handler.size() && remaining > 0; slot++) {
+            try (Transaction tx = Transaction.openRoot()) {
+                int inserted = handler.insert(slot, res, remaining, tx);
+                tx.commit();
+                remaining -= inserted;
+            }
+        }
+        return remaining == 0 ? ItemStack.EMPTY : stack.copyWithCount(remaining);
+    }
+
     private boolean passesFilter(ItemStack stack) {
         boolean hasFilter = false;
-        for (ItemStack filterStack : ghostFilterSlots) {
-            if (!filterStack.isEmpty()) {
-                hasFilter = true;
-                break;
+        for (ItemStack filter : ghostFilterSlots) {
+            if (!filter.isEmpty()) { hasFilter = true; break; }
+        }
+        if (!hasFilter) return true;
+
+        for (ItemStack filter : ghostFilterSlots) {
+            if (!filter.isEmpty() && ItemStack.isSameItemSameComponents(stack, filter)) {
+                return isAllowMode;
             }
         }
-
-        if (!hasFilter) {
-            return true;
-        }
-
-        boolean matchesFilter = false;
-        for (ItemStack filterStack : ghostFilterSlots) {
-            if (!filterStack.isEmpty() && ItemStack.isSameItemSameComponents(stack, filterStack)) {
-                matchesFilter = true;
-                break;
-            }
-        }
-
-        return isAllowMode ? matchesFilter : !matchesFilter;
+        return !isAllowMode;
     }
 
-    private void pushToInventoryBelow(Level level, BlockPos pos) {
-        BlockPos belowPos = pos.below();
-        IItemHandler targetInventory = level.getCapability(Capabilities.ItemHandler.BLOCK, belowPos, Direction.UP);
-
-        if (targetInventory == null) {
-            return;
-        }
-
-        ItemStack bufferStack = inventory.getStackInSlot(0);
-        if (bufferStack.isEmpty()) {
-            return;
-        }
-
-        ItemStack remaining = insertItem(targetInventory, bufferStack);
-        inventory.setStackInSlot(0, remaining);
+    public ItemStack getBufferStack() {
+        ItemResource res = inventory.getResource(0);
+        if (res.isEmpty()) return ItemStack.EMPTY;
+        return res.toStack(inventory.getAmountAsInt(0));
     }
 
-    private ItemStack insertItem(IItemHandler inventory, ItemStack stack) {
-        ItemStack remaining = stack.copy();
+    public void setBufferStack(ItemStack stack) {
+        try (Transaction tx = Transaction.openRoot()) {
+            ItemResource existing = inventory.getResource(0);
+            int existingAmount = inventory.getAmountAsInt(0);
+            if (!existing.isEmpty() && existingAmount > 0) {
+                inventory.extract(0, existing, existingAmount, tx);
+            }
+            if (!stack.isEmpty()) {
+                inventory.insert(0, ItemResource.of(stack), stack.getCount(), tx);
+            }
+            tx.commit();
+        }
+    }
 
-        for (int slot = 0; slot < inventory.getSlots(); slot++) {
-            remaining = inventory.insertItem(slot, remaining, false);
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (level == null) return;
+        SimpleContainer drop = new SimpleContainer(1);
+        drop.setItem(0, getBufferStack());
+        Containers.dropContents(level, worldPosition, drop);
+    }
 
-            if (remaining.isEmpty()) {
-                break;
+    @Override
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        inventory.serialize(output);
+        output.putInt("TickCounter", tickCounter);
+        output.putInt("DownUpOffset", downUpOffset);
+        output.putInt("NorthSouthOffset", northSouthOffset);
+        output.putInt("EastWestOffset", eastWestOffset);
+        output.putBoolean("RequiresRedstone", requiresRedstone);
+        output.putBoolean("IsAllowMode", isAllowMode);
+        output.putBoolean("WireframeEnabled", wireframeEnabled);
+
+        for (int i = 0; i < FILTER_SIZE; i++) {
+            if (!ghostFilterSlots[i].isEmpty()) {
+                output.store("GhostSlot" + i, ItemStack.CODEC, ghostFilterSlots[i]);
             }
         }
+    }
 
-        return remaining;
+    @Override
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        inventory.deserialize(input);
+        tickCounter = input.getIntOr("TickCounter", 0);
+        downUpOffset = input.getIntOr("DownUpOffset", 0);
+        northSouthOffset = input.getIntOr("NorthSouthOffset", 0);
+        eastWestOffset = input.getIntOr("EastWestOffset", 0);
+        requiresRedstone = input.getBooleanOr("RequiresRedstone", false);
+        isAllowMode = input.getBooleanOr("IsAllowMode", true);
+        wireframeEnabled = input.getBooleanOr("WireframeEnabled", false);
+
+        for (int i = 0; i < FILTER_SIZE; i++) {
+            ghostFilterSlots[i] = input.read("GhostSlot" + i, ItemStack.CODEC).orElse(ItemStack.EMPTY);
+        }
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return this.saveCustomOnly(registries);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("menu.smallprogressions.advanced_item_collector");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new AdvancedItemCollectorMenu(id, inv, this);
+    }
+
+    public static <T extends BlockEntity> BlockEntityTicker<T> createTicker() {
+        return (level, pos, state, be) -> {
+            if (be instanceof AdvancedItemCollectorBlockEntity collector) collector.tick();
+        };
     }
 
     public int getDownUpOffset() {
@@ -228,99 +268,38 @@ public class AdvancedItemCollectorBlockEntity extends BlockEntity {
         return wireframeEnabled;
     }
 
-    public NonNullList<ItemStack> getGhostFilterSlots() {
+    public ItemStack[] getGhostFilterSlots() {
         return ghostFilterSlots;
     }
 
-    public void setDownUpOffset(int offset) {
-        this.downUpOffset = Math.max(-10, Math.min(10, offset));
-        setChanged();
+    public void setDownUpOffset(int v) {
+        downUpOffset = Math.max(-10, Math.min(10, v)); setChanged();
     }
 
-    public void setNorthSouthOffset(int offset) {
-        this.northSouthOffset = Math.max(-10, Math.min(10, offset));
-        setChanged();
+    public void setNorthSouthOffset(int v) {
+        northSouthOffset = Math.max(-10, Math.min(10, v)); setChanged();
     }
 
-    public void setEastWestOffset(int offset) {
-        this.eastWestOffset = Math.max(-10, Math.min(10, offset));
-        setChanged();
+    public void setEastWestOffset(int v) {
+        eastWestOffset = Math.max(-10, Math.min(10, v)); setChanged();
     }
 
-    public void setRequiresRedstone(boolean requiresRedstone) {
-        this.requiresRedstone = requiresRedstone;
-        setChanged();
+    public void setRequiresRedstone(boolean v) {
+        requiresRedstone = v; setChanged();
     }
 
-    public void setFilterMode(boolean isAllowMode) {
-        this.isAllowMode = isAllowMode;
-        setChanged();
+    public void setFilterMode(boolean v) {
+        isAllowMode = v; setChanged();
     }
 
-    public void setWireframeEnabled(boolean enabled) {
-        this.wireframeEnabled = enabled;
-        setChanged();
+    public void setWireframeEnabled(boolean v) {
+        wireframeEnabled = v; setChanged();
     }
 
     public void setGhostFilterSlot(int slot, ItemStack stack) {
         if (slot >= 0 && slot < FILTER_SIZE) {
-            ghostFilterSlots.set(slot, stack.copy());
+            ghostFilterSlots[slot] = stack.copy();
             setChanged();
         }
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("TickCounter", tickCounter);
-        tag.putInt("DownUpOffset", downUpOffset);
-        tag.putInt("NorthSouthOffset", northSouthOffset);
-        tag.putInt("EastWestOffset", eastWestOffset);
-        tag.putBoolean("RequiresRedstone", requiresRedstone);
-        tag.putBoolean("IsAllowMode", isAllowMode);
-        tag.putBoolean("WireframeEnabled", wireframeEnabled);
-        tag.put("Inventory", inventory.serializeNBT(registries));
-
-        CompoundTag ghostSlotsTag = new CompoundTag();
-        for (int i = 0; i < ghostFilterSlots.size(); i++) {
-            if (!ghostFilterSlots.get(i).isEmpty()) {
-                CompoundTag slotTag = new CompoundTag();
-                ghostFilterSlots.get(i).save(registries, slotTag);
-                ghostSlotsTag.put("Slot" + i, slotTag);
-            }
-        }
-        tag.put("GhostFilterSlots", ghostSlotsTag);
-    }
-
-    @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        tickCounter = tag.getInt("TickCounter");
-        downUpOffset = tag.getInt("DownUpOffset");
-        northSouthOffset = tag.getInt("NorthSouthOffset");
-        eastWestOffset = tag.getInt("EastWestOffset");
-        requiresRedstone = tag.getBoolean("RequiresRedstone");
-        isAllowMode = tag.getBoolean("IsAllowMode");
-        wireframeEnabled = tag.getBoolean("WireframeEnabled");
-        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
-
-        CompoundTag ghostSlotsTag = tag.getCompound("GhostFilterSlots");
-        for (int i = 0; i < ghostFilterSlots.size(); i++) {
-            if (ghostSlotsTag.contains("Slot" + i)) {
-                ghostFilterSlots.set(i, ItemStack.parse(registries, ghostSlotsTag.getCompound("Slot" + i)).orElse(ItemStack.EMPTY));
-            } else {
-                ghostFilterSlots.set(i, ItemStack.EMPTY);
-            }
-        }
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
     }
 }

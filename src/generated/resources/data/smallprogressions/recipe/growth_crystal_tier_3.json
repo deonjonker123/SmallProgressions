@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:netherite_ingot",
+    "B": "minecraft:bone_meal",
+    "G": "smallprogressions:growth_crystal_tier_2",
+    "L": "#c:glass_blocks",
+    "W": "#c:buckets/water"
+  },
+  "pattern": [
+    "LLL",
+    "BGB",
+    "#W#"
+  ],
+  "result": {
+    "id": "smallprogressions:growth_crystal_tier_3"
+  }
+}

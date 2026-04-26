@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "#c:glass_blocks",
+    "L": "#c:buckets/lava",
+    "S": "#c:stones",
+    "W": "#c:buckets/water"
+  },
+  "pattern": [
+    "SSS",
+    "LGW",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:cobblestone_generator_tier_1"
+  }
+}

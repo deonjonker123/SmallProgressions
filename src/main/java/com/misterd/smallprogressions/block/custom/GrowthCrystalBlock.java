@@ -11,9 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -52,12 +50,11 @@ public class GrowthCrystalBlock extends Block implements SimpleWaterloggedBlock 
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
-                                     LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess tickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
         if (state.getValue(WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            tickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        return super.updateShape(state, level, tickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
@@ -76,7 +73,7 @@ public class GrowthCrystalBlock extends Block implements SimpleWaterloggedBlock 
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.scheduleTick(pos, this, TICK_RATE);
         }
     }
@@ -109,12 +106,9 @@ public class GrowthCrystalBlock extends Block implements SimpleWaterloggedBlock 
         }
     }
 
-    @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         String key = "tooltip.smallprogressions.growth_crystal_tier_" + tier;
         tooltipComponents.add(Component.translatable(key + ".line1").withStyle(ChatFormatting.AQUA));
         tooltipComponents.add(Component.translatable(key + ".line2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

@@ -1,10 +1,10 @@
 package com.misterd.smallprogressions.gui.custom;
 
 import com.misterd.smallprogressions.block.SPBlocks;
-import com.misterd.smallprogressions.blockentity.custom.CopperBarrelBlockEntity;
 import com.misterd.smallprogressions.blockentity.custom.IronBarrelBlockEntity;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -13,11 +13,17 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class IronBarrelMenu extends AbstractContainerMenu {
     public final IronBarrelBlockEntity blockEntity;
     private final Level level;
+
+    private static final int TE_SLOTS = 54;
+    private static final int TE_FIRST = 0;
+    private static final int PLAYER_FIRST = TE_SLOTS;
+    private static final int PLAYER_SLOTS = 36;
 
     public IronBarrelMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
@@ -25,57 +31,38 @@ public class IronBarrelMenu extends AbstractContainerMenu {
 
     public IronBarrelMenu(int containerId, Inventory inv, BlockEntity blockEntity) {
         super(SPMenuTypes.IRON_BARREL_MENU.get(), containerId);
-        this.blockEntity = ((IronBarrelBlockEntity) blockEntity);
+        this.blockEntity = (IronBarrelBlockEntity) blockEntity;
         this.level = inv.player.level();
 
-        for (int row = 0; row < 6; row++) {
-            for (int col = 0; col < 9; col++) {
-                this.addSlot(new SlotItemHandler(this.blockEntity.inventory, col + row * 9, 8 + col * 18, 19 + row * 18));
-            }
-        }
+        for (int row = 0; row < 6; row++)
+            for (int col = 0; col < 9; col++)
+                addSlot(new BESlot(this.blockEntity, col + row * 9, 8 + col * 18, 19 + row * 18));
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-
     }
 
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-
-    private static final int TE_INVENTORY_SLOT_COUNT = 54;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = 0;
-    private static final int VANILLA_FIRST_SLOT_INDEX = TE_INVENTORY_SLOT_COUNT;
-
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int pIndex) {
-        Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
+    public ItemStack quickMoveStack(Player player, int index) {
+        Slot slot = slots.get(index);
+        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+        ItemStack stack = slot.getItem();
+        ItemStack copy = stack.copy();
 
-        if (pIndex < TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, true)) {
+        if (index < TE_SLOTS) {
+            if (!moveItemStackTo(stack, PLAYER_FIRST, PLAYER_FIRST + PLAYER_SLOTS, true))
                 return ItemStack.EMPTY;
-            }
-        }
-        else if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_SLOT_COUNT, false)) {
+        } else if (index < PLAYER_FIRST + PLAYER_SLOTS) {
+            if (!moveItemStackTo(stack, TE_FIRST, TE_SLOTS, false))
                 return ItemStack.EMPTY;
-            }
         } else {
             return ItemStack.EMPTY;
         }
 
-        if (sourceStack.isEmpty()) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-        sourceSlot.onTake(playerIn, sourceStack);
-        return copyOfSourceStack;
+        if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
+        else slot.setChanged();
+        slot.onTake(player, stack);
+        return copy;
     }
 
     @Override
@@ -83,17 +70,62 @@ public class IronBarrelMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, SPBlocks.IRON_BARREL.get());
     }
 
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 142 + i * 18));
-            }
-        }
+    private void addPlayerInventory(Inventory inv) {
+        for (int i = 0; i < 3; i++)
+            for (int l = 0; l < 9; l++)
+                addSlot(new Slot(inv, l + i * 9 + 9, 8 + l * 18, 142 + i * 18));
     }
 
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 201));
+    private void addPlayerHotbar(Inventory inv) {
+        for (int i = 0; i < 9; i++)
+            addSlot(new Slot(inv, i, 8 + i * 18, 201));
+    }
+
+    private static class BESlot extends Slot {
+        private final IronBarrelBlockEntity be;
+        private final int index;
+
+        BESlot(IronBarrelBlockEntity be, int index, int x, int y) {
+            super(new SimpleContainer(be.inventory.size()), index, x, y);
+            this.be = be;
+            this.index = index;
+        }
+
+        @Override
+        public ItemStack getItem() {
+            ItemResource res = be.inventory.getResource(index);
+            if (res.isEmpty()) return ItemStack.EMPTY;
+            return res.toStack(be.inventory.getAmountAsInt(index));
+        }
+
+        @Override
+        public void set(ItemStack stack) {
+            try (Transaction tx = Transaction.openRoot()) {
+                ItemStack existing = getItem();
+                if (!existing.isEmpty())
+                    be.inventory.extract(index, ItemResource.of(existing), existing.getCount(), tx);
+                if (!stack.isEmpty())
+                    be.inventory.insert(index, ItemResource.of(stack), stack.getCount(), tx);
+                tx.commit();
+            }
+            setChanged();
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return be.inventory.isValid(index, ItemResource.of(stack));
+        }
+
+        @Override
+        public ItemStack remove(int amount) {
+            ItemStack existing = getItem();
+            if (existing.isEmpty()) return ItemStack.EMPTY;
+            int toExtract = Math.min(amount, existing.getCount());
+            try (Transaction tx = Transaction.openRoot()) {
+                int extracted = be.inventory.extract(index, ItemResource.of(existing), toExtract, tx);
+                tx.commit();
+                return existing.copyWithCount(extracted);
+            }
         }
     }
 }

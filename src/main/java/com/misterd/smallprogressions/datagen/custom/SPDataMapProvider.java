@@ -16,7 +16,7 @@ public class SPDataMapProvider extends DataMapProvider {
     }
 
     @Override
-    protected void gather() {
+    protected void gather(HolderLookup.Provider provider) {
         this.builder(NeoForgeDataMaps.FURNACE_FUELS)
                 .add(SPBlocks.CHARCOAL_BLOCK.getId(), new FurnaceFuel(16000), false)
                 .add(SPItems.TINY_COAL.getId(), new FurnaceFuel(200), false)

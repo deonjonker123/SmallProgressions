@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "C": "minecraft:bricks",
+    "F": "minecraft:blast_furnace",
+    "S": "minecraft:smooth_stone"
+  },
+  "pattern": [
+    "C#C",
+    "#F#",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:brick_furnace"
+  }
+}

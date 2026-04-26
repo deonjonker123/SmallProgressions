@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:diamond",
+    "B": "minecraft:barrel",
+    "P": "#minecraft:planks"
+  },
+  "pattern": [
+    "P#P",
+    "PBP",
+    "P#P"
+  ],
+  "result": {
+    "id": "smallprogressions:diamond_barrel"
+  }
+}

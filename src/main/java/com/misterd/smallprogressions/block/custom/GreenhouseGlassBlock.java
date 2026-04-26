@@ -27,7 +27,7 @@ public class GreenhouseGlassBlock extends Block {
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.scheduleTick(pos, this, TICK_RATE);
         }
     }
@@ -67,7 +67,7 @@ public class GreenhouseGlassBlock extends Block {
             return false;
         }
 
-        if (!level.isDay()) {
+        if (!level.isBrightOutside()) {
             return false;
         }
 
@@ -84,13 +84,13 @@ public class GreenhouseGlassBlock extends Block {
             return true;
         }
 
-        for (BlockPos checkPos = pos.above(); checkPos.getY() < level.getMaxBuildHeight(); checkPos = checkPos.above()) {
+        for (BlockPos checkPos = pos.above(); checkPos.getY() < level.getMaxY(); checkPos = checkPos.above()) {
             if (level.isOutsideBuildHeight(checkPos.getY())) {
                 continue;
             }
 
             BlockState blockState = level.getBlockState(checkPos);
-            int opacity = blockState.getLightBlock(level, checkPos);
+            int opacity = blockState.getLightEmission(level, checkPos);
 
             if (opacity > 0 && !blockState.liquid()) {
                 return false;
@@ -100,7 +100,6 @@ public class GreenhouseGlassBlock extends Block {
         return true;
     }
 
-    @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         double growthBoostPercent = Config.getGreenhouseGlassGrowthBoost() * 100.0;
         int height = Config.getGreenhouseGlassRange();
@@ -109,7 +108,5 @@ public class GreenhouseGlassBlock extends Block {
                 String.format("%.0f%%", growthBoostPercent)).withStyle(ChatFormatting.AQUA));
         tooltipComponents.add(Component.translatable("tooltip.smallprogressions.greenhouse_glass.line2",
                 height).withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

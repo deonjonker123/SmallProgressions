@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "B": "minecraft:bucket",
+    "G": "#c:glass_blocks"
+  },
+  "pattern": [
+    "#G#",
+    "#B#",
+    "###"
+  ],
+  "result": {
+    "id": "smallprogressions:copper_tank"
+  }
+}

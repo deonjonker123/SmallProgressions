@@ -1,0 +1,26 @@
+{
+  "values": [
+    "smallprogressions:cobblestone_generator_tier_1",
+    "smallprogressions:cobblestone_generator_tier_2",
+    "smallprogressions:cobblestone_generator_tier_3",
+    "smallprogressions:cobblestone_generator_tier_4",
+    "smallprogressions:cobblestone_generator_tier_5",
+    "smallprogressions:harvester",
+    "smallprogressions:simple_item_collector",
+    "smallprogressions:advanced_item_collector",
+    "smallprogressions:brick_furnace",
+    "smallprogressions:lava_generator",
+    "smallprogressions:water_reservoir",
+    "smallprogressions:copper_tank",
+    "smallprogressions:iron_tank",
+    "smallprogressions:gold_tank",
+    "smallprogressions:diamond_tank",
+    "smallprogressions:growth_crystal_tier_1",
+    "smallprogressions:growth_crystal_tier_2",
+    "smallprogressions:growth_crystal_tier_3",
+    "smallprogressions:greenhouse_glass",
+    "smallprogressions:lava_infused_stone",
+    "smallprogressions:mcfloaty_block",
+    "smallprogressions:charcoal_block"
+  ]
+}
