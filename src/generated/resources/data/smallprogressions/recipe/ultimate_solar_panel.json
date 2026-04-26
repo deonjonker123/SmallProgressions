@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "smallprogressions:ultimate_solar_cell",
+    "S": "#c:stones",
+    "X": "minecraft:nether_star"
+  },
+  "pattern": [
+    "CCC",
+    "SXS",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:ultimate_solar_panel"
+  }
+}

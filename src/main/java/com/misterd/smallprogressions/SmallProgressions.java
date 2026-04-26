@@ -3,6 +3,7 @@ package com.misterd.smallprogressions;
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.client.renderer.ber.TankBlockEntityRenderer;
+import com.misterd.smallprogressions.component.SPDataComponents;
 import com.misterd.smallprogressions.config.Config;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import com.misterd.smallprogressions.gui.custom.*;
@@ -41,6 +42,7 @@ public class SmallProgressions {
         SPBlockEntities.register(modEventBus);
         SPMenuTypes.register(modEventBus);
         SPNetwork.register(modEventBus);
+        SPDataComponents.register(modEventBus);
         Config.register(modContainer);
     }
 
@@ -86,6 +88,8 @@ public class SmallProgressions {
             event.register(SPMenuTypes.WIRELESS_REDSTONE_TRANSMITTER_MENU.get(), WirelessRedstoneTransmitterScreen::new);
             event.register(SPMenuTypes.WIRELESS_REDSTONE_RECEIVER_MENU.get(), WirelessRedstoneReceiverScreen::new);
             event.register(SPMenuTypes.TIMER_MENU.get(), TimerScreen::new);
+            event.register(SPMenuTypes.BATTERY_MENU.get(), BatteryBlockScreen::new);
+            event.register(SPMenuTypes.ENERGY_TRANSMITTER_MENU.get(), EnergyTransmitterScreen::new);
         }
     }
 }

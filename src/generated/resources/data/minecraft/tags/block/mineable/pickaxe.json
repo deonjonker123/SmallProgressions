@@ -24,6 +24,22 @@
     "smallprogressions:charcoal_block",
     "smallprogressions:wireless_redstone_transmitter",
     "smallprogressions:wireless_redstone_receiver",
-    "smallprogressions:timer"
+    "smallprogressions:timer",
+    "smallprogressions:basic_solar_panel",
+    "smallprogressions:hardened_solar_panel",
+    "smallprogressions:advanced_solar_panel",
+    "smallprogressions:elite_solar_panel",
+    "smallprogressions:ultimate_solar_panel",
+    "smallprogressions:basic_battery",
+    "smallprogressions:hardened_battery",
+    "smallprogressions:advanced_battery",
+    "smallprogressions:elite_battery",
+    "smallprogressions:ultimate_battery",
+    "smallprogressions:basic_energy_receiver",
+    "smallprogressions:hardened_energy_receiver",
+    "smallprogressions:advanced_energy_receiver",
+    "smallprogressions:elite_energy_receiver",
+    "smallprogressions:ultimate_energy_receiver",
+    "smallprogressions:energy_transmitter"
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "smallprogressions:elite_battery",
+    "D": "minecraft:diamond",
+    "E": "minecraft:ender_pearl"
+  },
+  "pattern": [
+    "DED",
+    "DBD",
+    "DED"
+  ],
+  "result": {
+    "id": "smallprogressions:energy_transmitter"
+  }
+}

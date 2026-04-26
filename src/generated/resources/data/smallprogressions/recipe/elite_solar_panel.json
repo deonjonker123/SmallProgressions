@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "smallprogressions:elite_solar_cell",
+    "D": "minecraft:diamond",
+    "S": "#c:stones"
+  },
+  "pattern": [
+    "CCC",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:elite_solar_panel"
+  }
+}

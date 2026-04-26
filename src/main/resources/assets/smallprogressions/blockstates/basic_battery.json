@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"powered=false": { "model": "smallprogressions:block/basic_battery" },
+		"powered=true":  { "model": "smallprogressions:block/basic_battery_on" }
+	}
+}

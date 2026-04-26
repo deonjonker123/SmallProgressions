@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "smallprogressions:basic_battery",
+    "C": "minecraft:iron_ingot",
+    "R": "minecraft:redstone_block",
+    "S": "#c:stones"
+  },
+  "pattern": [
+    "SCS",
+    "SBS",
+    "SRS"
+  ],
+  "result": {
+    "id": "smallprogressions:hardened_battery"
+  }
+}

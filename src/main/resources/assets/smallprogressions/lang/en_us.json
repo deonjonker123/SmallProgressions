@@ -174,6 +174,10 @@
   "block.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
   "block.smallprogressions.timer": "Timer",
 
+  "item.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
+  "item.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
+  "item.smallprogressions.timer": "Timer",
+
   "block.smallprogressions.wireless_redstone_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
   "block.smallprogressions.wireless_redstone_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
   "block.smallprogressions.timer.subtitle": "Pulses a redstone signal at a configurable interval",
@@ -209,5 +213,84 @@
   "jade.smallprogressions.connected_receivers": "Connected Receivers: %s",
   "jade.smallprogressions.timer.interval": "Pulse Interval: %s ticks",
   "jade.smallprogressions.timer.running": "Running",
-  "jade.smallprogressions.timer.stopped": "Stopped"
+  "jade.smallprogressions.timer.stopped": "Stopped",
+  "jade.smallprogressions.transmitter_charging_on": "Wireless Charging: Enabled",
+  "jade.smallprogressions.transmitter_charging_off": "Wireless Charging: Disabled",
+
+  "block.smallprogressions.basic_solar_panel": "Basic Solar Panel",
+  "block.smallprogressions.hardened_solar_panel": "Hardened Solar Panel",
+  "block.smallprogressions.advanced_solar_panel": "Advanced Solar Panel",
+  "block.smallprogressions.elite_solar_panel": "Elite Solar Panel",
+  "block.smallprogressions.ultimate_solar_panel": "Ultimate Solar Panel",
+
+  "block.smallprogressions.basic_battery": "Basic Battery",
+  "block.smallprogressions.hardened_battery": "Hardened Battery",
+  "block.smallprogressions.advanced_battery": "Advanced Battery",
+  "block.smallprogressions.elite_battery": "Elite Battery",
+  "block.smallprogressions.ultimate_battery": "Ultimate Battery",
+
+  "block.smallprogressions.basic_energy_receiver": "Basic Energy Receiver",
+  "block.smallprogressions.hardened_energy_receiver": "Hardened Energy Receiver",
+  "block.smallprogressions.advanced_energy_receiver": "Advanced Energy Receiver",
+  "block.smallprogressions.elite_energy_receiver": "Elite Energy Receiver",
+  "block.smallprogressions.ultimate_energy_receiver": "Ultimate Energy Receiver",
+
+  "block.smallprogressions.energy_transmitter": "Energy Transmitter",
+
+  "item.smallprogressions.basic_solar_panel": "Basic Solar Panel",
+  "item.smallprogressions.hardened_solar_panel": "Hardened Solar Panel",
+  "item.smallprogressions.advanced_solar_panel": "Advanced Solar Panel",
+  "item.smallprogressions.elite_solar_panel": "Elite Solar Panel",
+  "item.smallprogressions.ultimate_solar_panel": "Ultimate Solar Panel",
+
+  "item.smallprogressions.basic_battery": "Basic Battery",
+  "item.smallprogressions.hardened_battery": "Hardened Battery",
+  "item.smallprogressions.advanced_battery": "Advanced Battery",
+  "item.smallprogressions.elite_battery": "Elite Battery",
+  "item.smallprogressions.ultimate_battery": "Ultimate Battery",
+
+  "item.smallprogressions.basic_energy_receiver": "Basic Energy Receiver",
+  "item.smallprogressions.hardened_energy_receiver": "Hardened Energy Receiver",
+  "item.smallprogressions.advanced_energy_receiver": "Advanced Energy Receiver",
+  "item.smallprogressions.elite_energy_receiver": "Elite Energy Receiver",
+  "item.smallprogressions.ultimate_energy_receiver": "Ultimate Energy Receiver",
+
+  "item.smallprogressions.energy_transmitter": "Energy Transmitter",
+
+  "item.smallprogressions.basic_solar_cell": "Basic Solar Cell",
+  "item.smallprogressions.hardened_solar_cell": "Hardened Solar Cell",
+  "item.smallprogressions.advanced_solar_cell": "Advanced Solar Cell",
+  "item.smallprogressions.elite_solar_cell": "Elite Solar Cell",
+  "item.smallprogressions.ultimate_solar_cell": "Ultimate Solar Cell",
+  "item.smallprogressions.silica_blend": "Silica Blend",
+
+  "block.smallprogressions.basic_solar_panel.subtitle": "Generates 128RF/t",
+  "block.smallprogressions.hardened_solar_panel.subtitle": "Generates 512RF/t",
+  "block.smallprogressions.advanced_solar_panel.subtitle": "Generates 2,048RF/t",
+  "block.smallprogressions.elite_solar_panel.subtitle": "Generates 8,192RF/t",
+  "block.smallprogressions.ultimate_solar_panel.subtitle": "Generates 32,768RF/t",
+
+  "block.smallprogressions.basic_battery.subtitle": "Transfers 1,024 RF/t",
+  "block.smallprogressions.hardened_battery.subtitle": "Transfers 4,096 RF/t",
+  "block.smallprogressions.advanced_battery.subtitle": "Transfers 16,384 RF/t",
+  "block.smallprogressions.elite_battery.subtitle": "Transfers 65,536 RF/t",
+  "block.smallprogressions.ultimate_battery.subtitle": "Transfers 262,144 RF/t",
+
+  "block.smallprogressions.basic_energy_receiver.subtitle": "Receives and outputs 1,024 RF/t",
+  "block.smallprogressions.hardened_energy_receiver.subtitle": "Receives and outputs 4,096 RF/t",
+  "block.smallprogressions.advanced_energy_receiver.subtitle": "Receives and outputs 16,384 RF/t",
+  "block.smallprogressions.elite_energy_receiver.subtitle": "Receives and outputs 65,536 RF/t",
+  "block.smallprogressions.ultimate_energy_receiver.subtitle": "Receives and outputs 262,144 RF/t",
+
+  "block.smallprogressions.energy_transmitter.subtitle": "Network pool capacity: 2,147,483,647 RF",
+
+  "gui.smallprogressions.battery_title": "Stored Energy",
+  "gui.smallprogressions.transmitter_pool_title": "Global Network Pool",
+  "gui.smallprogressions.transmitter_toggle_public": "Public",
+  "gui.smallprogressions.transmitter_toggle_public_desc": "All players can draw from this pool",
+  "gui.smallprogressions.transmitter_toggle_private": "Private",
+  "gui.smallprogressions.transmitter_toggle_private_desc": "Only your receivers can draw from this pool",
+  "gui.smallprogressions.transmitter_charge_inventory_on": "Charging items in your hotbar, offhand and curios.",
+  "gui.smallprogressions.transmitter_charge_inventory_on_desc": "Click to Disable",
+  "gui.smallprogressions.transmitter_charge_inventory_off": "Enable Wireless Charging"
 }

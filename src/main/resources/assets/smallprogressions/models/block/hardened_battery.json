@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"north": "smallprogressions:block/battery_sides",
+		"south": "smallprogressions:block/battery_sides",
+		"east": "smallprogressions:block/battery_sides",
+		"west": "smallprogressions:block/battery_sides",
+		"up": "smallprogressions:block/battery_ends",
+		"down": "smallprogressions:block/battery_ends",
+		"particle": "smallprogressions:block/battery_sides"
+	}
+}

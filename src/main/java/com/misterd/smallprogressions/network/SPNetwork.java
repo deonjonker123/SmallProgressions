@@ -32,5 +32,11 @@ public class SPNetwork {
                 SetRunningPacket.TYPE,
                 SetRunningPacket.STREAM_CODEC,
                 SetRunningPacket::handle);
+
+        registrar.playToServer(
+                TransmitterTogglePacket.TYPE,
+                TransmitterTogglePacket.STREAM_CODEC,
+                TransmitterTogglePacket::handle
+        );
     }
 }

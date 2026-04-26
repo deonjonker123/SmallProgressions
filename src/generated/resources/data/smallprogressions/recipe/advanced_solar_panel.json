@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "smallprogressions:advanced_solar_cell",
+    "G": "minecraft:gold_ingot",
+    "S": "#c:stones"
+  },
+  "pattern": [
+    "CCC",
+    "SGS",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:advanced_solar_panel"
+  }
+}

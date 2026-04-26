@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:redstone_block",
+    "C": "smallprogressions:advanced_solar_cell",
+    "G": "#c:glass_blocks",
+    "I": "minecraft:diamond"
+  },
+  "pattern": [
+    "GGG",
+    "CBC",
+    "ICI"
+  ],
+  "result": {
+    "id": "smallprogressions:elite_solar_cell"
+  }
+}

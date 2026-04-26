@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -98,6 +99,42 @@ public class SPBlockEntities {
     public static final Supplier<BlockEntityType<TimerBlockEntity>> TIMER_BE =
             BLOCK_ENTITIES.register("timer_be", () -> new BlockEntityType<>(
                     TimerBlockEntity::new, SPBlocks.TIMER.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SolarPanelBlockEntity>> SOLAR_PANEL_BE =
+            BLOCK_ENTITIES.register("solar_panel_be", () -> new BlockEntityType<>(
+                    SolarPanelBlockEntity::new,
+                    SPBlocks.BASIC_SOLAR_PANEL.get(),
+                    SPBlocks.HARDENED_SOLAR_PANEL.get(),
+                    SPBlocks.ADVANCED_SOLAR_PANEL.get(),
+                    SPBlocks.ELITE_SOLAR_PANEL.get(),
+                    SPBlocks.ULTIMATE_SOLAR_PANEL.get()
+            ));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY_BE =
+            BLOCK_ENTITIES.register("battery_be", () -> new BlockEntityType<>(
+                    BatteryBlockEntity::new,
+                    SPBlocks.BASIC_BATTERY.get(),
+                    SPBlocks.HARDENED_BATTERY.get(),
+                    SPBlocks.ADVANCED_BATTERY.get(),
+                    SPBlocks.ELITE_BATTERY.get(),
+                    SPBlocks.ULTIMATE_BATTERY.get()
+            ));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyTransmitterBlockEntity>> ENERGY_TRANSMITTER_BE =
+            BLOCK_ENTITIES.register("energy_transmitter_be", () -> new BlockEntityType<>(
+                    EnergyTransmitterBlockEntity::new,
+                    SPBlocks.ENERGY_TRANSMITTER.get()
+            ));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyReceiverBlockEntity>> ENERGY_RECEIVER_BE =
+            BLOCK_ENTITIES.register("energy_receiver_be", () -> new BlockEntityType<>(
+                    EnergyReceiverBlockEntity::new,
+                    SPBlocks.BASIC_ENERGY_RECEIVER.get(),
+                    SPBlocks.HARDENED_ENERGY_RECEIVER.get(),
+                    SPBlocks.ADVANCED_ENERGY_RECEIVER.get(),
+                    SPBlocks.ELITE_ENERGY_RECEIVER.get(),
+                    SPBlocks.ULTIMATE_ENERGY_RECEIVER.get()
+            ));
 
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
 
@@ -209,6 +246,30 @@ public class SPBlockEntities {
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof LavaGeneratorBlockEntity lavaGenerator) {
                         return lavaGenerator.tank;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, BATTERY_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof BatteryBlockEntity battery) {
+                        return battery.energyHandler;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, ENERGY_TRANSMITTER_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof EnergyTransmitterBlockEntity transmitter) {
+                        return transmitter.energyHandler;
+                    }
+                    return null;
+                });
+
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, SOLAR_PANEL_BE.get(),
+                (blockEntity, direction) -> {
+                    if (blockEntity instanceof SolarPanelBlockEntity solar && direction == Direction.DOWN) {
+                        return solar.getEnergyHandler();
                     }
                     return null;
                 });

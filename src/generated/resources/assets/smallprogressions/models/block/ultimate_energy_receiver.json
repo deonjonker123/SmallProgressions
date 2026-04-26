@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "smallprogressions:block/ultimate_energy_receiver"
+  }
+}

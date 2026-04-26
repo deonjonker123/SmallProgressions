@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "smallprogressions:hardened_solar_cell",
+    "P": "minecraft:iron_ingot",
+    "S": "#c:stones"
+  },
+  "pattern": [
+    "CCC",
+    "SPS",
+    "SSS"
+  ],
+  "result": {
+    "id": "smallprogressions:hardened_solar_panel"
+  }
+}

@@ -50,7 +50,26 @@ public class SPBlockTagProvider extends BlockTagsProvider {
 
                 .add(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get())
                 .add(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get())
-                .add(SPBlocks.TIMER.get());;
+                .add(SPBlocks.TIMER.get())
+                .add(SPBlocks.BASIC_SOLAR_PANEL.get())
+                .add(SPBlocks.HARDENED_SOLAR_PANEL.get())
+                .add(SPBlocks.ADVANCED_SOLAR_PANEL.get())
+                .add(SPBlocks.ELITE_SOLAR_PANEL.get())
+                .add(SPBlocks.ULTIMATE_SOLAR_PANEL.get())
+
+                .add(SPBlocks.BASIC_BATTERY.get())
+                .add(SPBlocks.HARDENED_BATTERY.get())
+                .add(SPBlocks.ADVANCED_BATTERY.get())
+                .add(SPBlocks.ELITE_BATTERY.get())
+                .add(SPBlocks.ULTIMATE_BATTERY.get())
+
+                .add(SPBlocks.BASIC_ENERGY_RECEIVER.get())
+                .add(SPBlocks.HARDENED_ENERGY_RECEIVER.get())
+                .add(SPBlocks.ADVANCED_ENERGY_RECEIVER.get())
+                .add(SPBlocks.ELITE_ENERGY_RECEIVER.get())
+                .add(SPBlocks.ULTIMATE_ENERGY_RECEIVER.get())
+
+                .add(SPBlocks.ENERGY_TRANSMITTER.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(SPBlocks.COPPER_BARREL.get())

@@ -26,6 +26,8 @@ public class SPMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<WirelessRedstoneReceiverMenu>> WIRELESS_REDSTONE_RECEIVER_MENU = registerMenuType("wireless_redstone_receiver_menu", WirelessRedstoneReceiverMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<WirelessRedstoneTransmitterMenu>> WIRELESS_REDSTONE_TRANSMITTER_MENU = registerMenuType("wireless_redstone_transmitter_menu", WirelessRedstoneTransmitterMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<TimerMenu>> TIMER_MENU = registerMenuType("timer_menu", TimerMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<BatteryBlockMenu>> BATTERY_MENU = registerMenuType("battery_menu", BatteryBlockMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<EnergyTransmitterMenu>> ENERGY_TRANSMITTER_MENU = registerMenuType("energy_transmitter_menu", EnergyTransmitterMenu::new);
 
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

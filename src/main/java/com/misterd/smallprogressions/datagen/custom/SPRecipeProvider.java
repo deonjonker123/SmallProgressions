@@ -4,10 +4,7 @@ import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.SPItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
@@ -378,5 +375,231 @@ public class SPRecipeProvider extends RecipeProvider {
                 .requires(SPItems.TINY_CHARCOAL, 8)
                 .unlockedBy("has_tiny_charcoal", has(SPItems.TINY_CHARCOAL))
                 .save(output, "smallprogressions:charcoal_from_tiny_charcoal");
+
+        shapeless(RecipeCategory.MISC, SPItems.SILICA_BLEND.get(), 3)
+                .requires(Items.SAND)
+                .requires(Items.QUARTZ)
+                .unlockedBy("has_quartz", has(Items.QUARTZ))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.BASIC_SOLAR_CELL.get())
+                .pattern("GGG")
+                .pattern("CBC")
+                .pattern("ICI")
+                .define('C', SPItems.SILICA_BLEND.get())
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('B', Items.REDSTONE)
+                .define('I', Items.COPPER_INGOT)
+                .unlockedBy("has_silica_blend", has(SPItems.SILICA_BLEND.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.HARDENED_SOLAR_CELL.get())
+                .pattern("GGG")
+                .pattern("CBC")
+                .pattern("ICI")
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('I', Items.IRON_INGOT)
+                .define('B', Items.REDSTONE_BLOCK)
+                .define('C', SPItems.BASIC_SOLAR_CELL.get())
+                .unlockedBy("has_basic_solar_cell", has(SPItems.BASIC_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.ADVANCED_SOLAR_CELL.get())
+                .pattern("GGG")
+                .pattern("CBC")
+                .pattern("ICI")
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('I', Items.GOLD_INGOT)
+                .define('B', Items.REDSTONE_BLOCK)
+                .define('C', SPItems.HARDENED_SOLAR_CELL.get())
+                .unlockedBy("has_hardened_solar_cell", has(SPItems.HARDENED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.ELITE_SOLAR_CELL.get())
+                .pattern("GGG")
+                .pattern("CBC")
+                .pattern("ICI")
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('I', Items.DIAMOND)
+                .define('B', Items.REDSTONE_BLOCK)
+                .define('C', SPItems.ADVANCED_SOLAR_CELL.get())
+                .unlockedBy("has_advanced_solar_cell", has(SPItems.ADVANCED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPItems.ULTIMATE_SOLAR_CELL.get())
+                .pattern("GGG")
+                .pattern("CBC")
+                .pattern("ICI")
+                .define('G', Tags.Items.GLASS_BLOCKS)
+                .define('I', Items.NETHERITE_INGOT)
+                .define('B', Items.REDSTONE_BLOCK)
+                .define('C', SPItems.ELITE_SOLAR_CELL.get())
+                .unlockedBy("has_elite_solar_cell", has(SPItems.ELITE_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.BASIC_SOLAR_PANEL.get())
+                .pattern("CCC")
+                .pattern("SPS")
+                .pattern("SSS")
+                .define('C', SPItems.BASIC_SOLAR_CELL.get())
+                .define('S', Tags.Items.STONES)
+                .define('P', Items.COPPER_INGOT)
+                .unlockedBy("has_basic_solar_cell", has(SPItems.BASIC_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.HARDENED_SOLAR_PANEL.get())
+                .pattern("CCC")
+                .pattern("SPS")
+                .pattern("SSS")
+                .define('C', SPItems.HARDENED_SOLAR_CELL.get())
+                .define('S', Tags.Items.STONES)
+                .define('P', Items.IRON_INGOT)
+                .unlockedBy("has_hardened_solar_cell", has(SPItems.HARDENED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ADVANCED_SOLAR_PANEL.get())
+                .pattern("CCC")
+                .pattern("SGS")
+                .pattern("SSS")
+                .define('C', SPItems.ADVANCED_SOLAR_CELL.get())
+                .define('S', Tags.Items.STONES)
+                .define('G', Items.GOLD_INGOT)
+                .unlockedBy("has_advanced_solar_cell", has(SPItems.ADVANCED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ELITE_SOLAR_PANEL.get())
+                .pattern("CCC")
+                .pattern("SDS")
+                .pattern("SSS")
+                .define('C', SPItems.ELITE_SOLAR_CELL.get())
+                .define('S', Tags.Items.STONES)
+                .define('D', Items.DIAMOND)
+                .unlockedBy("has_elite_solar_cell", has(SPItems.ELITE_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ULTIMATE_SOLAR_PANEL.get())
+                .pattern("CCC")
+                .pattern("SXS")
+                .pattern("SSS")
+                .define('C', SPItems.ULTIMATE_SOLAR_CELL.get())
+                .define('S', Tags.Items.STONES)
+                .define('X', Items.NETHER_STAR)
+                .unlockedBy("has_ultimate_solar_cell", has(SPItems.ULTIMATE_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.BASIC_BATTERY.get())
+                .pattern("SIS")
+                .pattern("SCS")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.SILICA_BLEND)
+                .define('R', Items.REDSTONE_BLOCK)
+                .define('I', Items.COPPER_INGOT)
+                .unlockedBy("has_silica_blend", has(SPItems.SILICA_BLEND.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.HARDENED_BATTERY.get())
+                .pattern("SCS")
+                .pattern("SBS")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('C', Items.IRON_INGOT)
+                .define('B', SPBlocks.BASIC_BATTERY.get())
+                .define('R', Items.REDSTONE_BLOCK)
+                .unlockedBy("has_basic_battery", has(SPBlocks.BASIC_BATTERY.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ADVANCED_BATTERY.get())
+                .pattern("SGS")
+                .pattern("SBS")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('G', Items.GOLD_INGOT)
+                .define('B', SPBlocks.HARDENED_BATTERY.get())
+                .define('R', Items.REDSTONE_BLOCK)
+                .unlockedBy("has_hardened_battery", has(SPBlocks.HARDENED_BATTERY.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ELITE_BATTERY.get())
+                .pattern("SDS")
+                .pattern("SBS")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('D', Items.DIAMOND)
+                .define('B', SPBlocks.ADVANCED_BATTERY.get())
+                .define('R', Items.REDSTONE_BLOCK)
+                .unlockedBy("has_advanced_battery", has(SPBlocks.ADVANCED_BATTERY.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ULTIMATE_BATTERY.get())
+                .pattern("SNS")
+                .pattern("SBS")
+                .pattern("SRS")
+                .define('S', Tags.Items.STONES)
+                .define('N', Items.NETHERITE_INGOT)
+                .define('B', SPBlocks.ELITE_BATTERY.get())
+                .define('R', Items.REDSTONE_BLOCK)
+                .unlockedBy("has_elite_battery", has(SPBlocks.ELITE_BATTERY.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ENERGY_TRANSMITTER.get())
+                .pattern("DED")
+                .pattern("DBD")
+                .pattern("DED")
+                .define('D', Items.DIAMOND)
+                .define('E', Items.ENDER_PEARL)
+                .define('B', SPBlocks.ELITE_BATTERY.get())
+                .unlockedBy("has_elite_battery", has(SPBlocks.ELITE_BATTERY.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.BASIC_ENERGY_RECEIVER.get(), 4)
+                .pattern("SCS")
+                .pattern("CEC")
+                .pattern("SCS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.BASIC_SOLAR_CELL.get())
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_basic_solar_cell", has(SPItems.BASIC_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.HARDENED_ENERGY_RECEIVER.get(), 4)
+                .pattern("SCS")
+                .pattern("CEC")
+                .pattern("SCS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.HARDENED_SOLAR_CELL.get())
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_hardened_solar_cell", has(SPItems.HARDENED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ADVANCED_ENERGY_RECEIVER.get(), 4)
+                .pattern("SCS")
+                .pattern("CEC")
+                .pattern("SCS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.ADVANCED_SOLAR_CELL.get())
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_advanced_solar_cell", has(SPItems.ADVANCED_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ELITE_ENERGY_RECEIVER.get(), 4)
+                .pattern("SCS")
+                .pattern("CEC")
+                .pattern("SCS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.ELITE_SOLAR_CELL.get())
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_elite_solar_cell", has(SPItems.ELITE_SOLAR_CELL.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, SPBlocks.ULTIMATE_ENERGY_RECEIVER.get(), 4)
+                .pattern("SCS")
+                .pattern("CEC")
+                .pattern("SCS")
+                .define('S', Tags.Items.STONES)
+                .define('C', SPItems.ULTIMATE_SOLAR_CELL.get())
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_ultimate_solar_cell", has(SPItems.ULTIMATE_SOLAR_CELL.get()))
+                .save(output);
     }
 }

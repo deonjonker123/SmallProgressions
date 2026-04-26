@@ -52,14 +52,41 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.WATER_RESERVOIR);
                         output.accept(SPBlocks.LAVA_GENERATOR);
 
-                        output.accept(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER);
-                        output.accept(SPBlocks.WIRELESS_REDSTONE_RECEIVER);
-                        output.accept(SPBlocks.TIMER);
-
                         output.accept(SPBlocks.LAVA_INFUSED_STONE);
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 
                         output.accept(SPBlocks.CHARCOAL_BLOCK);
+
+                        output.accept(SPItems.SILICA_BLEND);
+                        output.accept(SPItems.BASIC_SOLAR_CELL);
+                        output.accept(SPItems.HARDENED_SOLAR_CELL);
+                        output.accept(SPItems.ADVANCED_SOLAR_CELL);
+                        output.accept(SPItems.ELITE_SOLAR_CELL);
+                        output.accept(SPItems.ULTIMATE_SOLAR_CELL);
+
+                        output.accept(SPBlocks.BASIC_SOLAR_PANEL);
+                        output.accept(SPBlocks.HARDENED_SOLAR_PANEL);
+                        output.accept(SPBlocks.ADVANCED_SOLAR_PANEL);
+                        output.accept(SPBlocks.ELITE_SOLAR_PANEL);
+                        output.accept(SPBlocks.ULTIMATE_SOLAR_PANEL);
+
+                        output.accept(SPBlocks.BASIC_BATTERY);
+                        output.accept(SPBlocks.HARDENED_BATTERY);
+                        output.accept(SPBlocks.ADVANCED_BATTERY);
+                        output.accept(SPBlocks.ELITE_BATTERY);
+                        output.accept(SPBlocks.ULTIMATE_BATTERY);
+
+                        output.accept(SPBlocks.ENERGY_TRANSMITTER);
+
+                        output.accept(SPBlocks.BASIC_ENERGY_RECEIVER);
+                        output.accept(SPBlocks.HARDENED_ENERGY_RECEIVER);
+                        output.accept(SPBlocks.ADVANCED_ENERGY_RECEIVER);
+                        output.accept(SPBlocks.ELITE_ENERGY_RECEIVER);
+                        output.accept(SPBlocks.ULTIMATE_ENERGY_RECEIVER);
+
+                        output.accept(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER);
+                        output.accept(SPBlocks.WIRELESS_REDSTONE_RECEIVER);
+                        output.accept(SPBlocks.TIMER);
 
                         output.accept(SPItems.TINY_COAL);
                         output.accept(SPItems.TINY_CHARCOAL);

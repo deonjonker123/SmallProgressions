@@ -3,6 +3,7 @@ package com.misterd.smallprogressions.block;
 import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.block.custom.*;
 import com.misterd.smallprogressions.item.SPItems;
+import com.misterd.smallprogressions.item.custom.BatteryBlockItem;
 import com.misterd.smallprogressions.item.custom.TankBlockItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
@@ -249,6 +250,138 @@ public class SPBlocks {
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
+    public static final DeferredBlock<Block> BASIC_SOLAR_PANEL = registerBlock("basic_solar_panel",
+            id -> new BasicSolarPanelBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> HARDENED_SOLAR_PANEL = registerBlock("hardened_solar_panel",
+            id -> new HardenedSolarPanelBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel",
+            id -> new AdvancedSolarPanelBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ELITE_SOLAR_PANEL = registerBlock("elite_solar_panel",
+            id -> new EliteSolarPanelBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ULTIMATE_SOLAR_PANEL = registerBlock("ultimate_solar_panel",
+            id -> new UltimateSolarPanelBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> BASIC_BATTERY = registerBatteryBlock("basic_battery",
+            id -> new BasicBatteryBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> HARDENED_BATTERY = registerBatteryBlock("hardened_battery",
+            id -> new HardenedBatteryBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .noLootTable()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ADVANCED_BATTERY = registerBatteryBlock("advanced_battery",
+            id -> new AdvancedBatteryBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .noLootTable()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ELITE_BATTERY = registerBatteryBlock("elite_battery",
+            id -> new EliteBatteryBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .noLootTable()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ULTIMATE_BATTERY = registerBatteryBlock("ultimate_battery",
+            id -> new UltimateBatteryBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .noLootTable()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> BASIC_ENERGY_RECEIVER = registerBlock("basic_energy_receiver",
+            id -> new BasicEnergyReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> HARDENED_ENERGY_RECEIVER = registerBlock("hardened_energy_receiver",
+            id -> new HardenedEnergyReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ADVANCED_ENERGY_RECEIVER = registerBlock("advanced_energy_receiver",
+            id -> new AdvancedEnergyReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ELITE_ENERGY_RECEIVER = registerBlock("elite_energy_receiver",
+            id -> new EliteEnergyReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ULTIMATE_ENERGY_RECEIVER = registerBlock("ultimate_energy_receiver",
+            id -> new UltimateEnergyReceiverBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> ENERGY_TRANSMITTER = registerBlock("energy_transmitter",
+            id -> new EnergyTransmitterBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(1F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .sound(SoundType.STONE)));
+
     /// Storage Blocks ///
     public static final DeferredBlock<Block> CHARCOAL_BLOCK = registerBlock("charcoal_block",
             id -> new Block(BlockBehaviour.Properties.of()
@@ -271,6 +404,12 @@ public class SPBlocks {
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<Identifier, T> factory) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, factory);
         registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerBatteryBlock(String name, Function<Identifier, T> factory) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, factory);
+        SPItems.ITEMS.register(name, id -> new BatteryBlockItem(toReturn.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
         return toReturn;
     }
 

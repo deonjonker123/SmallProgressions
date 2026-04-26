@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "smallprogressions:elite_battery",
+    "N": "minecraft:netherite_ingot",
+    "R": "minecraft:redstone_block",
+    "S": "#c:stones"
+  },
+  "pattern": [
+    "SNS",
+    "SBS",
+    "SRS"
+  ],
+  "result": {
+    "id": "smallprogressions:ultimate_battery"
+  }
+}

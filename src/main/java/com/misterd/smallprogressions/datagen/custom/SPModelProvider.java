@@ -24,6 +24,12 @@ public class SPModelProvider extends ModelProvider {
         // Items
         itemModels.generateFlatItem(SPItems.TINY_COAL.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SPItems.TINY_CHARCOAL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.SILICA_BLEND.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.BASIC_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.HARDENED_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.ADVANCED_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.ELITE_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.ULTIMATE_SOLAR_CELL.get(), ModelTemplates.FLAT_ITEM);
 
         // Simple cube blocks (datagen generates model + blockstate)
         blockModels.createTrivialCube(SPBlocks.GROWTH_CRYSTAL_TIER_1.get());
@@ -56,6 +62,22 @@ public class SPModelProvider extends ModelProvider {
         blockModels.createTrivialCube(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get());
         blockModels.createTrivialCube(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get());
         blockModels.createTrivialCube(SPBlocks.TIMER.get());
+        blockModels.createTrivialCube(SPBlocks.BASIC_SOLAR_PANEL.get());
+        blockModels.createTrivialCube(SPBlocks.HARDENED_SOLAR_PANEL.get());
+        blockModels.createTrivialCube(SPBlocks.ADVANCED_SOLAR_PANEL.get());
+        blockModels.createTrivialCube(SPBlocks.ELITE_SOLAR_PANEL.get());
+        blockModels.createTrivialCube(SPBlocks.ULTIMATE_SOLAR_PANEL.get());
+        blockModels.createTrivialCube(SPBlocks.BASIC_ENERGY_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.HARDENED_ENERGY_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.ADVANCED_ENERGY_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.ELITE_ENERGY_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.ULTIMATE_ENERGY_RECEIVER.get());
+        blockModels.createTrivialCube(SPBlocks.ENERGY_TRANSMITTER.get());
+        blockModels.createTrivialCube(SPBlocks.BASIC_BATTERY.get());
+        blockModels.createTrivialCube(SPBlocks.HARDENED_BATTERY.get());
+        blockModels.createTrivialCube(SPBlocks.ADVANCED_BATTERY.get());
+        blockModels.createTrivialCube(SPBlocks.ELITE_BATTERY.get());
+        blockModels.createTrivialCube(SPBlocks.ULTIMATE_BATTERY.get());
     }
 
     @Override

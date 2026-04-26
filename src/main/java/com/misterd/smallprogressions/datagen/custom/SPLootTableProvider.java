@@ -18,9 +18,6 @@ public class SPLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_1.get());
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_2.get());
         dropSelf(SPBlocks.COBBLESTONE_GENERATOR_TIER_3.get());
@@ -62,6 +59,20 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         dropSelf(SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get());
         dropSelf(SPBlocks.WIRELESS_REDSTONE_RECEIVER.get());
         dropSelf(SPBlocks.TIMER.get());
+
+        dropSelf(SPBlocks.BASIC_SOLAR_PANEL.get());
+        dropSelf(SPBlocks.HARDENED_SOLAR_PANEL.get());
+        dropSelf(SPBlocks.ADVANCED_SOLAR_PANEL.get());
+        dropSelf(SPBlocks.ELITE_SOLAR_PANEL.get());
+        dropSelf(SPBlocks.ULTIMATE_SOLAR_PANEL.get());
+
+        dropSelf(SPBlocks.BASIC_ENERGY_RECEIVER.get());
+        dropSelf(SPBlocks.HARDENED_ENERGY_RECEIVER.get());
+        dropSelf(SPBlocks.ADVANCED_ENERGY_RECEIVER.get());
+        dropSelf(SPBlocks.ELITE_ENERGY_RECEIVER.get());
+        dropSelf(SPBlocks.ULTIMATE_ENERGY_RECEIVER.get());
+
+        dropSelf(SPBlocks.ENERGY_TRANSMITTER.get());
     }
 
     @Override
@@ -69,6 +80,11 @@ public class SPLootTableProvider extends BlockLootSubProvider {
         return SPBlocks.BLOCKS.getEntries()
                 .stream()
                 .map(Holder::value)
+                .filter(b -> b != SPBlocks.BASIC_BATTERY.get()
+                        && b != SPBlocks.HARDENED_BATTERY.get()
+                        && b != SPBlocks.ADVANCED_BATTERY.get()
+                        && b != SPBlocks.ELITE_BATTERY.get()
+                        && b != SPBlocks.ULTIMATE_BATTERY.get())
                 .toList();
     }
 }

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "smallprogressions:block/basic_energy_receiver"
+  }
+}

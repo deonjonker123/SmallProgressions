@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:redstone",
+    "C": "smallprogressions:silica_blend",
+    "G": "#c:glass_blocks",
+    "I": "minecraft:copper_ingot"
+  },
+  "pattern": [
+    "GGG",
+    "CBC",
+    "ICI"
+  ],
+  "result": {
+    "id": "smallprogressions:basic_solar_cell"
+  }
+}
