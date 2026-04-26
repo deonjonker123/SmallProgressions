@@ -8,7 +8,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="MisterD Modding"
 description='''
-A collection of simple, standalone utility blocks for everyday automation.
+A collection of simple utility blocks and light progressive systems for everyday automation.
 '''
 
 [[dependencies.${mod_id}]]
