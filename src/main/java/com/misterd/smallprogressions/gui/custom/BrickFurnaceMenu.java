@@ -62,15 +62,19 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         ItemStack copy = stack.copy();
 
         if (index < VANILLA_SLOTS) {
-            boolean moved = false;
-            if (level instanceof ServerLevel sl &&
-                    sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent()) {
-                moved = moveItemStackTo(stack, TE_FIRST, TE_FIRST + 1, false);
+            try (Transaction tx = Transaction.openRoot()) {
+                int inserted = 0;
+                if (level instanceof ServerLevel sl &&
+                        sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent()) {
+                    inserted = blockEntity.inventory.insert(0, ItemResource.of(stack), stack.getCount(), tx);
+                }
+                if (inserted == 0 && level.fuelValues().isFuel(stack)) {
+                    inserted = blockEntity.inventory.insert(1, ItemResource.of(stack), stack.getCount(), tx);
+                }
+                if (inserted == 0) return ItemStack.EMPTY;
+                tx.commit();
+                stack.shrink(inserted);
             }
-            if (!moved && level.fuelValues().isFuel(stack)) {
-                moved = moveItemStackTo(stack, TE_FIRST + 1, TE_FIRST + 2, false);
-            }
-            if (!moved) return ItemStack.EMPTY;
         } else if (index < TE_FIRST + TE_SLOTS) {
             if (!moveItemStackTo(stack, 0, VANILLA_SLOTS, true)) return ItemStack.EMPTY;
         } else {
@@ -124,13 +128,10 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
 
         @Override
         public void set(ItemStack stack) {
-            try (Transaction tx = Transaction.openRoot()) {
-                ItemStack existing = getItem();
-                if (!existing.isEmpty())
-                    be.inventory.extract(index, ItemResource.of(existing), existing.getCount(), tx);
-                if (!stack.isEmpty())
-                    be.inventory.insert(index, ItemResource.of(stack), stack.getCount(), tx);
-                tx.commit();
+            if (stack.isEmpty()) {
+                be.inventory.set(index, ItemResource.EMPTY, 0);
+            } else {
+                be.inventory.set(index, ItemResource.of(stack), stack.getCount());
             }
             setChanged();
         }

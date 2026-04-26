@@ -44,24 +44,30 @@ public class CopperBarrelMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        Slot slot = slots.get(index);
-        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
-        ItemStack stack = slot.getItem();
+        Slot source = slots.get(index);
+        if (source == null || !source.hasItem()) return ItemStack.EMPTY;
+
+        ItemStack stack = source.getItem();
         ItemStack copy = stack.copy();
 
         if (index < TE_SLOTS) {
+            // Moving from barrel to player — vanilla slots handle this fine
             if (!moveItemStackTo(stack, PLAYER_FIRST, PLAYER_FIRST + PLAYER_SLOTS, true))
                 return ItemStack.EMPTY;
-        } else if (index < PLAYER_FIRST + PLAYER_SLOTS) {
-            if (!moveItemStackTo(stack, TE_FIRST, TE_SLOTS, false))
-                return ItemStack.EMPTY;
         } else {
-            return ItemStack.EMPTY;
+            // Moving from player into barrel — do it manually
+            try (Transaction tx = Transaction.openRoot()) {
+                int inserted = blockEntity.inventory.insert(ItemResource.of(stack), stack.getCount(), tx);
+                if (inserted == 0) return ItemStack.EMPTY;
+                tx.commit();
+                stack.shrink(inserted);
+            }
         }
 
-        if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
-        else slot.setChanged();
-        slot.onTake(player, stack);
+        if (stack.isEmpty()) source.set(ItemStack.EMPTY);
+        else source.setChanged();
+
+        source.onTake(player, stack);
         return copy;
     }
 
@@ -101,11 +107,14 @@ public class CopperBarrelMenu extends AbstractContainerMenu {
         @Override
         public void set(ItemStack stack) {
             try (Transaction tx = Transaction.openRoot()) {
-                ItemStack existing = getItem();
-                if (!existing.isEmpty())
-                    be.inventory.extract(index, ItemResource.of(existing), existing.getCount(), tx);
-                if (!stack.isEmpty())
+                ItemResource existing = be.inventory.getResource(index);
+                int existingAmount = be.inventory.getAmountAsInt(index);
+                if (!existing.isEmpty() && existingAmount > 0) {
+                    be.inventory.extract(index, existing, existingAmount, tx);
+                }
+                if (!stack.isEmpty()) {
                     be.inventory.insert(index, ItemResource.of(stack), stack.getCount(), tx);
+                }
                 tx.commit();
             }
             setChanged();
@@ -118,13 +127,14 @@ public class CopperBarrelMenu extends AbstractContainerMenu {
 
         @Override
         public ItemStack remove(int amount) {
-            ItemStack existing = getItem();
+            ItemResource existing = be.inventory.getResource(index);
             if (existing.isEmpty()) return ItemStack.EMPTY;
-            int toExtract = Math.min(amount, existing.getCount());
+            int toExtract = Math.min(amount, be.inventory.getAmountAsInt(index));
+            if (toExtract <= 0) return ItemStack.EMPTY;
             try (Transaction tx = Transaction.openRoot()) {
-                int extracted = be.inventory.extract(index, ItemResource.of(existing), toExtract, tx);
+                int extracted = be.inventory.extract(index, existing, toExtract, tx);
                 tx.commit();
-                return existing.copyWithCount(extracted);
+                return existing.toStack(extracted);
             }
         }
     }

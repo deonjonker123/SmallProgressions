@@ -4,7 +4,10 @@ import com.misterd.smallprogressions.block.custom.BrickFurnaceBlock;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
 import com.misterd.smallprogressions.gui.custom.BrickFurnaceMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -31,9 +34,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
+import net.neoforged.neoforge.transfer.transaction.TransactionContext;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -50,9 +57,6 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         @Override
         protected void onContentsChanged(int slot, ItemStack previous) {
             setChanged();
-            if (level != null && !level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-            }
         }
 
         @Override
@@ -63,10 +67,57 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                         sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent();
             } else if (slot == 1) {
                 return level != null && level.fuelValues().isFuel(resource.toStack());
+            } else if (slot == 2) {
+                return true;
             }
             return false;
         }
     };
+
+    private class FurnaceItemHandler implements ResourceHandler<ItemResource> {
+        @Override public int size() { return 3; }
+
+        @Override
+        public ItemResource getResource(int index) {
+            return inventory.getResource(index);
+        }
+
+        @Override
+        public long getAmountAsLong(int index) {
+            return inventory.getAmountAsLong(index);
+        }
+
+        @Override
+        public long getCapacityAsLong(int index, ItemResource resource) {
+            return inventory.getCapacityAsLong(index, resource);
+        }
+
+        @Override
+        public boolean isValid(int index, ItemResource resource) {
+            return inventory.isValid(index, resource);
+        }
+
+        @Override
+        public int insert(int index, ItemResource resource, int amount, TransactionContext tx) {
+            if (index == 2) return 0;
+            return inventory.insert(index, resource, amount, tx);
+        }
+
+        @Override
+        public int extract(int index, ItemResource resource, int amount, TransactionContext tx) {
+            if (index != 2) return 0;
+            return inventory.extract(index, resource, amount, tx);
+        }
+    }
+
+    public ResourceHandler<ItemResource> getItemHandler(@Nullable Direction direction) {
+        return new FurnaceItemHandler();
+    }
+
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.Item.BLOCK, SPBlockEntities.BRICK_FURNACE_BE.get(),
+                (be, dir) -> be instanceof BrickFurnaceBlockEntity furnace ? furnace.getItemHandler(dir) : null);
+    }
 
     private int progress = 0;
     private int maxProgress = SMELT_TIME;
@@ -110,13 +161,10 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private void setStack(int slot, ItemStack stack) {
-        try (Transaction tx = Transaction.openRoot()) {
-            ItemStack existing = getStack(slot);
-            if (!existing.isEmpty())
-                inventory.extract(slot, ItemResource.of(existing), existing.getCount(), tx);
-            if (!stack.isEmpty())
-                inventory.insert(slot, ItemResource.of(stack), stack.getCount(), tx);
-            tx.commit();
+        if (stack.isEmpty()) {
+            inventory.set(slot, ItemResource.EMPTY, 0);
+        } else {
+            inventory.set(slot, ItemResource.of(stack), stack.getCount());
         }
     }
 
@@ -125,6 +173,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
         boolean wasBurning = isBurning();
         boolean dirty = false;
+        boolean inventoryChanged = false;
 
         if (isBurning()) {
             fuelTime--;
@@ -154,6 +203,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                             maxFuelTime = burnTime;
                             setStack(1, fuel.copyWithCount(fuel.getCount() - 1));
                             dirty = true;
+                            inventoryChanged = true;
                         }
                     }
 
@@ -171,6 +221,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                             setStack(0, input.copyWithCount(input.getCount() - 1));
                             recipesUsed.merge(recipeHolder.get().id(), 1, Integer::sum);
                             dirty = true;
+                            inventoryChanged = true;
                         }
                     }
                 } else {
@@ -272,5 +323,10 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return this.saveCustomOnly(registries);
     }
 }

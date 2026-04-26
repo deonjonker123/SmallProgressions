@@ -92,7 +92,7 @@ public class SPBlockEntities {
         event.registerBlockEntity(Capabilities.Item.BLOCK, BRICK_FURNACE_BE.get(),
                 (blockEntity, direction) -> {
                     if (blockEntity instanceof BrickFurnaceBlockEntity brickFurnaceBlockEntity) {
-                        return brickFurnaceBlockEntity.inventory;
+                        return brickFurnaceBlockEntity.getItemHandler(direction);
                     }
                     return null;
                 });
