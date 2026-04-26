@@ -8,7 +8,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="MisterD Modding"
 description='''
-A collection of blocks that could make life a little easier
+A collection of simple, standalone utility blocks for everyday automation.
 '''
 
 [[dependencies.${mod_id}]]
