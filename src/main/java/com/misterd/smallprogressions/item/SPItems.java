@@ -85,7 +85,7 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.speed_upgrade.subtitle").withStyle(ChatFormatting.LIGHT_PURPLE));
+                    adder.accept(Component.translatable("item.smallprogressions.connection_wrench.hint").withStyle(ChatFormatting.LIGHT_PURPLE));
                 }
             });
 

@@ -27,9 +27,15 @@ import net.neoforged.neoforge.transfer.fluid.FluidStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 import org.joml.Matrix4f;
 
-public class TankBlockEntityRenderer<T extends BlockEntity>
-        implements BlockEntityRenderer<T, TankBlockEntityRenderer.RenderState> {
+public class TankBlockEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T, TankBlockEntityRenderer.RenderState> {
 
+    private static final float INSET = 0.01f;
+    private static final float MIN_X = 0.0625f + INSET;
+    private static final float MAX_X = 0.9375f - INSET;
+    private static final float MIN_Z = 0.0625f + INSET;
+    private static final float MAX_Z = 0.9375f - INSET;
+    private static final float MIN_Y = 0.0625f + INSET;
+    private static final float MAX_Y_FULL = 0.9375f - INSET;
     public TankBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
 
     public static class RenderState extends BlockEntityRenderState {
@@ -73,11 +79,12 @@ public class TankBlockEntityRenderer<T extends BlockEntity>
 
     @Override
     public void submit(RenderState state, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState cameraState) {
-        if (state.fluid == null || state.sprite == null) return;
+        if (state.fluid == null || state.sprite == null || state.fillPercentage <= 0f) return;
 
-        float minX = 0.025f, minY = 0.0625f, minZ = 0.025f;
-        float maxX = 0.975f, maxZ = 0.975f;
-        float maxY = minY + (0.9375f - minY) * state.fillPercentage;
+        float x0 = MIN_X, x1 = MAX_X;
+        float z0 = MIN_Z, z1 = MAX_Z;
+        float y0 = MIN_Y;
+        float y1 = MIN_Y + (MAX_Y_FULL - MIN_Y) * state.fillPercentage;
 
         int color = state.tintColor;
         float r = ((color >> 16) & 0xFF) / 255f;
@@ -89,44 +96,66 @@ public class TankBlockEntityRenderer<T extends BlockEntity>
         TextureAtlasSprite s = state.sprite;
         float u0 = s.getU0(), u1 = s.getU1();
         float v0 = s.getV0(), v1 = s.getV1();
-        float uW = u1 - u0, vH = v1 - v0;
 
         collector.submitCustomGeometry(poseStack, RenderTypes.entityTranslucent(TextureAtlas.LOCATION_BLOCKS), (pose, consumer) -> {
             Matrix4f m = pose.pose();
             int ov = OverlayTexture.NO_OVERLAY;
             int li = state.lightCoords;
 
-            // top
-            v(consumer, m, minX, maxY, minZ, r, g, b, a, u0, v0, ov, li, 0, 1, 0);
-            v(consumer, m, minX, maxY, maxZ, r, g, b, a, u0, v0 + vH * (maxZ - minZ), ov, li, 0, 1, 0);
-            v(consumer, m, maxX, maxY, maxZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH * (maxZ - minZ), ov, li, 0, 1, 0);
-            v(consumer, m, maxX, maxY, minZ, r, g, b, a, u0 + uW * (maxX - minX), v0, ov, li, 0, 1, 0);
-            // bottom
-            v(consumer, m, minX, minY, minZ, r, g, b, a, u0, v0, ov, li, 0, -1, 0);
-            v(consumer, m, maxX, minY, minZ, r, g, b, a, u0 + uW * (maxX - minX), v0, ov, li, 0, -1, 0);
-            v(consumer, m, maxX, minY, maxZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH * (maxZ - minZ), ov, li, 0, -1, 0);
-            v(consumer, m, minX, minY, maxZ, r, g, b, a, u0, v0 + vH * (maxZ - minZ), ov, li, 0, -1, 0);
-            // north
-            v(consumer, m, minX, minY, minZ, r, g, b, a, u0, v0 + vH * (1 - (maxY - minY)), ov, li, 0, 0, -1);
-            v(consumer, m, minX, maxY, minZ, r, g, b, a, u0, v0 + vH, ov, li, 0, 0, -1);
-            v(consumer, m, maxX, maxY, minZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH, ov, li, 0, 0, -1);
-            v(consumer, m, maxX, minY, minZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH * (1 - (maxY - minY)), ov, li, 0, 0, -1);
-            // south
-            v(consumer, m, minX, minY, maxZ, r, g, b, a, u0, v0 + vH * (1 - (maxY - minY)), ov, li, 0, 0, 1);
-            v(consumer, m, maxX, minY, maxZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH * (1 - (maxY - minY)), ov, li, 0, 0, 1);
-            v(consumer, m, maxX, maxY, maxZ, r, g, b, a, u0 + uW * (maxX - minX), v0 + vH, ov, li, 0, 0, 1);
-            v(consumer, m, minX, maxY, maxZ, r, g, b, a, u0, v0 + vH, ov, li, 0, 0, 1);
-            // west
-            v(consumer, m, minX, minY, minZ, r, g, b, a, u0, v0 + vH * (1 - (maxY - minY)), ov, li, -1, 0, 0);
-            v(consumer, m, minX, minY, maxZ, r, g, b, a, u0 + uW * (maxZ - minZ), v0 + vH * (1 - (maxY - minY)), ov, li, -1, 0, 0);
-            v(consumer, m, minX, maxY, maxZ, r, g, b, a, u0 + uW * (maxZ - minZ), v0 + vH, ov, li, -1, 0, 0);
-            v(consumer, m, minX, maxY, minZ, r, g, b, a, u0, v0 + vH, ov, li, -1, 0, 0);
-            // east
-            v(consumer, m, maxX, minY, minZ, r, g, b, a, u0, v0 + vH * (1 - (maxY - minY)), ov, li, 1, 0, 0);
-            v(consumer, m, maxX, maxY, minZ, r, g, b, a, u0, v0 + vH, ov, li, 1, 0, 0);
-            v(consumer, m, maxX, maxY, maxZ, r, g, b, a, u0 + uW * (maxZ - minZ), v0 + vH, ov, li, 1, 0, 0);
-            v(consumer, m, maxX, minY, maxZ, r, g, b, a, u0 + uW * (maxZ - minZ), v0 + vH * (1 - (maxY - minY)), ov, li, 1, 0, 0);
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x0, y1, z0, u0, v0,
+                    x0, y1, z1, u0, v1,
+                    x1, y1, z1, u1, v1,
+                    x1, y1, z0, u1, v0,
+                    0, 1, 0);
+
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x0, y0, z0, u0, v0,
+                    x1, y0, z0, u1, v0,
+                    x1, y0, z1, u1, v1,
+                    x0, y0, z1, u0, v1,
+                    0, -1, 0);
+
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x0, y0, z0, u0, v0,
+                    x0, y1, z0, u0, v1,
+                    x1, y1, z0, u1, v1,
+                    x1, y0, z0, u1, v0,
+                    0, 0, -1);
+
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x1, y0, z1, u0, v0,
+                    x1, y1, z1, u0, v1,
+                    x0, y1, z1, u1, v1,
+                    x0, y0, z1, u1, v0,
+                    0, 0, 1);
+
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x0, y0, z1, u0, v0,
+                    x0, y1, z1, u0, v1,
+                    x0, y1, z0, u1, v1,
+                    x0, y0, z0, u1, v0,
+                    -1, 0, 0);
+
+            quad(consumer, m, r, g, b, a, ov, li,
+                    x1, y0, z0, u0, v0,
+                    x1, y1, z0, u0, v1,
+                    x1, y1, z1, u1, v1,
+                    x1, y0, z1, u1, v0,
+                    1, 0, 0);
         });
+    }
+
+    private static void quad(VertexConsumer c, Matrix4f m, float r, float g, float b, float a, int ov, int li,
+                             float x0, float y0, float z0, float u0, float v0,
+                             float x1, float y1, float z1, float u1, float v1,
+                             float x2, float y2, float z2, float u2, float v2,
+                             float x3, float y3, float z3, float u3, float v3,
+                             float nx, float ny, float nz) {
+        v(c, m, x0, y0, z0, r, g, b, a, u0, v0, ov, li, nx, ny, nz);
+        v(c, m, x1, y1, z1, r, g, b, a, u1, v1, ov, li, nx, ny, nz);
+        v(c, m, x2, y2, z2, r, g, b, a, u2, v2, ov, li, nx, ny, nz);
+        v(c, m, x3, y3, z3, r, g, b, a, u3, v3, ov, li, nx, ny, nz);
     }
 
     private static void v(VertexConsumer c, Matrix4f m, float x, float y, float z, float r, float g, float b, float a, float u, float v, int ov, int li, float nx, float ny, float nz) {

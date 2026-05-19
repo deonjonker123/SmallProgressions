@@ -2,7 +2,6 @@ package com.misterd.smallprogressions.gui.custom;
 
 import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.network.SetChannelPacket;
-import com.misterd.smallprogressions.util.NineSliceButton;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.EditBox;
@@ -13,22 +12,16 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
-import java.util.List;
-
 public class WirelessRedstoneReceiverScreen extends AbstractContainerScreen<WirelessRedstoneReceiverMenu> {
     private static final Identifier BG_TEXTURE = Identifier.fromNamespaceAndPath(SmallProgressions.MODID, "textures/gui/channel_gui.png");
-    private static final Identifier BTN_TEXTURE = Identifier.fromNamespaceAndPath(SmallProgressions.MODID, "textures/gui/btn_bg.png");
 
     private static final int BG_W = 172;
     private static final int BG_H = 92;
-    private static final int BTN_TEX_W = 236;
-    private static final int BTN_TEX_H = 24;
-    private static final int CORNER = 4;
     private static final int EB_X = 8;
     private static final int EB_Y = 48;
     private static final int EB_W = 69;
     private static final int EB_H = 10;
-    private static final int BTN_H = 18;
+    private static final int BTN_H = 20;
     private static final int BTN_GUTTER = 2;
     private static final int INC_X = 7;
     private static final int INC_Y = 22;
@@ -60,8 +53,8 @@ public class WirelessRedstoneReceiverScreen extends AbstractContainerScreen<Wire
         for (int delta : new int[]{1, 5, 10}) {
             final int d = delta;
             Component label = Component.literal("+" + delta);
-            int w = font.width(label) + CORNER * 2;
-            addRenderableWidget(new NineSliceButton(incX, topPos + INC_Y, w, BTN_H, label, btn -> adjustChannel(d), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));
+            int w = font.width(label) + 4;
+            addRenderableWidget(new SPButton(incX, topPos + INC_Y, w, BTN_H, label, btn -> adjustChannel(d)));
             incX += w + BTN_GUTTER;
         }
 
@@ -69,21 +62,21 @@ public class WirelessRedstoneReceiverScreen extends AbstractContainerScreen<Wire
         for (int delta : new int[]{1, 5, 10}) {
             final int d = delta;
             Component label = Component.literal("-" + delta);
-            int w = font.width(label) + CORNER * 2;
-            addRenderableWidget(new NineSliceButton(decX, topPos + DEC_Y, w, BTN_H, label, btn -> adjustChannel(-d), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));
+            int w = font.width(label) + 4;
+            addRenderableWidget(new SPButton(decX, topPos + DEC_Y, w, BTN_H, label, btn -> adjustChannel(-d)));
             decX += w + BTN_GUTTER;
         }
 
         Component resetLabel = Component.translatable("gui.smallprogressions.receiver.reset");
         Component setLabel = Component.translatable("gui.smallprogressions.receiver.set");
         Component cancelLabel = Component.translatable("gui.smallprogressions.receiver.cancel");
-        int rscW = font.width(cancelLabel) + CORNER * 2;
+        int rscW = font.width(cancelLabel) + 4;
         int rscX = leftPos + RSC_X;
         int rscY = topPos + RSC_Y;
 
-        addRenderableWidget(new NineSliceButton(rscX, rscY, rscW, BTN_H, resetLabel, btn -> onReset(), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));
-        addRenderableWidget(new NineSliceButton(rscX, rscY + BTN_H + BTN_GUTTER, rscW, BTN_H, setLabel, btn -> onSet(), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));
-        addRenderableWidget(new NineSliceButton(rscX, rscY + (BTN_H + BTN_GUTTER) * 2, rscW, BTN_H, cancelLabel, btn -> onCancel(), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));
+        addRenderableWidget(new SPButton(rscX, rscY, rscW, BTN_H, resetLabel, btn -> onReset()));
+        addRenderableWidget(new SPButton(rscX, rscY + BTN_H + BTN_GUTTER, rscW, BTN_H, setLabel, btn -> onSet()));
+        addRenderableWidget(new SPButton(rscX, rscY + (BTN_H + BTN_GUTTER) * 2, rscW, BTN_H, cancelLabel, btn -> onCancel()));
     }
 
     private void adjustChannel(int delta) {
@@ -112,7 +105,7 @@ public class WirelessRedstoneReceiverScreen extends AbstractContainerScreen<Wire
     @Override
     protected void extractTooltip(GuiGraphicsExtractor gfx, int mouseX, int mouseY) {
         if (channelBox != null && channelBox.isHoveredOrFocused()) {
-            gfx.setTooltipForNextFrame(font, Component.translatable("gui.smallprogressions.receiver.channel_box.tooltip.line1").withStyle(ChatFormatting.GOLD), mouseX, mouseY);
+            gfx.setTooltipForNextFrame(font, Component.translatable("gui.smallprogressions.receiver.channel_box.tooltip").withStyle(ChatFormatting.GOLD), mouseX, mouseY);
         }
         super.extractTooltip(gfx, mouseX, mouseY);
     }

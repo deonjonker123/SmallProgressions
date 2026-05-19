@@ -106,8 +106,8 @@
 
   "tooltip.smallprogressions.advanced_item_collector.wireframe_toggle": "Toggle Wireframe",
 
-  "tooltip.smallprogressions.advanced_item_collector.redstone_required": "Always Active",
-  "tooltip.smallprogressions.advanced_item_collector.redstone_not_required": "Redstone Required",
+  "tooltip.smallprogressions.advanced_item_collector.redstone_required": "Redstone Required",
+  "tooltip.smallprogressions.advanced_item_collector.redstone_not_required": "Always Active",
 
   "tooltip.smallprogressions.advanced_item_collector.allow_mode": "Allow",
   "tooltip.smallprogressions.advanced_item_collector.block_mode": "Block",
@@ -199,14 +199,11 @@
   "gui.smallprogressions.timer.reset": "Reset",
   "gui.smallprogressions.timer.set": "Set",
   "gui.smallprogressions.timer.cancel": "Cancel",
-  "gui.smallprogressions.timer.running": "Timer is running — click to stop",
-  "gui.smallprogressions.timer.stopped": "Timer is stopped — click to start",
-  "gui.smallprogressions.transmitter.channel_box.tooltip.line1": "Set the channel number.",
-  "gui.smallprogressions.transmitter.channel_box.tooltip.line2": "Transmitters and Receivers on the same channel will communicate.",
-  "gui.smallprogressions.receiver.channel_box.tooltip.line1": "Set the channel number.",
-  "gui.smallprogressions.receiver.channel_box.tooltip.line2": "This Receiver will respond to any Transmitter on the same channel.",
-  "gui.smallprogressions.receiver.interval_box.tooltip.line1": "Set the pulse interval in ticks.",
-  "gui.smallprogressions.receiver.interval_box.tooltip.line2": "20 ticks = 1 second. Min: 2, Max: 10,000.",
+  "gui.smallprogressions.timer.running": "On",
+  "gui.smallprogressions.timer.stopped": "Off",
+  "gui.smallprogressions.transmitter.channel_box.tooltip": "Set the channel number.",
+  "gui.smallprogressions.receiver.channel_box.tooltip": "Set the channel number.",
+  "gui.smallprogressions.timer.interval_box.tooltip": "Set the pulse interval in ticks.",
 
   "jade.smallprogressions.channel": "Channel: %s",
   "jade.smallprogressions.no_channel": "No channel set",
