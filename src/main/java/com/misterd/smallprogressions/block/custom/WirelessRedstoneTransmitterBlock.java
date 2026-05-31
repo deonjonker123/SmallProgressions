@@ -35,30 +35,20 @@ import javax.annotation.Nullable;
 
 public class WirelessRedstoneTransmitterBlock extends BaseEntityBlock {
     public static final MapCodec<WirelessRedstoneTransmitterBlock> CODEC = simpleCodec(WirelessRedstoneTransmitterBlock::new);
-    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-    private static final VoxelShape SHAPE_NORTH = Shapes.or(
-            Block.box(1, 11, 2, 15, 14, 14),
-            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
-            Block.box(5, 4, 5, 11, 9, 11),
-            Block.box(3, 0, 3, 13, 2, 13)
-    );
-    private static final VoxelShape SHAPE_SOUTH = SHAPE_NORTH;
-    private static final VoxelShape SHAPE_WEST = Shapes.or(
-            Block.box(2, 11, 1, 14, 14, 15),
-            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
-            Block.box(5, 4, 5, 11, 9, 11),
-            Block.box(3, 0, 3, 13, 2, 13)
-    );
-    private static final VoxelShape SHAPE_EAST = SHAPE_WEST;
+    private static final VoxelShape SHAPE_UP = Block.box(3,  0, 3, 13,  3, 13);
+    private static final VoxelShape SHAPE_DOWN = Block.box(3, 13, 3, 13, 16, 13);
+    private static final VoxelShape SHAPE_NORTH = Block.box(3,  3, 13, 13, 13, 16);
+    private static final VoxelShape SHAPE_SOUTH = Block.box(3,  3, 0, 13, 13,  3);
+    private static final VoxelShape SHAPE_EAST = Block.box(0,  3, 3,  3, 13, 13);
+    private static final VoxelShape SHAPE_WEST = Block.box(13, 3, 3, 16, 13, 13);
 
     public WirelessRedstoneTransmitterBlock(Properties props) {
         super(props);
         registerDefaultState(stateDefinition.any()
-                .setValue(FACING, Direction.NORTH)
+                .setValue(FACING, Direction.UP)
                 .setValue(POWERED, false));
     }
 
@@ -74,18 +64,21 @@ public class WirelessRedstoneTransmitterBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        Direction facing = ctx.getClickedFace();
         return defaultBlockState()
-                .setValue(FACING, ctx.getHorizontalDirection().getOpposite())
+                .setValue(FACING, facing)
                 .setValue(POWERED, false);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
         return switch (state.getValue(FACING)) {
-            case EAST -> SHAPE_EAST;
+            case DOWN -> SHAPE_DOWN;
+            case NORTH -> SHAPE_NORTH;
             case SOUTH -> SHAPE_SOUTH;
+            case EAST -> SHAPE_EAST;
             case WEST -> SHAPE_WEST;
-            default -> SHAPE_NORTH;
+            default -> SHAPE_UP;
         };
     }
 
@@ -103,9 +96,12 @@ public class WirelessRedstoneTransmitterBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess tickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess tickAccess,
+                                  BlockPos pos, Direction direction, BlockPos neighborPos,
+                                  BlockState neighborState, RandomSource random) {
         Direction facing = state.getValue(FACING);
-        if (direction == facing.getOpposite()) {
+        Direction attachedTo = facing.getOpposite(); // the wall behind the plate
+        if (direction == attachedTo) {
             if (!neighborState.isFaceSturdy(level, neighborPos, facing)) {
                 return Blocks.AIR.defaultBlockState();
             }

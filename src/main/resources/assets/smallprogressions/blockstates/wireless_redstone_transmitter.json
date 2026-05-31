@@ -1,12 +1,17 @@
 {
 	"variants": {
-		"facing=north,powered=false": { "model": "smallprogressions:block/wireless_redstone_transmitter" },
-		"facing=east,powered=false":  { "model": "smallprogressions:block/wireless_redstone_transmitter", "y": 90  },
-		"facing=south,powered=false": { "model": "smallprogressions:block/wireless_redstone_transmitter", "y": 180 },
-		"facing=west,powered=false":  { "model": "smallprogressions:block/wireless_redstone_transmitter", "y": 270 },
-		"facing=north,powered=true":  { "model": "smallprogressions:block/wireless_redstone_transmitter_on" },
-		"facing=east,powered=true":   { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "y": 90  },
-		"facing=south,powered=true":  { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "y": 180 },
-		"facing=west,powered=true":   { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "y": 270 }
+		"facing=up,powered=false":    { "model": "smallprogressions:block/wireless_redstone_transmitter" },
+		"facing=down,powered=false":  { "model": "smallprogressions:block/wireless_redstone_transmitter", "x": 180 },
+		"facing=north,powered=false": { "model": "smallprogressions:block/wireless_redstone_transmitter", "x": 90 },
+		"facing=south,powered=false": { "model": "smallprogressions:block/wireless_redstone_transmitter", "x": 90, "y": 180 },
+		"facing=east,powered=false":  { "model": "smallprogressions:block/wireless_redstone_transmitter", "x": 90, "y": 90 },
+		"facing=west,powered=false":  { "model": "smallprogressions:block/wireless_redstone_transmitter", "x": 90, "y": 270 },
+
+		"facing=up,powered=true":     { "model": "smallprogressions:block/wireless_redstone_transmitter_on" },
+		"facing=down,powered=true":   { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "x": 180 },
+		"facing=north,powered=true":  { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "x": 90 },
+		"facing=south,powered=true":  { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "x": 90, "y": 180 },
+		"facing=east,powered=true":   { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "x": 90, "y": 90 },
+		"facing=west,powered=true":   { "model": "smallprogressions:block/wireless_redstone_transmitter_on", "x": 90, "y": 270 }
 	}
 }
