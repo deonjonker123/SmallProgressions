@@ -32,6 +32,12 @@
 #### Special Blocks
 - **McFloaty Block** - Can be placed mid-air, negates fall damage
 
+#### Special Items
+- **Magnet** 
+  - Does what it says on the tin. Pulls items and EXP to the player in an 8 block radius. 
+  - Keybind to toggle the magnet on/off (default `/`)
+  - Dedicated curios slot
+
 ### Materials
 - **Charcoal Block**
 
