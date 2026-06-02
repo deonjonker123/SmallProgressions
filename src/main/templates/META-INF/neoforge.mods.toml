@@ -11,6 +11,9 @@ description='''
 A collection of simple utility blocks and light progressive systems for everyday automation.
 '''
 
+[[mixins]]
+config="smallprogressions.mixins.json"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"

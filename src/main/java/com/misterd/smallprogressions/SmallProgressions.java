@@ -6,7 +6,9 @@ import com.misterd.smallprogressions.client.renderer.ber.LogisticsSenderBlockEnt
 import com.misterd.smallprogressions.client.renderer.ber.TankBlockEntityRenderer;
 import com.misterd.smallprogressions.component.SPDataComponents;
 import com.misterd.smallprogressions.config.Config;
+import com.misterd.smallprogressions.event.FenceJump;
 import com.misterd.smallprogressions.event.MagnetEventHandler;
+import com.misterd.smallprogressions.event.PlayerFenceJumpEvent;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import com.misterd.smallprogressions.gui.custom.*;
 import com.misterd.smallprogressions.item.SPCreativeTab;
@@ -48,6 +50,7 @@ public class SmallProgressions {
         SPNetwork.register(modEventBus);
         SPDataComponents.register(modEventBus);
         NeoForge.EVENT_BUS.register(new MagnetEventHandler());
+        NeoForge.EVENT_BUS.addListener((PlayerFenceJumpEvent event) -> FenceJump.onJump(event.getPlayer()));
         Config.register(modContainer);
     }
 
