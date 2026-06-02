@@ -13,6 +13,7 @@
     "SRS"
   ],
   "result": {
+    "count": 4,
     "id": "smallprogressions:wireless_redstone_receiver"
   }
 }

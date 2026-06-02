@@ -317,7 +317,7 @@ public class SPRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_charcoal", has(Items.CHARCOAL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get())
+        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_TRANSMITTER.get(), 2)
                 .pattern("TYT")
                 .pattern("ESE")
                 .pattern("RSR")
@@ -329,7 +329,7 @@ public class SPRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_RECEIVER.get())
+        shaped(RecipeCategory.MISC, SPBlocks.WIRELESS_REDSTONE_RECEIVER.get(), 4)
                 .pattern(" T ")
                 .pattern("TET")
                 .pattern("SRS")
