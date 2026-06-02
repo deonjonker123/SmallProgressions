@@ -24,6 +24,11 @@ public class SPDataComponents {
                     .persistent(BlockPos.CODEC)
                     .build());
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> MAGNET_ACTIVE =
+            DATA_COMPONENTS.register("magnet_active", () -> DataComponentType.<Boolean>builder()
+                    .persistent(Codec.BOOL)
+                    .build());
+
     public static void register(IEventBus eventBus) {
         DATA_COMPONENTS.register(eventBus);
     }

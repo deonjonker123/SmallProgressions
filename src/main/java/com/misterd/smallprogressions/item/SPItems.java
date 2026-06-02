@@ -3,6 +3,7 @@ package com.misterd.smallprogressions.item;
 
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.custom.ConnectionWrench;
+import com.misterd.smallprogressions.item.custom.MagnetItem;
 import com.misterd.smallprogressions.item.custom.McFloatyBlockItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -43,6 +44,9 @@ public class SPItems {
 
     public static final DeferredItem<Item> TINY_CHARCOAL = ITEMS.registerItem("tiny_charcoal",
             props -> new Item(props));
+
+    public static final DeferredItem<Item> MAGNET = ITEMS.registerItem("magnet",
+            props -> new MagnetItem(props));
 
     public static final DeferredItem<Item> SPEED_UPGRADE = ITEMS.registerItem("speed_upgrade",
             props -> new Item(props)

@@ -35,6 +35,7 @@ public class SPModelProvider extends ModelProvider {
         itemModels.generateFlatItem(SPItems.STACK_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SPItems.NODE_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(SPItems.RANGE_UPGRADE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(SPItems.MAGNET.get(), ModelTemplates.FLAT_ITEM);
 
         // Simple cube blocks (datagen generates model + blockstate)
         blockModels.createTrivialCube(SPBlocks.GROWTH_CRYSTAL_TIER_1.get());

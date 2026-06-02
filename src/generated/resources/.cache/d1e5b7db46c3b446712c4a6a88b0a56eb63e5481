@@ -1,4 +1,4 @@
-// 26.1.2	2026-04-26T23:04:38.8224897	My Recipes
+// 26.1.2	2026-06-02T11:37:42.2126021	My Recipes
 591a2cd33a294cf1122658589a65511a516c9ba3 data/smallprogressions/advancement/recipes/misc/advanced_battery.json
 80b273fb043c0eb04ca3c86bf89cf1f40591b78f data/smallprogressions/advancement/recipes/misc/advanced_energy_receiver.json
 fe107829115be19a103d79030bebdf661196e92a data/smallprogressions/advancement/recipes/misc/advanced_item_collector.json
@@ -44,6 +44,7 @@ db96c1d00a4eb49194f02c282862550447e6f0d0 data/smallprogressions/advancement/reci
 bcf4e96b442937d19f42104aaa2ca23092a87b51 data/smallprogressions/advancement/recipes/misc/linen_sack.json
 a0fcbfc1335d857ce02b5a812033741729ea4d6b data/smallprogressions/advancement/recipes/misc/logistics_receiver.json
 aa4a2bbef44e508fc99546b4f10bbd3109277800 data/smallprogressions/advancement/recipes/misc/logistics_sender.json
+e80f38da46e469c5c19e035fcd36685a52c4734b data/smallprogressions/advancement/recipes/misc/magnet.json
 8c2d9dd334d17e87a4ded3334c75f21411a9fc78 data/smallprogressions/advancement/recipes/misc/mcfloaty_block.json
 1a8504bbdb1507d4665535e88e0f9a8be2416d14 data/smallprogressions/advancement/recipes/misc/node_upgrade.json
 0e216e1062f27e21a703bfa6a46d176356088ac3 data/smallprogressions/advancement/recipes/misc/range_upgrade.json
@@ -108,6 +109,7 @@ ad15535c7120b08681dcf8160cd8f8df0d9aebfb data/smallprogressions/recipe/lava_infu
 408be5b57cdc71bb68949a5784064d50369ba04e data/smallprogressions/recipe/linen_sack.json
 0b146ce76045f037add82918ee7b9e0208eb5260 data/smallprogressions/recipe/logistics_receiver.json
 d0977beb5a7c34f49a881071959547239d7f1a86 data/smallprogressions/recipe/logistics_sender.json
+880ed50dedcb2edb409406eb139b9122c8f66125 data/smallprogressions/recipe/magnet.json
 ab6135fc1e76ada66f6d1b9175e578f407d7cb51 data/smallprogressions/recipe/mcfloaty_block.json
 6b288e4fbfe1d31bdb33aa830b87502de68c9344 data/smallprogressions/recipe/node_upgrade.json
 8806ae1b9a023572eac55a060e5320a54e088704 data/smallprogressions/recipe/range_upgrade.json

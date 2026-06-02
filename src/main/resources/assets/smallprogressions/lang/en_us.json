@@ -298,6 +298,7 @@
   "item.smallprogressions.logistics_receiver": "Logistics Receiver",
 
   "item.smallprogressions.connection_wrench": "Connection Wrench",
+  "item.smallprogressions.magnet": "Magnet",
 
   "item.smallprogressions.speed_upgrade": "Speed Upgrade",
   "item.smallprogressions.speed_upgrade.subtitle": "Reduces the interval between transmissions",
@@ -326,5 +327,11 @@
   "item.smallprogressions.connection_wrench.connected": "Connection established.",
   "item.smallprogressions.connection_wrench.disconnected": "Connection removed.",
   "item.smallprogressions.connection_wrench.failed": "Connection failed. Check range or receiver limit.",
-  "item.smallprogressions.connection_wrench.cleared": "Wrench cleared."
+  "item.smallprogressions.connection_wrench.cleared": "Wrench cleared.",
+
+  "key.smallprogressions.toggle_magnet": "Toggle Magnet",
+  "key.category.smallprogressions.main": "Small Progressions 2",
+  "curios.identifier.magnet": "Magnet",
+  "item.smallprogressions.magnet.on": "On",
+  "item.smallprogressions.magnet.off": "Off"
 }

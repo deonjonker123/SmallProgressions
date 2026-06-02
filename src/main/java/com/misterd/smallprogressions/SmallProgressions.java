@@ -6,11 +6,14 @@ import com.misterd.smallprogressions.client.renderer.ber.LogisticsSenderBlockEnt
 import com.misterd.smallprogressions.client.renderer.ber.TankBlockEntityRenderer;
 import com.misterd.smallprogressions.component.SPDataComponents;
 import com.misterd.smallprogressions.config.Config;
+import com.misterd.smallprogressions.event.MagnetEventHandler;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import com.misterd.smallprogressions.gui.custom.*;
 import com.misterd.smallprogressions.item.SPCreativeTab;
 import com.misterd.smallprogressions.item.SPItems;
+import com.misterd.smallprogressions.keybind.SPKeyBindings;
 import com.misterd.smallprogressions.network.SPNetwork;
+import com.misterd.smallprogressions.network.ToggleMagnetPacket;
 import com.mojang.logging.LogUtils;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -20,11 +23,11 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.slf4j.Logger;
 
 @Mod(SmallProgressions.MODID)
@@ -44,6 +47,7 @@ public class SmallProgressions {
         SPMenuTypes.register(modEventBus);
         SPNetwork.register(modEventBus);
         SPDataComponents.register(modEventBus);
+        NeoForge.EVENT_BUS.register(new MagnetEventHandler());
         Config.register(modContainer);
     }
 
@@ -61,6 +65,19 @@ public class SmallProgressions {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+        }
+
+        @SubscribeEvent
+        public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
+            event.registerCategory(SPKeyBindings.CATEGORY);
+            event.register(SPKeyBindings.TOGGLE_MAGNET);
+        }
+
+        @SubscribeEvent
+        public static void onClientTick(ClientTickEvent.Post event) {
+            while (SPKeyBindings.TOGGLE_MAGNET.consumeClick()) {
+                ClientPacketDistributor.sendToServer(new ToggleMagnetPacket());
+            }
         }
 
         @SubscribeEvent

@@ -602,6 +602,17 @@ public class SPRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_ultimate_solar_cell", has(SPItems.ULTIMATE_SOLAR_CELL.get()))
                 .save(output);
 
+        shaped(RecipeCategory.MISC, SPItems.MAGNET.get())
+                .pattern("R L")
+                .pattern("IEI")
+                .pattern("III")
+                .define('R', Items.REDSTONE)
+                .define('L', Items.LAPIS_LAZULI)
+                .define('I', Items.IRON_INGOT)
+                .define('E', Items.ENDER_EYE)
+                .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
+                .save(output);
+
         shaped(RecipeCategory.MISC, SPBlocks.LOGISTICS_SENDER.get())
                 .pattern("GCG")
                 .pattern("IBI")

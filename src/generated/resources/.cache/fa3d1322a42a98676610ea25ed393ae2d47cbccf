@@ -1,4 +1,4 @@
-// 26.1.2	2026-04-26T23:04:38.8185019	Model Definitions - smallprogressions
+// 26.1.2	2026-06-02T11:17:17.3696121	Model Definitions - smallprogressions
 1dda55fb9b1b2da9a8447f2c02a1bb0304cba094 assets/smallprogressions/blockstates/advanced_battery.json
 1dac6f5241f64fba26c286b0c5cbfd4420364ea3 assets/smallprogressions/blockstates/advanced_energy_receiver.json
 e5a14021ab67080f31fc7e963e3af9c725bf139b assets/smallprogressions/blockstates/advanced_item_collector.json
@@ -91,6 +91,7 @@ d6dfc3dfd1daa251664c9bdb89ef2c758eb52e4b assets/smallprogressions/items/lava_inf
 4af6f0ce79946d3cf7f8995199f08959ad2455f6 assets/smallprogressions/items/linen_sack.json
 106cac703e5c1c063025ef0a5979f3484cc9d4bb assets/smallprogressions/items/logistics_receiver.json
 91e4ef320861341c905f0f4ff243e905923e6b93 assets/smallprogressions/items/logistics_sender.json
+4687279ffdeab7d7ced6732cd08d93146c92b5ae assets/smallprogressions/items/magnet.json
 471b40c2e323fb9efac5d0115b81a030303d945b assets/smallprogressions/items/mcfloaty_block.json
 36e7b0ac885a7a1aa3263911843cdf828a32a786 assets/smallprogressions/items/node_upgrade.json
 55cd55297deebbf1cc828ceff72025131858b3b7 assets/smallprogressions/items/range_upgrade.json
@@ -161,6 +162,7 @@ dfc5bc445e9f2bf03e445c1940c2882f587a2355 assets/smallprogressions/models/block/u
 91a224b17eff1a02b3d2315bae8fda8fd7505182 assets/smallprogressions/models/item/connection_wrench.json
 52882b8a497026dc6370ea6d6f5ebf5178d0ecf8 assets/smallprogressions/models/item/elite_solar_cell.json
 763edf47ae77d67d65d50c24aeda6d1eeafbe258 assets/smallprogressions/models/item/hardened_solar_cell.json
+f1c190dbb448c89245545dc1c6f33f9ae2164dfc assets/smallprogressions/models/item/magnet.json
 acb0956265733977c49d32b8d1e10e96fb608267 assets/smallprogressions/models/item/node_upgrade.json
 c1eeb19013b45722adcdaf590b8ec0c48ede838a assets/smallprogressions/models/item/range_upgrade.json
 0ac78ce564133d0e5eeafb0d8f26300613b44206 assets/smallprogressions/models/item/silica_blend.json

@@ -43,5 +43,11 @@ public class SPNetwork {
                 LogisticsSenderConfigPacket.TYPE,
                 LogisticsSenderConfigPacket.STREAM_CODEC,
                 LogisticsSenderConfigPacket::handle);
+
+        registrar.playToServer(
+                ToggleMagnetPacket.TYPE,
+                ToggleMagnetPacket.STREAM_CODEC,
+                ToggleMagnetPacket::handle
+        );
     }
 }

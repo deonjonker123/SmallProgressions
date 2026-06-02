@@ -55,6 +55,8 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.LAVA_INFUSED_STONE);
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 
+                        output.accept(SPItems.MAGNET);
+
                         output.accept(SPItems.SILICA_BLEND);
                         output.accept(SPItems.BASIC_SOLAR_CELL);
                         output.accept(SPItems.HARDENED_SOLAR_CELL);
