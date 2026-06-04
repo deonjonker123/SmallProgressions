@@ -37,6 +37,7 @@ public class Config {
 
     // Wireless Redstone
     private static ModConfigSpec.IntValue TRANSMISSION_RANGE;
+    private static ModConfigSpec.IntValue MAGNET_RANGE;
 
     static {
         buildCommonConfig();
@@ -54,6 +55,7 @@ public class Config {
         buildWaterReservoirConfig();
         buildGreenhouseGlassConfig();
         buildWirelessRedstoneConfig();
+        buildMagnetConfig();
     }
 
     private static void buildGrowthCrystalConfig() {
@@ -191,6 +193,19 @@ public class Config {
         COMMON_BUILDER.pop();
     }
 
+    private static void buildMagnetConfig() {
+        COMMON_BUILDER.comment("Magnet - Configuration")
+                .push("magnet");
+
+        MAGNET_RANGE = COMMON_BUILDER
+                .comment(
+                        "From how far the magnet will pull items in blocks (radius from the player)"
+                )
+                .defineInRange("magnet_range", 8, 1, 64);
+
+        COMMON_BUILDER.pop();
+    }
+
     // Getter methods
     public static double getGrowthCrystalTier1Rate() {
         return GROWTH_CRYSTAL_TIER_1_RATE.get();
@@ -242,6 +257,10 @@ public class Config {
 
     public static int getTransmissionRange() {
         return TRANSMISSION_RANGE.get();
+    }
+
+    public static int getMagnetRange() {
+        return MAGNET_RANGE.get();
     }
 
     private static void validateConfig() {
@@ -310,5 +329,8 @@ public class Config {
         if (getTransmissionRange() > 256) {
             LOGGER.warn("Transmission range ({}) is very large and may impact server performance!", getTransmissionRange());
         }
+
+        LOGGER.info("Magnet Configuration:");
+        LOGGER.info("  Magnet Range: {}", getMagnetRange());
     }
 }

@@ -1,6 +1,7 @@
 package com.misterd.smallprogressions.event;
 
 import com.misterd.smallprogressions.compat.curios.CuriosCompat;
+import com.misterd.smallprogressions.config.Config;
 import com.misterd.smallprogressions.item.custom.MagnetItem;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -16,8 +17,7 @@ import java.util.List;
 
 public class MagnetEventHandler {
 
-    private static final int RADIUS = 8;
-    private static final double PULL_SPEED = 0.5;
+    private static final double PULL_SPEED = 0.8;
 
     @SubscribeEvent
     public void onPlayerTick(PlayerTickEvent.Post event) {
@@ -25,7 +25,7 @@ public class MagnetEventHandler {
         if (player.level().isClientSide()) return;
         if (!hasMagnetActive(player)) return;
 
-        AABB area = player.getBoundingBox().inflate(RADIUS);
+        AABB area = player.getBoundingBox().inflate(Config.getMagnetRange());
         List<ItemEntity> itemEntities = player.level().getEntitiesOfClass(ItemEntity.class, area);
 
         for (ItemEntity itemEntity : itemEntities) {
