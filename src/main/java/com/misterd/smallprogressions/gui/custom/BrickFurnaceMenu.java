@@ -5,6 +5,7 @@ import com.misterd.smallprogressions.blockentity.custom.BrickFurnaceBlockEntity;
 import com.misterd.smallprogressions.gui.SPMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -68,7 +69,7 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
                         sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent()) {
                     inserted = blockEntity.inventory.insert(0, ItemResource.of(stack), stack.getCount(), tx);
                 }
-                if (inserted == 0 && level.fuelValues().isFuel(stack)) {
+                if (inserted == 0 && stack.getBurnTime(RecipeType.SMELTING, level.fuelValues()) > 0) {
                     inserted = blockEntity.inventory.insert(1, ItemResource.of(stack), stack.getCount(), tx);
                 }
                 if (inserted == 0) return ItemStack.EMPTY;

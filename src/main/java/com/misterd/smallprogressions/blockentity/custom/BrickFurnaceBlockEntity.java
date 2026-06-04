@@ -66,7 +66,8 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                 return level instanceof ServerLevel sl &&
                         sl.recipeAccess().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), sl).isPresent();
             } else if (slot == 1) {
-                return level != null && level.fuelValues().isFuel(resource.toStack());
+                return level != null &&
+                        resource.toStack().getBurnTime(RecipeType.SMELTING, level.fuelValues()) > 0;
             } else if (slot == 2) {
                 return true;
             }
@@ -197,7 +198,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
                 if (canInsert) {
                     if (!isBurning() && !fuel.isEmpty()) {
-                        int burnTime = level.fuelValues().burnDuration(fuel) / SPEED_MULTIPLIER;
+                        int burnTime = fuel.getBurnTime(RecipeType.SMELTING, level.fuelValues()) / SPEED_MULTIPLIER;
                         if (burnTime > 0) {
                             fuelTime = burnTime;
                             maxFuelTime = burnTime;
