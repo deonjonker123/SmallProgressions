@@ -76,6 +76,6 @@ public class TrowelItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, adder, flag);
 
-        adder.accept(Component.translatable("tooltip.smallprogressions.trowel").withStyle(ChatFormatting.GOLD));
+        adder.accept(Component.translatable("tooltip.smallprogressions.trowel").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
     }
 }

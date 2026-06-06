@@ -57,7 +57,7 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.speed_upgrade.subtitle").withStyle(ChatFormatting.GOLD));
+                    adder.accept(Component.translatable("item.smallprogressions.speed_upgrade.subtitle").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -66,7 +66,7 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.stack_upgrade.subtitle").withStyle(ChatFormatting.GOLD));
+                    adder.accept(Component.translatable("item.smallprogressions.stack_upgrade.subtitle").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -75,7 +75,7 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.node_upgrade.subtitle").withStyle(ChatFormatting.GOLD));
+                    adder.accept(Component.translatable("item.smallprogressions.node_upgrade.subtitle").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -84,7 +84,7 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.range_upgrade.subtitle").withStyle(ChatFormatting.GOLD));
+                    adder.accept(Component.translatable("item.smallprogressions.range_upgrade.subtitle").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
@@ -93,7 +93,9 @@ public class SPItems {
             {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag flag) {
-                    adder.accept(Component.translatable("item.smallprogressions.connection_wrench.hint").withStyle(ChatFormatting.GOLD));
+                    adder.accept(Component.translatable("item.smallprogressions.connection_wrench.hint").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
+                    adder.accept(Component.translatable("item.smallprogressions.connection_wrench.hint2").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
+                    adder.accept(Component.translatable("item.smallprogressions.connection_wrench.hint3").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
                 }
             });
 
