@@ -1,218 +1,16 @@
 {
   "creativetab.smallprogressions": "Small Progressions",
 
-  "block.smallprogressions.growth_crystal_tier_1": "Growth Crystal Tier 1",
-  "block.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
-  "block.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
-
-  "block.smallprogressions.greenhouse_glass": "Greenhouse Glass",
-
-  "block.smallprogressions.lava_infused_stone": "Lava Infused Stone",
-
+  "_comment_1": "==================== BLOCKS ====================",
   "block.smallprogressions.cobblestone_generator_tier_1": "Cobblestone Generator Tier 1",
   "block.smallprogressions.cobblestone_generator_tier_2": "Cobblestone Generator Tier 2",
   "block.smallprogressions.cobblestone_generator_tier_3": "Cobblestone Generator Tier 3",
   "block.smallprogressions.cobblestone_generator_tier_4": "Cobblestone Generator Tier 4",
   "block.smallprogressions.cobblestone_generator_tier_5": "Cobblestone Generator Tier 5",
 
-  "block.smallprogressions.simple_item_collector": "Simple Item Collector",
-  "block.smallprogressions.advanced_item_collector": "Advanced Item Collector",
-
-  "block.smallprogressions.copper_barrel": "Copper Barrel",
-  "block.smallprogressions.iron_barrel": "Iron Barrel",
-  "block.smallprogressions.gold_barrel": "Gold Barrel",
-  "block.smallprogressions.diamond_barrel": "Diamond Barrel",
-
-  "block.smallprogressions.copper_tank": "Copper Tank",
-  "block.smallprogressions.iron_tank": "Iron Tank",
-  "block.smallprogressions.gold_tank": "Gold Tank",
-  "block.smallprogressions.diamond_tank": "Diamond Tank",
-
-  "block.smallprogressions.linen_sack": "Linen Sack",
-  "block.smallprogressions.brick_furnace": "Brick Furnace",
-
-  "block.smallprogressions.lava_generator": "Lava Generator",
-  "block.smallprogressions.water_reservoir": "Water Reservoir",
-  "block.smallprogressions.harvester": "Harvester",
-  "block.smallprogressions.mcfloaty_block": "McFloaty Block",
-
-  "block.smallprogressions.charcoal_block": "Block of Charcoal",
-
-  "item.smallprogressions.growth_crystal_tier_1": "Growth Crystal Tier 1",
-  "item.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
-  "item.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
-
-  "item.smallprogressions.greenhouse_glass": "Greenhouse Glass",
-
-  "item.smallprogressions.lava_infused_stone": "Lava Infused Stone",
-
-  "item.smallprogressions.cobblestone_generator_tier_1": "Cobblestone Generator Tier 1",
-  "item.smallprogressions.cobblestone_generator_tier_2": "Cobblestone Generator Tier 2",
-  "item.smallprogressions.cobblestone_generator_tier_3": "Cobblestone Generator Tier 3",
-  "item.smallprogressions.cobblestone_generator_tier_4": "Cobblestone Generator Tier 4",
-  "item.smallprogressions.cobblestone_generator_tier_5": "Cobblestone Generator Tier 5",
-
-  "item.smallprogressions.simple_item_collector": "Simple Item Collector",
-  "item.smallprogressions.advanced_item_collector": "Advanced Item Collector",
-
-  "item.smallprogressions.copper_barrel": "Copper Barrel",
-  "item.smallprogressions.iron_barrel": "Iron Barrel",
-  "item.smallprogressions.gold_barrel": "Gold Barrel",
-  "item.smallprogressions.diamond_barrel": "Diamond Barrel",
-
-  "item.smallprogressions.copper_tank": "Copper Tank",
-  "item.smallprogressions.iron_tank": "Iron Tank",
-  "item.smallprogressions.gold_tank": "Gold Tank",
-  "item.smallprogressions.diamond_tank": "Diamond Tank",
-
-  "item.smallprogressions.linen_sack": "Linen Sack",
-  "item.smallprogressions.brick_furnace": "Brick Furnace",
-
-  "item.smallprogressions.lava_generator": "Lava Generator",
-  "item.smallprogressions.water_reservoir": "Water Reservoir",
-  "item.smallprogressions.harvester": "Harvester",
-  "item.smallprogressions.mcfloaty_block": "McFloaty Block",
-
-  "item.smallprogressions.charcoal_block": "Block of Charcoal",
-
-  "item.smallprogressions.tiny_coal": "Tiny Coal",
-  "item.smallprogressions.tiny_charcoal": "Tiny Charcoal",
-  "item.smallprogressions.iron_barrel_upgrade": "Iron Barrel Upgrade",
-  "item.smallprogressions.gold_barrel_upgrade": "Gold Barrel Upgrade",
-  "item.smallprogressions.diamond_barrel_upgrade": "Diamond Barrel Upgrade",
-  "item.smallprogressions.iron_tank_upgrade": "Iron Tank Upgrade",
-  "item.smallprogressions.gold_tank_upgrade": "Gold Tank Upgrade",
-  "item.smallprogressions.diamond_tank_upgrade": "Diamond Tank Upgrade",
-
-  "tooltip.smallprogressions.growth_crystal_tier_1.line1": "Fast growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Works in 9x3x9 area",
-
-  "tooltip.smallprogressions.growth_crystal_tier_2.line1": "Faster growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_2.line2": "Works in 9x3x9 area",
-
-  "tooltip.smallprogressions.growth_crystal_tier_3.line1": "Fastest growth acceleration",
-  "tooltip.smallprogressions.growth_crystal_tier_3.line2": "Works in 9x3x9 area",
-
-  "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
-  "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",
-
-  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.decrease": "Decrease Down/Up Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.increase": "Increase Down/Up Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.decrease": "Decrease North/South Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.increase": "Increase North/South Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.decrease": "Decrease East/West Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.increase": "Increase East/West Offset",
-  "tooltip.smallprogressions.advanced_item_collector.offset.reset_all": "Reset All Offsets",
-
-  "tooltip.smallprogressions.advanced_item_collector.wireframe_toggle": "Toggle Wireframe",
-
-  "tooltip.smallprogressions.advanced_item_collector.redstone_required": "Redstone Required",
-  "tooltip.smallprogressions.advanced_item_collector.redstone_not_required": "Always Active",
-
-  "tooltip.smallprogressions.advanced_item_collector.allow_mode": "Allow",
-  "tooltip.smallprogressions.advanced_item_collector.block_mode": "Block",
-
-  "tooltip.smallprogressions.cobblestone_generator.line1": "Generates 1 cobblestone every %s",
-  "tooltip.smallprogressions.cobblestone_generator.line2": "Auto-pushes to adjacent inventories",
-  "tooltip.smallprogressions.cobblestone_generator.line3": "Only holds 64 blocks",
-
-  "tooltip.smallprogressions.lava_infused_stone.line1": "Acts as a lava source block",
-  "tooltip.smallprogressions.lava_infused_stone.line2": "Adjacent water → Obsidian",
-
-  "tooltip.smallprogressions.mcfloaty_block.line1": "Can be placed in mid-air",
-  "tooltip.smallprogressions.mcfloaty_block.line2": "Negates fall damage when landed on",
-
-  "message.smallprogressions.water_reservoir.empty": "Water Reservoir is empty!",
-  "message.smallprogressions.water_reservoir.full": "Water Reservoir is full!",
-  "message.smallprogressions.water_reservoir.already_infinite": "Water Reservoir is already infinite!",
-  "tooltip.smallprogressions.water_reservoir.line1_infinite": "Infinite water source",
-  "tooltip.smallprogressions.water_reservoir.line1_tank": "Holds up to 16 buckets of water",
-  "tooltip.smallprogressions.water_reservoir.line2": "16 bucket capacity",
-
-  "message.smallprogressions.tank.empty": "Tank is empty!",
-  "message.smallprogressions.tank.full": "Tank is full!",
-
-  "tooltip.smallprogressions.copper_tank.line1": "Capacity: 16,000mB",
-
-  "tooltip.smallprogressions.iron_tank.line1": "Capacity: 32,000mB",
-
-  "tooltip.smallprogressions.gold_tank.line1": "Capacity: 64,000mB",
-
-  "tooltip.smallprogressions.diamond_tank.line1": "Capacity: 128,000mB",
-
-  "tooltip.smallprogressions.lava_generator.line1": "Passively generates lava",
-  "tooltip.smallprogressions.lava_generator.line2": "Outputs to adjacent tanks automatically",
-
-  "gui.smallprogressions.brick_furnace": "Brick Furnace",
-  "tooltip.smallprogressions.brick_furnace.line1": "Smelts 4x faster than a regular furnace",
-  "gui.smallprogressions.copper_barrel": "Copper Barrel",
-  "gui.smallprogressions.iron_barrel": "Iron Barrel",
-  "gui.smallprogressions.gold_barrel": "Gold Barrel",
-  "gui.smallprogressions.diamond_barrel": "Diamond Barrel",
-  "gui.smallprogressions.advanced_item_collector": "Adv Collector",
-  "gui.smallprogressions.advanced_item_collector.offset.down_up": "D/U Offset",
-  "gui.smallprogressions.advanced_item_collector.offset.north_south": "N/S Offset",
-  "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset",
-  "gui.smallprogressions.linen_sack": "Linen Sack",
-
-  "tooltip.smallprogressions.harvester.line1": "Automatically harvests and replants crops",
-  "tooltip.smallprogressions.harvester.line2": "Requires a scythe to operate. Harvest area determined by scythe tier",
-  "gui.smallprogressions.harvester": "Harvester",
-
-  "jei.smallprogressions.cobble_generation": "Cobblestone Generation",
-  "jei.smallprogressions.cobble_generation.rate": "Rate: %s",
-  "jei.smallprogressions.lava_infused_stone": "Lava Infused Stone Interaction",
-  "jei.smallprogressions.lava_infused_stone.line1": "Water adjacent to",
-  "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone",
-  "jei.smallprogressions.lava_generation": "Lava Generation",
-  "jei.smallprogressions.lava_generation.rate": "Rate: %s",
-
-  "tooltip.smallprogressions.tank.contains": "",
-  "tooltip.smallprogressions.tank.empty": "Empty",
-
-  "block.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
-  "block.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
-  "block.smallprogressions.timer": "Timer",
-
-  "item.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
-  "item.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
-  "item.smallprogressions.timer": "Timer",
-
-  "block.smallprogressions.wireless_redstone_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
-  "block.smallprogressions.wireless_redstone_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
-  "block.smallprogressions.timer.subtitle": "Pulses a redstone signal at a configurable interval",
-
-  "gui.smallprogressions.transmitter.title": "Wireless Transmitter",
-  "gui.smallprogressions.transmitter.channel_box": "Channel",
-  "gui.smallprogressions.transmitter.reset": "Reset",
-  "gui.smallprogressions.transmitter.set": "Set",
-  "gui.smallprogressions.transmitter.cancel": "Cancel",
-
-  "gui.smallprogressions.receiver.title": "Wireless Receiver",
-  "gui.smallprogressions.receiver.channel_box": "Channel",
-  "gui.smallprogressions.receiver.reset": "Reset",
-  "gui.smallprogressions.receiver.set": "Set",
-  "gui.smallprogressions.receiver.cancel": "Cancel",
-
-  "gui.smallprogressions.timer.title": "Timer",
-  "gui.smallprogressions.timer.interval_box": "Interval (ticks)",
-  "gui.smallprogressions.timer.reset": "Reset",
-  "gui.smallprogressions.timer.set": "Set",
-  "gui.smallprogressions.timer.cancel": "Cancel",
-  "gui.smallprogressions.timer.running": "On",
-  "gui.smallprogressions.timer.stopped": "Off",
-  "gui.smallprogressions.transmitter.channel_box.tooltip": "Set the channel number.",
-  "gui.smallprogressions.receiver.channel_box.tooltip": "Set the channel number.",
-  "gui.smallprogressions.timer.interval_box.tooltip": "Set the pulse interval in ticks.",
-
-  "jade.smallprogressions.channel": "Channel: %s",
-  "jade.smallprogressions.no_channel": "No channel set",
-  "jade.smallprogressions.connected_receivers": "Connected Receivers: %s",
-  "jade.smallprogressions.timer.interval": "Pulse Interval: %s ticks",
-  "jade.smallprogressions.timer.running": "Running",
-  "jade.smallprogressions.timer.stopped": "Stopped",
-  "jade.smallprogressions.transmitter_charging_on": "Wireless Charging: Enabled",
-  "jade.smallprogressions.transmitter_charging_off": "Wireless Charging: Disabled",
+  "block.smallprogressions.growth_crystal_tier_1": "Growth Crystal Tier 1",
+  "block.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
+  "block.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
 
   "block.smallprogressions.basic_solar_panel": "Basic Solar Panel",
   "block.smallprogressions.hardened_solar_panel": "Hardened Solar Panel",
@@ -234,32 +32,39 @@
 
   "block.smallprogressions.energy_transmitter": "Energy Transmitter",
 
-  "item.smallprogressions.basic_solar_panel": "Basic Solar Panel",
-  "item.smallprogressions.hardened_solar_panel": "Hardened Solar Panel",
-  "item.smallprogressions.advanced_solar_panel": "Advanced Solar Panel",
-  "item.smallprogressions.elite_solar_panel": "Elite Solar Panel",
-  "item.smallprogressions.ultimate_solar_panel": "Ultimate Solar Panel",
+  "block.smallprogressions.copper_barrel": "Copper Barrel",
+  "block.smallprogressions.iron_barrel": "Iron Barrel",
+  "block.smallprogressions.gold_barrel": "Gold Barrel",
+  "block.smallprogressions.diamond_barrel": "Diamond Barrel",
 
-  "item.smallprogressions.basic_battery": "Basic Battery",
-  "item.smallprogressions.hardened_battery": "Hardened Battery",
-  "item.smallprogressions.advanced_battery": "Advanced Battery",
-  "item.smallprogressions.elite_battery": "Elite Battery",
-  "item.smallprogressions.ultimate_battery": "Ultimate Battery",
+  "block.smallprogressions.copper_tank": "Copper Tank",
+  "block.smallprogressions.iron_tank": "Iron Tank",
+  "block.smallprogressions.gold_tank": "Gold Tank",
+  "block.smallprogressions.diamond_tank": "Diamond Tank",
 
-  "item.smallprogressions.basic_energy_receiver": "Basic Energy Receiver",
-  "item.smallprogressions.hardened_energy_receiver": "Hardened Energy Receiver",
-  "item.smallprogressions.advanced_energy_receiver": "Advanced Energy Receiver",
-  "item.smallprogressions.elite_energy_receiver": "Elite Energy Receiver",
-  "item.smallprogressions.ultimate_energy_receiver": "Ultimate Energy Receiver",
+  "block.smallprogressions.simple_item_collector": "Simple Item Collector",
+  "block.smallprogressions.advanced_item_collector": "Advanced Item Collector",
 
-  "item.smallprogressions.energy_transmitter": "Energy Transmitter",
+  "block.smallprogressions.logistics_sender": "Logistics Sender",
+  "block.smallprogressions.logistics_receiver": "Logistics Receiver",
 
-  "item.smallprogressions.basic_solar_cell": "Basic Solar Cell",
-  "item.smallprogressions.hardened_solar_cell": "Hardened Solar Cell",
-  "item.smallprogressions.advanced_solar_cell": "Advanced Solar Cell",
-  "item.smallprogressions.elite_solar_cell": "Elite Solar Cell",
-  "item.smallprogressions.ultimate_solar_cell": "Ultimate Solar Cell",
-  "item.smallprogressions.silica_blend": "Silica Blend",
+  "block.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
+  "block.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
+  "block.smallprogressions.timer": "Timer",
+
+  "block.smallprogressions.snad": "Snad",
+  "block.smallprogressions.red_snad": "Red Snad",
+  "block.smallprogressions.soul_snad": "Soul Snad",
+
+  "block.smallprogressions.greenhouse_glass": "Greenhouse Glass",
+  "block.smallprogressions.lava_infused_stone": "Lava Infused Stone",
+  "block.smallprogressions.linen_sack": "Linen Sack",
+  "block.smallprogressions.brick_furnace": "Brick Furnace",
+  "block.smallprogressions.lava_generator": "Lava Generator",
+  "block.smallprogressions.water_reservoir": "Water Reservoir",
+  "block.smallprogressions.harvester": "Harvester",
+  "block.smallprogressions.mcfloaty_block": "McFloaty Block",
+  "block.smallprogressions.charcoal_block": "Block of Charcoal",
 
   "block.smallprogressions.basic_solar_panel.subtitle": "Generates 128RF/t",
   "block.smallprogressions.hardened_solar_panel.subtitle": "Generates 512RF/t",
@@ -281,46 +86,156 @@
 
   "block.smallprogressions.energy_transmitter.subtitle": "Network pool capacity: 2,147,483,647 RF",
 
-  "gui.smallprogressions.battery_title": "Stored Energy",
-  "gui.smallprogressions.transmitter_pool_title": "Global Network Pool",
-  "gui.smallprogressions.transmitter_toggle_public": "Public",
-  "gui.smallprogressions.transmitter_toggle_public_desc": "All players can draw from this pool",
-  "gui.smallprogressions.transmitter_toggle_private": "Private",
-  "gui.smallprogressions.transmitter_toggle_private_desc": "Only your receivers can draw from this pool",
-  "gui.smallprogressions.transmitter_charge_inventory_on": "Charging items in your hotbar, offhand and curios.",
-  "gui.smallprogressions.transmitter_charge_inventory_on_desc": "Click to Disable",
-  "gui.smallprogressions.transmitter_charge_inventory_off": "Enable Wireless Charging",
+  "block.smallprogressions.wireless_redstone_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
+  "block.smallprogressions.wireless_redstone_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
+  "block.smallprogressions.timer.subtitle": "Pulses a redstone signal at a configurable interval",
 
-  "block.smallprogressions.logistics_sender": "Logistics Sender",
-  "block.smallprogressions.logistics_receiver": "Logistics Receiver",
+  "_comment_2": " ==================== ITEMS ====================",
+  "item.smallprogressions.cobblestone_generator_tier_1": "Cobblestone Generator Tier 1",
+  "item.smallprogressions.cobblestone_generator_tier_2": "Cobblestone Generator Tier 2",
+  "item.smallprogressions.cobblestone_generator_tier_3": "Cobblestone Generator Tier 3",
+  "item.smallprogressions.cobblestone_generator_tier_4": "Cobblestone Generator Tier 4",
+  "item.smallprogressions.cobblestone_generator_tier_5": "Cobblestone Generator Tier 5",
 
-  "block.smallprogressions.snad": "Snad",
-  "block.smallprogressions.red_snad": "Red Snad",
-  "block.smallprogressions.soul_snad": "Soul Snad",
+  "item.smallprogressions.growth_crystal_tier_1": "Growth Crystal Tier 1",
+  "item.smallprogressions.growth_crystal_tier_2": "Growth Crystal Tier 2",
+  "item.smallprogressions.growth_crystal_tier_3": "Growth Crystal Tier 3",
+
+  "item.smallprogressions.basic_solar_panel": "Basic Solar Panel",
+  "item.smallprogressions.hardened_solar_panel": "Hardened Solar Panel",
+  "item.smallprogressions.advanced_solar_panel": "Advanced Solar Panel",
+  "item.smallprogressions.elite_solar_panel": "Elite Solar Panel",
+  "item.smallprogressions.ultimate_solar_panel": "Ultimate Solar Panel",
+
+  "item.smallprogressions.basic_solar_cell": "Basic Solar Cell",
+  "item.smallprogressions.hardened_solar_cell": "Hardened Solar Cell",
+  "item.smallprogressions.advanced_solar_cell": "Advanced Solar Cell",
+  "item.smallprogressions.elite_solar_cell": "Elite Solar Cell",
+  "item.smallprogressions.ultimate_solar_cell": "Ultimate Solar Cell",
+
+  "item.smallprogressions.basic_battery": "Basic Battery",
+  "item.smallprogressions.hardened_battery": "Hardened Battery",
+  "item.smallprogressions.advanced_battery": "Advanced Battery",
+  "item.smallprogressions.elite_battery": "Elite Battery",
+  "item.smallprogressions.ultimate_battery": "Ultimate Battery",
+
+  "item.smallprogressions.basic_energy_receiver": "Basic Energy Receiver",
+  "item.smallprogressions.hardened_energy_receiver": "Hardened Energy Receiver",
+  "item.smallprogressions.advanced_energy_receiver": "Advanced Energy Receiver",
+  "item.smallprogressions.elite_energy_receiver": "Elite Energy Receiver",
+  "item.smallprogressions.ultimate_energy_receiver": "Ultimate Energy Receiver",
+
+  "item.smallprogressions.energy_transmitter": "Energy Transmitter",
+
+  "item.smallprogressions.copper_barrel": "Copper Barrel",
+  "item.smallprogressions.iron_barrel": "Iron Barrel",
+  "item.smallprogressions.gold_barrel": "Gold Barrel",
+  "item.smallprogressions.diamond_barrel": "Diamond Barrel",
+
+  "item.smallprogressions.copper_tank": "Copper Tank",
+  "item.smallprogressions.iron_tank": "Iron Tank",
+  "item.smallprogressions.gold_tank": "Gold Tank",
+  "item.smallprogressions.diamond_tank": "Diamond Tank",
+
+  "item.smallprogressions.iron_barrel_upgrade": "Iron Barrel Upgrade",
+  "item.smallprogressions.gold_barrel_upgrade": "Gold Barrel Upgrade",
+  "item.smallprogressions.diamond_barrel_upgrade": "Diamond Barrel Upgrade",
+
+  "item.smallprogressions.iron_tank_upgrade": "Iron Tank Upgrade",
+  "item.smallprogressions.gold_tank_upgrade": "Gold Tank Upgrade",
+  "item.smallprogressions.diamond_tank_upgrade": "Diamond Tank Upgrade",
+
+  "item.smallprogressions.speed_upgrade": "Speed Upgrade",
+  "item.smallprogressions.speed_upgrade.subtitle": "Reduces the interval between transmissions",
+  "item.smallprogressions.stack_upgrade": "Stack Upgrade",
+  "item.smallprogressions.stack_upgrade.subtitle": "Increases the number of items sent per transmission",
+  "item.smallprogressions.node_upgrade": "Node Upgrade",
+  "item.smallprogressions.node_upgrade.subtitle": "Increases the number of Receivers the Sender can connect to",
+  "item.smallprogressions.range_upgrade": "Range Upgrade",
+  "item.smallprogressions.range_upgrade.subtitle": "Increases the range between Senders and Receivers",
+
+  "item.smallprogressions.simple_item_collector": "Simple Item Collector",
+  "item.smallprogressions.advanced_item_collector": "Advanced Item Collector",
+
+  "item.smallprogressions.logistics_sender": "Logistics Sender",
+  "item.smallprogressions.logistics_receiver": "Logistics Receiver",
+
+  "item.smallprogressions.wireless_redstone_receiver": "Wireless Redstone Receiver",
+  "item.smallprogressions.wireless_redstone_transmitter": "Wireless Redstone Transmitter",
+  "item.smallprogressions.timer": "Timer",
 
   "item.smallprogressions.snad": "Snad",
   "item.smallprogressions.red_snad": "Red Snad",
   "item.smallprogressions.soul_snad": "Soul Snad",
 
-  "item.smallprogressions.logistics_sender": "Logistics Sender",
-  "item.smallprogressions.logistics_receiver": "Logistics Receiver",
-
+  "item.smallprogressions.greenhouse_glass": "Greenhouse Glass",
+  "item.smallprogressions.lava_infused_stone": "Lava Infused Stone",
+  "item.smallprogressions.linen_sack": "Linen Sack",
+  "item.smallprogressions.brick_furnace": "Brick Furnace",
+  "item.smallprogressions.lava_generator": "Lava Generator",
+  "item.smallprogressions.water_reservoir": "Water Reservoir",
+  "item.smallprogressions.harvester": "Harvester",
+  "item.smallprogressions.mcfloaty_block": "McFloaty Block",
+  "item.smallprogressions.charcoal_block": "Block of Charcoal",
+  "item.smallprogressions.tiny_coal": "Tiny Coal",
+  "item.smallprogressions.tiny_charcoal": "Tiny Charcoal",
+  "item.smallprogressions.silica_blend": "Silica Blend",
   "item.smallprogressions.connection_wrench": "Connection Wrench",
   "item.smallprogressions.magnet": "Magnet",
   "item.smallprogressions.trowel": "Trowel",
-  "tooltip.smallprogressions.trowel": "Randomly places blocks from the hotbar",
 
-  "item.smallprogressions.speed_upgrade": "Speed Upgrade",
-  "item.smallprogressions.speed_upgrade.subtitle": "Reduces the interval between transmissions",
+  "_comment_3": " ==================== TOOLTIPS ====================",
+  "tooltip.smallprogressions.growth_crystal_tier_1.line1": "Fast growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_1.line2": "Works in 9x3x9 area",
+  "tooltip.smallprogressions.growth_crystal_tier_2.line1": "Faster growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_2.line2": "Works in 9x3x9 area",
+  "tooltip.smallprogressions.growth_crystal_tier_3.line1": "Fastest growth acceleration",
+  "tooltip.smallprogressions.growth_crystal_tier_3.line2": "Works in 9x3x9 area",
 
-  "item.smallprogressions.stack_upgrade": "Stack Upgrade",
-  "item.smallprogressions.stack_upgrade.subtitle": "Increases the number of items sent per transmission",
+  "tooltip.smallprogressions.greenhouse_glass.line1": "Boosts crop growth by %s when in sunlight",
+  "tooltip.smallprogressions.greenhouse_glass.line2": "Works %s blocks below",
 
-  "item.smallprogressions.node_upgrade": "Node Upgrade",
-  "item.smallprogressions.node_upgrade.subtitle": "Increases the number of Receivers the Sender can connect to",
+  "tooltip.smallprogressions.cobblestone_generator.line1": "Generates 1 cobblestone every %s",
+  "tooltip.smallprogressions.cobblestone_generator.line2": "Auto-pushes to adjacent inventories",
+  "tooltip.smallprogressions.cobblestone_generator.line3": "Only holds 64 blocks",
 
-  "item.smallprogressions.range_upgrade": "Range Upgrade",
-  "item.smallprogressions.range_upgrade.subtitle": "Increases the range between Senders and Receivers",
+  "tooltip.smallprogressions.lava_infused_stone.line1": "Acts as a lava source block",
+  "tooltip.smallprogressions.lava_infused_stone.line2": "Adjacent water → Obsidian",
+
+  "tooltip.smallprogressions.mcfloaty_block.line1": "Can be placed in mid-air",
+  "tooltip.smallprogressions.mcfloaty_block.line2": "Negates fall damage when landed on",
+
+  "tooltip.smallprogressions.copper_tank.line1": "Capacity: 16,000mB",
+  "tooltip.smallprogressions.iron_tank.line1": "Capacity: 32,000mB",
+  "tooltip.smallprogressions.gold_tank.line1": "Capacity: 64,000mB",
+  "tooltip.smallprogressions.diamond_tank.line1": "Capacity: 128,000mB",
+  "tooltip.smallprogressions.tank.contains": "",
+  "tooltip.smallprogressions.tank.empty": "Empty",
+
+  "tooltip.smallprogressions.lava_generator.line1": "Passively generates lava",
+  "tooltip.smallprogressions.lava_generator.line2": "Outputs to adjacent tanks automatically",
+
+  "tooltip.smallprogressions.water_reservoir.line1_infinite": "Infinite water source",
+  "tooltip.smallprogressions.water_reservoir.line1_tank": "Holds up to 16 buckets of water",
+  "tooltip.smallprogressions.water_reservoir.line2": "16 bucket capacity",
+
+  "tooltip.smallprogressions.brick_furnace.line1": "Smelts 4x faster than a regular furnace",
+
+  "tooltip.smallprogressions.harvester.line1": "Automatically harvests and replants crops",
+  "tooltip.smallprogressions.harvester.line2": "Requires a scythe to operate. Harvest area determined by scythe tier",
+
+  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.decrease": "Decrease Down/Up Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.down_up.increase": "Increase Down/Up Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.decrease": "Decrease North/South Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.north_south.increase": "Increase North/South Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.decrease": "Decrease East/West Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.east_west.increase": "Increase East/West Offset",
+  "tooltip.smallprogressions.advanced_item_collector.offset.reset_all": "Reset All Offsets",
+  "tooltip.smallprogressions.advanced_item_collector.wireframe_toggle": "Toggle Wireframe",
+  "tooltip.smallprogressions.advanced_item_collector.redstone_required": "Redstone Required",
+  "tooltip.smallprogressions.advanced_item_collector.redstone_not_required": "Always Active",
+  "tooltip.smallprogressions.advanced_item_collector.allow_mode": "Allow",
+  "tooltip.smallprogressions.advanced_item_collector.block_mode": "Block",
 
   "tooltip.smallprogressions.logistics_sender.redstone_active": "Redstone: Active (requires signal)",
   "tooltip.smallprogressions.logistics_sender.redstone_inactive": "Redstone: Inactive (always on)",
@@ -328,6 +243,10 @@
   "tooltip.smallprogressions.logistics_sender.nearest_first": "Distribution: Nearest First",
   "tooltip.smallprogressions.logistics_sender.filter_allow": "Filter: Allow listed items",
   "tooltip.smallprogressions.logistics_sender.filter_block": "Filter: Block listed items",
+
+  "tooltip.smallprogressions.trowel": "Randomly places blocks from the hotbar",
+
+  "_comment_4": " ==================== ITEMS (MISC TOOLTIPS) ====================",
   "item.smallprogressions.connection_wrench.empty": "No sender stored",
   "item.smallprogressions.connection_wrench.stored": "Sender: %d, %d, %d",
   "item.smallprogressions.connection_wrench.hint": "Shift-Right-Click Sender to store, Shift-right-click receiver to link. Shift+right-click in the air to clear.",
@@ -339,9 +258,89 @@
   "item.smallprogressions.connection_wrench.failed": "Connection failed. Check range or receiver limit.",
   "item.smallprogressions.connection_wrench.cleared": "Wrench cleared.",
 
+  "item.smallprogressions.magnet.on": "On",
+  "item.smallprogressions.magnet.off": "Off",
+
+  "_comment_5": " ==================== GUI ====================",
+  "gui.smallprogressions.brick_furnace": "Brick Furnace",
+
+  "gui.smallprogressions.copper_barrel": "Copper Barrel",
+  "gui.smallprogressions.iron_barrel": "Iron Barrel",
+  "gui.smallprogressions.gold_barrel": "Gold Barrel",
+  "gui.smallprogressions.diamond_barrel": "Diamond Barrel",
+
+  "gui.smallprogressions.advanced_item_collector": "Adv Collector",
+  "gui.smallprogressions.advanced_item_collector.offset.down_up": "D/U Offset",
+  "gui.smallprogressions.advanced_item_collector.offset.north_south": "N/S Offset",
+  "gui.smallprogressions.advanced_item_collector.offset.east_west": "E/W Offset",
+
+  "gui.smallprogressions.linen_sack": "Linen Sack",
+
+  "gui.smallprogressions.harvester": "Harvester",
+
+  "gui.smallprogressions.transmitter.title": "Wireless Transmitter",
+  "gui.smallprogressions.transmitter.channel_box": "Channel",
+  "gui.smallprogressions.transmitter.channel_box.tooltip": "Set the channel number.",
+  "gui.smallprogressions.transmitter.reset": "Reset",
+  "gui.smallprogressions.transmitter.set": "Set",
+  "gui.smallprogressions.transmitter.cancel": "Cancel",
+
+  "gui.smallprogressions.receiver.title": "Wireless Receiver",
+  "gui.smallprogressions.receiver.channel_box": "Channel",
+  "gui.smallprogressions.receiver.channel_box.tooltip": "Set the channel number.",
+  "gui.smallprogressions.receiver.reset": "Reset",
+  "gui.smallprogressions.receiver.set": "Set",
+  "gui.smallprogressions.receiver.cancel": "Cancel",
+
+  "gui.smallprogressions.timer.title": "Timer",
+  "gui.smallprogressions.timer.interval_box": "Interval (ticks)",
+  "gui.smallprogressions.timer.interval_box.tooltip": "Set the pulse interval in ticks.",
+  "gui.smallprogressions.timer.reset": "Reset",
+  "gui.smallprogressions.timer.set": "Set",
+  "gui.smallprogressions.timer.cancel": "Cancel",
+  "gui.smallprogressions.timer.running": "On",
+  "gui.smallprogressions.timer.stopped": "Off",
+
+  "gui.smallprogressions.battery_title": "Stored Energy",
+  "gui.smallprogressions.transmitter_pool_title": "Global Network Pool",
+  "gui.smallprogressions.transmitter_toggle_public": "Public",
+  "gui.smallprogressions.transmitter_toggle_public_desc": "All players can draw from this pool",
+  "gui.smallprogressions.transmitter_toggle_private": "Private",
+  "gui.smallprogressions.transmitter_toggle_private_desc": "Only your receivers can draw from this pool",
+  "gui.smallprogressions.transmitter_charge_inventory_on": "Charging items in your hotbar, offhand and curios.",
+  "gui.smallprogressions.transmitter_charge_inventory_on_desc": "Click to Disable",
+  "gui.smallprogressions.transmitter_charge_inventory_off": "Enable Wireless Charging",
+
+  "_comment_6": " ==================== MESSAGES ====================",
+  "message.smallprogressions.water_reservoir.empty": "Water Reservoir is empty!",
+  "message.smallprogressions.water_reservoir.full": "Water Reservoir is full!",
+  "message.smallprogressions.water_reservoir.already_infinite": "Water Reservoir is already infinite!",
+  "message.smallprogressions.tank.empty": "Tank is empty!",
+  "message.smallprogressions.tank.full": "Tank is full!",
+
+  "_comment_7": " ==================== JADE ====================",
+  "jade.smallprogressions.channel": "Channel: %s",
+  "jade.smallprogressions.no_channel": "No channel set",
+  "jade.smallprogressions.connected_receivers": "Connected Receivers: %s",
+  "jade.smallprogressions.timer.interval": "Pulse Interval: %s ticks",
+  "jade.smallprogressions.timer.running": "Running",
+  "jade.smallprogressions.timer.stopped": "Stopped",
+  "jade.smallprogressions.transmitter_charging_on": "Wireless Charging: Enabled",
+  "jade.smallprogressions.transmitter_charging_off": "Wireless Charging: Disabled",
+
+  "_comment_8": " ==================== JEI ====================",
+  "jei.smallprogressions.cobble_generation": "Cobblestone Generation",
+  "jei.smallprogressions.cobble_generation.rate": "Rate: %s",
+  "jei.smallprogressions.lava_infused_stone": "Lava Infused Stone Interaction",
+  "jei.smallprogressions.lava_infused_stone.line1": "Water adjacent to",
+  "jei.smallprogressions.lava_infused_stone.line2": "Lava Infused Stone",
+  "jei.smallprogressions.lava_generation": "Lava Generation",
+  "jei.smallprogressions.lava_generation.rate": "Rate: %s",
+
+  "_comment_9": " ==================== KEYBINDS ====================",
   "key.smallprogressions.toggle_magnet": "Toggle Magnet",
   "key.category.smallprogressions.main": "Small Progressions 2",
-  "curios.identifier.magnet": "Magnet",
-  "item.smallprogressions.magnet.on": "On",
-  "item.smallprogressions.magnet.off": "Off"
+
+  "_comment_10": " ==================== CURIOS ====================",
+  "curios.identifier.magnet": "Magnet"
 }
