@@ -361,7 +361,7 @@ public class SPRecipeProvider extends RecipeProvider {
         shapeless(RecipeCategory.MISC,  Items.CHARCOAL, 9)
                 .requires(SPBlocks.CHARCOAL_BLOCK)
                 .unlockedBy("has_charcoal_block", has(SPBlocks.CHARCOAL_BLOCK))
-                .save(output, "small_progressions:charcoal_from_charcoal_block");
+                .save(output, "smallprogressions:charcoal_from_charcoal_block");
 
         shapeless(RecipeCategory.MISC, SPItems.TINY_COAL, 8)
                 .requires(Items.COAL)
