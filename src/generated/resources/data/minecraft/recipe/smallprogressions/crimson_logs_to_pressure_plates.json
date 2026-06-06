@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:crimson_stem"
+  },
+  "pattern": [
+    "LL"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:crimson_pressure_plate"
+  }
+}

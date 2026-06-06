@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:mangrove_log"
+  },
+  "pattern": [
+    "LL",
+    "LL",
+    "LL"
+  ],
+  "result": {
+    "count": 12,
+    "id": "minecraft:mangrove_door"
+  }
+}

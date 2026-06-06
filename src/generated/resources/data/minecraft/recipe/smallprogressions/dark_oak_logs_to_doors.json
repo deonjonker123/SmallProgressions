@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:dark_oak_log"
+  },
+  "pattern": [
+    "LL",
+    "LL",
+    "LL"
+  ],
+  "result": {
+    "count": 12,
+    "id": "minecraft:dark_oak_door"
+  }
+}

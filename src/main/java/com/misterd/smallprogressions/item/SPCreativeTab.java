@@ -56,6 +56,7 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 
                         output.accept(SPItems.MAGNET);
+                        output.accept(SPItems.TROWEL);
 
                         output.accept(SPItems.SILICA_BLEND);
                         output.accept(SPItems.BASIC_SOLAR_CELL);

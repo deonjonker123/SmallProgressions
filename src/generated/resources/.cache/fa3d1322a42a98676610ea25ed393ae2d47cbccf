@@ -1,4 +1,4 @@
-// 26.1.2	2026-06-02T11:17:17.3696121	Model Definitions - smallprogressions
+// 26.1.2	2026-06-06T11:24:55.5503189	Model Definitions - smallprogressions
 1dda55fb9b1b2da9a8447f2c02a1bb0304cba094 assets/smallprogressions/blockstates/advanced_battery.json
 1dac6f5241f64fba26c286b0c5cbfd4420364ea3 assets/smallprogressions/blockstates/advanced_energy_receiver.json
 e5a14021ab67080f31fc7e963e3af9c725bf139b assets/smallprogressions/blockstates/advanced_item_collector.json
@@ -102,6 +102,7 @@ d7237d3b8a8b6035c3bd50e0c58dbf58fc74d314 assets/smallprogressions/items/simple_i
 9ad64988d2984be7fd2cce3a70ee277814b660bd assets/smallprogressions/items/timer.json
 23fdda734de038bcb27b6009a9176c6199761062 assets/smallprogressions/items/tiny_charcoal.json
 05af549261666be3112bf8b51311967981db0b43 assets/smallprogressions/items/tiny_coal.json
+d063f894fae6d7a5b23203964449233f2f6065c0 assets/smallprogressions/items/trowel.json
 2a073306843ce6dc27647aefc8114d15b965fa5c assets/smallprogressions/items/ultimate_battery.json
 58cf2ae8fca7401fa802abd17018af9973878a9c assets/smallprogressions/items/ultimate_energy_receiver.json
 527e8d75dc7b1ca53ce481c636df603cda95ac42 assets/smallprogressions/items/ultimate_solar_cell.json
@@ -170,4 +171,5 @@ c1eeb19013b45722adcdaf590b8ec0c48ede838a assets/smallprogressions/models/item/ra
 686f5bf6bd8c32db5f24d434d5db38dc59f1b76f assets/smallprogressions/models/item/stack_upgrade.json
 324df952983fda57cc937125192fec21afec269c assets/smallprogressions/models/item/tiny_charcoal.json
 f6e1c941888ff803050bbfaa6a0d1af73f6e0895 assets/smallprogressions/models/item/tiny_coal.json
+ef0341d6f9aeed562845948d4525f899df5bbff3 assets/smallprogressions/models/item/trowel.json
 fec428d32f530ab6808789d587e1c56ffffcf698 assets/smallprogressions/models/item/ultimate_solar_cell.json

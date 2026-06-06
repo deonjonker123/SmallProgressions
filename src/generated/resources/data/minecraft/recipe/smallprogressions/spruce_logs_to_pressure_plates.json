@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:spruce_log"
+  },
+  "pattern": [
+    "LL"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:spruce_pressure_plate"
+  }
+}

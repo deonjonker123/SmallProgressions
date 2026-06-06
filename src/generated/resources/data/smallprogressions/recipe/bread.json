@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": "minecraft:wheat"
+  },
+  "pattern": [
+    "WW",
+    "W "
+  ],
+  "result": {
+    "id": "minecraft:bread"
+  }
+}

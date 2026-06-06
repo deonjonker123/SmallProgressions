@@ -299,6 +299,8 @@
 
   "item.smallprogressions.connection_wrench": "Connection Wrench",
   "item.smallprogressions.magnet": "Magnet",
+  "item.smallprogressions.trowel": "Magnet",
+  "tooltip.smallprogressions.trowel": "Randomly places blocks from the hotbar",
 
   "item.smallprogressions.speed_upgrade": "Speed Upgrade",
   "item.smallprogressions.speed_upgrade.subtitle": "Reduces the interval between transmissions",

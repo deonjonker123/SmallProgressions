@@ -1,12 +1,19 @@
 package com.misterd.smallprogressions.datagen.custom;
 
+import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.item.SPItems;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.neoforge.common.Tags;
 
 import java.util.concurrent.CompletableFuture;
@@ -613,6 +620,14 @@ public class SPRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
                 .save(output);
 
+        shaped(RecipeCategory.MISC, SPItems.TROWEL)
+                .pattern("  I")
+                .pattern("SI ")
+                .define('S', Items.STICK)
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(output);
+
         shaped(RecipeCategory.MISC, SPBlocks.LOGISTICS_SENDER.get())
                 .pattern("GCG")
                 .pattern("IBI")
@@ -683,5 +698,95 @@ public class SPRecipeProvider extends RecipeProvider {
                 .define('R', Items.OBSERVER)
                 .unlockedBy("has_observer", has(Items.OBSERVER))
                 .save(output);
+
+        //Vanilla QoL recipes
+        shaped(RecipeCategory.MISC, Items.CHEST, 4)
+                .pattern("LLL")
+                .pattern("L L")
+                .pattern("LLL")
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_log", has(ItemTags.LOGS))
+                .save(output, "smallprogressions:logs_to_chests");
+
+        shaped(RecipeCategory.MISC, Items.HOPPER)
+                .pattern("ILI")
+                .pattern("ILI")
+                .pattern(" I ")
+                .define('L', ItemTags.LOGS)
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(output, "smallprogressions:logs_to_hopper");
+
+        shaped(RecipeCategory.MISC, Items.STICK, 16)
+                .pattern("L")
+                .pattern("L")
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_log", has(ItemTags.LOGS))
+                .save(output, "smallprogressions:logs_to_sticks");
+
+        shaped(RecipeCategory.MISC, Items.LADDER, 24)
+                .pattern("L L")
+                .pattern("LLL")
+                .pattern("L L")
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_log", has(ItemTags.LOGS))
+                .save(output, "smallprogressions:logs_to_ladders");
+
+        shapeless(RecipeCategory.MISC, Items.QUARTZ, 4)
+                .requires(Items.QUARTZ_BLOCK)
+                .unlockedBy("has_quartz_block", has(Items.QUARTZ_BLOCK))
+                .save(output, "smallprogressions:quartz_block_uncrafting");
+
+        shaped(RecipeCategory.MISC, Items.PAPER, 3)
+                .unlockedBy(getHasName(Items.SUGAR_CANE), has(Items.SUGAR_CANE))
+                .pattern("SS").pattern("S ")
+                .define('S', Items.SUGAR_CANE)
+                .save(output, "smallprogressions:paper");
+
+        shaped(RecipeCategory.MISC, Items.BREAD)
+                .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+                .pattern("WW").pattern("W ")
+                .define('W', Items.WHEAT)
+                .save(output, "smallprogressions:bread");
+
+        WoodType.values().forEach(woodType -> {
+            var isBamboo = woodType.name().equals("bamboo");
+            var log = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + (isBamboo ? "_block" : "_log")));
+            if (woodType.name().equals("warped") || woodType.name().equals("crimson")) {
+                log = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_stem"));
+            }
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_slab")), (isBamboo ? 12 : 24))
+                    .unlockedBy("has_log", has(log))
+                    .pattern("LLL")
+                    .define('L', Ingredient.of(log))
+                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_slabs");
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_stairs")), (isBamboo ? 8 : 16))
+                    .unlockedBy("has_log", has(log))
+                    .pattern("L  ").pattern("LL ").pattern("LLL")
+                    .define('L', Ingredient.of(log))
+                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_stairs");
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_door")), (isBamboo ? 6 : 12))
+                    .unlockedBy("has_log", has(log))
+                    .pattern("LL").pattern("LL").pattern("LL")
+                    .define('L', Ingredient.of(log))
+                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_doors");
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_trapdoor")), (isBamboo ? 6 : 12))
+                    .unlockedBy("has_log", has(log))
+                    .pattern("LLL").pattern("LLL")
+                    .define('L', Ingredient.of(log))
+                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_trapdoors");
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_pressure_plate")), (isBamboo ? 2 : 4))
+                    .unlockedBy("has_log", has(log))
+                    .pattern("LL")
+                    .define('L', Ingredient.of(log))
+                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_pressure_plates");
+
+            var slab = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_slab"));
+            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.withDefaultNamespace(woodType.name() + "_planks")), 1)
+                .unlockedBy("has_slab", has(slab))
+                .pattern("S ").pattern(" S")
+                .define('S', Ingredient.of(slab))
+                    .save(output, "smallprogressions/" + woodType.name() + "_slab_to_block");
+        });
     }
 }
