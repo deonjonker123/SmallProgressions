@@ -750,37 +750,6 @@ public class SPRecipeProvider extends RecipeProvider {
                 .save(output, "smallprogressions:bread");
 
         WoodType.values().forEach(woodType -> {
-            var isBamboo = woodType.name().equals("bamboo");
-            var log = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + (isBamboo ? "_block" : "_log")));
-            if (woodType.name().equals("warped") || woodType.name().equals("crimson")) {
-                log = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_stem"));
-            }
-            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_slab")), (isBamboo ? 12 : 24))
-                    .unlockedBy("has_log", has(log))
-                    .pattern("LLL")
-                    .define('L', Ingredient.of(log))
-                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_slabs");
-            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_stairs")), (isBamboo ? 8 : 16))
-                    .unlockedBy("has_log", has(log))
-                    .pattern("L  ").pattern("LL ").pattern("LLL")
-                    .define('L', Ingredient.of(log))
-                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_stairs");
-            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_door")), (isBamboo ? 6 : 12))
-                    .unlockedBy("has_log", has(log))
-                    .pattern("LL").pattern("LL").pattern("LL")
-                    .define('L', Ingredient.of(log))
-                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_doors");
-            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_trapdoor")), (isBamboo ? 6 : 12))
-                    .unlockedBy("has_log", has(log))
-                    .pattern("LLL").pattern("LLL")
-                    .define('L', Ingredient.of(log))
-                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_trapdoors");
-            shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_pressure_plate")), (isBamboo ? 2 : 4))
-                    .unlockedBy("has_log", has(log))
-                    .pattern("LL")
-                    .define('L', Ingredient.of(log))
-                    .save(output, "smallprogressions/" + woodType.name() + "_logs_to_pressure_plates");
-
             var slab = BuiltInRegistries.ITEM.getValue(Identifier.parse(woodType.name() + "_slab"));
             shaped(RecipeCategory.MISC, BuiltInRegistries.ITEM.getValue(Identifier.withDefaultNamespace(woodType.name() + "_planks")), 1)
                 .unlockedBy("has_slab", has(slab))
