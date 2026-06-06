@@ -5,25 +5,21 @@ import com.misterd.smallprogressions.block.custom.*;
 import com.misterd.smallprogressions.item.SPItems;
 import com.misterd.smallprogressions.item.custom.BatteryBlockItem;
 import com.misterd.smallprogressions.item.custom.TankBlockItem;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.List;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class SPBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SmallProgressions.MODID);
@@ -405,6 +401,22 @@ public class SPBlocks {
                     .strength(3F, 3F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.DEEPSLATE_TILES)));
+
+    /// Snad ///
+    public static final DeferredBlock<Block> SNAD_BLOCK = registerBlock("snad",
+            id -> new SnadBlock(new ColorRGBA(14406560), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)
+                    .randomTicks()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))));
+
+    public static final DeferredBlock<Block> RED_SNAD_BLOCK = registerBlock("red_snad",
+            id -> new SnadBlock(new ColorRGBA(14406560), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)
+                    .randomTicks()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))));
+
+    public static final DeferredBlock<Block> SOUL_SNAD_BLOCK = registerBlock("soul_snad",
+            id -> new SoulSnadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_SAND)
+                    .randomTicks()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))));
 
     static {
         SPItems.ITEMS.register("copper_tank",

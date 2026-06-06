@@ -55,6 +55,10 @@ public class SPCreativeTab {
                         output.accept(SPBlocks.LAVA_INFUSED_STONE);
                         output.accept(SPBlocks.MCFLOATY_BLOCK);
 
+                        output.accept(SPBlocks.SNAD_BLOCK);
+                        output.accept(SPBlocks.RED_SNAD_BLOCK);
+                        output.accept(SPBlocks.SOUL_SNAD_BLOCK);
+
                         output.accept(SPItems.MAGNET);
                         output.accept(SPItems.TROWEL);
 

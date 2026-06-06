@@ -294,6 +294,14 @@
   "block.smallprogressions.logistics_sender": "Logistics Sender",
   "block.smallprogressions.logistics_receiver": "Logistics Receiver",
 
+  "block.smallprogressions.snad": "Snad",
+  "block.smallprogressions.red_snad": "Red Snad",
+  "block.smallprogressions.soul_snad": "Soul Snad",
+
+  "item.smallprogressions.snad": "Snad",
+  "item.smallprogressions.red_snad": "Red Snad",
+  "item.smallprogressions.soul_snad": "Soul Snad",
+
   "item.smallprogressions.logistics_sender": "Logistics Sender",
   "item.smallprogressions.logistics_receiver": "Logistics Receiver",
 

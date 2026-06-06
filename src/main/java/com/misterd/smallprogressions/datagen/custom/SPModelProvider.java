@@ -7,6 +7,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
@@ -85,6 +86,10 @@ public class SPModelProvider extends ModelProvider {
         blockModels.createTrivialCube(SPBlocks.ADVANCED_BATTERY.get());
         blockModels.createTrivialCube(SPBlocks.ELITE_BATTERY.get());
         blockModels.createTrivialCube(SPBlocks.ULTIMATE_BATTERY.get());
+
+        blockModels.createTrivialBlock(SPBlocks.SNAD_BLOCK.get(), TexturedModel.CUBE);
+        blockModels.createTrivialBlock(SPBlocks.SOUL_SNAD_BLOCK.get(), TexturedModel.CUBE);
+        blockModels.createTrivialBlock(SPBlocks.RED_SNAD_BLOCK.get(), TexturedModel.CUBE);
 
         blockModels.createTrivialCube(SPBlocks.LOGISTICS_RECEIVER.get());
         blockModels.createTrivialCube(SPBlocks.LOGISTICS_SENDER.get());

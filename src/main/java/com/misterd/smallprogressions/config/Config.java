@@ -37,7 +37,14 @@ public class Config {
 
     // Wireless Redstone
     private static ModConfigSpec.IntValue TRANSMISSION_RANGE;
+
+    //Magnet
     private static ModConfigSpec.IntValue MAGNET_RANGE;
+
+    //Snad
+    private static ModConfigSpec.IntValue ADDITIONAL_GROWTH_TICKS;
+    private static ModConfigSpec.IntValue SNAD_ADDITIONAL_HEIGHT;
+    private static ModConfigSpec.DoubleValue SOUL_SNAD_MOVEMENT_SPEED;
 
     static {
         buildCommonConfig();
@@ -56,6 +63,7 @@ public class Config {
         buildGreenhouseGlassConfig();
         buildWirelessRedstoneConfig();
         buildMagnetConfig();
+        buildSnadConfig();
     }
 
     private static void buildGrowthCrystalConfig() {
@@ -206,6 +214,25 @@ public class Config {
         COMMON_BUILDER.pop();
     }
 
+    private static void buildSnadConfig() {
+        COMMON_BUILDER.comment("Snad - Configure growth and movement speed")
+                .push("snad");
+
+        ADDITIONAL_GROWTH_TICKS = COMMON_BUILDER
+                .comment("Extra growth ticks applied per tick cycle (higher = faster growth, may impact performance)")
+                .defineInRange("additional_growth_ticks", 5, 1, 60);
+
+        SNAD_ADDITIONAL_HEIGHT = COMMON_BUILDER
+                .comment("Additional height snad allows column plants to grow beyond vanilla")
+                .defineInRange("additional_height", 3, 0, 256);
+
+        SOUL_SNAD_MOVEMENT_SPEED = COMMON_BUILDER
+                .comment("The multiplier for movement speed on Soul Snad")
+                .defineInRange("movement_speed", 1.5, 1.0, 2.0);
+
+        COMMON_BUILDER.pop();
+    }
+
     // Getter methods
     public static double getGrowthCrystalTier1Rate() {
         return GROWTH_CRYSTAL_TIER_1_RATE.get();
@@ -261,6 +288,18 @@ public class Config {
 
     public static int getMagnetRange() {
         return MAGNET_RANGE.get();
+    }
+
+    public static int getAdditionalGrowthTicks() {
+        return ADDITIONAL_GROWTH_TICKS.get();
+    }
+
+    public static int getSnadAdditionalHeight() {
+        return SNAD_ADDITIONAL_HEIGHT.get();
+    }
+
+    public static double getSoulSnadMovementSpeed() {
+        return SOUL_SNAD_MOVEMENT_SPEED.get();
     }
 
     private static void validateConfig() {

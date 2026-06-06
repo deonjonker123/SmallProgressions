@@ -1,4 +1,12 @@
-// 26.1.2	2026-06-06T12:56:49.2037202	Tags for minecraft:block mod id smallprogressions
+// 26.1.2	2026-06-06T14:19:14.0802428	Tags for minecraft:block mod id smallprogressions
+f38739f1008d6668d45bfadb8311017b09d22f39 data/minecraft/tags/block/bamboo_plantable_on.json
+f38739f1008d6668d45bfadb8311017b09d22f39 data/minecraft/tags/block/cactus_plantable_on.json
 f83b2536a8889fd726a7dcd604f229a45a9c94bf data/minecraft/tags/block/mineable/axe.json
 37f185a1719788788a75e618e1d8c437a448c9c3 data/minecraft/tags/block/mineable/hoe.json
 231c2ccaf508952a08679e4358de3b31fd43de65 data/minecraft/tags/block/mineable/pickaxe.json
+2c7f9c78b85e3b2c77416985b36c25a1e2809181 data/minecraft/tags/block/mineable/shovel.json
+371443863b2b6974d9480d7c0a2061cde2f74e9f data/minecraft/tags/block/nether_wart_plantable_on.json
+f38739f1008d6668d45bfadb8311017b09d22f39 data/minecraft/tags/block/sugar_cane_plantable_on.json
+41f0e23aa158dc5b1ee826c03ba81558d9319893 data/smallprogressions/tags/block/snad_growables.json
+f02fc9781e8f0ae33ed3b98cf4f46ba6927c7ff8 data/smallprogressions/tags/block/snad_growables_requires_water.json
+619ce19928c77e6032874a963dc50c6f8e32cb38 data/smallprogressions/tags/block/soul_snad_growables.json

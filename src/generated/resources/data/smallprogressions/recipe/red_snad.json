@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:red_sand",
+    "minecraft:red_sand"
+  ],
+  "result": {
+    "id": "smallprogressions:red_snad"
+  }
+}

@@ -2,9 +2,14 @@ package com.misterd.smallprogressions.datagen.custom;
 
 import com.misterd.smallprogressions.SmallProgressions;
 import com.misterd.smallprogressions.block.SPBlocks;
+import com.misterd.smallprogressions.util.SnadTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -82,5 +87,34 @@ public class SPBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(SPBlocks.LINEN_SACK.get());
+
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(SPBlocks.SNAD_BLOCK.get())
+                .add(SPBlocks.RED_SNAD_BLOCK.get())
+                .add(SPBlocks.SOUL_SNAD_BLOCK.get());
+
+        tag(SnadTags.SNAD_GROWABLES)
+                .add(Blocks.BAMBOO)
+                .add(Blocks.BAMBOO_SAPLING)
+                .add(Blocks.CACTUS)
+                .add(Blocks.SUGAR_CANE);
+
+        tag(SnadTags.SNAD_GROWABLES_REQUIRES_WATER)
+                .add(Blocks.SUGAR_CANE);
+
+        tag(SnadTags.SOUL_SNAD_GROWABLES)
+                .add(Blocks.NETHER_WART);
+
+        this.tag(TagKey.create(Registries.BLOCK, Identifier.withDefaultNamespace("cactus_plantable_on")))
+                .add(SPBlocks.SNAD_BLOCK.get(), SPBlocks.RED_SNAD_BLOCK.get());
+
+        this.tag(TagKey.create(Registries.BLOCK, Identifier.withDefaultNamespace("sugar_cane_plantable_on")))
+                .add(SPBlocks.SNAD_BLOCK.get(), SPBlocks.RED_SNAD_BLOCK.get());
+
+        this.tag(TagKey.create(Registries.BLOCK, Identifier.withDefaultNamespace("bamboo_plantable_on")))
+                .add(SPBlocks.SNAD_BLOCK.get(), SPBlocks.RED_SNAD_BLOCK.get());
+
+        this.tag(TagKey.create(Registries.BLOCK, Identifier.withDefaultNamespace("nether_wart_plantable_on")))
+                .add(SPBlocks.SOUL_SNAD_BLOCK.get());
     }
 }

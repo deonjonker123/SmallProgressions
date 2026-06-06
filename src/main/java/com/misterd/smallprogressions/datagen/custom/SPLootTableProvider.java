@@ -76,6 +76,10 @@ public class SPLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(SPBlocks.LOGISTICS_RECEIVER.get());
         dropSelf(SPBlocks.LOGISTICS_SENDER.get());
+
+        dropSelf(SPBlocks.SNAD_BLOCK.get());
+        dropSelf(SPBlocks.RED_SNAD_BLOCK.get());
+        dropSelf(SPBlocks.SOUL_SNAD_BLOCK.get());
     }
 
     @Override

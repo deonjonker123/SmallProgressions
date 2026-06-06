@@ -699,6 +699,21 @@ public class SPRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_observer", has(Items.OBSERVER))
                 .save(output);
 
+        shapeless(RecipeCategory.MISC, SPBlocks.SNAD_BLOCK)
+                .requires(Items.SAND).requires(Items.SAND)
+                .unlockedBy("has_sand", has(Items.SAND))
+                .save(output);
+
+        shapeless(RecipeCategory.MISC, SPBlocks.RED_SNAD_BLOCK)
+                .requires(Items.RED_SAND).requires(Items.RED_SAND)
+                .unlockedBy("has_red_sand", has(Items.RED_SAND))
+                .save(output);
+
+        shapeless(RecipeCategory.MISC, SPBlocks.SOUL_SNAD_BLOCK)
+                .requires(Items.SOUL_SAND).requires(Items.SOUL_SAND)
+                .unlockedBy("has_soul_sand", has(Items.SOUL_SAND))
+                .save(output);
+
         //Vanilla QoL recipes
         shaped(RecipeCategory.MISC, Items.CHEST, 4)
                 .pattern("LLL")
