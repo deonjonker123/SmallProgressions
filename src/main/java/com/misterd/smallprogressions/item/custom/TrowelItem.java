@@ -62,14 +62,7 @@ public class TrowelItem extends Item {
                 if (result.consumesAction()) {
                     var blockState = blockItem.getBlock().defaultBlockState();
                     SoundType soundtype = blockState.getSoundType(level, pos, context.getPlayer());
-                    level.playSound(
-                            null,
-                            pos,
-                            blockState.getSoundType(level, pos, context.getPlayer()).getPlaceSound(),
-                            SoundSource.BLOCKS,
-                            (soundtype.getVolume() + 1.0F) / 2.0F,
-                            soundtype.getPitch() * 0.8F
-                    );
+                    level.playSound(null, pos, blockState.getSoundType(level, pos, context.getPlayer()).getPlaceSound(), SoundSource.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
                 }
             }
         }
