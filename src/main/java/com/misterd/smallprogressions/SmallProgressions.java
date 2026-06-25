@@ -2,6 +2,7 @@ package com.misterd.smallprogressions;
 
 import com.misterd.smallprogressions.block.SPBlocks;
 import com.misterd.smallprogressions.blockentity.SPBlockEntities;
+import com.misterd.smallprogressions.client.renderer.ber.LanternBracketBlockEntityRenderer;
 import com.misterd.smallprogressions.client.renderer.ber.LogisticsSenderBlockEntityRenderer;
 import com.misterd.smallprogressions.client.renderer.ber.TankBlockEntityRenderer;
 import com.misterd.smallprogressions.component.SPDataComponents;
@@ -95,6 +96,7 @@ public class SmallProgressions {
             event.registerBlockEntityRenderer(SPBlockEntities.GOLD_TANK_BE.get(), TankBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(SPBlockEntities.DIAMOND_TANK_BE.get(), TankBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(SPBlockEntities.LOGISTICS_SENDER_BE.get(), LogisticsSenderBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(SPBlockEntities.LANTERN_BRACKET_BE.get(), LanternBracketBlockEntityRenderer::new);
         }
 
         @SubscribeEvent

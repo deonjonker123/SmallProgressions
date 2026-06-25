@@ -65,6 +65,7 @@
   "block.smallprogressions.harvester": "Harvester",
   "block.smallprogressions.mcfloaty_block": "McFloaty Block",
   "block.smallprogressions.charcoal_block": "Block of Charcoal",
+  "block.smallprogressions.lantern_bracket": "Lantern Bracket",
 
   "block.smallprogressions.basic_solar_panel.subtitle": "Generates 128RF/t",
   "block.smallprogressions.hardened_solar_panel.subtitle": "Generates 512RF/t",

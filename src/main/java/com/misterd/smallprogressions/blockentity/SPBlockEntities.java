@@ -144,6 +144,10 @@ public class SPBlockEntities {
             BLOCK_ENTITIES.register("logistics_receiver_be", () -> new BlockEntityType<>(
                     LogisticsReceiverBlockEntity::new, SPBlocks.LOGISTICS_RECEIVER.get()));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LanternBracketBlockEntity>> LANTERN_BRACKET_BE =
+            BLOCK_ENTITIES.register("lantern_bracket_be", () -> new BlockEntityType<>(
+                    LanternBracketBlockEntity::new, SPBlocks.LANTERN_BRACKET.get()));
+
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
 
         event.registerBlockEntity(Capabilities.Item.BLOCK, BRICK_FURNACE_BE.get(),

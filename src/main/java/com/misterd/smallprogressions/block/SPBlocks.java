@@ -24,7 +24,6 @@ import java.util.function.Function;
 public class SPBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SmallProgressions.MODID);
 
-    // Functional blocks
     public static final DeferredBlock<Block> COBBLESTONE_GENERATOR_TIER_1 = registerBlock("cobblestone_generator_tier_1",
             id -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -104,7 +103,6 @@ public class SPBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));
 
-    // Storage Barrels
     public static final DeferredBlock<Block> COPPER_BARREL = registerBlock("copper_barrel",
             id -> new CopperBarrelBlock(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -129,7 +127,6 @@ public class SPBlocks {
                     .strength(2F, 3F)
                     .sound(SoundType.WOOD)));
 
-    // Fluid Tanks
     public static final DeferredBlock<Block> COPPER_TANK = BLOCKS.register("copper_tank",
             id -> new CopperTankBlock(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -162,7 +159,6 @@ public class SPBlocks {
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
-    // Linen Sack
     public static final DeferredBlock<Block> LINEN_SACK = registerBlock("linen_sack",
             id -> new LinenSackBlock(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -171,9 +167,6 @@ public class SPBlocks {
                     .noLootTable()
                     .sound(SoundType.CHERRY_LEAVES)));
 
-
-    ////////////////////////////////// DataGen Blocks //////////////////////////////////////////////////////////
-    /// Functional Blocks ///
     public static final DeferredBlock<Block> GROWTH_CRYSTAL_TIER_1 = registerBlock("growth_crystal_tier_1",
             id -> new GrowthCrystalBlock(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -394,7 +387,15 @@ public class SPBlocks {
                     .noOcclusion()
                     .sound(SoundType.STONE)));
 
-    /// Storage Blocks ///
+    public static final DeferredBlock<Block> LANTERN_BRACKET = registerBlock("lantern_bracket",
+            id -> new LanternBracketBlock(BlockBehaviour.Properties.of()
+                    .setId(ResourceKey.create(Registries.BLOCK, id))
+                    .strength(2F, 6F)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(LanternBracketBlock.LIGHT_LEVEL))
+                    .noOcclusion()
+                    .sound(SoundType.METAL)));
+
     public static final DeferredBlock<Block> CHARCOAL_BLOCK = registerBlock("charcoal_block",
             id -> new Block(BlockBehaviour.Properties.of()
                     .setId(ResourceKey.create(Registries.BLOCK, id))
@@ -402,7 +403,6 @@ public class SPBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.DEEPSLATE_TILES)));
 
-    /// Snad ///
     public static final DeferredBlock<Block> SNAD_BLOCK = registerBlock("snad",
             id -> new SnadBlock(new ColorRGBA(14406560), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)
                     .randomTicks()
